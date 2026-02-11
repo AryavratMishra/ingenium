@@ -5,6 +5,7 @@ export const tech_events = [
     tag: "Biotech",
     folder: "solveXBio",
     color: "emerald",
+    events: ["Patient Monitor", "Screen Addiction"],
   },
   {
     id: "robotics",
@@ -12,6 +13,7 @@ export const tech_events = [
     tag: "Combat",
     folder: "robotics",
     color: "red",
+    events: ["Robowars", "Robosoccer", "Line Follower"],
   },
   {
     id: "qml",
@@ -33,6 +35,7 @@ export const tech_events = [
     tag: "Vision",
     folder: "ivdc",
     color: "cyan",
+    events: ["3D Reconstruction", "CV Obstacourse"],
   },
   {
     id: "gdg",
@@ -40,6 +43,7 @@ export const tech_events = [
     tag: "Web+ML",
     folder: "gdg",
     color: "blue",
+    events: ["ScalaStream", "Narrativa", "Theme Forge"],
   },
   {
     id: "electronics",
@@ -47,6 +51,7 @@ export const tech_events = [
     tag: "HDL",
     folder: "electronics",
     color: "orange",
+    events: ["Silicon Architects", "Analog Verse"],
   },
   {
     id: "concastle",
@@ -54,6 +59,7 @@ export const tech_events = [
     tag: "Civil",
     folder: "concastle",
     color: "violet",
+    events: ["Water Management", "Ground Utilization"],
   },
   {
     id: "analytic_x",
@@ -68,6 +74,7 @@ export const tech_events = [
     tag: "Design",
     folder: "aero_artistry",
     color: "emerald",
+    events: ["RC Glider", "Payload Drop"],
   },
 ];
 
@@ -99,6 +106,7 @@ export const cult_events = [
     tag: "Drama",
     folder: "dramatics",
     color: "rose",
+    events: ["Nukkad Natak", "Monoact"],
   },
   {
     id: "glitchpop",
@@ -106,6 +114,7 @@ export const cult_events = [
     tag: "Gaming",
     folder: "glitchpop",
     color: "purple",
+    events: ["BGMI", "EAFC", "Valorant", "MOBA Legends"],
   },
   {
     id: "literary",
@@ -113,6 +122,7 @@ export const cult_events = [
     tag: "Lit",
     folder: "literary",
     color: "violet",
+    events: ["Poertry Slam", "Poetry Writing", "Fiction Relay"],
   },
   {
     id: "music",

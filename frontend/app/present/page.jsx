@@ -24,7 +24,7 @@ export default function PresentPage() {
 
   if (!mounted) return null;
 
-  const filteredEvents = activeTab == "tech" ? tech_events : cult_events;
+  const filteredEvents = activeTab === "tech" ? tech_events : cult_events;
 
   return (
     <PageTransitionWrapper>
@@ -92,40 +92,63 @@ export default function PresentPage() {
         {/* --- GRID OF NODES --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-100">
           {filteredEvents.length > 0 ? (
-            filteredEvents.map((event) => (
-              <Link key={event.id} href={`/present/event/${event.folder}`}>
-                <div className="group relative bg-black/60 border border-white/10 p-6 h-48 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
-                  <NodeCorner color={event.color} />
+            filteredEvents.map((sector) => (
+              <Link key={sector.id} href={`/present/event/${sector.folder}`}>
+                <div className="group relative bg-black/60 border border-white/10 p-6 h-64 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
+                  <NodeCorner color={sector.color} />
 
                   <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
-                    <span className="font-mono text-[10px] text-white tracking-tighter italic uppercase">
-                      REF_{event.id.slice(0, 8)}
+                    <span className="font-mono text-[12px] text-white tracking-tighter italic uppercase">
+                      REF_{sector.id.slice(0, 8)}
                     </span>
                   </div>
 
                   <div className="absolute -bottom-2 -right-2 font-black text-6xl text-white/5 pointer-events-none select-none group-hover:text-blue-500/10 transition-colors uppercase italic whitespace-nowrap">
-                    {event.tag}
+                    {sector.tag}
                   </div>
 
                   <div className="relative z-10">
                     <div
-                      className={`text-[12px] font-mono text-${event.color}-400 mb-2 flex items-center gap-2`}
+                      className={`text-[14px] font-mono text-${sector.color}-400 mb-2 flex items-center gap-2`}
                     >
                       <div
-                        className={`w-1 h-1 bg-${event.color}-500 rounded-full animate-pulse`}
+                        className={`w-1 h-1 bg-${sector.color}-500 rounded-full animate-pulse`}
                       />
-                      {event.tag}
+                      {sector.tag}
                     </div>
-                    <h3 className="text-xl font-bold text-white leading-tight group-hover:text-blue-300 transition-colors">
-                      {event.name}
+                    <h3 className="text-xl font-bold text-white leading-tight group-hover:text-blue-300 transition-colors mb-4">
+                      {sector.name}
                     </h3>
+
+                    {/* --- SUB-EVENTS LIST --- */}
+                    <div className="space-y-1.5">
+                      {sector.events ? (
+                        sector.events.slice(0, 3).map((eventName, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <div className="w-1 h-1 bg-white/20 group-hover:bg-blue-400/50" />
+                            <span className="text-[12px] font-mono text-gray-400 uppercase tracking-wider group-hover:text-gray-300 transition-colors">
+                              {eventName}
+                            </span>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="text-[14px] font-mono text-gray-600 italic">
+                          MAIN_BRANCH_ONLY
+                        </div>
+                      )}
+                      {sector.events?.length > 3 && (
+                        <div className="text-[12px] font-mono text-blue-500/60 pl-3">
+                          + {sector.events.length - 3} MORE_PROTOCOLS
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="relative z-10 flex justify-between items-end">
                     <div className="space-y-1">
                       <div className="w-12 h-0.5 bg-white/10 group-hover:bg-blue-500/50 transition-all group-hover:w-20" />
-                      <div className="text-[11px] font-mono text-gray-500 uppercase">
-                        Accessing Protocol...
+                      <div className="text-[12px] font-mono text-gray-500 uppercase">
+                        Initialize...
                       </div>
                     </div>
                     <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 transition-all">
@@ -139,7 +162,7 @@ export default function PresentPage() {
             ))
           ) : (
             <div className="col-span-full flex flex-col items-center justify-center border border-dashed border-white/10 rounded-xl h-48 opacity-50">
-              <p className="font-mono text-xs text-blue-500 uppercase tracking-widest">
+              <p className="font-mono text-sm text-blue-500 uppercase tracking-widest">
                 No active sectors found in this category
               </p>
             </div>
