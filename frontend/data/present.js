@@ -53,21 +53,21 @@ export const tech_events = [
     name: "ConCastle",
     tag: "Civil",
     folder: "concastle",
-    color: "stone",
+    color: "violet",
   },
   {
     id: "analytic_x",
     name: "Global Gourmet",
     tag: "Data Sci",
     folder: "analytic_x",
-    color: "indigo",
+    color: "yellow",
   },
   {
     id: "aero_artistry",
     name: "Aero Artistry",
     tag: "Design",
     folder: "aero_artistry",
-    color: "sky",
+    color: "emerald",
   },
 ];
 
@@ -84,7 +84,7 @@ export const cult_events = [
     name: "Canvas Painting",
     tag: "Paint",
     folder: "kalakriti",
-    color: "pink",
+    color: "amber",
   },
   {
     id: "debate",
@@ -112,21 +112,21 @@ export const cult_events = [
     name: "Literature",
     tag: "Lit",
     folder: "literary",
-    color: "lime",
+    color: "violet",
   },
   {
     id: "music",
     name: "Music",
     tag: "Music",
     folder: "music",
-    color: "fuchsia",
+    color: "blue",
   },
   {
     id: "mystic",
     name: "Photography",
     tag: "Photo",
     folder: "mystic",
-    color: "zinc",
+    color: "emerald",
   },
   {
     id: "quiz",
@@ -134,5 +134,12 @@ export const cult_events = [
     tag: "Quiz",
     folder: "quiz",
     color: "yellow",
+  },
+  {
+    id: "dance",
+    name: "Dance",
+    tag: "Energy",
+    folder: "dance",
+    color: "green",
   },
 ];

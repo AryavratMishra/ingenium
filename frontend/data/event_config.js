@@ -159,4 +159,10 @@ export const EVENT_CONFIG = {
     color: "#c084fc",
     sector: "VLR-01",
   },
+  dance: {
+    name: "Group Dance",
+    teamSize: 4,
+    color: "#c0840c",
+    sector: "DAN-01",
+  },
 };
