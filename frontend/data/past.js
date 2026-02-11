@@ -1,144 +1,109 @@
 export const culturalEvents = [
   {
-    name: "Rhythm of Souls",
+    name: "Kavyanjali",
     year: "2024",
     description:
-      "A mesmerizing dance competition featuring classical and contemporary styles from across India.",
-    id: "REC-24-A",
+      "A soulful evening of Hindi and Urdu poetry featuring renowned poets and student performers.",
+    id: "IITI-CL-01",
   },
   {
-    name: "Melody Nights",
-    year: "2024",
+    name: "Hostel Dayz",
+    year: "2026",
     description:
-      "Musical extravaganza showcasing talented vocalists and instrumentalists.",
-    id: "REC-24-B",
-  },
-  {
-    name: "Drama Fest",
-    year: "2023",
-    description:
-      "Theatre competition exploring social themes through powerful performances.",
-    id: "REC-23-A",
-  },
-  {
-    name: "Art Canvas",
-    year: "2023",
-    description:
-      "Exhibition of student artworks including paintings, sculptures, and digital art.",
-    id: "REC-23-B",
-  },
-  {
-    name: "Fashion Forward",
-    year: "2022",
-    description:
-      "Annual fashion show celebrating creativity and sustainable fashion.",
-    id: "REC-22-A",
-  },
-  {
-    name: "Literary League",
-    year: "2022",
-    description: "Debates, poetry slams, and creative writing competitions.",
-    id: "REC-22-B",
+      "A culminated event where students come together to celebrate an evening full of joy.",
+    id: "IITI-CL-02",
   },
 ];
 
 export const technicalEvents = [
   {
-    name: "Code Storm",
-    year: "2024",
+    name: "Euristica",
+    year: "2023",
     description:
-      "24-hour hackathon challenging participants to build innovative solutions.",
-    id: "TECH-24-X",
+      "The annual coding festival featuring 'Divide by Zero' and 'ByteBandits' CTF challenges.",
+    id: "IITI-TECH-01",
   },
   {
     name: "Robo Wars",
+    year: "2023",
+    description:
+      "A high-octane combat robotics event where custom-built machines battle for supremacy.",
+    id: "IITI-TECH-02",
+  },
+  {
+    name: "Techeshi",
     year: "2024",
-    description: "Intense robot combat competition with custom-built machines.",
-    id: "TECH-24-Y",
-  },
-  {
-    name: "AI Summit",
-    year: "2023",
     description:
-      "Workshop and competition focused on machine learning applications.",
-    id: "TECH-23-X",
+      "An inta-college robotics event focused on building robots that compete with each other.",
+    id: "IITI-TECH-03",
   },
   {
-    name: "Circuit Breaker",
-    year: "2023",
-    description:
-      "Electronics design challenge pushing the boundaries of innovation.",
-    id: "TECH-23-Y",
-  },
-  {
-    name: "Web Wizards",
+    name: "Circuit Simulation Challenge",
     year: "2022",
     description:
-      "Full-stack web development competition with real-world problems.",
-    id: "TECH-22-X",
-  },
-  {
-    name: "Cyber Quest",
-    year: "2022",
-    description: "Capture the flag cybersecurity competition.",
-    id: "TECH-22-Y",
+      "An electronics design competition testing proficiency in VLSI and embedded systems.",
+    id: "IITI-TECH-04",
   },
 ];
 
 export const flagshipFests = [
   {
-    name: "INGENIUM 2024",
+    name: "Fluxus 2024",
     year: "2024",
     description:
-      "The grandest edition yet with over 10,000 participants from 200+ colleges.",
-    id: "FLG-24",
+      "Central India's largest techno-cultural fest, featuring pro-nights with artists like Amit Trivedi.",
+    id: "FLG-IITI-24",
   },
   {
-    name: "INGENIUM 2023",
+    name: "Fluxus 2020",
+    year: "2020",
+    description:
+      "The decade edition featuring performances by Salim-Sulaiman and Zakir Khan.",
+    id: "FLG-IITI-20",
+  },
+  {
+    name: "E-Summit",
     year: "2023",
     description:
-      "Post-pandemic revival bringing back the spirit of innovation.",
-    id: "FLG-23",
+      "The flagship entrepreneurship summit fostering innovation and startup culture among students.",
+    id: "FLG-IITI-ES",
   },
   {
-    name: "INGENIUM 2022",
-    year: "2022",
-    description: "Virtual edition connecting students across the globe.",
-    id: "FLG-22",
-  },
-  {
-    name: "INGENIUM 2019",
-    year: "2019",
+    name: "IITI MUN",
+    year: "2024",
     description:
-      "Record-breaking participation with international collaborations.",
-    id: "FLG-19",
+      "Model United Nations conference bringing together young diplomats to debate global issues.",
+    id: "FLG-IITI-MUN",
   },
 ];
 
 export const legacyHighlights = [
   {
-    name: "Industry Connect",
+    name: "NIRF Top Ranking",
     year: "2024",
     description:
-      "Partnership with Fortune 500 companies for mentorship and internships.",
-    id: "LGC-01",
+      "Consistently ranked among the top engineering institutes in India by NIRF.",
+    id: "LGC-IITI-01",
   },
   {
-    name: "Innovation Award",
-    year: "2023",
-    description: "Student project recognized at National Technology Summit.",
-    id: "LGC-02",
-  },
-  {
-    name: "Alumni Network",
-    year: "2022",
-    description: "Establishing connections with 5000+ alumni worldwide.",
-    id: "LGC-03",
+    name: "Magnum Opus",
+    year: "2021",
+    description:
+      "The grand alumni meet celebrating the achievements of IITI graduates worldwide.",
+    id: "LGC-IITI-02",
   },
   {
     name: "Research Excellence",
-    year: "2021",
-    description: "Student papers published in international journals.",
-    id: "LGC-04",
+    year: "2023",
+    description:
+      "Inauguration of state-of-the-art labs and high-impact publications in IEEE journals.",
+    id: "LGC-IITI-03",
+  },
+  {
+    name: "Global Collaborations",
+    year: "2022",
+    description:
+      "Signed MoUs with top international universities for student exchange and research.",
+    id: "LGC-IITI-04",
   },
 ];
