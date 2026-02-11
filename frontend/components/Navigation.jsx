@@ -26,7 +26,7 @@ const NODES = [
   {
     id: "events",
     location: "present",
-    label: "Competitons",
+    label: "Competitions",
     sub: "Live Ops",
     // Desktop: Center
     x: 50,
