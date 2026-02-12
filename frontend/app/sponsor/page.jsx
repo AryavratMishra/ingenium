@@ -50,7 +50,7 @@ export default function FuturePage() {
           {/* Top Navigation Bar */}
           <div className="max-w-7xl mx-auto mb-8 md:mb-12 flex justify-between items-center border-b border-violet-500/20 pb-4">
             <Link href="/?state=navigation">
-              <button className="group flex items-center gap-2 md:gap-3 text-violet-400/80 hover:text-violet-300 transition-colors uppercase text-[12px] md:text-xs tracking-[0.2em]">
+              <button className="group flex items-center gap-2 md:gap-3 text-violet-400/80 hover:text-violet-300 transition-colors uppercase text-[12px] md:text-sm tracking-[0.2em]">
                 <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border border-violet-500/30 flex items-center justify-center group-hover:bg-violet-500/10 transition-all">
                   <svg
                     className="w-3 h-3 md:w-4 md:h-4"
@@ -72,7 +72,7 @@ export default function FuturePage() {
                 </span>
               </button>
             </Link>
-            <div className="hidden md:flex items-center gap-2 text-xs font-mono text-violet-500/40">
+            <div className="hidden md:flex items-center gap-2 text-sm font-mono text-violet-500/40">
               <span className="w-2 h-2 bg-violet-500 rounded-full animate-pulse" />
               TEMPORAL SIMULATION: ACTIVE
             </div>
@@ -220,7 +220,7 @@ export default function FuturePage() {
               <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
                 <Link href="/sponsor/partner">
                   <button
-                    className="w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-violet-600 hover:bg-violet-500 text-white font-bold tracking-widest uppercase text-xs transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] clip-path-polygon"
+                    className="w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-violet-600 hover:bg-violet-500 text-white font-bold tracking-widest uppercase text-sm transition-all hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] clip-path-polygon"
                     style={{
                       clipPath:
                         "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
@@ -229,7 +229,7 @@ export default function FuturePage() {
                     Become a Partner
                   </button>
                 </Link>
-                <button className="w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-transparent border border-violet-500/50 text-violet-400 hover:text-white hover:border-violet-400 font-bold tracking-widest uppercase text-xs transition-all">
+                <button className="w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-transparent border border-violet-500/50 text-violet-400 hover:text-white hover:border-violet-400 font-bold tracking-widest uppercase text-sm transition-all">
                   View Prospectus
                 </button>
               </div>
