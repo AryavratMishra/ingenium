@@ -160,13 +160,14 @@ export default function LandingPage({ onNavigate }) {
       <div className="warp-flash absolute inset-0 bg-white opacity-0 pointer-events-none z-50" />
 
       {/* --- TOP LEFT HEADING (Event Name) --- */}
-      <div className="absolute top-8 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:block">
+      <div className="absolute top-8 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:flex justify-center items-center gap-3">
         <h2
           className="text-2xl font-bold tracking-widest text-blue-100/80 uppercase"
           style={{ fontFamily: "Oxanium, sans-serif" }}
         >
           INGENIUM
         </h2>
+        <img src="/favicon.png" className="w-15 h-15" />
       </div>
 
       {/* --- TOP RIGHT HEADING (College Name) --- */}
