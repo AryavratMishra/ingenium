@@ -39,9 +39,9 @@ const NODES = [
     connections: ["future", "contact"],
   },
   {
-    id: "future",
-    location: "future",
-    label: "FUTURE",
+    id: "sponsor",
+    location: "sponsor",
+    label: "SPONSOR",
     sub: "Vision",
     // Desktop: Right
     x: 80,
@@ -71,7 +71,7 @@ const NODES = [
   {
     id: "contact",
     location: "contact",
-    label: "CONTACT",
+    label: "TEAM",
     sub: "Uplink",
     // Desktop: Bottom Center
     x: 50,
