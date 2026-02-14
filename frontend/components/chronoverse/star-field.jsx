@@ -22,7 +22,7 @@ export function StarField() {
     let timeoutId;
 
     const spawnShootingStar = () => {
-      const id = Date.now();
+      const id = Date.now() + Math.random();
       const duration = Math.random() * 1000 + 2000; // 2000ms - 3000ms
 
       const newStar = {

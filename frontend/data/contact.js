@@ -529,6 +529,20 @@ export const team = [
     instagram: "https://www.instagram.com/001_skb",
   },
   {
+    name: "Aryavrat Mishra",
+    email: "mt2502201003@iiti.ac.in",
+    team: "Web Development",
+    linkedin: "https://www.linkedin.com/in/aryavrat-mishra-3b1067374",
+    instagram: "https://www.instagram.com/aryavrat_",
+  },
+  {
+    name: "Yatharth Maurya",
+    email: "cse240001082@iiti.ac.in",
+    team: "Web Development",
+    linkedin: "https://www.linkedin.com/in/yatharth-maurya",
+    instagram: "https://www.instagram.com/yatharth_maurya07",
+  },
+  {
     name: "Sufiyan Ahmad",
     email: "cse250001068@iiti.ac.in",
     team: "Web Development",
@@ -563,13 +577,7 @@ export const team = [
     linkedin: "https://www.linkedin.com/in/sushmita-patil-340713377",
     instagram: "https://www.instagram.com/sushmita_patil29",
   },
-  {
-    name: "Aryavrat Mishra",
-    email: "mt2502201003@iiti.ac.in",
-    team: "Web Development",
-    linkedin: "https://www.linkedin.com/in/aryavrat-mishra-3b1067374",
-    instagram: "https://www.instagram.com/aryavrat_",
-  },
+
   {
     name: "Abhishek Bairwa",
     email: "cse250001002@iiti.ac.in",
@@ -584,11 +592,5 @@ export const team = [
     linkedin: "https://www.linkedin.com/in/mahi-singh-sengar-b712b4377",
     instagram: "https://www.instagram.com/mahisingh_1607",
   },
-  {
-    name: "Yatharth Maurya",
-    email: "cse240001082@iiti.ac.in",
-    team: "Web Development",
-    linkedin: "https://www.linkedin.com/in/yatharth-maurya",
-    instagram: "https://www.instagram.com/yatharth_maurya07",
-  },
+
 ];
