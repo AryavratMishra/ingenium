@@ -170,11 +170,10 @@ export default function PastPage() {
                 <button
                   key={cat.id}
                   onClick={() => handleTabChange(cat.id)}
-                  className={`relative overflow-hidden group px-4 py-4 rounded flex flex-col items-center justify-center gap-2 transition-all duration-300 border ${
-                    activeTab === cat.id
-                      ? "bg-amber-500/10 border-amber-500 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.2)]"
-                      : "border-transparent text-amber-500/40 hover:text-amber-400 hover:bg-amber-500/5"
-                  }`}
+                  className={`relative overflow-hidden group px-4 py-4 rounded flex flex-col items-center justify-center gap-2 transition-all duration-300 border ${activeTab === cat.id
+                    ? "bg-amber-500/10 border-amber-500 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.2)]"
+                    : "border-transparent text-amber-500/40 hover:text-amber-400 hover:bg-amber-500/5"
+                    }`}
                 >
                   <svg
                     className={`w-5 h-5 ${activeTab === cat.id ? "text-amber-400" : "text-amber-500/40"}`}
@@ -207,60 +206,82 @@ export default function PastPage() {
             <div
               className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300 ${isTransitioning ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}
             >
-              {getData().map((item, index) => (
-                <div
-                  key={index}
-                  className="group relative bg-[#0c0802] border border-amber-900/40 hover:border-amber-500/50 transition-all duration-500 overflow-hidden rounded-sm hover:shadow-[0_4px_20px_rgba(245,158,11,0.1)]"
-                >
-                  <ScanOverlay />
+              {getData().map((item, index) => {
+                const CardContent = () => (
+                  <div
+                    className="group relative bg-[#0c0802] border border-amber-900/40 hover:border-amber-500/50 transition-all duration-500 overflow-hidden rounded-sm hover:shadow-[0_4px_20px_rgba(245,158,11,0.1)] h-full"
+                  >
+                    <ScanOverlay />
 
-                  {/* Card Header (Tape Label Style) */}
-                  <div className="bg-amber-950/30 border-b border-amber-500/10 p-4 flex justify-between items-center relative z-10">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-amber-700/50 rounded-full group-hover:bg-amber-500 group-hover:shadow-[0_0_8px_#f59e0b] transition-all" />
-                      <span className="text-[10px] font-mono text-amber-500/50">
-                        {item.id}
+                    {/* Card Header (Tape Label Style) */}
+                    <div className="bg-amber-950/30 border-b border-amber-500/10 p-4 flex justify-between items-center relative z-10">
+                      <div className="flex items-center gap-2">
+                        <div className={`w-2 h-2 ${(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') ? 'bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]' : 'bg-amber-700/50 group-hover:bg-amber-500 group-hover:shadow-[0_0_8px_#f59e0b]'} rounded-full transition-all`} />
+                        <span className="text-[10px] font-mono text-amber-500/50">
+                          {item.id}
+                        </span>
+                      </div>
+                      <span className="font-mono text-xl font-bold text-amber-500/20 group-hover:text-amber-400 transition-colors">
+                        {item.year}
                       </span>
                     </div>
-                    <span className="font-mono text-xl font-bold text-amber-500/20 group-hover:text-amber-400 transition-colors">
-                      {item.year}
-                    </span>
+
+                    <div className="p-6 relative z-10">
+                      <TechCorner className="top-0 left-0 rotate-0" />
+                      <TechCorner className="bottom-0 right-0 rotate-180" />
+
+                      <h3 className="text-xl font-bold text-amber-100 mb-3 group-hover:text-amber-400 transition-colors font-sans tracking-wide flex items-center gap-2">
+                        {item.name}
+                        {(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') && (
+                          <span className="px-1.5 py-0.5 text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded uppercase tracking-wider">
+                            Interactive
+                          </span>
+                        )}
+                      </h3>
+
+                      <p className="text-sm text-amber-200/50 leading-relaxed font-light border-l border-amber-500/20 pl-3">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Footer Info */}
+                    <div className="px-6 py-3 border-t border-amber-500/10 flex justify-between items-center bg-amber-500/5 absolute bottom-0 w-full">
+                      <span className="text-[9px] uppercase tracking-wider text-amber-600">
+                        {(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') ? 'Click to Enter Simulation' : 'Archived Memory'}
+                      </span>
+                      <svg
+                        className={`w-4 h-4 ${(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') ? 'text-amber-400 group-hover:translate-x-1' : 'text-amber-800 group-hover:text-amber-500'} transition-all`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                        />
+                      </svg>
+                    </div>
                   </div>
+                );
 
-                  <div className="p-6 relative z-10">
-                    <TechCorner className="top-0 left-0 rotate-0" />
-                    <TechCorner className="bottom-0 right-0 rotate-180" />
+                const isInteractive = item.id === "IITI-CL-02" || item.id === "IITI-CL-01";
 
-                    <h3 className="text-xl font-bold text-amber-100 mb-3 group-hover:text-amber-400 transition-colors font-sans tracking-wide">
-                      {item.name}
-                    </h3>
-
-                    <p className="text-sm text-amber-200/50 leading-relaxed font-light border-l border-amber-500/20 pl-3">
-                      {item.description}
-                    </p>
+                return isInteractive ? (
+                  <Link
+                    key={index}
+                    href={item.id === "IITI-CL-02" ? "/past/hostel-dayz" : "/past/kavyanjali"}
+                    className="block h-full"
+                  >
+                    <CardContent />
+                  </Link>
+                ) : (
+                  <div key={index} className="h-full relative">
+                    <CardContent />
                   </div>
-
-                  {/* Footer Info */}
-                  <div className="px-6 py-3 border-t border-amber-500/10 flex justify-between items-center bg-amber-500/5">
-                    <span className="text-[9px] uppercase tracking-wider text-amber-600">
-                      Archived Memory
-                    </span>
-                    <svg
-                      className="w-4 h-4 text-amber-800 group-hover:text-amber-500 transition-colors"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
 
