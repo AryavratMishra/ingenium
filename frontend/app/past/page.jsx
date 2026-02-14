@@ -216,7 +216,7 @@ export default function PastPage() {
                     {/* Card Header (Tape Label Style) */}
                     <div className="bg-amber-950/30 border-b border-amber-500/10 p-4 flex justify-between items-center relative z-10">
                       <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 ${(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') ? 'bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]' : 'bg-amber-700/50 group-hover:bg-amber-500 group-hover:shadow-[0_0_8px_#f59e0b]'} rounded-full transition-all`} />
+                        <div className={`w-2 h-2 ${(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01' || item.id === 'IITI-TECH-02') ? 'bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]' : 'bg-amber-700/50 group-hover:bg-amber-500 group-hover:shadow-[0_0_8px_#f59e0b]'} rounded-full transition-all`} />
                         <span className="text-[10px] font-mono text-amber-500/50">
                           {item.id}
                         </span>
@@ -232,7 +232,7 @@ export default function PastPage() {
 
                       <h3 className="text-xl font-bold text-amber-100 mb-3 group-hover:text-amber-400 transition-colors font-sans tracking-wide flex items-center gap-2">
                         {item.name}
-                        {(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') && (
+                        {(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01' || item.id === 'IITI-TECH-02') && (
                           <span className="px-1.5 py-0.5 text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded uppercase tracking-wider">
                             Interactive
                           </span>
@@ -247,10 +247,10 @@ export default function PastPage() {
                     {/* Footer Info */}
                     <div className="px-6 py-3 border-t border-amber-500/10 flex justify-between items-center bg-amber-500/5 absolute bottom-0 w-full">
                       <span className="text-[9px] uppercase tracking-wider text-amber-600">
-                        {(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') ? 'Click to Enter Simulation' : 'Archived Memory'}
+                        {(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01' || item.id === 'IITI-TECH-02') ? 'Click to Enter Simulation' : 'Archived Memory'}
                       </span>
                       <svg
-                        className={`w-4 h-4 ${(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01') ? 'text-amber-400 group-hover:translate-x-1' : 'text-amber-800 group-hover:text-amber-500'} transition-all`}
+                        className={`w-4 h-4 ${(item.id === 'IITI-CL-02' || item.id === 'IITI-CL-01' || item.id === 'IITI-TECH-02') ? 'text-amber-400 group-hover:translate-x-1' : 'text-amber-800 group-hover:text-amber-500'} transition-all`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -266,12 +266,21 @@ export default function PastPage() {
                   </div>
                 );
 
-                const isInteractive = item.id === "IITI-CL-02" || item.id === "IITI-CL-01";
+                const isInteractive = item.id === "IITI-CL-02" || item.id === "IITI-CL-01" || item.id === "IITI-TECH-02";
+
+                const getLink = (id) => {
+                  switch (id) {
+                    case "IITI-CL-02": return "/past/hostel-dayz";
+                    case "IITI-CL-01": return "/past/kavyanjali";
+                    case "IITI-TECH-02": return "/past/robo-wars";
+                    default: return "#";
+                  }
+                }
 
                 return isInteractive ? (
                   <Link
                     key={index}
-                    href={item.id === "IITI-CL-02" ? "/past/hostel-dayz" : "/past/kavyanjali"}
+                    href={getLink(item.id)}
                     className="block h-full"
                   >
                     <CardContent />

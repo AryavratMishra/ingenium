@@ -53,28 +53,57 @@ const HeroSection = () => {
             <div className="absolute inset-0 bg-[#050b14]">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
                 {/* Floating Letters */}
-                <div className="absolute inset-0 overflow-hidden opacity-20">
-                    {[...Array(15)].map((_, i) => (
+                {/* Floating Letters - Centered & Denser */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {/* Main Cluster - Center */}
+                    {[...Array(40)].map((_, i) => (
                         <motion.div
-                            key={i}
-                            className="absolute text-amber-500/40 font-serif text-4xl"
+                            key={`center-${i}`}
+                            className="absolute text-amber-500/30 font-serif text-3xl md:text-5xl blur-[1px]"
                             initial={{
-                                x: Math.random() * 100 + "%",
-                                y: -100,
+                                left: `${35 + Math.random() * 30}%`, // 35% to 65% (Centered)
+                                top: -100,
+                                opacity: Math.random() * 0.5 + 0.1,
                                 rotate: Math.random() * 360
                             }}
                             animate={{
-                                y: "120vh",
+                                top: "120vh",
                                 rotate: Math.random() * 360 + 180
                             }}
                             transition={{
-                                duration: Math.random() * 20 + 20,
+                                duration: Math.random() * 15 + 10, // Slower, varying speed
                                 repeat: Infinity,
                                 ease: "linear",
                                 delay: Math.random() * 20
                             }}
                         >
-                            {["अ", "आ", "क", "ख", "ग", "घ", "ش", "ع", "ر", "ق"][Math.floor(Math.random() * 10)]}
+                            {["अ", "आ", "क", "ख", "ग", "घ", "ش", "ع", "ر", "ق", "ن", "م", "ل", "ی"][Math.floor(Math.random() * 14)]}
+                        </motion.div>
+                    ))}
+
+                    {/* Occasional Drift - Slightly Wider */}
+                    {[...Array(15)].map((_, i) => (
+                        <motion.div
+                            key={`drift-${i}`}
+                            className="absolute text-amber-500/10 font-serif text-2xl md:text-4xl blur-[2px]"
+                            initial={{
+                                left: `${20 + Math.random() * 60}%`, // 20% to 80%
+                                top: -100,
+                                opacity: Math.random() * 0.3,
+                                rotate: Math.random() * 360
+                            }}
+                            animate={{
+                                top: "120vh",
+                                rotate: Math.random() * 360 - 180
+                            }}
+                            transition={{
+                                duration: Math.random() * 20 + 15,
+                                repeat: Infinity,
+                                ease: "linear",
+                                delay: Math.random() * 15
+                            }}
+                        >
+                            {["अ", "आ", "ش", "ع"][Math.floor(Math.random() * 4)]}
                         </motion.div>
                     ))}
                 </div>
