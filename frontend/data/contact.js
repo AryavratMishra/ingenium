@@ -475,15 +475,8 @@ export const team = [
     name: "Abhay Kumar",
     email: "ce220004001@iiti.ac.in",
     team: "Video Production",
-    linkedin: "",
-    instagram: "https://www.instagram.com/abhaysky55",
-  },
-  {
-    name: "Abhay Kumar",
-    email: "ce220004002@iiti.ac.in",
-    team: "Video Production",
     linkedin: "https://in.linkedin.com/in/abhay-kumar-976aa5212",
-    instagram: "",
+    instagram: "https://www.instagram.com/abhaysky55",
   },
   {
     name: "Mohit Jain",

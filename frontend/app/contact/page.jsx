@@ -185,11 +185,10 @@ export default function ContactPage() {
                   <button
                     key={cat}
                     onClick={() => setActiveTab(cat)}
-                    className={`px-4 py-2 text-[12px] font-mono rounded transition-all ${
-                      activeTab === cat
+                    className={`px-4 py-2 text-[12px] font-mono rounded transition-all ${activeTab === cat
                         ? "bg-emerald-500 text-black font-bold shadow-[0_0_20px_rgba(16,185,129,0.4)]"
                         : "text-emerald-500/60 hover:text-emerald-400"
-                    }`}
+                      }`}
                   >
                     {cat.toUpperCase()}
                   </button>
@@ -205,7 +204,7 @@ export default function ContactPage() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    key={co.name}
+                    key={co.email}
                     className="group relative aspect-3/4 bg-slate-900/40 rounded-xl overflow-hidden border border-white/5 hover:border-emerald-500/50 transition-all duration-500"
                   >
                     <img
