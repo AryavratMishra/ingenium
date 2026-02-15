@@ -70,11 +70,10 @@ export default function PresentPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${
-                activeTab === tab.id
+              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${activeTab === tab.id
                   ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
                   : "border-white/10 text-white/40 hover:border-white/30"
-              }`}
+                }`}
             >
               {activeTab === tab.id && (
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent animate-scan-fast" />
@@ -122,7 +121,7 @@ export default function PresentPage() {
 
                     {/* --- SUB-competitionS LIST --- */}
                     <div className="space-y-1.5">
-                      {sector.competitions ? (
+                      {sector.competitions && (
                         sector.competitions.slice(0, 3).map((competitionName, idx) => (
                           <div key={idx} className="flex items-center gap-2">
                             <div className="w-1 h-1 bg-white/20 group-hover:bg-blue-400/50" />
@@ -131,10 +130,6 @@ export default function PresentPage() {
                             </span>
                           </div>
                         ))
-                      ) : (
-                        <div className="text-[14px] font-mono text-gray-600 italic">
-                          MAIN_BRANCH_ONLY
-                        </div>
                       )}
                       {sector.competitions?.length > 3 && (
                         <div className="text-[12px] font-mono text-blue-500/60 pl-3">

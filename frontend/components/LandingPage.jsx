@@ -41,6 +41,52 @@ const PortalRing = ({
   </div>
 );
 
+const ScrambleText = ({ text, className, style, delay = 0, trigger = 0 }) => {
+  const [display, setDisplay] = useState(text);
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
+
+  useEffect(() => {
+    let interval;
+    let iteration = 0;
+
+    const timeout = setTimeout(() => {
+      const scramble = () => {
+        clearInterval(interval);
+        iteration = 0;
+
+        interval = setInterval(() => {
+          setDisplay(
+            text
+              .split("")
+              .map((letter, index) => {
+                if (index < iteration) {
+                  return text[index];
+                }
+                return chars[Math.floor(Math.random() * chars.length)];
+              })
+              .join("")
+          );
+
+          if (iteration >= text.length) {
+            clearInterval(interval);
+          }
+
+          iteration += 1 / 3;
+        }, 30);
+      };
+      scramble();
+    }, delay);
+
+
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
+  }, [text, delay, trigger]);
+
+  return <span className={className} style={style}>{display}</span>;
+};
+
 export default function LandingPage({ onNavigate }) {
   const containerRef = useRef(null);
   const portalRef = useRef(null);
@@ -49,6 +95,7 @@ export default function LandingPage({ onNavigate }) {
   const tagRef = useRef(null);
   const ctaRef = useRef(null);
   const [isWarping, setIsWarping] = useState(false);
+  const [headerHoverTrigger, setHeaderHoverTrigger] = useState(0);
 
   // Initial Entrance Animation
   useEffect(() => {
@@ -159,25 +206,36 @@ export default function LandingPage({ onNavigate }) {
       {/* The Hyperspace Flash Overlay */}
       <div className="warp-flash absolute inset-0 bg-white opacity-0 pointer-events-none z-50" />
 
-      {/* --- TOP LEFT HEADING (Event Name) --- */}
-      <div className="absolute top-8 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:flex justify-center items-center gap-3">
-        <h2
-          className="text-2xl font-bold tracking-widest text-blue-100/80 uppercase"
-          style={{ fontFamily: "Oxanium, sans-serif" }}
-        >
-          INGENIUM
-        </h2>
-        <img src="/favicon.png" className="w-15 h-15" />
+
+      {/* --- TOP LEFT HEADING (Event Logo Only) --- */}
+      <div className="absolute top-6 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:flex justify-center items-center">
+        <img src="/favicon.png" className="w-28 h-28" />
       </div>
 
+
       {/* --- TOP RIGHT HEADING (College Name) --- */}
-      <div className="absolute top-8 right-8 z-30 pointer-events-none mix-blend-screen hidden sm:block">
-        <h2
-          className="text-2xl font-bold tracking-widest text-blue-100/80 uppercase"
-          style={{ fontFamily: "Oxanium, sans-serif" }}
-        >
-          IIT INDORE
-        </h2>
+      <div
+        className="absolute top-6 right-8 z-30 pointer-events-auto cursor-pointer hidden sm:flex flex-col items-end group"
+        onMouseEnter={() => setHeaderHoverTrigger(prev => prev + 1)}
+      >
+        <div className="flex items-center gap-4">
+          {/* Tech Decoration Lines - Animated */}
+          <div className="flex flex-col gap-1.5 items-end opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="w-16 h-[3px] bg-blue-500 shadow-[0_0_8px_#3b82f6] animate-[widthPulse_3s_ease-in-out_infinite]" />
+            <div className="w-10 h-[3px] bg-blue-400 shadow-[0_0_5px_#60a5fa] animate-[widthPulse_2s_ease-in-out_infinite_reverse]" />
+            <div className="w-12 h-[3px] bg-blue-600 shadow-[0_0_3px_#2563eb] animate-[widthPulse_4s_ease-in-out_infinite_0.5s]" />
+          </div>
+
+          <div className="text-right">
+            <div className="text-5xl font-black leading-[0.8] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-100 to-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]" style={{ fontFamily: "Oxanium, sans-serif" }}>
+              <ScrambleText text="IIT" delay={0} trigger={headerHoverTrigger} />
+            </div>
+            <div className="text-2xl font-bold tracking-[0.3em] text-blue-200 mt-1 border-t-2 border-blue-500 pt-1 shadow-[0_-2px_10px_rgba(59,130,246,0.3)] relative overflow-hidden" style={{ fontFamily: "Oxanium, sans-serif" }}>
+              <ScrambleText text="INDORE" delay={100} className="relative z-10" trigger={headerHoverTrigger} />
+              <div className="absolute inset-0 bg-blue-400/20 blur-md animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* --- THE CHRONO GATE (Central 3D Element) --- */}
@@ -234,12 +292,14 @@ export default function LandingPage({ onNavigate }) {
         {/* Title Group */}
         <div className="text-center mb-2 sm:mb-8 mix-blend-screen space-y-4">
           {/* Top Tag: IIT Indore */}
+          {/* Top Tag: IIT Indore */}
           <p
             ref={tagRef}
-            className="text-xs sm:text-sm text-blue-300/60 font-mono tracking-[0.3em] uppercase border-b border-blue-500/20 pb-2 inline-block"
+            className="text-xs sm:text-sm text-white font-mono tracking-[0.3em] uppercase border-b border-white/30 pb-2 inline-block drop-shadow-[0_0_6px_rgba(255,255,255,0.8)] [text-shadow:0_0_8px_rgba(255,255,255,0.9),0_0_16px_rgba(255,255,255,0.7),0_0_32px_rgba(255,255,255,0.5)]"
           >
             IIT Indore • Techno-Cultural Fest
           </p>
+
 
           {/* Main Title: INGENIUM (Decoded) */}
           <h1
@@ -256,13 +316,13 @@ export default function LandingPage({ onNavigate }) {
           {/* Subtitle: Chronoverse */}
           <div
             ref={subtitleRef}
-            className="flex mt-20 sm:mt-0 items-center justify-center gap-4"
+            className="flex mt-20 sm:mt-0 items-center justify-center gap-"
           >
             <div className="h-px w-8 sm:w-12 bg-linear-to-r from-transparent to-blue-500" />
-            <span className="text-sm flex flex-col sm:flex-row sm:text-lg text-blue-200 tracking-[0.2em] uppercase">
+            <span className="mt-16 text-sm flex flex-col sm:flex-row sm:text-lg text-blue-200 tracking-[0.2em] uppercase">
               CHRONOVERSE: <div>Past, Present, Future</div>
             </span>
-            <div className="h-px w-8 sm:w-12 bg-linear-to-l from-transparent to-blue-500" />
+            <div className="h-px w- sm:w-12 bg-linear-to-l from-transparent to-blue-500" />
           </div>
         </div>
 
@@ -319,6 +379,10 @@ export default function LandingPage({ onNavigate }) {
           100% {
             transform: translateX(300%);
           }
+        }
+        @keyframes widthPulse {
+            0%, 100% { width: 100%; opacity: 1; }
+            50% { width: 50%; opacity: 0.7; }
         }
         @keyframes pulse-slow {
           0%,
