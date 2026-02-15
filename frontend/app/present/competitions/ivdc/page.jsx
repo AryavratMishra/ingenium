@@ -5,16 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Box,
   Eye,
-  ArrowUp,
-  Zap,
-  Cpu,
   Navigation,
-  Layers,
   Trophy,
-  Maximize,
   ChevronLeft,
   ChevronRight,
-  Database,
   Target,
   FileText,
   Activity,
@@ -22,6 +16,8 @@ import {
   ShieldCheck,
   Search,
   AlertCircle,
+  CreditCard,
+  Flag,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -35,6 +31,9 @@ export default function IVDCPS() {
       id: 1,
       title: "3D Reconstruction: IITI CDF",
       theme: "Simulation & Autonomous Navigation",
+      mode: "Offline",
+      rounds: "1 Round",
+      regFee: "₹350",
       icon: <Box className="w-6 h-6" />,
       href: "/PS/3D_Design_IVDC.pdf",
       motivation:
@@ -83,6 +82,9 @@ export default function IVDCPS() {
       id: 2,
       title: "CV Based Obstacourse",
       theme: "Autonomous Vision Navigation",
+      mode: "Offline",
+      rounds: "1 Round",
+      regFee: "₹350",
       icon: <Eye className="w-6 h-6" />,
       href: "/PS/CV_Obstacourse.pdf",
       motivation:
@@ -96,7 +98,7 @@ export default function IVDCPS() {
         },
         {
           title: "Control Logic",
-          desc: "Use control algorithms to compute motion corrections and dynamically adjust motor speeds 99.",
+          desc: "Use control algorithms to compute motion corrections and dynamically adjust motor speeds in real time.",
         },
       ],
       rules: [
@@ -106,7 +108,7 @@ export default function IVDCPS() {
         "A live demonstration of autonomous completion is required.",
       ],
       deliverables: [
-        "Functional autonomous robot with onboard processing",
+        "Functional autonomous robot with onboard processing ",
         "Hardware design and component selection report",
         "CV methodology and algorithm development process",
         "Control algorithm design and tuning approach",
@@ -181,8 +183,30 @@ export default function IVDCPS() {
             exit={{ opacity: 0, scale: 1.02 }}
             className="grid grid-cols-1 lg:grid-cols-12 gap-6"
           >
-            {/* COLUMN 1: MISSION CONTEXT & PRIZES */}
+            {/* COLUMN 1: MISSION INFO, STATS & PRIZES */}
             <div className="lg:col-span-4 space-y-6">
+              {/* VITAL STATS */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-blue-900/30 border border-blue-500/20 rounded-xl flex flex-col items-center justify-center text-center">
+                  <Navigation className="w-5 h-5 text-blue-400 mb-1" />
+                  <span className="text-[10px] uppercase text-blue-400/70">
+                    Mode
+                  </span>
+                  <span className="text-sm font-bold text-white uppercase">
+                    {challenges[activeModule].mode}
+                  </span>
+                </div>
+                <div className="p-4 bg-blue-900/30 border border-blue-500/20 rounded-xl flex flex-col items-center justify-center text-center">
+                  <Flag className="w-5 h-5 text-blue-400 mb-1" />
+                  <span className="text-[10px] uppercase text-blue-400/70">
+                    Rounds
+                  </span>
+                  <span className="text-sm font-bold text-white uppercase">
+                    {challenges[activeModule].rounds}
+                  </span>
+                </div>
+              </div>
+
               <div className="p-6 bg-blue-950/20 border border-blue-500/20 rounded-2xl relative group">
                 <div className="flex items-center gap-2 text-blue-400 text-[14px] uppercase tracking-widest mb-4">
                   <Activity className="w-3 h-3 animate-pulse" /> Mission_Core
@@ -234,16 +258,29 @@ export default function IVDCPS() {
                 </div>
               </div>
 
-              <button
-                onClick={() =>
-                  router.push(
-                    `/present/registration?competition=${activeModule === 0 ? "3d" : "cv"}`,
-                  )
-                }
-                className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all"
-              >
-                INITIATE_ENTRY <ChevronRight className="w-5 h-5" />
-              </button>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl">
+                  <div className="flex items-center gap-3">
+                    <CreditCard className="w-5 h-5 text-blue-400" />
+                    <span className="text-xs uppercase text-blue-200">
+                      Registration Fee
+                    </span>
+                  </div>
+                  <span className="text-lg font-black text-white">
+                    {challenges[activeModule].regFee}
+                  </span>
+                </div>
+                <button
+                  onClick={() =>
+                    router.push(
+                      `/present/registration?competition=${activeModule === 0 ? "3d" : "cv"}`,
+                    )
+                  }
+                  className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all"
+                >
+                  INITIATE_ENTRY <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             {/* COLUMN 2: RULES, TASKS & SPECS */}
@@ -269,8 +306,9 @@ export default function IVDCPS() {
                     href={challenges[activeModule].href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-xs uppercase font-bold text-red-400 hover:text-red-300 transition-colors flex items-center gap-2"
                   >
-                    View Rules
+                    <FileText className="w-4 h-4" /> View Full Documentation
                   </Link>
                 </div>
 
