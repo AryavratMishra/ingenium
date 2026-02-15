@@ -68,7 +68,7 @@ export default function AeroAirtistryPS() {
               >
                 <ChevronLeft className="w-4 h-4 animate-spin-slow" />
                 <span className="text-[12px] font-bold tracking-[0.5em] uppercase">
-                  Return to Events
+                  Return to Competitions
                 </span>
               </button>
               <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase italic leading-none">

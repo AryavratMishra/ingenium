@@ -82,7 +82,7 @@ export default function MatiksPS() {
             >
               <ChevronLeft className="w-4 h-4" />
               <span className="text-[12px] tracking-[0.5em] uppercase font-bold">
-                Return to Events
+                Return to Competitions
               </span>
             </button>
             <div className="flex items-center gap-3">

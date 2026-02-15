@@ -86,7 +86,7 @@ export default function QuantumHackathonPS() {
             >
               <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span className="text-[12px] tracking-[0.6em] uppercase font-bold">
-                Return to Events
+                Return to Competitions
               </span>
             </button>
             <div className="flex items-center gap-4">

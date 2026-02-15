@@ -142,7 +142,7 @@ export default function IVDCPS() {
             >
               <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span className="text-[12px] font-bold tracking-[0.4em] uppercase">
-                Return to Events
+                Return to Competitions
               </span>
             </button>
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase italic">
