@@ -11,12 +11,6 @@ export const EVENT_CONFIG = {
     color: "#00f2ff",
     sector: "AIR-01",
   },
-  payload: {
-    name: "Payload Drop",
-    teamSize: 2,
-    color: "#00f2ff",
-    sector: "AIR-02",
-  },
   analytic_x: {
     name: "Global Gourmet",
     teamSize: 2,

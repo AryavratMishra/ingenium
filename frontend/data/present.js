@@ -74,7 +74,6 @@ export const tech_events = [
     tag: "Design",
     folder: "aero_artistry",
     color: "emerald",
-    events: ["RC Glider", "Payload Drop"],
   },
 ];
 
