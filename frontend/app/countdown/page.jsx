@@ -73,7 +73,7 @@ const EventHorizon = () => {
       </Link>
       <div className="relative text-center z-10 w-full max-w-4xl">
         <div className="absolute -inset-10 bg-cyan-500/20 blur-[100px] animate-pulse" />
-        <h2 className="glitch-text text-4xl sm:text-6xl md:text-9xl font-black text-white tracking-widest mb-4 break-words">
+        <h2 className="glitch-text text-4xl sm:text-6xl md:text-9xl font-black text-white tracking-widest mb-4 wrap-break-word">
           INGENIUM <span className="text-cyan-400 block sm:inline">ONLINE</span>
         </h2>
         <div className="h-px w-full bg-linear-to-r from-transparent via-cyan-500 to-transparent mb-8" />
@@ -189,7 +189,7 @@ function ReactorRing({ value, max, label, delay }) {
 // Data Panel Component (Fake Telemetry)
 const TelemetryPanel = ({ label, value, status, color = "text-cyan-400" }) => (
   // Removed 'hidden' to make it responsive (show on mobile in grid)
-  <div className="flex flex-col p-2 sm:p-3 bg-black/40 border-l-2 border-cyan-500/30 backdrop-blur-md min-w-[120px]">
+  <div className="flex flex-col p-2 sm:p-3 bg-black/40 border-l-2 border-cyan-500/30 backdrop-blur-md min-w-30">
     <span className="text-[8px] sm:text-[9px] text-cyan-500/50 font-mono uppercase tracking-widest mb-1">
       {label}
     </span>
@@ -314,7 +314,7 @@ export default function TimeCorePage() {
               </div>
 
               {/* Reactor Rings */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-12 mb-8 sm:mb-16 w-full max-w-[340px] sm:max-w-none">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-12 mb-8 sm:mb-16 w-full max-w-85 sm:max-w-none">
                 <ReactorRing
                   value={timeLeft.days}
                   max={365}
