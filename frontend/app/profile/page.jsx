@@ -12,7 +12,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
-import { EVENT_CONFIG } from "@/data/event_config";
+import { COMPETITION_CONFIG } from "@/data/competition_config";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
 
@@ -138,7 +138,7 @@ export default function ProfilePage() {
                   </div>
                 ) : registrations.length > 0 ? (
                   registrations.map((reg, i) => {
-                    const event = EVENT_CONFIG[reg.ps_name] || {
+                    const competition = COMPETITION_CONFIG[reg.ps_name] || {
                       name: reg.ps_name,
                       color: "#fff",
                       sector: "UNK-00",
@@ -155,10 +155,10 @@ export default function ProfilePage() {
                           <div>
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
                               <span className="text-[10px] px-2 py-0.5 bg-blue-500/20 w-fit text-blue-400 rounded">
-                                {event.sector}
+                                {competition.sector}
                               </span>
                               <h4 className="font-bold text-blue-100 uppercase tracking-tight">
-                                {event.name}
+                                {competition.name}
                               </h4>
                             </div>
                             <p className="text-xs text-gray-400">

@@ -6,15 +6,15 @@ import { gsap } from "gsap";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "@/lib/api";
 import { AuthContext } from "@/context/AuthContext";
-import { EVENT_CONFIG } from "@/data/event_config";
+import { COMPETITION_CONFIG } from "@/data/competition_config";
 
 function RegistrationContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const containerRef = useRef(null);
 
-  const eventKey = searchParams.get("event") || "General Entry";
-  const config = EVENT_CONFIG[eventKey] || EVENT_CONFIG["General Entry"];
+  const competitionKey = searchParams.get("competition") || "General Entry";
+  const config = COMPETITION_CONFIG[competitionKey] || COMPETITION_CONFIG["General Entry"];
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -67,7 +67,7 @@ function RegistrationContent() {
     await api
       .post("http://localhost:5000/api/registration/register", {
         teamName: formData.teamName,
-        psName: eventKey,
+        psName: competitionKey,
         participants: formData.members,
       })
       .then((msg) => {
@@ -98,7 +98,7 @@ function RegistrationContent() {
             </span>
           </div>
           <h1 className="text-5xl md:text-5xl font-black text-white tracking-tight uppercase leading-none">
-            {status === "error" ? "TERMINATED" : config.name || eventKey}
+            {status === "error" ? "TERMINATED" : config.name || competitionKey}
             <span className="text-accent opacity-50 block text-xl mt-2 font-light">
               {status === "error" ? "SYSTEM_CRASHED" : "SYSTEM_ACCESS_GRANTED"}
             </span>
@@ -312,7 +312,7 @@ export default function RegistrationPageContent() {
   const searchParams = useSearchParams();
   if (!isLoggedIn)
     router.push(
-      `/auth?path=/present/registration\?event=${searchParams.get("event")}`,
+      `/auth?path=/present/registration\?competition=${searchParams.get("competition")}`,
     );
 
   return (

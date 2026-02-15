@@ -21,10 +21,10 @@ const NODES = [
     mobileY: 70,
     icon: <Clock />,
     color: "#f59e0b",
-    connections: ["events", "countdown"],
+    connections: ["competitions", "countdown"],
   },
   {
-    id: "events",
+    id: "competitions",
     location: "present",
     label: "COMPETITIONS",
     sub: "Live Ops",
@@ -66,7 +66,7 @@ const NODES = [
     mobileY: 10,
     icon: <Zap />,
     color: "#06b6d4",
-    connections: ["events"],
+    connections: ["competitions"],
   },
   {
     id: "contact",

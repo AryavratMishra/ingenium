@@ -1,11 +1,11 @@
-export const tech_events = [
+export const tech_competitions = [
   {
     id: "solveXBio",
     name: "SolveXBio",
     tag: "Biotech",
     folder: "solveXBio",
     color: "emerald",
-    events: ["Patient Monitor", "Screen Addiction"],
+    competitions: ["Patient Monitor", "Screen Addiction"],
   },
   {
     id: "robotics",
@@ -13,7 +13,7 @@ export const tech_events = [
     tag: "Combat",
     folder: "robotics",
     color: "red",
-    events: ["Robowars", "Robosoccer", "Line Follower"],
+    competitions: ["Robowars", "Robosoccer", "Line Follower"],
   },
   {
     id: "qml",
@@ -35,7 +35,7 @@ export const tech_events = [
     tag: "Vision",
     folder: "ivdc",
     color: "cyan",
-    events: ["3D Reconstruction", "CV Obstacourse"],
+    competitions: ["3D Reconstruction", "CV Obstacourse"],
   },
   {
     id: "gdg",
@@ -43,7 +43,7 @@ export const tech_events = [
     tag: "Web+ML",
     folder: "gdg",
     color: "blue",
-    events: ["ScalaStream", "Narrativa", "Theme Forge"],
+    competitions: ["ScalaStream", "Narrativa", "Theme Forge"],
   },
   {
     id: "electronics",
@@ -51,7 +51,7 @@ export const tech_events = [
     tag: "HDL",
     folder: "electronics",
     color: "orange",
-    events: ["Silicon Architects", "Analog Verse"],
+    competitions: ["Silicon Architects", "Analog Verse"],
   },
   {
     id: "concastle",
@@ -59,7 +59,7 @@ export const tech_events = [
     tag: "Civil",
     folder: "concastle",
     color: "violet",
-    events: ["Water Management", "Ground Utilization"],
+    competitions: ["Water Management", "Ground Utilization"],
   },
   {
     id: "analytic_x",
@@ -77,7 +77,7 @@ export const tech_events = [
   },
 ];
 
-export const cult_events = [
+export const cult_competitions = [
   {
     id: "VLR",
     name: "Album Cover Design",
@@ -105,7 +105,7 @@ export const cult_events = [
     tag: "Drama",
     folder: "dramatics",
     color: "rose",
-    events: ["Nukkad Natak", "Monoact"],
+    competitions: ["Nukkad Natak", "Monoact"],
   },
   {
     id: "glitchpop",
@@ -113,7 +113,7 @@ export const cult_events = [
     tag: "Gaming",
     folder: "glitchpop",
     color: "purple",
-    events: ["BGMI", "EAFC", "Valorant", "MOBA Legends"],
+    competitions: ["BGMI", "EAFC", "Valorant", "MOBA Legends"],
   },
   {
     id: "literary",
@@ -121,7 +121,7 @@ export const cult_events = [
     tag: "Lit",
     folder: "literary",
     color: "violet",
-    events: ["Poertry Slam", "Poetry Writing", "Fiction Relay"],
+    competitions: ["Poertry Slam", "Poetry Writing", "Fiction Relay"],
   },
   {
     id: "music",

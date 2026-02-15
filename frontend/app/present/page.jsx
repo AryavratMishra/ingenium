@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { PageTransitionWrapper } from "@/components/chronoverse";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, Zap, Music } from "lucide-react";
-import { tech_events, cult_events } from "@/data/present";
+import { tech_competitions, cult_competitions } from "@/data/present";
 
 const NodeCorner = ({ color }) => (
   <div
@@ -24,7 +24,7 @@ export default function PresentPage() {
 
   if (!mounted) return null;
 
-  const filteredEvents = activeTab === "tech" ? tech_events : cult_events;
+  const filteredCompetitions = activeTab === "tech" ? tech_competitions : cult_competitions;
 
   return (
     <PageTransitionWrapper>
@@ -91,9 +91,9 @@ export default function PresentPage() {
 
         {/* --- GRID OF NODES --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-100">
-          {filteredEvents.length > 0 ? (
-            filteredEvents.map((sector) => (
-              <Link key={sector.id} href={`/present/event/${sector.folder}`}>
+          {filteredCompetitions.length > 0 ? (
+            filteredCompetitions.map((sector) => (
+              <Link key={sector.id} href={`/present/competitions/${sector.folder}`}>
                 <div className="group relative bg-black/60 border border-white/10 p-6 h-64 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
                   <NodeCorner color={sector.color} />
 
@@ -120,14 +120,14 @@ export default function PresentPage() {
                       {sector.name}
                     </h3>
 
-                    {/* --- SUB-EVENTS LIST --- */}
+                    {/* --- SUB-competitionS LIST --- */}
                     <div className="space-y-1.5">
-                      {sector.events ? (
-                        sector.events.slice(0, 3).map((eventName, idx) => (
+                      {sector.competitions ? (
+                        sector.competitions.slice(0, 3).map((competitionName, idx) => (
                           <div key={idx} className="flex items-center gap-2">
                             <div className="w-1 h-1 bg-white/20 group-hover:bg-blue-400/50" />
                             <span className="text-[12px] font-mono text-gray-400 uppercase tracking-wider group-hover:text-gray-300 transition-colors">
-                              {eventName}
+                              {competitionName}
                             </span>
                           </div>
                         ))
@@ -136,9 +136,9 @@ export default function PresentPage() {
                           MAIN_BRANCH_ONLY
                         </div>
                       )}
-                      {sector.events?.length > 3 && (
+                      {sector.competitions?.length > 3 && (
                         <div className="text-[12px] font-mono text-blue-500/60 pl-3">
-                          + {sector.events.length - 3} MORE_PROTOCOLS
+                          + {sector.competitions.length - 3} MORE_PROTOCOLS
                         </div>
                       )}
                     </div>
@@ -176,7 +176,7 @@ export default function PresentPage() {
             <span>COORD: 22.5248° N, 75.9207° E</span>
             <span>OS: INGENIUM_OS</span>
             <span>SEC: AES-256-GCM</span>
-            <span>STATUS: {filteredEvents.length} NODES_ONLINE</span>
+            <span>STATUS: {filteredCompetitions.length} NODES_ONLINE</span>
           </div>
         </div>
       </div>
