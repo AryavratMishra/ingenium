@@ -16,6 +16,9 @@ import {
   Trophy,
   FileText,
   AlertCircle,
+  Users,
+  CreditCard,
+  Calendar,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -32,6 +35,8 @@ export default function ElectronicsPS() {
       sub: "Digital Design, Computer Architecture, and FPGA Prototyping",
       icon: <Cpu className="w-6 h-6" />,
       href: "/PS/Silicon_Architects.pdf",
+      fee: "350",
+      teamSize: "2-4 People",
       objective:
         "Bridge the gap between theoretical digital logic and physical FPGA implementation, optimizing designs for speed, power, and area.",
       audience:
@@ -46,18 +51,20 @@ export default function ElectronicsPS() {
       ],
       rounds: [
         {
-          name: "The Soft Core Challenge",
+          name: "Soft Core Challenge",
           type: "Online Qualifier",
-          task: "Design a processor module with integrated peripherals and a custom application (e.g., RISC-V core).",
+          deadline: "March 7th, 2026",
+          task: "Design a processor module with integrated peripherals. Submit synthesizable RTL in a Vivado/Quartus ZIP project.",
           details:
-            "Submit synthesizable RTL in a Vivado/Quartus ZIP project. Validate via own testbench and simulation waveforms.",
+            "Participants must validate design against their own testbench and simulation waveforms.",
         },
         {
-          name: "The Physical Implementation",
-          type: "On-Site Finals",
-          task: "The top 10 shortlisted teams synthesize and deploy designs onto physical FPGA hardware.",
+          name: "Physical Implementation",
+          type: "Offline Finals",
+          deadline: "March 14th, 2026",
+          task: "The top 10 shortlisted teams synthesize and deploy designs onto physical FPGA hardware at IIT Indore.",
           details:
-            "Live hardware demonstration of real-time functionality on a board of your choice.",
+            "Live hardware demonstration of real-time functionality on an FPGA board of choice.",
         },
       ],
       judging: [
@@ -83,15 +90,16 @@ export default function ElectronicsPS() {
         },
       ],
       prizes: [
-        { rank: "Winner", amount: "10,000" },
+        { rank: "Winner", amount: "12,000" },
         { rank: "Runner Up", amount: "5,000" },
         { rank: "Second Runner Up", amount: "3,000" },
       ],
+      totalPool: "20,000",
       rules: [
         "Only Vivado or Quartus design tools are supported.",
         "RTL must be synthesizable (Verilog/VHDL/SystemVerilog/HLS).",
-        "Peripheral integration must be validated via C code simulation.",
-        "Report must include waveforms of simulated results.",
+        "Peripheral integration must be validated via simulation.",
+        "Top 10 teams shortlisted for the on-site finals.",
       ],
     },
     {
@@ -101,6 +109,8 @@ export default function ElectronicsPS() {
       sub: "Analog Signal Processing, Simulation, and PCB Design",
       icon: <Radio className="w-6 h-6" />,
       href: "/PS/Analog_Verse.pdf",
+      fee: "350",
+      teamSize: "2-4 People",
       objective:
         "Simulate real-world R&D environments where noise performance, signal integrity, and PCB layout critically impact systems.",
       audience:
@@ -116,29 +126,31 @@ export default function ElectronicsPS() {
       rounds: [
         {
           name: "Design & Simulation",
-          type: "Phase 1",
-          task: "Perform literature review for topologies (Sallen-Key, MFB) and conduct SPICE simulations.",
+          type: "Online Qualifier",
+          deadline: "March 7th, 2026",
+          task: "Perform literature review for topologies and conduct SPICE simulations for specified applications.",
           details:
-            "Deliverables: Simulation logs for Transient, AC Analysis (Bode Plot), and Noise Analysis.",
+            "Deliverables: Simulation logs for Transient, AC Analysis, and Noise Analysis.",
         },
         {
           name: "The PCB Layout",
-          type: "Phase 2",
-          task: "Convert validated schematics into manufacture-ready PCB layouts using industry tools.",
+          type: "Offline Finals",
+          deadline: "March 15th, 2026",
+          task: "Convert validated schematics into manufacture-ready PCB layouts with live demonstration at IIT Indore.",
           details:
-            "Must implement proper grounding (ground planes/star grounding) and pass DRC clearance.",
+            "Proper grounding (ground planes/star grounding) and DRC clearance mandatory.",
         },
       ],
       judging: [
         {
           label: "Simulation Accuracy",
           weight: "30%",
-          desc: "Bode plot/Transient compliance with specs.",
+          desc: "Compliance with problem specifications.",
         },
         {
           label: "Circuit Justification",
           weight: "20%",
-          desc: "Reasoning behind component selection.",
+          desc: "Quality of literature review and reasoning.",
         },
         {
           label: "PCB Layout Quality",
@@ -156,10 +168,11 @@ export default function ElectronicsPS() {
         { rank: "Runner Up", amount: "5,000" },
         { rank: "Second Runner Up", amount: "3,000" },
       ],
+      totalPool: "18,000",
       rules: [
         "Max board dimensions: 100mm x 100mm.",
         "Use standard component footprints (SMD 0805 or Through-Hole).",
-        "Proper grounding techniques (star/ground planes) are mandatory.",
+        "Proper grounding techniques are mandatory.",
         "PS release is T-7 days before submission.",
       ],
     },
@@ -168,7 +181,7 @@ export default function ElectronicsPS() {
   return (
     <div className="relative min-h-screen bg-black/30 text-amber-100 font-mono p-4 md:p-8 lg:p-12">
       <div className="max-w-7xl mx-auto space-y-12">
-        {/* --- NAVIGATION & HEADER --- */}
+        {/* --- HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 border-b border-amber-500/30 pb-10">
           <div className="space-y-4">
             <button
@@ -191,7 +204,7 @@ export default function ElectronicsPS() {
                 Ingenium 2026
               </span>
               <p className="text-amber-500/80 tracking-[0.2em] text-xs font-bold uppercase italic">
-                {competitions[activeTab].theme} // {competitions[activeTab].sub}
+                Organized by Electronics Club
               </p>
             </div>
           </div>
@@ -221,23 +234,29 @@ export default function ElectronicsPS() {
           </div>
         </div>
 
-        {/* --- CORE GRID --- */}
+        {/* --- MAIN GRID --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* LEFT: MISSION BRIEF & BOUNTY */}
+          {/* LEFT: SPECS & PRIZES */}
           <div className="lg:col-span-4 space-y-8">
-            <section className="bg-amber-500/5 border-l-4 border-amber-500 p-8 rounded-r-2xl">
-              <h3 className="text-sm font-bold text-amber-500 uppercase mb-4 flex items-center gap-2">
-                <Globe className="w-4 h-4" /> 01_System_Objective
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300 italic mb-6">
-                "{competitions[activeTab].objective}"
-              </p>
-              <div className="flex items-center gap-2 text-[12px] text-amber-500/60 uppercase tracking-widest">
-                Target: {competitions[activeTab].audience}
+            <section className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4">
+              <div className="flex items-center justify-between text-[12px] uppercase font-bold">
+                <span className="text-amber-500/60 flex items-center gap-2">
+                  <Users className="w-4 h-4" /> Team Format
+                </span>
+                <span className="text-white">
+                  {competitions[activeTab].teamSize}
+                </span>
+              </div>
+              <div className="flex items-center justify-between text-[12px] uppercase font-bold">
+                <span className="text-amber-500/60 flex items-center gap-2">
+                  <CreditCard className="w-4 h-4" /> Registration Fee
+                </span>
+                <span className="text-white">
+                  ₹{competitions[activeTab].fee}
+                </span>
               </div>
             </section>
 
-            {/* PRIZE POOL MODULE */}
             <section className="p-6 bg-white/5 border border-white/10 rounded-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Trophy className="w-20 h-20 text-amber-500" />
@@ -263,7 +282,9 @@ export default function ElectronicsPS() {
                   <span className="text-[11px] font-bold uppercase">
                     Combined Allocation
                   </span>
-                  <span className="text-md font-black">₹18,000 Total</span>
+                  <span className="text-md font-black">
+                    ₹{competitions[activeTab].totalPool} Pool
+                  </span>
                 </div>
               </div>
             </section>
@@ -271,7 +292,7 @@ export default function ElectronicsPS() {
             <button
               onClick={() =>
                 router.push(
-                  `/present/registration?competition=${activeTab === 0 ? "sa" : "av"}`,
+                  `/present/registration?competition=${competitions[activeTab].id.toLowerCase()}`,
                 )
               }
               className="w-full group relative overflow-hidden bg-amber-500 py-6 rounded-sm transition-transform active:scale-95 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
@@ -283,10 +304,10 @@ export default function ElectronicsPS() {
             </button>
           </div>
 
-          {/* MIDDLE: DEPLOYMENT PHASES & COMPLIANCE */}
+          {/* MIDDLE: ROUNDS & COMPLIANCE */}
           <div className="lg:col-span-5 space-y-8">
             <div className="relative">
-              <h3 className="text-xs font-bold text-amber-500 uppercase mb-8 flex items-center gap-2">
+              <h3 className="text-sm font-bold text-amber-500 uppercase mb-8 flex items-center gap-2">
                 <Settings className="w-4 h-4" /> 02_Execution_Roadmap
               </h3>
 
@@ -295,20 +316,26 @@ export default function ElectronicsPS() {
 
                 {competitions[activeTab].rounds.map((round, i) => (
                   <div key={i} className="relative pl-12">
-                    <div className="absolute left-0 top-0 w-5.5 h-5.5 bg-black border-2 border-amber-500 rotate-45 flex items-center justify-center z-10">
+                    <div className="absolute left-0 top-0 w-5.5 h-5.5 bg-black border-2 border-amber-500 rotate-45 flex items-center justify-center z-10 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
                       <span className="text-[12px] text-amber-500 -rotate-45 font-black">
                         0{i + 1}
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[11px] font-bold bg-amber-500/20 text-amber-500 px-2 py-0.5 uppercase tracking-tighter">
-                        {round.type}
+                    <div className="flex flex-col gap-1 mb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[12px] font-bold bg-amber-500/20 text-amber-500 px-2 py-0.5 uppercase">
+                          {round.type}
+                        </span>
+                        <h4 className="text-white font-black uppercase text-base">
+                          {round.name}
+                        </h4>
+                      </div>
+                      <span className="text-[12px] text-amber-500/60 flex items-center gap-1">
+                        <Calendar className="w-3 h-3" /> Deadline:{" "}
+                        {round.deadline}
                       </span>
-                      <h4 className="text-white font-black uppercase text-base tracking-tighter">
-                        {round.name}
-                      </h4>
                     </div>
-                    <div className="bg-white/5 border border-white/5 p-6 rounded-br-3xl rounded-tl-xl backdrop-blur-sm group hover:border-amber-500/30 transition-colors">
+                    <div className="bg-white/5 border border-white/5 p-6 rounded-br-3xl rounded-tl-xl backdrop-blur-sm hover:border-amber-500/30 transition-colors">
                       <div className="flex gap-3 mb-4 text-amber-200/90 italic">
                         <FileText className="w-4 h-4 shrink-0" />
                         <p className="text-[11px] uppercase font-bold leading-tight">
@@ -324,16 +351,15 @@ export default function ElectronicsPS() {
               </div>
             </div>
 
-            {/* RULES & COMPLIANCE SECTION */}
             <section className="bg-black/60 border border-amber-500/20 rounded-2xl p-6">
               <h3 className="text-[12px] font-black text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4" /> Compliance_Protocol
               </h3>
-              <ul className="grid grid-cols-1 gap-3 mb-4">
+              <ul className="grid grid-cols-1 gap-3 mb-6">
                 {competitions[activeTab].rules.map((rule, i) => (
                   <li
                     key={i}
-                    className="flex gap-3 text-[12px] text-gray-400 leading-tight uppercase"
+                    className="flex gap-3 text-[11px] text-gray-400 leading-tight uppercase"
                   >
                     <span className="text-amber-500">▶</span> {rule}
                   </li>
@@ -342,53 +368,45 @@ export default function ElectronicsPS() {
               <Link
                 href={competitions[activeTab].href}
                 target="_blank"
-                rel="noopener noreferrer"
+                className="text-[11px] text-amber-500 underline uppercase font-bold flex items-center gap-2"
               >
-                View Rules
+                <FileText className="w-4 h-4" /> Full Problem Statement PDF
               </Link>
             </section>
           </div>
 
-          {/* RIGHT: SCHEMATICS & TECH STACK */}
+          {/* RIGHT: TECH & SCORING */}
           <div className="lg:col-span-3 space-y-6">
             <div className="p-8 bg-black/40 border border-white/10 rounded-3xl h-full flex flex-col relative overflow-hidden">
-              <div className="absolute -right-10 top-20 opacity-5 rotate-12">
-                <Microchip className="w-64 h-64 text-amber-500" />
-              </div>
-
               <div className="flex items-center gap-2 mb-8 relative">
                 <Terminal className="w-5 h-5 text-amber-500" />
-                <h3 className="text-xs font-bold text-white uppercase tracking-widest">
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest">
                   Compiler_Stack
                 </h3>
               </div>
-
-              <div className="grid grid-cols-1 gap-3 relative">
+              <div className="grid grid-cols-1 gap-3 relative mb-12">
                 {competitions[activeTab].software.map((tech, i) => (
                   <div
                     key={i}
-                    className="group flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-amber-500/10 hover:border-amber-500/30 transition-all"
+                    className="group flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/5 hover:bg-amber-500/10 transition-all"
                   >
-                    <span className="text-[12px] text-gray-300 font-black uppercase group-hover:text-amber-500 transition-colors">
+                    <span className="text-[12px] text-gray-300 font-black uppercase">
                       {tech}
                     </span>
-                    <div className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                   </div>
                 ))}
               </div>
 
-              {/* JUDGING SUMMARY CIRCLE */}
-              <div className="mt-12 space-y-4 relative">
-                <div className="text-[11px] text-amber-500/60 uppercase font-black border-b border-amber-500/20 pb-2">
+              <div className="space-y-4 relative">
+                <div className="text-[12px] text-amber-500/60 uppercase font-black border-b border-amber-500/20 pb-2">
                   Scoring_Matrix
                 </div>
                 <div className="space-y-4">
                   {competitions[activeTab].judging.map((j, i) => (
                     <div key={i} className="space-y-1">
-                      <div className="flex justify-between text-[12px] font-bold uppercase">
-                        <span className="text-gray-400 tracking-tighter">
-                          {j.label}
-                        </span>
+                      <div className="flex justify-between text-[12px] font-bold uppercase tracking-tighter">
+                        <span className="text-gray-400">{j.label}</span>
                         <span className="text-amber-500">{j.weight}</span>
                       </div>
                       <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
@@ -396,65 +414,17 @@ export default function ElectronicsPS() {
                           initial={{ width: 0 }}
                           animate={{ width: j.weight }}
                           transition={{ duration: 1, delay: i * 0.1 }}
-                          className="h-full bg-amber-500/60"
+                          className="h-full bg-amber-500"
                         />
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
-              <div className="mt-auto pt-8 flex items-center justify-center">
-                <div className="text-center p-4 border border-white/5 rounded-xl bg-white/5 w-full">
-                  <div className="text-[9px] text-gray-500 uppercase mb-1 tracking-widest">
-                    Deployment_Mode
-                  </div>
-                  <div className="text-xs text-white font-black uppercase italic">
-                    OFFLINE [IIT INDORE]
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* --- DYNAMIC FOOTER --- */}
-        <div className="border-t border-amber-500/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-8 text-[10px] text-amber-500/40 font-black uppercase tracking-[0.3em]">
-            <span>Status: Optimal</span>
-            <span>Latency: 14ms</span>
-            <span>Version: Ingenium_OS</span>
-          </div>
-          <div className="flex gap-4">
-            <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-amber-500/40 hover:text-amber-500 transition-colors cursor-pointer">
-              <Globe className="w-4 h-4" />
-            </div>
-            <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-amber-500/40 hover:text-amber-500 transition-colors cursor-pointer">
-              <Activity className="w-4 h-4" />
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-}
-
-// Utility icon
-function Activity(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-    </svg>
   );
 }
