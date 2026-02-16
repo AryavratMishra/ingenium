@@ -44,7 +44,7 @@ export default function PresentPage() {
               </span>
             </button>
             <h1 className="text-5xl font-black text-white tracking-tighter uppercase italic flex items-center">
-              Competiton<span className="text-blue-500">s</span>
+              Competition<span className="text-blue-500">s</span>
             </h1>
           </div>
           <div className="text-right font-mono hidden md:block">
