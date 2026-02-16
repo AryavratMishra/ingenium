@@ -320,7 +320,7 @@ export default function LandingPage({ onNavigate }) {
             className="flex mt-10 items-center justify-center"
           >
             <div className="h-px w-8 sm:w-12 bg-linear-to-r from-transparent to-blue-500" />
-            <span className="mt-16 text-sm flex flex-col sm:flex-row sm:text-lg text-blue-200 tracking-[0.2em] uppercase">
+            <span className="mt-8 text-sm flex flex-col sm:flex-row sm:text-lg text-blue-200 tracking-[0.2em] uppercase">
               CHRONOVERSE: <div>Past, Present, Future</div>
             </span>
             <div className="h-px w- sm:w-12 bg-linear-to-l from-transparent to-blue-500" />

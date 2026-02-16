@@ -2,7 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { Clock, Rocket, Phone, ArrowLeft, Zap, Globe } from "lucide-react";
+import {
+  Clock,
+  Rocket,
+  Phone,
+  ArrowLeft,
+  Zap,
+  Globe,
+  GalleryHorizontal,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 
 // --- Configuration ---
@@ -10,7 +18,7 @@ import { useRouter } from "next/navigation";
 const NODES = [
   {
     id: "heritage",
-    location: "past",
+    location: "heritage",
     label: "HERITAGE",
     sub: "Origins",
     // Desktop: Bottom Left
@@ -21,7 +29,22 @@ const NODES = [
     mobileY: 70,
     icon: <Clock />,
     color: "#f59e0b",
-    connections: ["competitions", "countdown"],
+    connections: ["competitions"],
+  },
+  {
+    id: "gallery",
+    location: "gallery",
+    label: "GALLERY",
+    sub: "PHOTOS",
+    // Desktop: Bottom Left
+    x: 20,
+    y: 40,
+    // Mobile: Push lower left
+    mobileX: 20,
+    mobileY: 70,
+    icon: <GalleryHorizontal />,
+    color: "#f59e0b",
+    connections: ["competitions"],
   },
   {
     id: "competitions",
@@ -36,7 +59,7 @@ const NODES = [
     mobileY: 50,
     icon: <Globe />,
     color: "#3b82f6",
-    connections: ["future", "contact"],
+    connections: ["sponsor", "contact", "heritage", "countdown"],
   },
   {
     id: "sponsor",
@@ -51,7 +74,7 @@ const NODES = [
     mobileY: 30,
     icon: <Rocket />,
     color: "#8b5cf6",
-    connections: [],
+    connections: ["competitions"],
   },
   {
     id: "countdown",
@@ -81,7 +104,7 @@ const NODES = [
     mobileY: 90,
     icon: <Phone />,
     color: "#10b981",
-    connections: [],
+    connections: ["competitions"],
   },
 ];
 
@@ -189,7 +212,7 @@ export default function Navigation({ onNavigate }) {
       gsap.fromTo(
         mapRef.current,
         { rotateX: 60, scale: 0.5, opacity: 0 },
-        { rotateX: 0, scale: 1, opacity: 1, duration: 1.5, ease: "expo.out" }
+        { rotateX: 0, scale: 1, opacity: 1, duration: 1.5, ease: "expo.out" },
       );
 
       gsap.from(".nav-node-container", {
@@ -371,7 +394,7 @@ export default function Navigation({ onNavigate }) {
                   </circle>
                 </g>
               );
-            })
+            }),
           )}
         </svg>
 
