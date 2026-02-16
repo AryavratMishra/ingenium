@@ -216,7 +216,7 @@ export default function LandingPage({ onNavigate }) {
 
       {/* --- TOP RIGHT HEADING (College Name) --- */}
       <div
-        className="absolute top-6 right-8 z-30 pointer-events-auto cursor-pointer hidden sm:flex flex-col items-end group"
+        className="absolute top-10 right-8 z-30 pointer-events-auto cursor-pointer hidden sm:flex flex-col items-end group"
         onMouseEnter={() => setHeaderHoverTrigger((prev) => prev + 1)}
       >
         {/* <div className="flex items-center gap-4"> */}
@@ -237,7 +237,7 @@ export default function LandingPage({ onNavigate }) {
             </div>
           </div>
         </div> */}
-        <img src="/informal_IITI.png" className="h-15" />
+        <img src="/informal_IITI.png" className="h-13" />
       </div>
 
       {/* --- THE CHRONO GATE (Central 3D Element) --- */}
