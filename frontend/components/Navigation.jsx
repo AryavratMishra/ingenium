@@ -10,6 +10,7 @@ import {
   Zap,
   Globe,
   GalleryHorizontal,
+  BookCheck,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -22,14 +23,14 @@ const NODES = [
     label: "HERITAGE",
     sub: "Origins",
     // Desktop: Bottom Left
-    x: 20,
-    y: 60,
+    x: 40,
+    y: 80,
     // Mobile: Push lower left
-    mobileX: 20,
-    mobileY: 70,
+    mobileX: 30,
+    mobileY: 80,
     icon: <Clock />,
-    color: "#f59e0b",
-    connections: ["competitions"],
+    color: "#00f2ff",
+    connections: [],
   },
   {
     id: "gallery",
@@ -37,19 +38,34 @@ const NODES = [
     label: "GALLERY",
     sub: "PHOTOS",
     // Desktop: Bottom Left
-    x: 20,
-    y: 40,
+    x: 40,
+    y: 20,
+    // Mobile: Push lower left
+    mobileX: 30,
+    mobileY: 20,
+    icon: <GalleryHorizontal />,
+    color: "#10b981",
+    connections: [],
+  },
+  {
+    id: "events",
+    location: "events",
+    label: "EVENTS",
+    sub: "Events",
+    // Desktop: Bottom Left
+    x: 30,
+    y: 50,
     // Mobile: Push lower left
     mobileX: 20,
-    mobileY: 70,
-    icon: <GalleryHorizontal />,
+    mobileY: 50,
+    icon: <BookCheck />,
     color: "#f59e0b",
-    connections: ["competitions"],
+    connections: [],
   },
   {
     id: "competitions",
     location: "present",
-    label: "COMPETITIONS",
+    label: "COMPS",
     sub: "Live Ops",
     // Desktop: Center
     x: 50,
@@ -59,22 +75,29 @@ const NODES = [
     mobileY: 50,
     icon: <Globe />,
     color: "#3b82f6",
-    connections: ["sponsor", "contact", "heritage", "countdown"],
+    connections: [
+      "sponsors",
+      "contact",
+      "heritage",
+      "countdown",
+      "gallery",
+      "events",
+    ],
   },
   {
-    id: "sponsor",
-    location: "sponsor",
-    label: "SPONSOR",
+    id: "sponsors",
+    location: "sponsors",
+    label: "SPONSORS",
     sub: "Vision",
     // Desktop: Right
-    x: 80,
-    y: 40,
+    x: 70,
+    y: 50,
     // Mobile: Push upper right
     mobileX: 80,
-    mobileY: 30,
+    mobileY: 50,
     icon: <Rocket />,
-    color: "#8b5cf6",
-    connections: ["competitions"],
+    color: "#f59e0b",
+    connections: [],
   },
   {
     id: "countdown",
@@ -82,14 +105,14 @@ const NODES = [
     label: "TIME CORE",
     sub: "Reactor",
     // Desktop: Top Center
-    x: 50,
+    x: 60,
     y: 20,
     // Mobile: Top Center (Higher up)
-    mobileX: 50,
-    mobileY: 10,
+    mobileX: 70,
+    mobileY: 20,
     icon: <Zap />,
-    color: "#06b6d4",
-    connections: ["competitions"],
+    color: "#00f2ff",
+    connections: [],
   },
   {
     id: "contact",
@@ -97,14 +120,14 @@ const NODES = [
     label: "TEAM",
     sub: "Uplink",
     // Desktop: Bottom Center
-    x: 50,
+    x: 60,
     y: 80,
     // Mobile: Bottom Center (Lower down)
-    mobileX: 50,
-    mobileY: 90,
+    mobileX: 70,
+    mobileY: 80,
     icon: <Phone />,
     color: "#10b981",
-    connections: ["competitions"],
+    connections: [],
   },
 ];
 
