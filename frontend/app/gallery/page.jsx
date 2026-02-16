@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, Cpu, Layers, Zap } from "lucide-react";
+import { Play, X, Cpu, Layers, Zap, ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { items } from "@/data/gallery";
 
@@ -63,18 +63,21 @@ export default function KineticGallery() {
       {/* --- HEADER --- */}
       <header className="relative z-50 p-8 flex justify-between items-center border-b border-blue-500/10 backdrop-blur-xl">
         <div className="space-y-1">
-          <div className="flex items-center gap-4 text-blue-500">
-            <div className="h-0.5 w-12 bg-blue-500" />
+          <button
+            onClick={() => router.push("/?state=navigation")}
+            className="flex items-center gap-4 text-blue-500"
+          >
+            <ChevronLeft className="text-blue-500" />
             <span className="text-[10px] tracking-[0.5em] font-black uppercase">
-              Archive_System v3.0
+              Return To Navigation
             </span>
-          </div>
+          </button>
           <h1 className="text-4xl font-black italic tracking-tighter text-white">
             MEMORY_STREAM
           </h1>
         </div>
         <button
-          onClick={() => router.back()}
+          onClick={() => router.push("/?state=navigation")}
           className="px-6 py-2 border border-blue-500/20 rounded-full hover:bg-blue-500/10 transition-all text-xs tracking-widest"
         >
           DISCONNECT
