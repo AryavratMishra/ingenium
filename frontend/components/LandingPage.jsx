@@ -299,7 +299,7 @@ export default function LandingPage({ onNavigate }) {
             ref={tagRef}
             className="text-xs sm:text-sm text-white font-mono tracking-[0.3em] uppercase border-b border-white/30 pb-2 inline-block drop-shadow-[0_0_6px_rgba(255,255,255,0.8)] [text-shadow:0_0_8px_rgba(255,255,255,0.9),0_0_16px_rgba(255,255,255,0.7),0_0_32px_rgba(255,255,255,0.5)]"
           >
-            IIT Indore • Techno-Cultural Fest
+            Techno-Cultural Fest
           </p>
 
           {/* Main Title: INGENIUM (Decoded) */}
