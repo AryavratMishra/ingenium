@@ -64,7 +64,7 @@ const ScrambleText = ({ text, className, style, delay = 0, trigger = 0 }) => {
                 }
                 return chars[Math.floor(Math.random() * chars.length)];
               })
-              .join("")
+              .join(""),
           );
 
           if (iteration >= text.length) {
@@ -77,14 +77,17 @@ const ScrambleText = ({ text, className, style, delay = 0, trigger = 0 }) => {
       scramble();
     }, delay);
 
-
     return () => {
       clearTimeout(timeout);
       clearInterval(interval);
     };
   }, [text, delay, trigger]);
 
-  return <span className={className} style={style}>{display}</span>;
+  return (
+    <span className={className} style={style}>
+      {display}
+    </span>
+  );
 };
 
 export default function LandingPage({ onNavigate }) {
@@ -206,21 +209,19 @@ export default function LandingPage({ onNavigate }) {
       {/* The Hyperspace Flash Overlay */}
       <div className="warp-flash absolute inset-0 bg-white opacity-0 pointer-events-none z-50" />
 
-
       {/* --- TOP LEFT HEADING (Event Logo Only) --- */}
       <div className="absolute top-6 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:flex justify-center items-center">
         <img src="/favicon.png" className="w-28 h-28" />
       </div>
 
-
       {/* --- TOP RIGHT HEADING (College Name) --- */}
       <div
         className="absolute top-6 right-8 z-30 pointer-events-auto cursor-pointer hidden sm:flex flex-col items-end group"
-        onMouseEnter={() => setHeaderHoverTrigger(prev => prev + 1)}
+        onMouseEnter={() => setHeaderHoverTrigger((prev) => prev + 1)}
       >
-        <div className="flex items-center gap-4">
-          {/* Tech Decoration Lines - Animated */}
-          <div className="flex flex-col gap-1.5 items-end opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+        {/* <div className="flex items-center gap-4"> */}
+        {/* Tech Decoration Lines - Animated */}
+        {/* <div className="flex flex-col gap-1.5 items-end opacity-70 group-hover:opacity-100 transition-opacity duration-300">
             <div className="w-16 h-[3px] bg-blue-500 shadow-[0_0_8px_#3b82f6] animate-[widthPulse_3s_ease-in-out_infinite]" />
             <div className="w-10 h-[3px] bg-blue-400 shadow-[0_0_5px_#60a5fa] animate-[widthPulse_2s_ease-in-out_infinite_reverse]" />
             <div className="w-12 h-[3px] bg-blue-600 shadow-[0_0_3px_#2563eb] animate-[widthPulse_4s_ease-in-out_infinite_0.5s]" />
@@ -235,7 +236,8 @@ export default function LandingPage({ onNavigate }) {
               <div className="absolute inset-0 bg-blue-400/20 blur-md animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
-        </div>
+        </div> */}
+        <img src="/informal_IITI.png" className="h-15" />
       </div>
 
       {/* --- THE CHRONO GATE (Central 3D Element) --- */}
@@ -300,7 +302,6 @@ export default function LandingPage({ onNavigate }) {
             IIT Indore • Techno-Cultural Fest
           </p>
 
-
           {/* Main Title: INGENIUM (Decoded) */}
           <h1
             ref={titleRef}
@@ -341,7 +342,7 @@ export default function LandingPage({ onNavigate }) {
 
             {/* Text & Icon */}
             <div className="relative flex items-center gap-3 text-blue-300 group-hover:text-white transition-colors font-mono text-lg tracking-widest uppercase">
-              <span>Navigate Chronoverse</span>
+              <span>Navigate</span>
               <svg
                 className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                 fill="none"
@@ -381,8 +382,15 @@ export default function LandingPage({ onNavigate }) {
           }
         }
         @keyframes widthPulse {
-            0%, 100% { width: 100%; opacity: 1; }
-            50% { width: 50%; opacity: 0.7; }
+          0%,
+          100% {
+            width: 100%;
+            opacity: 1;
+          }
+          50% {
+            width: 50%;
+            opacity: 0.7;
+          }
         }
         @keyframes pulse-slow {
           0%,
