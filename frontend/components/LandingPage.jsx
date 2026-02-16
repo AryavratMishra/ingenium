@@ -305,7 +305,7 @@ export default function LandingPage({ onNavigate }) {
           {/* Main Title: INGENIUM (Decoded) */}
           <h1
             ref={titleRef}
-            className="block text-7xl sm:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white via-blue-100 to-blue-900 drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]"
+            className="block text-5xl sm:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white via-blue-100 to-blue-900 drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]"
             style={{ fontFamily: "Oxanium, sans-serif" }}
           >
             {/* {"INGENIUM".split("").map((char, i) => (
