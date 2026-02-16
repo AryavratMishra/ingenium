@@ -310,7 +310,7 @@ export default function LandingPage({ onNavigate }) {
             {/* {"INGENIUM".split("").map((char, i) => (
               <span key={i} className="char-reveal inline-block">{char}</span>
             ))} */}
-            INGENIUM
+            INGENIUM 3.0
           </h1>
 
           {/* Subtitle: Chronoverse */}
