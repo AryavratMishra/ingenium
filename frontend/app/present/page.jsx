@@ -93,7 +93,7 @@ export default function PresentPage() {
           {filteredCompetitions.length > 0 ? (
             filteredCompetitions.map((sector) => (
               <Link key={sector.id} href={`/present/competitions/${sector.folder}`}>
-                <div className="group relative bg-black/60 border border-white/10 p-6 h-64 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
+                <div className="group relative bg-black/60 border border-white/10 p-6 h-30 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
                   <NodeCorner color={sector.color} />
 
                   <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
