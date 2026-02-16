@@ -317,7 +317,7 @@ export default function LandingPage({ onNavigate }) {
           {/* Subtitle: Chronoverse */}
           <div
             ref={subtitleRef}
-            className="flex mt-20 sm:mt-0 items-center justify-center gap-"
+            className="flex mt-10 items-center justify-center"
           >
             <div className="h-px w-8 sm:w-12 bg-linear-to-r from-transparent to-blue-500" />
             <span className="mt-16 text-sm flex flex-col sm:flex-row sm:text-lg text-blue-200 tracking-[0.2em] uppercase">
@@ -328,7 +328,7 @@ export default function LandingPage({ onNavigate }) {
         </div>
 
         {/* CTA Interaction Zone */}
-        <div ref={ctaRef} className="mt-0 sm:mt-12 pointer-events-auto">
+        <div ref={ctaRef} className="mt-0 sm:mt-6 pointer-events-auto">
           <button
             onClick={handleEnter}
             className="group relative px-12 py-5 bg-transparent overflow-hidden cursor-pointer"
