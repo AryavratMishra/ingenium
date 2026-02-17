@@ -413,6 +413,11 @@ export default function Navigation({ onNavigate }) {
           )}
         </svg>
 
+        {/* Scanner Line */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl border border-white/5">
+          <div className="w-full h-0.5 bg-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.5)] absolute top-0 animate-[scan_4s_linear_infinite]" />
+        </div>
+
         {NODES.map((node) => (
           <NavNode
             key={node.id}
@@ -424,11 +429,6 @@ export default function Navigation({ onNavigate }) {
             onClick={() => handleNodeClick(node.location)}
           />
         ))}
-
-        {/* Scanner Line */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl border border-white/5">
-          <div className="w-full h-0.5 bg-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.5)] absolute top-0 animate-[scan_4s_linear_infinite]" />
-        </div>
       </div>
 
       {/* HUD Corners - Hidden on mobile to save space */}
