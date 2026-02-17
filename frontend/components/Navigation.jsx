@@ -15,12 +15,29 @@ import {
   Linkedin,
   Facebook,
   Youtube,
+  Home,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // --- Configuration ---
 // Added mobileX and mobileY to manually spread icons apart on phone screens
+const accommodation = {
+  id: "accomodation",
+  location: "accomodation",
+  label: "ACCOMODATION",
+  sub: "Stay",
+  // Desktop: Bottom Left
+  x: 85,
+  y: 80,
+  // Mobile: Push lower left
+  mobileX: 75,
+  mobileY: 105,
+  icon: <Home />,
+  color: "#00f200",
+  connections: [],
+};
+
 const NODES = [
   {
     id: "heritage",
@@ -434,6 +451,15 @@ export default function Navigation({ onNavigate }) {
             onClick={() => handleNodeClick(node.location)}
           />
         ))}
+        <NavNode
+          key={accommodation.id}
+          node={accommodation}
+          isMobile={isMobile}
+          isHovered={hoveredNode === accommodation.id}
+          onHover={() => setHoveredNode(accommodation.id)}
+          onLeave={() => setHoveredNode(null)}
+          onClick={() => handleNodeClick(accommodation.location)}
+        />
       </div>
 
       {/* HUD Corners - Hidden on mobile to save space */}
