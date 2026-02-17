@@ -403,18 +403,10 @@ export default function Navigation({ onNavigate }) {
                     x2={endX}
                     y2={endY}
                     stroke={`url(#${gradId})`}
-                    strokeWidth={isActive ? 0.5 : 0.2}
+                    strokeWidth={isActive ? 1 : 0.5}
                     vectorEffect="non-scaling-stroke"
                     className="transition-all duration-500"
                   />
-
-                  <circle r={isActive ? 1 : 0.5} fill="white">
-                    <animateMotion
-                      dur={isActive ? "1.5s" : "4s"}
-                      repeatCount="indefinite"
-                      path={`M${startX},${startY} L${endX},${endY}`}
-                    />
-                  </circle>
                 </g>
               );
             }),
