@@ -16,49 +16,34 @@ import {
   Facebook,
   Youtube,
   Home,
+  Twitter,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 // --- Configuration ---
-// Added mobileX and mobileY to manually spread icons apart on phone screens
-const accommodation = {
-  id: "accomodation",
-  location: "accomodation",
-  label: "ACCOMODATION",
-  sub: "Stay",
-  // Desktop: Bottom Left
-  x: 85,
-  y: 80,
-  // Mobile: Push lower left
-  mobileX: 75,
-  mobileY: 105,
-  icon: <Home />,
-  color: "#00f200",
-  connections: [],
-};
 
 const NODES = [
   {
-    id: "heritage",
-    location: "heritage",
-    label: "HERITAGE",
-    sub: "Origins",
+    id: "accomodation",
+    location: "accomodation",
+    label: "ACCOMODATION",
+    sub: "Stay",
     // Desktop: Bottom Left
     x: 40,
     y: 80,
     // Mobile: Push lower left
     mobileX: 30,
     mobileY: 80,
-    icon: <Clock />,
+    icon: <Home />,
     color: "#00f2ff",
     connections: [],
   },
   {
     id: "gallery",
     location: "gallery",
-    label: "GALLERY",
-    sub: "PHOTOS",
+    label: "HERITAGE",
+    sub: "GALLERY",
     // Desktop: Bottom Left
     x: 40,
     y: 20,
@@ -100,7 +85,7 @@ const NODES = [
     connections: [
       "sponsors",
       "contact",
-      "heritage",
+      "accomodation",
       "countdown",
       "gallery",
       "events",
@@ -169,7 +154,7 @@ const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile }) => {
       onClick={onClick}
     >
       {/* 3D Orb Structure */}
-      <div className="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center">
+      <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-30 lg:h-30 flex items-center justify-center">
         {/* Outer Rotating Ring */}
         <div
           className="absolute inset-0 rounded-full border border-dashed border-white/20 animate-[spin_10s_linear_infinite]"
@@ -198,7 +183,7 @@ const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile }) => {
 
         {/* Icon Hexagon */}
         <div
-          className="relative z-10 w-8 h-8 md:w-12 md:h-12 bg-black/80 backdrop-blur-md flex items-center justify-center clip-path-hexagon border transition-all duration-300 group-hover:scale-110"
+          className="relative z-10 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-black/80 backdrop-blur-md flex items-center justify-center clip-path-hexagon border transition-all duration-300 group-hover:scale-110"
           style={{
             borderColor: isHovered ? node.color : "rgba(255,255,255,0.2)",
             borderWidth: "1px",
@@ -207,7 +192,7 @@ const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile }) => {
           }}
         >
           <div
-            className="text-white transition-transform duration-300 group-hover:text-white [&>svg]:w-4 [&>svg]:h-4 md:[&>svg]:w-6 md:[&>svg]:h-6"
+            className="text-white transition-transform duration-300 group-hover:text-white [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6 lg:[&>svg]:w-8 lg:[&>svg]:h-8"
             style={{ color: isHovered ? "#fff" : node.color }}
           >
             {node.icon}
@@ -219,10 +204,10 @@ const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile }) => {
       <div
         className={`absolute top-full left-1/2 -translate-x-1/2 text-center transition-all duration-300 ${isHovered ? "opacity-100 translate-y-0" : "opacity-60 translate-y-2"}`}
       >
-        <div className="text-[14px] md:text-sm font-bold tracking-[0.2em] text-white font-mono whitespace-nowrap bg-black/50 px-1.5 py-0.5 md:px-2 md:py-1 rounded border border-white/10 backdrop-blur-sm">
+        <div className="text-[14px] lg:text-md font-bold tracking-[0.2em] text-white font-mono whitespace-nowrap bg-black/50 px-1.5 py-0.5 md:px-2 md:py-1 rounded border border-white/10 backdrop-blur-sm">
           {node.label}
         </div>
-        <div className="hidden md:block text-[8px] md:text-[10px] text-white tracking-widest uppercase mt-1 font-mono">
+        <div className="hidden md:block text-[8px] lg:text-[12px] text-white tracking-widest uppercase mt-1 font-mono">
           {node.sub}
         </div>
         <div className="absolute -top-2 md:-top-4 left-1/2 w-px h-2 md:h-4 bg-linear-to-b from-transparent to-white/20" />
@@ -368,7 +353,7 @@ export default function Navigation({ onNavigate }) {
       */}
       <div
         ref={mapRef}
-        className="relative w-full max-w-[95vw] md:max-w-5xl h-[70vh] md:h-auto md:aspect-video transform-style-3d will-change-transform"
+        className="relative w-full max-w-[95vw] md:max-w-7xl h-[80vh] md:h-auto md:aspect-video transform-style-3d will-change-transform"
       >
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
@@ -451,31 +436,41 @@ export default function Navigation({ onNavigate }) {
             onClick={() => handleNodeClick(node.location)}
           />
         ))}
-        <NavNode
-          key={accommodation.id}
-          node={accommodation}
-          isMobile={isMobile}
-          isHovered={hoveredNode === accommodation.id}
-          onHover={() => setHoveredNode(accommodation.id)}
-          onLeave={() => setHoveredNode(null)}
-          onClick={() => handleNodeClick(accommodation.location)}
-        />
       </div>
 
       {/* HUD Corners - Hidden on mobile to save space */}
       <div className="hidden md:block absolute bottom-8 left-8 w-32 h-32 border-l border-b border-blue-500/20 rounded-bl-3xl pointer-events-none" />
       <div className="hidden md:block absolute top-8 right-8 w-32 h-32 border-r border-t border-blue-500/20 rounded-tr-3xl pointer-events-none" />
       <div className="flex gap-2 absolute bottom-12 left-15">
-        <Link href={""} className="text-rose-500" target="_blank">
+        <Link href={"https://www.instagram.com/ingeniumxfluxus_iit_indore"} className="text-rose-500" target="_blank">
           <Instagram />
         </Link>
-        <Link href={""} className="text-sky-500" target="_blank">
+        <Link
+          href={"https://www.linkedin.com/company/fluxus---iit-indore/"}
+          className="text-sky-500"
+          target="_blank"
+        >
           <Linkedin />
         </Link>
-        <Link href={""} className="text-blue-500" target="_blank">
+        <Link
+          href={"https://x.com/fluxusiiti_"}
+          className="text-blue-500"
+          target="_blank"
+        >
+          <Twitter />
+        </Link>
+        <Link
+          href={"https://www.facebook.com/fluxusiiti/"}
+          className="text-blue-500"
+          target="_blank"
+        >
           <Facebook />
         </Link>
-        <Link href={""} className="text-red-500" target="_blank">
+        <Link
+          href={"https://www.youtube.com/@fluxusiitindore"}
+          className="text-red-500"
+          target="_blank"
+        >
           <Youtube />
         </Link>
       </div>
