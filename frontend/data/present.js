@@ -175,7 +175,7 @@ export const cult_competitions = [
     name: "Poetry Slam",
     tag: "Oratory",
     folder: "poetry-slam",
-    color: "amber",
+    color: "violet",
     prize_pool: "₹12,000",
   },
   {
@@ -199,7 +199,7 @@ export const cult_competitions = [
     name: "Mono Act",
     tag: "Drama",
     folder: "mono-act",
-    color: "orange",
+    color: "red",
     prize_pool: "₹25,000",
   },
   {
@@ -265,5 +265,13 @@ export const cult_competitions = [
     folder: "dance",
     color: "green",
     prize_pool: "₹40,000",
+  },
+  {
+    id: "poetry",
+    name: "Udgaar",
+    tag: "poetry",
+    folder: "udgaar",
+    color: "red",
+    prize_pool: "₹12,000",
   },
 ];
