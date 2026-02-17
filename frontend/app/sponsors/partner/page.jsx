@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { PageTransitionWrapper } from "@/components/chronoverse";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Simple corner accent component
 const TechCorner = ({ className, color = "text-violet-500" }) => (
@@ -21,28 +22,19 @@ const TechCorner = ({ className, color = "text-violet-500" }) => (
   </svg>
 );
 
-// Scanning line animation
 const ScannerLine = () => (
   <div className="absolute top-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-violet-500 to-transparent opacity-50 animate-scan-fast pointer-events-none" />
 );
 
 export default function PartnerPage() {
-  const [formData, setFormData] = useState({
-    orgName: "",
-    contactPerson: "",
-    email: "",
-    tier: "Silver",
-    message: "",
-  });
+  const [copied, setCopied] = useState(false);
+  const email = "pr.ingenium@iiti.ac.in";
+  const router = useRouter();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Transmission Received. We will establish a secure channel shortly.");
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
@@ -54,12 +46,11 @@ export default function PartnerPage() {
           <div className="absolute bottom-0 right-0 w-150 h-150 bg-blue-900/10 blur-[100px] rounded-full" />
         </div>
 
-        {/* Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
           {/* Header */}
           <div className="text-center mb-16 relative">
             <div className="max-w-7xl mx-auto mb-8 md:mb-12 flex justify-between items-center border-b border-violet-500/20 pb-4">
-              <Link href="/?state=navigation">
+              <button onClick={() => router.back()}>
                 <button className="group flex items-center gap-2 md:gap-3 text-violet-400/80 hover:text-violet-300 transition-colors uppercase text-[12px] md:text-sm tracking-[0.2em]">
                   <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border border-violet-500/30 flex items-center justify-center group-hover:bg-violet-500/10 transition-all">
                     <svg
@@ -76,12 +67,9 @@ export default function PartnerPage() {
                       />
                     </svg>
                   </div>
-                  <span>
-                    <span className="hidden sm:inline">Return to </span>
-                    SPONSORS
-                  </span>
+                  <span>RETURN TO SPONSORS</span>
                 </button>
-              </Link>
+              </button>
             </div>
 
             <span className="inline-block py-1 px-3 border border-violet-500/30 rounded-full text-[10px] font-mono text-violet-400 mb-6 bg-violet-500/5 backdrop-blur-sm">
@@ -94,14 +82,13 @@ export default function PartnerPage() {
               </span>
             </h1>
             <p className="text-lg text-violet-200/60 max-w-2xl mx-auto leading-relaxed">
-              Partner with Ingenium to shape the timeline. Gain access to
-              cutting-edge research, global talent networks, and direct
-              influence on the next century of innovation.
+              Partner with Ingenium to shape the timeline. Connect with us via
+              our secure terminal to initiate a formal proposal.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column: Benefits Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column: Benefits */}
             <div className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
@@ -128,26 +115,21 @@ export default function PartnerPage() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="group relative p-6 bg-white/5 border border-white/10 hover:border-violet-500/50 transition-all duration-300 backdrop-blur-sm overflow-hidden"
+                    className="group relative p-6 bg-white/5 border border-white/10 hover:border-violet-500/50 transition-all backdrop-blur-sm"
                   >
-                    <div className="absolute inset-0 bg-violet-500/0 group-hover:bg-violet-500/5 transition-colors" />
-                    <div className="text-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-violet-300 transition-colors">
+                    <div className="text-2xl mb-4">{item.icon}</div>
+                    <h3 className="text-lg font-bold text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-violet-200/50 leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <p className="text-sm text-violet-200/50">{item.desc}</p>
                   </div>
                 ))}
               </div>
 
-              {/* Stylized Quote */}
               <div className="relative p-8 border-l-2 border-violet-500/50 bg-linear-to-r from-violet-500/10 to-transparent">
                 <p className="text-xl font-light italic text-violet-100/80 mb-4">
-                  "Partnering today to empower the innovators of tomorrow."
+                  "The future isn't written; it's built through strategic
+                  collaboration."
                 </p>
                 <span className="font-mono text-sm text-violet-400 uppercase tracking-widest">
                   — IIT INDORE
@@ -155,123 +137,72 @@ export default function PartnerPage() {
               </div>
             </div>
 
-            {/* Right Column: High-Tech Form */}
+            {/* Right Column: Copy-to-Clipboard Terminal */}
             <div className="relative">
-              {/* Form Container */}
-              <div className="relative bg-black/40 border border-violet-500/30 backdrop-blur-md p-1">
+              <div className="relative bg-black/60 border border-violet-500/30 backdrop-blur-xl p-1">
                 <TechCorner className="top-0 left-0 -translate-x-1 -translate-y-1" />
                 <TechCorner className="top-0 right-0 translate-x-1 -translate-y-1 rotate-90" />
                 <TechCorner className="bottom-0 left-0 -translate-x-1 translate-y-1 -rotate-90" />
                 <TechCorner className="bottom-0 right-0 translate-x-1 translate-y-1 rotate-180" />
 
-                <div className="p-8">
+                <div className="p-10 text-center">
                   <ScannerLine />
-                  <h3 className="text-2xl font-bold text-white mb-1 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-violet-500 rounded-full animate-pulse" />
-                    Initiate Partnership
-                  </h3>
-                  <p className="text-sm font-mono text-violet-400/60 mb-8 border-b border-violet-500/20 pb-4">
-                    SECURE_TRANSMISSION_CHANNEL_V8.4
-                  </p>
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold text-white mb-2 tracking-widest uppercase">
+                      Direct Uplink
+                    </h3>
+                    <p className="text-xs font-mono text-violet-400/60 uppercase tracking-tighter">
+                      Manual data transfer required for current clearance level
+                    </p>
+                  </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="space-y-1">
-                      <label className="text-sm font-mono text-violet-300 uppercase tracking-wider block">
-                        Organization Name
-                      </label>
-                      <input
-                        type="text"
-                        name="orgName"
-                        value={formData.orgName}
-                        onChange={handleChange}
-                        className="w-full bg-violet-900/10 border border-violet-500/20 text-white px-4 py-3 focus:outline-none focus:border-violet-500 focus:bg-violet-900/20 transition-all font-sans placeholder-violet-500/20"
-                        placeholder="e.g. Cyberdyne Systems"
-                        required
-                      />
-                    </div>
+                  <div
+                    className="relative group cursor-pointer mb-8"
+                    onClick={handleCopy}
+                  >
+                    <div className="absolute inset-0 bg-violet-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative bg-violet-950/30 border border-violet-500/40 p-6 rounded-sm transition-all group-hover:border-violet-400">
+                      <p className="text-sm font-mono text-violet-400 mb-2 uppercase tracking-widest">
+                        Target Address
+                      </p>
+                      <p className="text-xl md:text-2xl font-bold text-white font-mono break-all group-hover:text-violet-200">
+                        {email}
+                      </p>
 
-                    <div className="grid grid-cols-2 gap-6">
-                      <div className="space-y-1">
-                        <label className="text-sm font-mono text-violet-300 uppercase tracking-wider block">
-                          Contact Person
-                        </label>
-                        <input
-                          type="text"
-                          name="contactPerson"
-                          value={formData.contactPerson}
-                          onChange={handleChange}
-                          className="w-full bg-violet-900/10 border border-violet-500/20 text-white px-4 py-3 focus:outline-none focus:border-violet-500 focus:bg-violet-900/20 transition-all"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <label className="text-sm font-mono text-violet-300 uppercase tracking-wider block">
-                          Email Frequency
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full bg-violet-900/10 border border-violet-500/20 text-white px-4 py-3 focus:outline-none focus:border-violet-500 focus:bg-violet-900/20 transition-all"
-                          placeholder="name@org.com"
-                          required
-                        />
+                      {/* Floating Tooltip inside the box */}
+                      <div
+                        className={`mt-4 text-xs font-mono transition-all duration-300 ${copied ? "text-green-400 opacity-100" : "text-violet-400/40 opacity-100"}`}
+                      >
+                        {copied
+                          ? "[ SYSTEM: ADDRESS COPIED TO CLIPBOARD ]"
+                          : "[ CLICK TO COPY TO CLIPBOARD ]"}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="space-y-1">
-                      <label className="text-sm font-mono text-violet-300 uppercase tracking-wider block">
-                        Partnership Tier Interest
-                      </label>
-                      <div className="grid grid-cols-3 gap-2">
-                        {["Gold", "Silver", "Bronze"].map((tier) => (
-                          <button
-                            key={tier}
-                            type="button"
-                            onClick={() =>
-                              setFormData((prev) => ({ ...prev, tier }))
-                            }
-                            className={`py-2 text-sm border transition-all ${
-                              formData.tier === tier
-                                ? "bg-violet-600 border-violet-600 text-white shadow-[0_0_10px_rgba(139,92,246,0.3)]"
-                                : "bg-transparent border-violet-500/20 text-violet-400 hover:border-violet-500/50"
-                            }`}
-                          >
-                            {tier.toUpperCase()}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-1">
-                      <label className="text-sm font-mono text-violet-300 uppercase tracking-wider block">
-                        Message Payload
-                      </label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={4}
-                        className="w-full bg-violet-900/10 border border-violet-500/20 text-white px-4 py-3 focus:outline-none focus:border-violet-500 focus:bg-violet-900/20 transition-all resize-none"
-                        placeholder="Describe your proposed alliance parameters..."
-                      />
-                    </div>
-
+                  <div className="flex flex-col gap-4">
                     <button
-                      type="submit"
-                      className="w-full py-4 bg-white text-black font-bold tracking-widest uppercase text-sm hover:bg-violet-200 transition-colors relative overflow-hidden group"
+                      onClick={handleCopy}
+                      className="w-full py-4 bg-violet-600 text-white font-bold tracking-[0.2em] uppercase text-sm hover:bg-violet-500 transition-all relative overflow-hidden group active:scale-[0.98]"
                     >
-                      <span className="relative z-10">Transmit Proposal</span>
-                      <div className="absolute inset-0 bg-violet-500 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 opacity-20" />
+                      <span className="relative z-10">
+                        {copied ? "Copied!" : "Copy Email ID"}
+                      </span>
                     </button>
-                  </form>
-                </div>
-              </div>
 
-              {/* Decorative background grid behind form */}
-              <div className="absolute -z-10 -right-4 -bottom-4 w-full h-full border border-violet-500/10 flex items-center justify-center">
-                <div className="w-[90%] h-[90%] border border-dashed border-violet-500/10" />
+                    <a
+                      href={`mailto:${email}`}
+                      className="w-full py-4 border border-violet-500/30 text-violet-300 font-bold tracking-[0.2em] uppercase text-sm hover:bg-violet-500/10 transition-all"
+                    >
+                      Open Mail Client
+                    </a>
+                  </div>
+
+                  <p className="mt-8 text-[10px] font-mono text-violet-500/40 leading-tight uppercase">
+                    Encryption: AES-256 // Protocol: SMTP.DIRECT <br />
+                    Status: Awaiting Partnership Signal
+                  </p>
+                </div>
               </div>
             </div>
           </div>
