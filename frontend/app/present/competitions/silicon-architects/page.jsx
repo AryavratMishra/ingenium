@@ -29,7 +29,7 @@ export default function SiliconArchitectsPage() {
         sub: "Digital Design, Computer Architecture, and FPGA Prototyping",
         icon: <Cpu className="w-6 h-6" />,
         href: "/PS/Silicon_Architects.pdf",
-        fee: "350",
+        fee: "600",
         teamSize: "2-4 People",
         objective:
             "Bridge the gap between theoretical digital logic and physical FPGA implementation, optimizing designs for speed, power, and area.",
@@ -139,7 +139,7 @@ export default function SiliconArchitectsPage() {
                             </div>
                             <div className="flex items-center justify-between text-[12px] uppercase font-bold">
                                 <span className="text-amber-500/60 flex items-center gap-2">
-                                    <CreditCard className="w-4 h-4" /> Registration Fee
+                                    <CreditCard className="w-4 h-4" /> Base Fee
                                 </span>
                                 <span className="text-white">₹{competition.fee}</span>
                             </div>

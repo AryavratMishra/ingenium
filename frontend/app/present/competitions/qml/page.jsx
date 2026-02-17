@@ -10,7 +10,6 @@ import {
   Trophy,
   Layers,
   Activity,
-  Share2,
   ChevronLeft,
   Terminal,
   Target,
@@ -20,6 +19,9 @@ import {
   AlertCircle,
   Clock,
   ExternalLink,
+  Users,
+  CreditCard,
+  Layers3,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -28,7 +30,6 @@ export default function QuantumHackathonPS() {
   const [activeLayer, setActiveLayer] = useState(0);
   const router = useRouter();
 
-  // Integrated Pipeline Stages
   const pipelineStages = [
     {
       id: 1,
@@ -36,10 +37,10 @@ export default function QuantumHackathonPS() {
       sub: "Superposition Encoding",
       icon: <Cpu className="w-5 h-5" />,
       context:
-        "Design quantum circuits where qubit connectivity and state preparation encode 'territorial' information into the quantum system.",
+        "Design quantum circuits where qubit connectivity and state preparation encode 'territorial' or spatial information into the quantum system.",
       technical: [
         "Define input-output pipelines for map data.",
-        "Implement state preparation logic for spatial info.",
+        "Implement state preparation logic for territorial info.",
         "Innovate on encoding strategies beyond original research.",
         "Synthesize hardware-ready circuits using Qiskit.",
       ],
@@ -50,9 +51,9 @@ export default function QuantumHackathonPS() {
       sub: "Probabilistic Outcomes",
       icon: <Activity className="w-5 h-5" />,
       context:
-        "Execute the circuits to obtain probabilistic measurement statistics that represent the generative landscape.",
+        "Execute the designed circuits to obtain probabilistic measurement outcomes that represent the generative landscape.",
       technical: [
-        "Obtain measurement outcomes from quantum systems.",
+        "Obtain measurement statistics from quantum systems.",
         "Analyze probabilistic distributions as spatial data.",
         "Iterate on circuit structure for non-repetitive terrains.",
         "Minimize noise/decoherence during state measurement.",
@@ -64,7 +65,7 @@ export default function QuantumHackathonPS() {
       sub: "Procedural Synthesis",
       icon: <Layers className="w-5 h-5" />,
       context:
-        "Map the quantum measurement statistics onto a classical 2D grid to visualize a coherent map structure.",
+        "Map the quantum measurement statistics onto a classical 2D grid to visualize coherent map structures.",
       technical: [
         "Apply classical post-processing algorithms.",
         "Translate statistics to 2D territorial data.",
@@ -112,7 +113,9 @@ export default function QuantumHackathonPS() {
             />
             <HeaderNode icon={<Globe />} label="Mode" value="Online" />
             <button
-              onClick={() => router.push(`/present/registration?competition=qml`)}
+              onClick={() =>
+                router.push(`/present/registration?competition=qml`)
+              }
               className="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-4 rounded-lg font-black text-xs uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] active:scale-95 border-b-4 border-cyan-700"
             >
               Register_Now
@@ -128,25 +131,64 @@ export default function QuantumHackathonPS() {
               <h3 className="text-[14px] text-cyan-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <Target className="w-4 h-4" /> Operational_Brief
               </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                Bridge the gap between theoretical knowledge and practical
-                implementation. Targeting{" "}
-                <span className="text-cyan-400 font-bold">UG/PG Students</span>{" "}
-                to explore probabilistic outcomes over traditional classical
-                methods in game development.
-              </p>
+              <div className="space-y-4">
+                <p className="text-sm leading-relaxed text-gray-300">
+                  Bridge the gap between theoretical knowledge and practical
+                  implementation. Targeting{" "}
+                  <span className="text-cyan-400 font-bold">
+                    UG/PG Students
+                  </span>
+                  to explore probabilistic outcomes over traditional classical
+                  methods.
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+                    <Users className="w-4 h-4 text-cyan-500 mb-1" />
+                    <p className="text-[12px] text-gray-500 uppercase">
+                      Format
+                    </p>
+                    <p className="text-[13px] text-white font-bold">
+                      Team (2-4)
+                    </p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+                    <CreditCard className="w-4 h-4 text-cyan-500 mb-1" />
+                    <p className="text-[12px] text-gray-500 uppercase">
+                      Base Fee
+                    </p>
+                    <p className="text-[13px] text-white font-bold">₹350</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Event Structure */}
+            {/* Event Structure & Rounds */}
             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
-              <h3 className="text-[14px] text-cyan-500 uppercase tracking-widest mb-4">
-                Phase_Cycle
-              </h3>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-[14px] text-cyan-500 uppercase tracking-widest">
+                  Phase_Cycle
+                </h3>
+                <div className="flex items-center gap-1 bg-cyan-500/20 px-2 py-0.5 rounded border border-cyan-500/30">
+                  <Layers3 className="w-3 h-3 text-cyan-400" />
+                  <span className="text-[12px] text-cyan-300 font-bold">
+                    1 ROUND
+                  </span>
+                </div>
+              </div>
               <div className="space-y-4 mb-4">
                 {[
-                  { p: "Phase 1", d: "Registration & PS Release" },
-                  { p: "Phase 2", d: "Development & Implementation" },
-                  { p: "Phase 3", d: "Final Submission & Evaluation" },
+                  {
+                    p: "Phase 1",
+                    d: "Registration & PS Release",
+                  },
+                  {
+                    p: "Phase 2",
+                    d: "Development & Implementation",
+                  },
+                  {
+                    p: "Phase 3",
+                    d: "Final Submission & Evaluation",
+                  },
                 ].map((phase, i) => (
                   <div key={i} className="flex gap-4 items-center">
                     <div className="w-2 h-2 rounded-full bg-cyan-500" />
@@ -154,7 +196,7 @@ export default function QuantumHackathonPS() {
                       <p className="text-[12px] font-bold text-white uppercase">
                         {phase.p}
                       </p>
-                      <p className="text-[11px] text-gray-500 uppercase">
+                      <p className="text-[13px] text-gray-500 uppercase">
                         {phase.d}
                       </p>
                     </div>
@@ -165,8 +207,9 @@ export default function QuantumHackathonPS() {
                 href={"/PS/QML_track.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-[13px] text-cyan-400 hover:text-white transition-colors flex items-center gap-1"
               >
-                View Rules
+                View Rules & Compliances <ExternalLink className="w-3 h-3" />
               </Link>
             </div>
 
@@ -176,14 +219,14 @@ export default function QuantumHackathonPS() {
                 <Dna className="w-3 h-3" /> Research_Anchor
               </h4>
               <p className="text-[14px] leading-relaxed text-gray-400 italic mb-2">
-                "A Quantum Procedure for Map Generation".
+                "A Quantum Procedure for Map Generation"
               </p>
               <a
                 href="https://arxiv.org/abs/2005.10327"
                 target="_blank"
-                className="text-[11px] text-cyan-600 flex items-center gap-1 hover:text-cyan-400 transition-colors"
+                className="text-[13px] text-cyan-600 flex items-center gap-1 hover:text-cyan-400 transition-colors font-bold"
               >
-                VIEW SOURCE <ExternalLink className="w-2 h-2" />
+                ARXIV SOURCE [2005.10327] <ExternalLink className="w-2 h-2" />
               </a>
             </div>
           </div>
@@ -226,7 +269,7 @@ export default function QuantumHackathonPS() {
                       <div className="text-cyan-500 text-[12px] font-bold mt-0.5">
                         [0{i + 1}]
                       </div>
-                      <span className="text-[13px] leading-relaxed text-gray-300 group-hover:text-white transition-colors">
+                      <span className="text-[14px] leading-relaxed text-gray-300 group-hover:text-white transition-colors">
                         {item}
                       </span>
                     </div>
@@ -256,10 +299,22 @@ export default function QuantumHackathonPS() {
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    { l: "Technical Depth", d: "Encoding & circuit design" },
-                    { l: "Visualization", d: "Map clarity & coherence" },
-                    { l: "Innovation", d: "Creativity beyond baseline" },
-                    { l: "Explanation", d: "Clarity of design choices" },
+                    {
+                      l: "Technical Depth",
+                      d: "Encoding & circuit design",
+                    },
+                    {
+                      l: "Visualization",
+                      d: "Map clarity & coherence",
+                    },
+                    {
+                      l: "Innovation",
+                      d: "Creativity beyond baseline",
+                    },
+                    {
+                      l: "Explanation",
+                      d: "Clarity of design choices",
+                    },
                   ].map((item, i) => (
                     <li
                       key={i}
@@ -268,7 +323,7 @@ export default function QuantumHackathonPS() {
                       <span className="text-[12px] font-bold text-cyan-400 uppercase">
                         {item.l}
                       </span>
-                      <span className="text-[11px] text-gray-500 uppercase">
+                      <span className="text-[13px] text-gray-500 uppercase">
                         {item.d}
                       </span>
                     </li>
@@ -291,8 +346,8 @@ export default function QuantumHackathonPS() {
                     <PrizeTier rank="3rd" amount="3,000" />
                   </div>
                   <div className="flex justify-between items-center py-2 border-t border-cyan-500/30">
-                    <span className="text-[12px] text-gray-400 uppercase">
-                      Total Pool
+                    <span className="text-[12px] text-gray-400 uppercase font-bold">
+                      Total Prize Pool
                     </span>
                     <span className="text-xl font-black text-white italic">
                       ₹15,000
@@ -300,7 +355,7 @@ export default function QuantumHackathonPS() {
                   </div>
                   <div className="flex items-start gap-2 bg-black/40 p-3 rounded-lg border border-red-500/20">
                     <AlertCircle className="w-3 h-3 text-red-400 shrink-0 mt-0.5" />
-                    <p className="text-[10px] text-red-200 tracking-wider uppercase">
+                    <p className="text-[12px] text-red-200 tracking-wider uppercase leading-tight">
                       Rules subject to change at organizer's discretion. Stable
                       internet connectivity required.
                     </p>
@@ -324,7 +379,7 @@ function HeaderNode({ icon, label, value }) {
         {icon}
       </div>
       <div>
-        <span className="text-[10px] text-gray-500 uppercase block mb-0.5 tracking-widest font-bold">
+        <span className="text-[12px] text-gray-500 uppercase block mb-0.5 tracking-widest font-bold">
           {label}
         </span>
         <span className="text-[12px] font-bold text-white tracking-wide uppercase">
@@ -338,7 +393,7 @@ function HeaderNode({ icon, label, value }) {
 function PrizeTier({ rank, amount }) {
   return (
     <div className="bg-black/20 p-2 rounded border border-white/5">
-      <p className="text-[10px] text-cyan-500 uppercase font-bold">{rank}</p>
+      <p className="text-[12px] text-cyan-500 uppercase font-bold">{rank}</p>
       <p className="text-md font-black text-white italic">₹{amount}</p>
     </div>
   );

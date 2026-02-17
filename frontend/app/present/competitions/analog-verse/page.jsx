@@ -139,7 +139,7 @@ export default function AnalogVersePage() {
                             </div>
                             <div className="flex items-center justify-between text-[12px] uppercase font-bold">
                                 <span className="text-amber-500/60 flex items-center gap-2">
-                                    <CreditCard className="w-4 h-4" /> Registration Fee
+                                    <CreditCard className="w-4 h-4" /> Base Fee
                                 </span>
                                 <span className="text-white">₹{competition.fee}</span>
                             </div>

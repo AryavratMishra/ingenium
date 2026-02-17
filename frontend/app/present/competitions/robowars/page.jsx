@@ -127,7 +127,7 @@ export default function RobowarsPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[12px] text-gray-500 uppercase font-bold">
-                    Entry Fee
+                    Base Fee
                   </span>
                   <span className="text-sm font-bold text-sky-500 uppercase flex items-center gap-2">
                     <CreditCard className="w-3 h-3" /> ₹{active.regFee}

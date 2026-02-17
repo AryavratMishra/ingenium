@@ -111,7 +111,7 @@ export default function PatientMonitorPage() {
                         />
                         <HeaderTag
                             icon={<Wallet size={14} />}
-                            label="Reg Fee"
+                            label="Base Fee"
                             value={`₹${medicalBrief.fee}`}
                         />
                         <HeaderTag

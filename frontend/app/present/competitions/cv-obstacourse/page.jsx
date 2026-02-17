@@ -184,7 +184,7 @@ export default function CVObstacoursePage() {
                                 <div className="flex items-center gap-3">
                                     <CreditCard className="w-5 h-5 text-blue-400" />
                                     <span className="text-xs uppercase text-blue-200">
-                                        Registration Fee
+                                        Base Fee
                                     </span>
                                 </div>
                                 <span className="text-lg font-black text-white">

@@ -34,7 +34,7 @@ export default function LineFollowerPage() {
         color: "sky",
         href: "/PS/Line_Follower.pdf",
         teamSize: "1 to 3 people",
-        regFee: "400",
+        regFee: "600",
         objective:
             "To design an autonomous robot that follows a predefined line track with high accuracy and stability.",
         philosophy:
@@ -131,7 +131,7 @@ export default function LineFollowerPage() {
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <span className="text-[12px] text-gray-500 uppercase font-bold">
-                                        Entry Fee
+                                        Base Fee
                                     </span>
                                     <span className="text-sm font-bold text-sky-500 uppercase flex items-center gap-2">
                                         <CreditCard className="w-3 h-3" /> ₹{active.regFee}

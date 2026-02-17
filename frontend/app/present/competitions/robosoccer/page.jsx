@@ -34,7 +34,7 @@ export default function RobosoccerPage() {
         color: "blue",
         href: "/PS/Robosoccer.pdf",
         teamSize: "2 to 4 people",
-        regFee: "500",
+        regFee: "600",
         objective:
             "To design a robot capable of detecting the ball, navigating efficiently, and scoring goals against an opposing team.",
         philosophy:
@@ -123,7 +123,7 @@ export default function RobosoccerPage() {
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <span className="text-[12px] text-gray-500 uppercase font-bold">
-                                        Entry Fee
+                                        Base Fee
                                     </span>
                                     <span className="text-sm font-bold text-sky-500 uppercase flex items-center gap-2">
                                         <CreditCard className="w-3 h-3" /> ₹{active.regFee}

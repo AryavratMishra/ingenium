@@ -93,8 +93,8 @@ export default function AeroAirtistryPS() {
                 />
                 <StatCard
                   icon={<Wallet className="w-4 h-4" />}
-                  label="Reg Fee"
-                  value="₹400"
+                  label="Base Fee"
+                  value="₹600"
                 />
               </div>
             </div>

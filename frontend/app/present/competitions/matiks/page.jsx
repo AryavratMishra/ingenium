@@ -37,7 +37,7 @@ export default function MatiksPS() {
         "Individual participation format.",
         "Target: School (8th+) & UG Students.",
         "Expected Footfall: 70-100 participants.",
-        "Registration Fee: ₹300.",
+        "Base Fee: ₹350.",
       ],
     },
     {
@@ -100,7 +100,7 @@ export default function MatiksPS() {
 
           <div className="mt-6 lg:mt-0 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <HeaderStat icon={<Globe />} label="Mode" value="Offline" />
-            <HeaderStat icon={<Wallet />} label="Fee" value="₹300" />
+            <HeaderStat icon={<Wallet />} label="Fee" value="₹350" />
             <HeaderStat icon={<Layers />} label="Phases" value="3 Total" />
           </div>
         </div>

@@ -17,8 +17,11 @@ import {
   Link as LinkIcon,
   Target,
   Rocket,
-  Scale,
   FileWarning,
+  Users2,
+  Trophy,
+  CreditCard,
+  Layers,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -35,10 +38,10 @@ export default function AnalyticXPS() {
       tagline: "ARCHITECTURAL INTEGRITY",
       task: "Construct a robust ETL pipeline to resolve entity resolution problems and handle the 'messy' reality of enterprise data.",
       details: [
-        "Transactional Logs (SQL): Resolve duplicate entries for re-ordered items and heterogeneous time zones.",
-        "Restaurant Metadata (JSON): Integrate geographic coordinates, kitchen prep times, and cuisine categories.",
-        "Courier Telemetry (CSV): Process high-frequency GPS pings to map to specific order cycles.",
-        "Entity Resolution: Synchronize timestamps drifting by up to 180 seconds to create a 'Golden Table'.",
+        "Transactional Logs (SQL): Resolve duplicate entries and inconsistent time zones.",
+        "Restaurant Metadata (JSON): Integrate coordinates, prep times, and cuisine categories.",
+        "Courier Telemetry (CSV): Process high-frequency GPS pings to map to order cycles.",
+        "Entity Resolution: Sync timestamps drifting by up to 180 seconds for a 'Golden Table'.",
       ],
     },
     {
@@ -46,12 +49,12 @@ export default function AnalyticXPS() {
       title: "Spatio-Temporal ETA",
       icon: <BarChart3 className="w-5 h-5" />,
       tagline: "HIGH-FIDELITY REGRESSION",
-      task: "Build a high-fidelity regression model to predict Total Delivery Duration beyond simple distance-over-speed logic.",
+      task: "Build a high-fidelity regression model to predict Total Delivery Duration beyond simple distance logic.",
       details: [
-        "Kitchen Lag: Calculate the exact difference between order placement and driver pickup time.",
-        "Travel Decay: Engineer features to capture the impact of peak-hour congestion.",
-        "External Context: Integrate Weather data and local environmental disruptions (Open-Meteo).",
-        "Success Metric: Minimize Mean Absolute Error (MAE) and reduce 'Extreme Lateness' (outliers > 2 SD).",
+        "Kitchen Lag: Calculate difference between order placement and driver pickup time.",
+        "Travel Decay: Engineer features to capture impact of peak-hour congestion.",
+        "External Context: Integrate Weather and local environmental disruptions.",
+        "Success Metric: Minimize Mean Absolute Error (MAE) and extreme lateness outliers.",
       ],
     },
     {
@@ -59,11 +62,11 @@ export default function AnalyticXPS() {
       title: "Linguistic Intelligence",
       icon: <MessageSquareCode className="w-5 h-5" />,
       tagline: "TOPIC MINING & CAUSALITY",
-      task: "Unlock insights from thousands of daily text reviews to identify service failure points.",
+      task: "Unlock insights from over 50,000 daily unstructured text reviews.",
       details: [
-        "Sentiment Classification: Categorize reviews into Satisfied, Neutral, and Dissatisfied tiers.",
-        "Topic Modeling: Use LDA or BERTopic to identify grievances like Cold Food, Missing Items, or Professionalism.",
-        "Causal Linkage: Quantify the relationship between ETA prediction error and 1-star review probability.",
+        "Sentiment Classification: Categorize reviews as Satisfied, Neutral, or Dissatisfied.",
+        "Topic Modeling: Use LDA/BERTopic to identify grievances like Cold Food or Missing Items.",
+        "Causal Linkage: Quantify relationship between ETA error and 1-star review probability.",
       ],
     },
     {
@@ -73,8 +76,8 @@ export default function AnalyticXPS() {
       tagline: "PREDICTIVE RETENTION",
       task: "Build a binary classification model to identify users at risk of leaving the platform.",
       details: [
-        "Feature Set: Analyze historical lateness, negative review topics, and 90-day frequency shifts.",
-        "Primary Constraint: Prioritize Recall to ensure at-risk users are not missed by the system.",
+        "Feature Set: Analyze historical lateness and 90-day behavior shifts.",
+        "Recall Priority: Ensure at-risk customers are not missed by the model.",
         "Explainability: Use SHAP or LIME to justify and explain specific churn predictions.",
       ],
     },
@@ -83,11 +86,11 @@ export default function AnalyticXPS() {
       title: "Economic Optimization",
       icon: <TrendingUp className="w-5 h-5" />,
       tagline: "DYNAMIC SURGE LOGIC",
-      task: "Transition from prediction to prescription by designing a Dynamic Surge Pricing Algorithm.",
+      task: "Design a Prescriptive Dynamic Surge Pricing Algorithm to balance the network.",
       details: [
-        "Network Balancing: Design a surge algorithm to balance platform demand and supply.",
-        "Revenue Optimization: Utilize Price Elasticity of Demand to maximize total platform revenue.",
-        "Churn Guardrail: Ensure churn propensity does not increase by more than 2% for any user segment.",
+        "Dynamic Surge: Balance demand and supply during peak windows.",
+        "Price Elasticity: Maximize platform revenue through demand-sensitive pricing.",
+        "Retention Guardrail: Ensure churn propensity does not increase by >2% per segment.",
       ],
     },
   ];
@@ -95,7 +98,7 @@ export default function AnalyticXPS() {
   return (
     <div className="relative min-h-screen text-cyan-100 font-mono p-4 md:p-8 bg-black/30">
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* --- HEADER --- */}
+        {/* --- TOP HUD --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-cyan-500/30 pb-8">
           <div>
             <button
@@ -104,60 +107,66 @@ export default function AnalyticXPS() {
             >
               <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span className="text-[12px] font-bold tracking-[0.4em] uppercase">
-                Return to Competitions
+                Return to Mission Control
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white">
               ANALYTIC<span className="text-cyan-500">X</span>
             </h1>
             <p className="text-cyan-500/60 text-sm mt-2 tracking-widest uppercase flex items-center gap-2">
-              <Globe className="w-3 h-3" /> Global Gourmet Operational Challenge
+              <Globe className="w-3 h-3" /> Global Gourmet Case Study Challenge
             </p>
           </div>
-          <div className="mt-6 md:mt-0">
+          <div className="mt-6 md:mt-0 flex flex-col items-end gap-3">
+            <div className="text-right">
+              <p className="text-[12px] text-cyan-500/50 uppercase tracking-widest">
+                Organized By
+              </p>
+              <p className="text-xl font-black text-white">CFA</p>
+            </div>
             <button
               onClick={() =>
                 router.push(`/present/registration?competition=analytic_x`)
               }
               className="px-8 py-4 bg-cyan-500 text-black font-black text-sm rounded-sm -skew-x-12 hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center gap-2"
             >
-              <Rocket className="w-4 h-4" /> REGISTER_NOW
+              <Rocket className="w-4 h-4" /> REGISTER_TASKFORCE
             </button>
           </div>
         </div>
 
-        {/* --- MISSION BRIEF & COMPLIANCE --- */}
+        {/* --- MISSION BRIEF & STATS --- */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <div className="lg:col-span-2 p-6 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 backdrop-blur-md relative overflow-hidden">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 italic">
               <Cpu className="w-5 h-5 text-cyan-500" /> MISSION_OVERVIEW
             </h3>
             <p className="text-sm leading-relaxed text-cyan-100/70">
-              Global Gourmet is a multi-billion-dollar food-tech aggregator
-              facing efficiencies in last-mile delivery. As the Lead Data
-              Science Taskforce, your mission is to design a multi-stage
-              predictive system integrating logistics, NLP, and economics to
-              stabilize platform growth.
+              Global Gourmet, a multi-billion-dollar food-tech aggregator,
+              requires a multi-stage predictive system. Your mission: stabilize
+              growth by solving last-mile delivery inefficiencies.
             </p>
-            <div className="mt-6 flex gap-4 overflow-x-auto pb-2">
-              <div className="bg-black/40 p-3 border-l-2 border-red-500 min-w-35">
-                <div className="text-[11px] text-red-400 uppercase font-bold">
-                  Churn Risk
-                </div>
-                <div className="text-sm text-white">Critical Retention</div>
-              </div>
-              <div className="bg-black/40 p-3 border-l-2 border-cyan-500 min-w-35">
-                <div className="text-[11px] text-cyan-400 uppercase font-bold">
-                  Data Lake
-                </div>
-                <div className="text-sm text-white">Heterogeneous</div>
-              </div>
-              <div className="bg-black/40 p-3 border-l-2 border-yellow-500 min-w-35">
-                <div className="text-[11px] text-yellow-400 uppercase font-bold">
-                  Mode
-                </div>
-                <div className="text-sm text-white">Online</div>
-              </div>
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <StatCard
+                icon={<Layers className="w-4 h-4" />}
+                label="Rounds"
+                value="1"
+              />
+              <StatCard
+                icon={<Users2 className="w-4 h-4" />}
+                label="Format"
+                value="Team (1-2)"
+              />
+              <StatCard
+                icon={<Globe className="w-4 h-4" />}
+                label="Mode"
+                value="Online"
+              />
+              <StatCard
+                icon={<CreditCard className="w-4 h-4" />}
+                label="Base Fee"
+                value="₹350"
+              />
             </div>
           </div>
 
@@ -166,25 +175,25 @@ export default function AnalyticXPS() {
               <FileWarning className="w-3 h-3" /> RULES_&_COMPLIANCE
             </h4>
             <ul className="text-[12px] space-y-2 text-red-100/60 uppercase mb-4">
-              <li className="flex gap-2">
-                <Zap className="w-2 h-2 mt-1 shrink-0" /> Rule changes are
-                subject to organizer discretion.
+              <li>
+                <Zap className="inline w-2 h-2 mr-2" /> Rules subject to
+                organizer discretion.
               </li>
-              <li className="flex gap-2">
-                <Zap className="w-2 h-2 mt-1 shrink-0" /> Decisions in
-                eligibility and judgment are final.
+              <li>
+                <Zap className="inline w-2 h-2 mr-2" /> 50,000+ daily reviews to
+                be processed.
               </li>
-              <li className="flex gap-2">
-                <Zap className="w-2 h-2 mt-1 shrink-0" /> Adhere strictly to
-                format requirements.
+              <li>
+                <Zap className="inline w-2 h-2 mr-2" /> Adhere strictly to
+                format.
               </li>
             </ul>
             <Link
               href={"/PS/AnalyticX.pdf"}
               target="_blank"
-              rel="noopener noreferrer"
+              className="mt-auto text-center py-2 border border-red-500/40 text-red-400 hover:bg-red-500/10 transition-all text-[13px] font-bold tracking-widest uppercase"
             >
-              View Rules
+              DOWNLOAD_FULL_BRIEF
             </Link>
           </div>
         </div>
@@ -193,7 +202,7 @@ export default function AnalyticXPS() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-4 space-y-3">
             <h3 className="text-[12px] text-cyan-500/50 uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
-              <Activity className="w-3 h-3" /> PROBLEM_STAGES
+              <Activity className="w-3 h-3" /> TECHNICAL_PHASES
             </h3>
             {phases.map((phase, idx) => (
               <button
@@ -240,9 +249,14 @@ export default function AnalyticXPS() {
                     <div className="p-4 bg-cyan-500/20 rounded-full text-cyan-400 ring-1 ring-cyan-500/50">
                       {phases[activePhase].icon}
                     </div>
-                    <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
-                      Phase_{phases[activePhase].id}
-                    </h2>
+                    <div>
+                      <h2 className="text-3xl font-black uppercase tracking-tighter text-white">
+                        Phase_{phases[activePhase].id}
+                      </h2>
+                      <p className="text-[12px] text-cyan-500 tracking-[0.2em]">
+                        {phases[activePhase].tagline}
+                      </p>
+                    </div>
                   </div>
                   <div className="text-right">
                     <div className="text-[12px] text-gray-500 uppercase">
@@ -259,7 +273,7 @@ export default function AnalyticXPS() {
                 </div>
 
                 <div className="mb-8 p-6 bg-cyan-950/30 border-r-4 border-cyan-500 rounded-lg">
-                  <p className="text-sm text-cyan-100/90 leading-relaxed italic">
+                  <p className="text-md text-cyan-100/90 leading-relaxed italic">
                     {phases[activePhase].task}
                   </p>
                 </div>
@@ -268,7 +282,7 @@ export default function AnalyticXPS() {
                   {phases[activePhase].details.map((detail, i) => (
                     <div
                       key={i}
-                      className="group flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-lg text-[14px] leading-relaxed text-gray-400"
+                      className="group flex items-start gap-3 p-4 bg-white/5 border border-white/5 rounded-lg text-[14px] leading-relaxed text-gray-400 hover:border-cyan-500/30 transition-all"
                     >
                       <Zap className="w-3 h-3 text-cyan-500 shrink-0 mt-1" />
                       {detail}
@@ -284,13 +298,13 @@ export default function AnalyticXPS() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           <div className="p-6 bg-black/40 border border-white/10 rounded-2xl">
             <h4 className="text-[12px] text-cyan-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-              <Activity className="w-3 h-3" /> Evaluation_Scorecard
+              <Activity className="w-3 h-3" /> EVALUATION_WEIGHTS
             </h4>
             <div className="space-y-5">
               <ScoreBar
                 label="ETL Resilience"
                 percent={20}
-                desc="Cleaning & Join Logic"
+                desc="Cleaning & Entity Resolution"
               />
               <ScoreBar
                 label="Predictive Accuracy"
@@ -312,11 +326,11 @@ export default function AnalyticXPS() {
 
           <div className="p-6 bg-black/40 border border-white/10 rounded-2xl">
             <h4 className="text-[12px] text-cyan-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-              <LinkIcon className="w-3 h-3" /> REFERENCE_DATASETS
+              <LinkIcon className="w-3 h-3" /> REFERENCE_DATA
             </h4>
             <div className="space-y-4">
               <DatasetLink
-                name="Yelp Core (NLP)"
+                name="Yelp Core (Reviews)"
                 url="https://yelp.com/dataset"
               />
               <DatasetLink
@@ -327,29 +341,28 @@ export default function AnalyticXPS() {
                 name="Open-Meteo (Weather)"
                 url="https://open-meteo.com/"
               />
-              <p className="text-[11px] text-cyan-500/40 leading-tight italic mt-2">
-                Note: Greater complexity and creative data sourcing are
-                encouraged for higher scores.
+              <p className="text-[13px] text-cyan-500/40 leading-tight italic mt-2">
+                Note: Creativity in data sourcing is highly rewarded.
               </p>
             </div>
           </div>
 
           <div className="p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.1)]">
             <h4 className="text-[12px] text-cyan-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-              <ShieldCheck className="w-3 h-3" /> COMPETITION_BOUNTY
+              <Trophy className="w-3 h-3" /> MISSION_BOUNTY
             </h4>
             <div className="grid grid-cols-3 gap-2 mb-8">
-              <PrizeItem rank="1ST" amount="7,000" />
-              <PrizeItem rank="2ND" amount="5,000" />
-              <PrizeItem rank="3RD" amount="3,000" />
+              <PrizeItem rank="1ST" amount="5,000" />
+              <PrizeItem rank="2ND" amount="3,000" />
+              <PrizeItem rank="3RD" amount="2,000" />
             </div>
             <div className="pt-6 border-t border-cyan-500/20">
               <div className="flex justify-between items-center">
                 <span className="text-[12px] text-cyan-500/60 uppercase">
-                  Total_Allocation
+                  Total_Pool
                 </span>
                 <span className="text-3xl font-black text-white tracking-tighter">
-                  ₹15,000
+                  ₹10,000
                 </span>
               </div>
               <button
@@ -358,7 +371,7 @@ export default function AnalyticXPS() {
                 }
                 className="mt-4 w-full py-3 bg-cyan-500 text-black font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all"
               >
-                APPLY_FOR_BOUNTY
+                INITIATE_DEPLOYMENT
               </button>
             </div>
           </div>
@@ -369,6 +382,18 @@ export default function AnalyticXPS() {
 }
 
 // --- HELPER COMPONENTS ---
+
+function StatCard({ icon, label, value }) {
+  return (
+    <div className="bg-black/40 p-3 border border-white/10 rounded-lg">
+      <div className="flex items-center gap-2 text-cyan-500 mb-1">
+        {icon}
+        <span className="text-[9px] uppercase tracking-tighter">{label}</span>
+      </div>
+      <div className="text-sm text-white font-bold">{value}</div>
+    </div>
+  );
+}
 
 function ScoreBar({ label, percent, desc }) {
   return (
@@ -384,7 +409,7 @@ function ScoreBar({ label, percent, desc }) {
           className="h-full bg-cyan-500"
         />
       </div>
-      <p className="text-[10px] text-gray-600 mt-1 uppercase">{desc}</p>
+      <p className="text-[12px] text-gray-600 mt-1 uppercase">{desc}</p>
     </div>
   );
 }
@@ -400,7 +425,9 @@ function DatasetLink({ name, url }) {
         <span className="text-[12px] text-white font-bold truncate w-40">
           {name}
         </span>
-        <span className="text-[10px] text-cyan-500/60 truncate w-32">{url}</span>
+        <span className="text-[12px] text-cyan-500/60 truncate w-32">
+          {url}
+        </span>
       </div>
       <LinkIcon className="w-3 h-3 text-cyan-500" />
     </Link>
@@ -410,7 +437,7 @@ function DatasetLink({ name, url }) {
 function PrizeItem({ rank, amount }) {
   return (
     <div className="text-center p-2 bg-black/40 border border-white/5 rounded-lg">
-      <div className="text-[10px] text-cyan-500/60 mb-1 font-bold">{rank}</div>
+      <div className="text-[12px] text-cyan-500/60 mb-1 font-bold">{rank}</div>
       <div className="text-md font-black text-white italic">₹{amount}</div>
     </div>
   );
