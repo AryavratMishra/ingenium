@@ -109,17 +109,11 @@ export const COMPETITION_CONFIG = {
     color: "#fbbf24",
     sector: "DEB-01",
   },
-  pw: {
-    name: "Poetry Writing",
+  sw: {
+    name: "Story Writing",
     teamSize: 4,
     color: "#fbbf24",
     sector: "LIT-01",
-  },
-  fr: {
-    name: "Fiction Relay",
-    teamSize: 4,
-    color: "#fbbf24",
-    sector: "LIT-02",
   },
   ps: { name: "Poetry Slam", teamSize: 4, color: "#fbbf24", sector: "LIT-03" },
   nukkad: {

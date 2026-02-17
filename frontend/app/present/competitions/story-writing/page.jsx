@@ -22,12 +22,12 @@ export default function PoetryWritingPage() {
   const router = useRouter();
 
   const item = {
-    id: "PW",
-    title: "Poetry Writing",
+    id: "SW",
+    title: "Story Writing",
     sub: "Pure Lexical Artistry",
     icon: <PenTool className="w-5 h-5" />,
     fee: "₹350",
-    registrationPath: "/present/registration?competition=pw",
+    registrationPath: "/present/registration?competition=sw",
     description:
       "A traditional writing competition focusing on structural integrity, imagery, and thematic depth.",
     prizes: {
@@ -58,7 +58,7 @@ export default function PoetryWritingPage() {
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white uppercase italic">
-              POETRY <span className="text-amber-500/40">WRITING</span>
+              STORY <span className="text-amber-500/40">WRITING</span>
             </h1>
             <p className="text-[12px] text-amber-200/50 mt-2 tracking-[0.3em] uppercase">
               Encouraging Creativity & Literary Expression

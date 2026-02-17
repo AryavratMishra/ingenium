@@ -1,52 +1,59 @@
 export const tech_competitions = [
   {
     id: "patient-monitor",
-    name: "Patient Monitor",
-    tag: "Biotech",
+    name: "Monitoring System",
+    tag: "SolveXBio",
     folder: "patient-monitor",
     color: "emerald",
+    prize_pool: "₹15,000",
   },
   {
-    id: "screen-addition",
-    name: "Screen Addition",
-    tag: "Health",
+    id: "screen-addiction",
+    name: "Screen Sense",
+    tag: "SolveXBio",
     folder: "screen-addition",
     color: "emerald",
+    prize_pool: "₹15,000",
   },
   {
     id: "robowars",
     name: "Robowars",
-    tag: "Combat",
+    tag: "Robo Combat",
     folder: "robowars",
     color: "red",
+    prize_pool: "₹90,000",
   },
   {
     id: "robosoccer",
-    name: "Robosoccer",
-    tag: "Sports",
+    name: "Robo Soccer",
+    tag: "Robo Sports",
     folder: "robosoccer",
     color: "blue",
+    prize_pool: "₹35,000",
   },
   {
     id: "line-follower",
     name: "Line Follower",
     tag: "Automation",
     folder: "line-follower",
-    color: "sky",
+    color: "yellow",
+    prize_pool: "₹25,000",
   },
   {
     id: "qml",
-    name: "Quantum Map Gen",
-    tag: "QML",
+    name: "QML Track",
+    tag: "Quantum Computing",
     folder: "qml",
     color: "violet",
+    prize_pool: "₹15,000",
   },
   {
     id: "matiks",
-    name: "Matiks Tournament",
-    tag: "Math",
+    name: "Brain Blitz",
+    tag: "Mental Maths",
     folder: "matiks",
     color: "amber",
+    prize_pool: "₹10,000",
   },
   {
     id: "3d-reconstruction",
@@ -54,13 +61,15 @@ export const tech_competitions = [
     tag: "3D Sim",
     folder: "3d-reconstruction",
     color: "cyan",
+    prize_pool: "₹18,000",
   },
   {
     id: "cv-obstacourse",
     name: "CV Obstacourse",
-    tag: "Vision",
+    tag: "Computer Vision",
     folder: "cv-obstacourse",
     color: "cyan",
+    prize_pool: "₹18,000",
   },
   {
     id: "scalastream",
@@ -68,6 +77,7 @@ export const tech_competitions = [
     tag: "Web+ML",
     folder: "scalastream",
     color: "blue",
+    prize_pool: "₹15,000",
   },
   {
     id: "narrativa",
@@ -75,6 +85,7 @@ export const tech_competitions = [
     tag: "ML",
     folder: "narrativa",
     color: "purple",
+    prize_pool: "₹10,000",
   },
   {
     id: "theme-forge",
@@ -82,13 +93,15 @@ export const tech_competitions = [
     tag: "Game Dev",
     folder: "theme-forge",
     color: "emerald",
+    prize_pool: "₹10,000",
   },
   {
     id: "silicon-architects",
     name: "Silicon Architects",
-    tag: "HDL",
+    tag: "Chip Design",
     folder: "silicon-architects",
     color: "orange",
+    prize_pool: "₹20,000",
   },
   {
     id: "analog-verse",
@@ -96,6 +109,7 @@ export const tech_competitions = [
     tag: "Analog",
     folder: "analog-verse",
     color: "orange",
+    prize_pool: "₹18,000",
   },
   {
     id: "water-management",
@@ -103,6 +117,7 @@ export const tech_competitions = [
     tag: "Civil",
     folder: "water-management",
     color: "emerald",
+    prize_pool: "₹15,000",
   },
   {
     id: "ground-utilization",
@@ -110,20 +125,23 @@ export const tech_competitions = [
     tag: "Civil",
     folder: "ground-utilization",
     color: "emerald",
+    prize_pool: "₹10,000",
   },
   {
     id: "analytic_x",
     name: "Global Gourmet",
-    tag: "Data Sci",
+    tag: "Data Science",
     folder: "analytic_x",
     color: "yellow",
+    prize_pool: "₹10,000",
   },
   {
     id: "aero_artistry",
-    name: "Aero Artistry",
-    tag: "Design",
+    name: "Aero Airtistry",
+    tag: "Aeromodelling",
     folder: "aero_artistry",
     color: "emerald",
+    prize_pool: "₹25,000",
   },
 ];
 
@@ -134,6 +152,7 @@ export const cult_competitions = [
     tag: "Design",
     folder: "vlr",
     color: "emerald",
+    prize_pool: "₹10,000",
   },
   {
     id: "canvas",
@@ -141,6 +160,7 @@ export const cult_competitions = [
     tag: "Paint",
     folder: "kalakriti",
     color: "amber",
+    prize_pool: "₹15,000",
   },
   {
     id: "debate",
@@ -148,6 +168,7 @@ export const cult_competitions = [
     tag: "Debate",
     folder: "debating",
     color: "orange",
+    prize_pool: "₹18,000",
   },
   {
     id: "poetry-slam",
@@ -155,13 +176,15 @@ export const cult_competitions = [
     tag: "Oratory",
     folder: "poetry-slam",
     color: "amber",
+    prize_pool: "₹12,000",
   },
   {
-    id: "poetry-writing",
-    name: "Poetry Writing",
+    id: "story-writing",
+    name: "Story Writing",
     tag: "Lit",
-    folder: "poetry-writing",
+    folder: "story-writing",
     color: "amber",
+    prize_pool: "₹12,000",
   },
   {
     id: "nukkad-natak",
@@ -169,6 +192,7 @@ export const cult_competitions = [
     tag: "Drama",
     folder: "nukkad-natak",
     color: "orange",
+    prize_pool: "₹38,000",
   },
   {
     id: "mono-act",
@@ -176,6 +200,7 @@ export const cult_competitions = [
     tag: "Drama",
     folder: "mono-act",
     color: "orange",
+    prize_pool: "₹25,000",
   },
   {
     id: "bgmi",
@@ -183,6 +208,7 @@ export const cult_competitions = [
     tag: "Battle Royale",
     folder: "glitchpop-bgmi",
     color: "orange",
+    prize_pool: "₹10,000",
   },
   {
     id: "eafc",
@@ -190,6 +216,7 @@ export const cult_competitions = [
     tag: "Football",
     folder: "glitchpop-eafc",
     color: "emerald",
+    prize_pool: "₹10,000",
   },
   {
     id: "valorant",
@@ -197,6 +224,7 @@ export const cult_competitions = [
     tag: "FPS",
     folder: "glitchpop-valorant",
     color: "rose",
+    prize_pool: "₹10,000",
   },
   {
     id: "moba-legends",
@@ -204,6 +232,7 @@ export const cult_competitions = [
     tag: "MOBA",
     folder: "glitchpop-moba",
     color: "purple",
+    prize_pool: "₹10,000",
   },
   {
     id: "music",
@@ -211,6 +240,7 @@ export const cult_competitions = [
     tag: "Music",
     folder: "music",
     color: "blue",
+    prize_pool: "₹40,000",
   },
   {
     id: "mystic",
@@ -218,6 +248,7 @@ export const cult_competitions = [
     tag: "Photo",
     folder: "mystic",
     color: "emerald",
+    prize_pool: "₹10,000",
   },
   {
     id: "quiz",
@@ -225,6 +256,7 @@ export const cult_competitions = [
     tag: "Quiz",
     folder: "quiz",
     color: "yellow",
+    prize_pool: "₹18,000",
   },
   {
     id: "dance",
@@ -232,5 +264,6 @@ export const cult_competitions = [
     tag: "dance",
     folder: "dance",
     color: "green",
+    prize_pool: "₹40,000",
   },
 ];

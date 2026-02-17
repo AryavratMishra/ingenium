@@ -24,7 +24,8 @@ export default function PresentPage() {
 
   if (!mounted) return null;
 
-  const filteredCompetitions = activeTab === "tech" ? tech_competitions : cult_competitions;
+  const filteredCompetitions =
+    activeTab === "tech" ? tech_competitions : cult_competitions;
 
   return (
     <PageTransitionWrapper>
@@ -70,10 +71,11 @@ export default function PresentPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${activeTab === tab.id
+              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${
+                activeTab === tab.id
                   ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
                   : "border-white/10 text-white/40 hover:border-white/30"
-                }`}
+              }`}
             >
               {activeTab === tab.id && (
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent animate-scan-fast" />
@@ -92,8 +94,11 @@ export default function PresentPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-100">
           {filteredCompetitions.length > 0 ? (
             filteredCompetitions.map((sector) => (
-              <Link key={sector.id} href={`/present/competitions/${sector.folder}`}>
-                <div className="group relative bg-black/60 border border-white/10 p-6 h-40 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
+              <Link
+                key={sector.id}
+                href={`/present/competitions/${sector.folder}`}
+              >
+                <div className="group relative bg-black/60 border border-white/10 p-6 h-45 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
                   <NodeCorner color={sector.color} />
 
                   <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
@@ -120,22 +125,11 @@ export default function PresentPage() {
                     </h3>
 
                     {/* --- SUB-competitionS LIST --- */}
-                    <div className="space-y-1.5">
-                      {sector.competitions && (
-                        sector.competitions.slice(0, 3).map((competitionName, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <div className="w-1 h-1 bg-white/20 group-hover:bg-blue-400/50" />
-                            <span className="text-[12px] font-mono text-gray-400 uppercase tracking-wider group-hover:text-gray-300 transition-colors">
-                              {competitionName}
-                            </span>
-                          </div>
-                        ))
-                      )}
-                      {sector.competitions?.length > 3 && (
-                        <div className="text-[12px] font-mono text-blue-500/60 pl-3">
-                          + {sector.competitions.length - 3} MORE_PROTOCOLS
-                        </div>
-                      )}
+                    <div className={`flex mb-4 gap-1 font-bold`}>
+                      <p>Prize Pool: </p>
+                      <p className={`text-${sector.color}-400`}>
+                        {sector.prize_pool}
+                      </p>
                     </div>
                   </div>
 
