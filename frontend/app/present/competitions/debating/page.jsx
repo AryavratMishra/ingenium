@@ -13,6 +13,7 @@ import {
   ChevronRight,
   ChevronLeft,
   ExternalLink,
+  IndianRupee,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -89,6 +90,7 @@ export default function AsianParliamentaryDebatePS() {
                 label="Team Structure"
                 value="3 Speakers"
               />
+              <StatNode icon={<IndianRupee />} label="Base Fee" value="₹350" />
               <StatNode icon={<Mic2 />} label="Format" value="APD (3v3)" />
               <StatNode icon={<Activity />} label="Status" value="Offline" />
             </div>

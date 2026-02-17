@@ -164,13 +164,6 @@ export const cult_competitions = [
     color: "amber",
   },
   {
-    id: "fiction-relay",
-    name: "Fiction Relay",
-    tag: "Stories",
-    folder: "fiction-relay",
-    color: "amber",
-  },
-  {
     id: "nukkad-natak",
     name: "Nukkad Natak",
     tag: "Drama",

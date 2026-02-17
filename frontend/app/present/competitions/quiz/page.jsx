@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
+  IndianRupee,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -28,6 +29,7 @@ export default function QuizPS() {
     org: "Quiz Club, IIT Indore",
     participation: "Open-for-all",
     mode: "Offline",
+    fee: "₹350",
     prizes: {
       first: "10,000",
       second: "5,000",
@@ -109,6 +111,11 @@ export default function QuizPS() {
                 value="Renowned Quizmaster"
               />
               <StatNode
+                icon={<IndianRupee />}
+                label="Base Fee"
+                value={competitionData.fee}
+              />
+              <StatNode
                 icon={<Activity />}
                 label="Mode"
                 value={competitionData.mode}
@@ -116,7 +123,9 @@ export default function QuizPS() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() => router.push(`/present/registration?competition=quiz`)}
+              onClick={() =>
+                router.push(`/present/registration?competition=quiz`)
+              }
               className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -282,7 +291,9 @@ export default function QuizPS() {
             {/* Secondary CTA */}
             <div className="flex justify-center pt-4">
               <button
-                onClick={() => router.push(`/present/registration?competition=quiz`)}
+                onClick={() =>
+                  router.push(`/present/registration?competition=quiz`)
+                }
                 className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
               >
                 Sync your unit with the neural registry{" "}

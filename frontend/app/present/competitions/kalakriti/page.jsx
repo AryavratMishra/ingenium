@@ -17,7 +17,8 @@ import {
   Zap,
   Info,
   ShieldAlert,
-  ExternalLink, // Added for icon consistency
+  ExternalLink,
+  IndianRupee, // Added for icon consistency
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -32,6 +33,7 @@ export default function KalakritiPS() {
     duration: "4 Hours",
     format: "Single Round (Offline Finals)",
     registrationPath: "/present/registration?competition=canvas",
+    fee: "₹350",
     prizes: {
       first: "7,000",
       second: "5,000",
@@ -79,6 +81,11 @@ export default function KalakritiPS() {
               icon={<Clock className="w-4 h-4" />}
               label="Window"
               value={competitionData.duration}
+            />
+            <HeaderStat
+              icon={<IndianRupee className="w-4 h-4" />}
+              label="Base Fee"
+              value={competitionData.fee}
             />
             <HeaderStat
               icon={<User className="w-4 h-4" />}
