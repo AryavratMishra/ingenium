@@ -14,6 +14,7 @@ import {
   ChevronRight,
   ChevronLeft,
   ExternalLink,
+  Wallet,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -28,7 +29,8 @@ export default function BattleOfBandsPS() {
     participation: "Team (Bands)",
     teamSize: "10-12 Members",
     duration: "15-20 Minutes",
-    mode: "Offline (Live Performance)",
+    mode: "Offline",
+    baseFee: "1500",
     registrationPath: "/present/registration?competition=bands",
     prizes: {
       first: "20,000",
@@ -38,16 +40,16 @@ export default function BattleOfBandsPS() {
     },
     phases: [
       {
-        id: "REG",
-        title: "Registration & Shortlisting",
+        id: "R1",
+        title: "Round 01: Online Screening",
         detail:
-          "Online registration followed by shortlisting based on submitted audio or video samples.",
+          "Submission of high-quality audio or video samples for preliminary evaluation. Deadline for submission: 7th March.",
       },
       {
-        id: "LIVE",
-        title: "Final Competition",
+        id: "R2",
+        title: "Round 02: Final Performances",
         detail:
-          "Live performances by shortlisted bands on a professional stage with judge evaluation.",
+          "Shortlisted bands will perform live on the main stage. Judgment based on technical skill, stage presence, and audience impact.",
       },
     ],
   };
@@ -60,7 +62,7 @@ export default function BattleOfBandsPS() {
           <div className="space-y-1">
             <button
               onClick={() => router.back()}
-              className="flex items-center gap-2 text-purple-400 mb-4"
+              className="flex items-center gap-2 text-purple-400 mb-4 hover:text-purple-300 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
               <span className="text-[12px] tracking-[0.5em] uppercase font-bold">
@@ -71,7 +73,7 @@ export default function BattleOfBandsPS() {
               BATTLE <span className="text-purple-500">OF</span> BANDS
             </h1>
             <p className="text-[12px] text-purple-400/60 mt-2 tracking-[0.3em] uppercase">
-              Live Musical Expression & Strategic Synergy
+              Host: {competitionData.org}
             </p>
           </div>
 
@@ -83,9 +85,9 @@ export default function BattleOfBandsPS() {
                 value={competitionData.teamSize}
               />
               <StatNode
-                icon={<Volume2 />}
-                label="Performance"
-                value={competitionData.duration}
+                icon={<Wallet />}
+                label="Base Fee"
+                value={`₹${competitionData.baseFee}`}
               />
               <StatNode
                 icon={<Activity />}
@@ -94,7 +96,6 @@ export default function BattleOfBandsPS() {
               />
             </div>
 
-            {/* Primary Registration Button */}
             <button
               onClick={() => router.push(competitionData.registrationPath)}
               className="group relative px-8 py-3 bg-purple-600 hover:bg-purple-500 transition-all rounded-sm overflow-hidden border border-purple-400/30"
@@ -102,7 +103,7 @@ export default function BattleOfBandsPS() {
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">
                 <span className="text-sm font-black tracking-[0.2em] text-white uppercase">
-                  Register
+                  Register Now
                 </span>
                 <ExternalLink className="w-4 h-4 text-white" />
               </div>
@@ -122,41 +123,28 @@ export default function BattleOfBandsPS() {
                 for creative expression and live exploration."
               </p>
               <div className="space-y-4">
-                <ObjectiveItem text="Musical expression & stage presence" />
-                <ObjectiveItem text="Originality and coordination" />
-                <ObjectiveItem text="Inter-college live band culture" />
+                <ObjectiveItem text="Technical Proficiency" />
+                <ObjectiveItem text="Originality & Arrangement" />
+                <ObjectiveItem text="Inter-college band culture" />
               </div>
             </div>
 
-            {/* Genre Spectrum */}
             <div className="p-6 bg-black/40 border border-white/5 rounded-2xl">
               <h4 className="text-[12px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
-                <Radio className="w-3 h-3" /> Frequency_Bands (Genres)
+                <Radio className="w-3 h-3" /> Technical_Deductions
               </h4>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "Rock",
-                  "Indie",
-                  "Fusion",
-                  "Pop",
-                  "Alternative",
-                  "Experimental",
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] bg-white/5 px-2 py-1 rounded border border-white/10 text-purple-300 uppercase"
-                  >
-                    {" "}
-                    {tag}
-                  </span>
-                ))}
+              <div className="space-y-2 text-[13px] text-purple-300/60 uppercase font-bold italic mb-4">
+                <p>▪ Exceeding 20 min slot: -20 Pts</p>
+                <p>▪ Poor Equipment Handling: -15 Pts</p>
+                <p>▪ Late Submission (R1): -10 Pts</p>
               </div>
               <Link
                 href={"/PS/Battle_of_Bands.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-sm text-purple-400 underline hover:text-purple-300 transition-colors"
               >
-                View Rules
+                Download Full Rulebook.pdf
               </Link>
             </div>
           </div>
@@ -173,35 +161,35 @@ export default function BattleOfBandsPS() {
                   <Music className="text-purple-500" /> Operational_Phases
                 </h3>
 
+                {/* Explicit Round Selection */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                   {competitionData.phases.map((phase, idx) => (
                     <button
                       key={phase.id}
                       onClick={() => setActivePhase(idx)}
-                      className={`p-4 text-left border rounded-xl transition-all ${activePhase === idx ? "bg-purple-500/10 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]" : "bg-black/20 border-white/5 hover:border-white/20"}`}
+                      className={`p-6 text-left border rounded-xl transition-all ${activePhase === idx ? "bg-purple-500/10 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]" : "bg-black/20 border-white/5 hover:border-white/20"}`}
                     >
                       <div className="text-[12px] text-purple-500 mb-1 font-bold">
-                        PHASE_0{idx + 1}
+                        ROUND_0{idx + 1}
                       </div>
-                      <div className="text-xs font-bold text-white uppercase">
+                      <div className="text-sm font-bold text-white uppercase">
                         {phase.title}
                       </div>
                     </button>
                   ))}
                 </div>
 
-                <div className="p-6 bg-purple-500/5 border-l-2 border-purple-500 rounded-r-xl mb-8">
+                <div className="p-6 bg-purple-500/5 border-l-2 border-purple-500 rounded-r-xl mb-8 min-h-25">
                   <p className="text-md text-purple-100/80 leading-relaxed italic">
                     {competitionData.phases[activePhase].detail}
                   </p>
                 </div>
 
-                {/* Secondary CTA */}
                 <button
                   onClick={() => router.push(competitionData.registrationPath)}
-                  className="text-[12px] font-bold text-purple-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
+                  className="text-[13px] font-bold text-purple-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
                 >
-                  Authorize band deployment to the mainstage{" "}
+                  R1 SUBMISSION DEADLINE: MARCH 7TH{" "}
                   <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -215,15 +203,15 @@ export default function BattleOfBandsPS() {
                       Evaluation_Logic
                     </div>
                     <div className="text-[13px] text-white uppercase italic">
-                      Stage & Audio Synergy
+                      Performance Metrics
                     </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-                  <EvaluationMetric label="Musicality & Coordination" />
-                  <EvaluationMetric label="Originality & Arrangement" />
-                  <EvaluationMetric label="Stage Presence" />
-                  <EvaluationMetric label="Audience Engagement" />
+                  <EvaluationMetric label="Musicality (30%)" />
+                  <EvaluationMetric label="Tightness (20%)" />
+                  <EvaluationMetric label="Stage Energy (25%)" />
+                  <EvaluationMetric label="Sound Balance (25%)" />
                 </div>
               </div>
             </div>
@@ -240,7 +228,7 @@ export default function BattleOfBandsPS() {
                     Bounty_Registry
                   </h3>
                   <p className="text-[12px] text-purple-500 uppercase tracking-widest italic font-bold">
-                    Sonic_Excellence_Rewards
+                    Prize Allocation
                   </p>
                 </div>
 
@@ -248,17 +236,17 @@ export default function BattleOfBandsPS() {
                   <BountyNode
                     rank="ALPHA"
                     amount={competitionData.prizes.first}
-                    label="First Prize"
+                    label="1st Prize"
                   />
                   <BountyNode
                     rank="BETA"
                     amount={competitionData.prizes.second}
-                    label="Second Prize"
+                    label="2nd Prize"
                   />
                   <BountyNode
                     rank="GAMMA"
                     amount={competitionData.prizes.third}
-                    label="Third Prize"
+                    label="3rd Prize"
                   />
                 </div>
 
@@ -267,7 +255,7 @@ export default function BattleOfBandsPS() {
                     Total Pool
                   </span>
                   <span className="text-2xl font-black text-purple-400 italic">
-                    ₹40,000
+                    ₹{competitionData.prizes.total}
                   </span>
                 </div>
               </div>
@@ -279,14 +267,14 @@ export default function BattleOfBandsPS() {
   );
 }
 
-// --- Internal Logic Components ---
+// --- Helper Components ---
 
 function StatNode({ icon, label, value }) {
   return (
-    <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-lg">
-      <div className="text-purple-500">{icon}</div>
+    <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-lg min-w-35">
+      <div className="text-purple-500 w-5 h-5">{icon}</div>
       <div>
-        <span className="text-[10px] text-gray-500 uppercase block leading-none mb-1 font-bold">
+        <span className="text-[12px] text-gray-500 uppercase block leading-none mb-1 font-bold">
           {label}
         </span>
         <span className="text-sm font-bold text-white tracking-tighter uppercase">
@@ -299,7 +287,7 @@ function StatNode({ icon, label, value }) {
 
 function ObjectiveItem({ text }) {
   return (
-    <div className="flex gap-3 items-center text-[12px] uppercase font-bold text-gray-400 group">
+    <div className="flex gap-3 items-center text-[13px] uppercase font-bold text-gray-400 group">
       <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:scale-150 transition-transform" />
       <span className="group-hover:text-white transition-colors">{text}</span>
     </div>
@@ -308,7 +296,7 @@ function ObjectiveItem({ text }) {
 
 function EvaluationMetric({ label }) {
   return (
-    <div className="flex items-center gap-2 text-[12px] text-white/40 uppercase font-bold group">
+    <div className="flex items-center gap-2 text-[13px] text-white/40 uppercase font-bold group">
       <ChevronRight className="w-2 h-2 text-purple-500 group-hover:translate-x-1 transition-transform" />
       <span className="group-hover:text-white transition-colors">{label}</span>
     </div>
@@ -318,13 +306,13 @@ function EvaluationMetric({ label }) {
 function BountyNode({ rank, amount, label }) {
   return (
     <div className="text-center group">
-      <div className="text-[10px] text-purple-500 uppercase mb-1 font-bold tracking-tighter">
-        {rank}_TIER
+      <div className="text-[12px] text-purple-500 uppercase mb-1 font-bold tracking-tighter">
+        {rank}
       </div>
       <div className="text-xl font-black text-white italic group-hover:scale-110 transition-transform">
         ₹{amount}
       </div>
-      <div className="text-[9px] text-purple-400/40 uppercase mt-1 font-bold">
+      <div className="text-[11px] text-purple-400/40 uppercase mt-1 font-bold">
         {label}
       </div>
     </div>

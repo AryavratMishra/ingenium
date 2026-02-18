@@ -334,5 +334,3 @@ function PrizeStat({ label, value, highlight = false }) {
     </div>
   );
 }
-
-// I have provided the updated data of the competition. Please update the page as per the given info. If there are rounds in the competition then explicitly show them on the webpage. Donot change the theme.

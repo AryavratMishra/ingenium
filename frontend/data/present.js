@@ -236,7 +236,7 @@ export const cult_competitions = [
   },
   {
     id: "music",
-    name: "BATTLE OF BANDS",
+    name: "Battle of Bands",
     tag: "Music",
     folder: "music",
     color: "blue",
@@ -261,7 +261,7 @@ export const cult_competitions = [
   {
     id: "dance",
     name: "Kinetic Synchrony",
-    tag: "dance",
+    tag: "Dance",
     folder: "dance",
     color: "green",
     prize_pool: "₹40,000",
@@ -269,7 +269,7 @@ export const cult_competitions = [
   {
     id: "poetry",
     name: "Udgaar",
-    tag: "poetry",
+    tag: "Poetry",
     folder: "udgaar",
     color: "red",
     prize_pool: "₹12,000",
