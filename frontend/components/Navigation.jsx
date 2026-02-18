@@ -58,7 +58,7 @@ const NODES = [
     id: "events",
     location: "events",
     label: "EVENTS",
-    sub: "Events",
+    sub: "Programs",
     // Desktop: Bottom Left
     x: 30,
     y: 50,
