@@ -19,10 +19,10 @@ export default function GlitchPopEAFC() {
     const router = useRouter();
 
     return (
-        <div className="relative min-h-screen bg-green-950 text-white font-sans overflow-hidden selection:bg-green-500/30">
+        <div className="relative min-h-screen bg-black/30 text-white font-sans overflow-hidden selection:bg-green-500/30">
             {/* Pitch Background */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_49%,rgba(255,255,255,0.05)_50%,transparent_51%)] bg-[length:10%_100%]" />
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_49%,rgba(255,255,255,0.05)_50%,transparent_51%)] bg-size-[10%_100%]" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.15)_0%,transparent_80%)]" />
                 {/* Animated Ball/Spotlight */}
                 <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-green-500/20 blur-[120px] rounded-full animate-pulse" />
@@ -46,7 +46,7 @@ export default function GlitchPopEAFC() {
                     >
                         <div className="flex items-center gap-6 mb-4">
                             <span className="text-4xl md:text-6xl font-black text-white/20">IIT</span>
-                            <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 drop-shadow-2xl">
+                            <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-white to-gray-400 drop-shadow-2xl">
                                 EAFC
                             </h1>
                             <span className="text-4xl md:text-6xl font-black text-white/20">IND</span>
@@ -67,9 +67,9 @@ export default function GlitchPopEAFC() {
                     </div>
 
                     {/* Center - Main Card */}
-                    <div className="bg-gradient-to-b from-yellow-500/10 to-transparent p-1 rounded-[30px] shadow-[0_0_50px_rgba(34,197,94,0.1)]">
+                    <div className="bg-linear-to-b from-yellow-500/10 to-transparent p-1 rounded-[30px] shadow-[0_0_50px_rgba(34,197,94,0.1)]">
                         <div className="bg-black/40 backdrop-blur-md rounded-[28px] p-8 h-full flex flex-col items-center text-center border border-yellow-500/20 relative overflow-hidden">
-                            <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+                            <div className="absolute top-0 w-full h-1 bg-linear-to-r from-transparent via-yellow-500 to-transparent" />
 
                             <Gamepad2 className="w-24 h-24 text-green-400 mb-6 drop-shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
 
@@ -91,7 +91,7 @@ export default function GlitchPopEAFC() {
 
                             <button
                                 onClick={() => router.push("/present/registration?competition=eafc")}
-                                className="w-full py-4 bg-green-500 hover:bg-green-400 text-black font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_5px_0_rgb(20,83,45)] hover:shadow-[0_2px_0_rgb(20,83,45)] hover:translate-y-[3px]"
+                                className="w-full py-4 bg-green-500 hover:bg-green-400 text-black font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_5px_0_rgb(20,83,45)] hover:shadow-[0_2px_0_rgb(20,83,45)] hover:translate-y-0.75"
                             >
                                 Start Match
                             </button>

@@ -18,15 +18,15 @@ export default function GlitchPopMOBA() {
     const router = useRouter();
 
     return (
-        <div className="relative min-h-screen bg-[#0f0518] text-purple-50 font-serif overflow-hidden selection:bg-purple-500/30">
+        <div className="relative min-h-screen bg-black/30 text-purple-50 font-serif overflow-hidden selection:bg-purple-500/30">
             {/* Mystical Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(147,51,234,0.15),transparent_70%)]" />
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-black via-transparent to-transparent" />
 
                 {/* Floating Particles (CSS Animation usually, static here for simplicity) */}
                 <div className="absolute top-20 left-20 w-2 h-2 bg-purple-400 rounded-full blur-[2px] animate-pulse" />
-                <div className="absolute top-40 right-40 w-3 h-3 bg-yellow-400 rounded-full blur-[4px] animate-ping" />
+                <div className="absolute top-40 right-40 w-3 h-3 bg-yellow-400 rounded-full blur-xs animate-ping" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto p-8">
@@ -51,7 +51,7 @@ export default function GlitchPopMOBA() {
                                 The Grand Arena
                             </span>
                         </div>
-                        <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-purple-200 via-purple-400 to-purple-800 drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">
+                        <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-purple-200 via-purple-400 to-purple-800 drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">
                             MOBA Legends
                         </h1>
                         <p className="mt-6 text-purple-200/60 max-w-2xl mx-auto text-lg leading-relaxed font-sans">
@@ -97,7 +97,7 @@ export default function GlitchPopMOBA() {
                         onClick={() => router.push("/present/registration?competition=moba")}
                         className="relative group px-12 py-5 bg-purple-900 overflow-hidden rounded-full border border-purple-500/50 shadow-[0_0_40px_rgba(168,85,247,0.3)] transition-all"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <span className="relative z-10 flex items-center gap-3 font-sans font-bold uppercase tracking-widest text-white">
                             Summon Team <Sword className="w-5 h-5 fill-current" />
                         </span>

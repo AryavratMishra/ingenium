@@ -18,15 +18,15 @@ export default function GlitchPopValorant() {
     const router = useRouter();
 
     return (
-        <div className="relative min-h-screen bg-slate-900 text-white font-sans overflow-hidden selection:bg-red-500/30">
+        <div className="relative min-h-screen bg-black/30 text-white font-sans overflow-hidden selection:bg-red-500/30">
             {/* Background Ambience - Valorant Style */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-red-600/10 to-transparent skew-x-12" />
-                <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-t from-red-900/20 to-transparent" />
+                <div className="absolute top-0 right-0 w-2/3 h-full bg-linear-to-l from-red-600/10 to-transparent skew-x-12" />
+                <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-linear-to-t from-red-900/20 to-transparent" />
 
                 {/* Animated Glitch Lines */}
-                <div className="absolute top-1/4 left-0 w-full h-[1px] bg-red-500/30 animate-pulse" />
-                <div className="absolute bottom-1/4 right-0 w-full h-[1px] bg-white/10" />
+                <div className="absolute top-1/4 left-0 w-full h-px bg-red-500/30 animate-pulse" />
+                <div className="absolute bottom-1/4 right-0 w-full h-px bg-white/10" />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto p-8">
@@ -97,8 +97,8 @@ export default function GlitchPopValorant() {
                         <div className="aspect-video bg-red-500/10 border border-red-500/30 p-2 relative">
                             {/* Crosshair UI */}
                             <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                                <div className="w-[1px] h-full bg-red-500" />
-                                <div className="h-[1px] w-full bg-red-500 absolute" />
+                                <div className="w-px h-full bg-red-500" />
+                                <div className="h-px w-full bg-red-500 absolute" />
                                 <div className="w-32 h-32 border border-red-500 rounded-full" />
                             </div>
 

@@ -20,14 +20,14 @@ export default function GlitchPopBGMI() {
     const router = useRouter();
 
     return (
-        <div className="relative min-h-screen bg-neutral-900 text-orange-50 font-mono overflow-hidden selection:bg-orange-500/30">
+        <div className="relative min-h-screen bg-black/30 text-orange-50 font-mono overflow-hidden selection:bg-orange-500/30">
             {/* Background Ambience */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.1)_0%,transparent_70%)]" />
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay" />
                 {/* Animated Radar Line */}
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="w-[200%] h-[2px] bg-gradient-to-r from-transparent via-orange-500/50 to-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[spin_4s_linear_infinite]" />
+                    <div className="w-[200%] h-0.5 bg-linear-to-r from-transparent via-orange-500/50 to-transparent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-[spin_4s_linear_infinite]" />
                 </div>
             </div>
 
@@ -44,7 +44,7 @@ export default function GlitchPopBGMI() {
                                 Abort Mission
                             </span>
                         </button>
-                        <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-200 to-orange-400 drop-shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                        <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-yellow-200 to-orange-400 drop-shadow-[0_0_15px_rgba(249,115,22,0.5)]">
                             BGMI
                         </h1>
                         <div className="flex items-center gap-4">
