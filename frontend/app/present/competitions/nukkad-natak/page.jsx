@@ -23,16 +23,16 @@ export default function NukkadNatakPage() {
     title: "Nukkad Natak",
     sub: "Street Theatre Syndicate",
     icon: <Users className="w-6 h-6" />,
-    fee: "₹350",
+    fee: "₹1500",
     participation: "Team Participation",
     format: "Open-air street theatre format",
     objective:
       "Addressing real societal concerns through live interaction and social commentary.",
     prizes: {
       first: "20,000",
-      second: "10,000",
-      third: "5,000",
-      total: "35,000",
+      second: "12,000",
+      third: "8,000",
+      total: "40,000",
     },
   };
 

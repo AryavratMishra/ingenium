@@ -67,7 +67,7 @@ export default function WaterManagementPage() {
       "Non-IIT Indore participants will be assigned an IIT Indore PoC for campus data.",
       "Software tools such as Excel, GIS, AutoCAD, and Python are optional but recommended.",
     ],
-    prizes: { first: "7000", second: "5000", third: "3000", total: "15,000" },
+    prizes: { first: "5000", second: "3000", third: "2000", total: "10,000" },
     scoring: [
       { label: "Abstract", val: "20 Marks" },
       { label: "Report", val: "30 Marks" },

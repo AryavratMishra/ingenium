@@ -56,10 +56,10 @@ export default function UdgaarPage() {
         "Strong emphasis on stage presence and performance",
       ],
       prizes: {
-        first: "6,000",
-        second: "4,000",
+        first: "5,000",
+        second: "3,000",
         third: "2,000",
-        total: "12,000",
+        total: "10,000",
       },
       meta: {
         club: "SRIJAN",

@@ -29,7 +29,7 @@ export default function AnalogVersePage() {
         sub: "Analog Signal Processing, Simulation, and PCB Design",
         icon: <Radio className="w-6 h-6" />,
         href: "/PS/Analog_Verse.pdf",
-        fee: "350",
+        fee: "600",
         teamSize: "2-4 People",
         objective:
             "Simulate real-world R&D environments where noise performance, signal integrity, and PCB layout critically impact systems.",
@@ -84,11 +84,11 @@ export default function AnalogVersePage() {
             },
         ],
         prizes: [
-            { rank: "Winner", amount: "10,000" },
+            { rank: "Winner", amount: "12,000" },
             { rank: "Runner Up", amount: "5,000" },
             { rank: "Second Runner Up", amount: "3,000" },
         ],
-        totalPool: "18,000",
+        totalPool: "20,000",
         rules: [
             "Max board dimensions: 100mm x 100mm.",
             "Use standard component footprints (SMD 0805 or Through-Hole).",

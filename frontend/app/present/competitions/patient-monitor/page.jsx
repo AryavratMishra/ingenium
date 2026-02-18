@@ -31,7 +31,7 @@ export default function PatientMonitorPage() {
         theme: "Frugal Biomedical Engineering",
         icon: <HeartPulse className="w-6 h-6" />,
         href: "/PS/Low_Cost_Monitoring_Device_Ingenium.pdf",
-        fee: "350",
+        fee: "600",
         teamSize: "2-4 members",
         background:
             "In resource-limited environments like rural clinics and ambulances, access to advanced monitoring is restricted by cost and portability constraints.",
@@ -288,12 +288,12 @@ export default function PatientMonitorPage() {
                                             Total Pool
                                         </span>
                                         <span className="text-xl font-black text-emerald-400 italic font-mono">
-                                            ₹15,000
+                                            ₹20,000
                                         </span>
                                     </div>
                                 </div>
                                 <div className="flex gap-4 justify-between">
-                                    <BountyNode rank="ALPHA" amount="7,000" color="text-white" />
+                                    <BountyNode rank="ALPHA" amount="12,000" color="text-white" />
                                     <BountyNode
                                         rank="BETA"
                                         amount="5,000"

@@ -28,10 +28,10 @@ export default function AsianParliamentaryDebatePS() {
     format: "Asian Parliamentary (3v3)",
     mode: "Offline",
     prizes: {
-      first: "10,000",
+      first: "12,000",
       second: "5,000",
       third: "3,000",
-      total: "18,000",
+      total: "20,000",
     },
     phases: [
       {
@@ -90,7 +90,7 @@ export default function AsianParliamentaryDebatePS() {
                 label="Team Structure"
                 value="3 Speakers"
               />
-              <StatNode icon={<IndianRupee />} label="Base Fee" value="₹350" />
+              <StatNode icon={<IndianRupee />} label="Base Fee" value="₹600" />
               <StatNode icon={<Mic2 />} label="Format" value="APD (3v3)" />
               <StatNode icon={<Activity />} label="Status" value="Offline" />
             </div>
@@ -255,7 +255,7 @@ export default function AsianParliamentaryDebatePS() {
                     Aggregate Pool
                   </span>
                   <span className="text-2xl font-black text-blue-400 italic">
-                    ₹18,000
+                    ₹20,000
                   </span>
                 </div>
               </div>

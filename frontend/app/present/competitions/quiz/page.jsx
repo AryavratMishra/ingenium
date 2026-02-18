@@ -29,12 +29,12 @@ export default function QuizPS() {
     org: "Quiz Club, IIT Indore",
     participation: "Open-for-all",
     mode: "Offline",
-    fee: "₹350",
+    fee: "₹600",
     prizes: {
-      first: "10,000",
+      first: "12,000",
       second: "5,000",
       third: "3,000",
-      total: "18,000",
+      total: "20,000",
     },
   };
 
@@ -282,7 +282,7 @@ export default function QuizPS() {
                     Aggregate Pool
                   </span>
                   <span className="text-2xl font-black text-amber-400 italic">
-                    ₹18,000
+                    ₹20,000
                   </span>
                 </div>
               </div>

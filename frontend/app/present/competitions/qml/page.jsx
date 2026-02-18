@@ -341,16 +341,16 @@ export default function QuantumHackathonPS() {
                 </h3>
                 <div className="space-y-4">
                   <div className="grid grid-cols-3 gap-2 text-center">
-                    <PrizeTier rank="1st" amount="7,000" />
-                    <PrizeTier rank="2nd" amount="5,000" />
-                    <PrizeTier rank="3rd" amount="3,000" />
+                    <PrizeTier rank="1st" amount="5,000" />
+                    <PrizeTier rank="2nd" amount="3,000" />
+                    <PrizeTier rank="3rd" amount="2,000" />
                   </div>
                   <div className="flex justify-between items-center py-2 border-t border-cyan-500/30">
                     <span className="text-[12px] text-gray-400 uppercase font-bold">
                       Total Prize Pool
                     </span>
                     <span className="text-xl font-black text-white italic">
-                      ₹15,000
+                      ₹10,000
                     </span>
                   </div>
                   <div className="flex items-start gap-2 bg-black/40 p-3 rounded-lg border border-red-500/20">

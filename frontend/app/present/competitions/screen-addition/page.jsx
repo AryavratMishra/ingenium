@@ -31,7 +31,7 @@ export default function ScreenAdditionPage() {
         theme: "Health-Tech Behavioral Intervention",
         icon: <Smartphone className="w-6 h-6" />,
         href: "/PS/Screen_Addiction_SolveXBio.pdf",
-        fee: "350",
+        fee: "600",
         teamSize: "2-4 members",
         background:
             "Excessive screen time contributes to mental health issues and sleep disorders. Current software tools lack active intervention.",
@@ -293,7 +293,7 @@ export default function ScreenAdditionPage() {
                                     </div>
                                 </div>
                                 <div className="flex gap-4 justify-between">
-                                    <BountyNode rank="ALPHA" amount="7,000" color="text-white" />
+                                    <BountyNode rank="ALPHA" amount="12,000" color="text-white" />
                                     <BountyNode
                                         rank="BETA"
                                         amount="5,000"

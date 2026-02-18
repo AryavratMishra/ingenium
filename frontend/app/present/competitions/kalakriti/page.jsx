@@ -33,12 +33,12 @@ export default function KalakritiPS() {
     duration: "4 Hours",
     format: "Single Round (Offline Finals)",
     registrationPath: "/present/registration?competition=canvas",
-    fee: "₹350",
+    fee: "₹600",
     prizes: {
-      first: "7,000",
+      first: "12,000",
       second: "5,000",
       third: "3,000",
-      total: "15,000",
+      total: "20,000",
     },
   };
 

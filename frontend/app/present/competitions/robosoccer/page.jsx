@@ -34,7 +34,7 @@ export default function RobosoccerPage() {
         color: "blue",
         href: "/PS/Robosoccer.pdf",
         teamSize: "2 to 4 people",
-        regFee: "600",
+        regFee: "1500",
         objective:
             "To design a robot capable of detecting the ball, navigating efficiently, and scoring goals against an opposing team.",
         philosophy:
@@ -66,10 +66,10 @@ export default function RobosoccerPage() {
         ],
         prizes: [
             { name: "Champion (1st)", amount: "20,000" },
-            { name: "Finalist (2nd)", amount: "10,000" },
-            { name: "Podium (3rd)", amount: "5,000" },
+            { name: "Finalist (2nd)", amount: "12,000" },
+            { name: "Podium (3rd)", amount: "8,000" },
         ],
-        totalPool: "35,000",
+        totalPool: "40,000",
     };
 
     return (

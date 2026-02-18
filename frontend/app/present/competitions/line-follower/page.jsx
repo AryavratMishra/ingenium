@@ -73,11 +73,11 @@ export default function LineFollowerPage() {
             },
         ],
         prizes: [
-            { name: "Precision (1st)", amount: "15,000" },
-            { name: "Stability (2nd)", amount: "7,000" },
+            { name: "Precision (1st)", amount: "12,000" },
+            { name: "Stability (2nd)", amount: "5,000" },
             { name: "Velocity (3rd)", amount: "3,000" },
         ],
-        totalPool: "25,000",
+        totalPool: "20,000",
     };
 
     return (

@@ -33,7 +33,7 @@ export default function CVObstacoursePage() {
             theme: "Autonomous Vision Navigation",
             mode: "Offline",
             rounds: "1 Round",
-            regFee: "₹350",
+            regFee: "₹600",
             icon: <Eye className="w-6 h-6" />,
             href: "/PS/CV_Obstacourse.pdf",
             motivation:
@@ -73,10 +73,10 @@ export default function CVObstacoursePage() {
                 "Autonomy: Accuracy of detection and path traversal.",
             ],
             prizes: {
-                first: "10,000",
+                first: "12,000",
                 second: "5,000",
                 third: "3,000",
-                total: "18,000",
+                total: "20,000",
             },
         },
     ];

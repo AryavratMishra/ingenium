@@ -63,17 +63,17 @@ export default function ScalaStreamPage() {
         "Enhanced recommendation filters",
       ],
       prizes: {
-        first: "7,000",
-        second: "5,000",
-        third: "3,000",
-        total: "15,000",
+        first: "5,000",
+        second: "3,000",
+        third: "2,000",
+        total: "10,000",
       },
       meta: {
         club: "GDG",
         mode: "Online",
         format: "Team (2-5 people)",
         fee: "350",
-        rounds: "1", // Based on provided table implying a single submission/phase
+        rounds: "1",
       },
       color: "cyan",
     },

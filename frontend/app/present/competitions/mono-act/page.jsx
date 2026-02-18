@@ -24,15 +24,15 @@ export default function MonoActPage() {
     sub: "Solo Narrative Core",
     icon: <User className="w-6 h-6" />,
     participation: "Individual Participation",
-    fee: "₹350",
+    fee: "₹600",
     format: "Performative Storytelling",
     objective:
       "Using theatre as a medium to highlight human narratives and emotional intelligence.",
     prizes: {
-      first: "15,000",
-      second: "7,000",
+      first: "12,000",
+      second: "5,000",
       third: "3,000",
-      total: "25,000",
+      total: "20,000",
     },
   };
 

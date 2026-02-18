@@ -33,7 +33,7 @@ export default function ThreeDReconstructionPage() {
             theme: "Simulation & Autonomous Navigation",
             mode: "Offline",
             rounds: "1 Round",
-            regFee: "₹350",
+            regFee: "₹600",
             icon: <Box className="w-6 h-6" />,
             href: "/PS/3D_Design_IVDC.pdf",
             motivation:
@@ -72,10 +72,10 @@ export default function ThreeDReconstructionPage() {
                 "Novelty: Innovation in efficiency or navigation performance.",
             ],
             prizes: {
-                first: "10,000",
+                first: "12,000",
                 second: "5,000",
                 third: "3,000",
-                total: "18,000",
+                total: "20,000",
             },
         },
     ];

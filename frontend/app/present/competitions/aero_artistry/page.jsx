@@ -309,13 +309,13 @@ const stages = [
 const prizes = [
   {
     rank: "ALPHA",
-    prize: "15,000",
+    prize: "12,000",
     label: "First Place",
     color: "from-yellow-400/20",
   },
   {
     rank: "BETA",
-    prize: "7,000",
+    prize: "5,000",
     label: "Second Place",
     color: "from-gray-400/20",
   },
