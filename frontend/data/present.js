@@ -188,7 +188,7 @@ export const cult_competitions = [
   },
   {
     id: "debate",
-    name: "War of words",
+    name: "IITI APD",
     tag: "Debate",
     folder: "debating",
     color: "orange",
@@ -196,7 +196,7 @@ export const cult_competitions = [
   },
   {
     id: "quiz",
-    name: "QuiZzers",
+    name: "Ingenius Quiz",
     tag: "Quiz",
     folder: "quiz",
     color: "yellow",

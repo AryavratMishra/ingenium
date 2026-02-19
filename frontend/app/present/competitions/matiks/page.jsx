@@ -90,7 +90,7 @@ export default function MatiksPS() {
                 <Sigma className="w-8 h-8 text-black" />
               </div>
               <h1 className="text-4xl sm:text-5xl font-black tracking-tighter text-white uppercase">
-                MATIKS <span className="text-amber-500 italic">Blitz</span>
+                BRAIN <span className="text-amber-500 italic">Blitz</span>
               </h1>
             </div>
             <p className="text-[12px] text-amber-500/80 mt-4 tracking-[0.4em] uppercase font-bold">

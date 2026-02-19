@@ -76,7 +76,7 @@ export default function AeroAirtistryPS() {
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase italic leading-none">
-                RC GLIDER<span className="text-blue-500">_</span>SOAR
+                AERO<span className="text-blue-500">_</span>AIRTISRY
               </h1>
               <p className="max-w-2xl text-xs md:text-sm text-blue-400/70 leading-relaxed uppercase tracking-widest mt-4">
                 Aerial Design & Endurance: Fabricate a lightweight, electric RC

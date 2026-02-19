@@ -96,7 +96,7 @@ export default function ScreenAdditionPage() {
                             </span>
                         </button>
                         <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase italic">
-                            Screen<span className="text-emerald-500">Addiction</span>
+                            Screen{" "}<span className="text-emerald-500">Sense</span>
                         </h1>
                         <p className="text-[14px] text-emerald-500/60 tracking-[0.3em] uppercase">
                             {medicalBrief.theme}

@@ -17,6 +17,7 @@ import {
   Youtube,
   Home,
   Twitter,
+  Mail,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -442,6 +443,13 @@ export default function Navigation({ onNavigate }) {
       <div className="hidden md:block absolute bottom-8 left-8 w-32 h-32 border-l border-b border-blue-500/20 rounded-bl-3xl pointer-events-none" />
       <div className="hidden md:block absolute top-8 right-8 w-32 h-32 border-r border-t border-blue-500/20 rounded-tr-3xl pointer-events-none" />
       <div className="flex flex-row sm:flex-col gap-3 absolute bottom-12 left-15">
+        <Link
+          href={"mailto:pr.ingenium@iiti.ac.in"}
+          className="text-green-500"
+          target="_blank"
+        >
+          <Mail className="w-7 h-7" />
+        </Link>
         <Link
           href={"https://www.instagram.com/ingeniumxfluxus_iit_indore"}
           className="text-rose-500"

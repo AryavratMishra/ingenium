@@ -107,11 +107,11 @@ export default function AnalyticXPS() {
             >
               <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span className="text-[12px] font-bold tracking-[0.4em] uppercase">
-                Return to Mission Control
+                Return to Competitions
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white">
-              ANALYTIC<span className="text-cyan-500">X</span>
+              GLOBAL{" "}<span className="text-cyan-500">GOURMET</span>
             </h1>
             <p className="text-cyan-500/60 text-sm mt-2 tracking-widest uppercase flex items-center gap-2">
               <Globe className="w-3 h-3" /> Global Gourmet Case Study Challenge

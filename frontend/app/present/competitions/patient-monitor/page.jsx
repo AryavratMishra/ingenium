@@ -96,7 +96,7 @@ export default function PatientMonitorPage() {
                             </span>
                         </button>
                         <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase italic">
-                            Patient<span className="text-emerald-500">Monitor</span>
+                            Monitoring{" "}<span className="text-emerald-500">System</span>
                         </h1>
                         <p className="text-[14px] text-emerald-500/60 tracking-[0.3em] uppercase">
                             {medicalBrief.theme}

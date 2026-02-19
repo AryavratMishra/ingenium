@@ -50,7 +50,7 @@ export default function PoetryWritingPage() {
           <div className="space-y-1">
             <button
               onClick={() => router.back()}
-              className="flex items-center gap-2 text-amber-500/60 mb-4"
+              className="flex items-center gap-2 text-amber-500 mb-4"
             >
               <ChevronLeft className="w-4 h-4" />
               <span className="text-[12px] tracking-[0.5em] uppercase font-bold">
@@ -58,7 +58,7 @@ export default function PoetryWritingPage() {
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white uppercase italic">
-              STORY <span className="text-amber-500/40">WRITING</span>
+              STORY <span className="text-amber-500">WRITING</span>
             </h1>
             <p className="text-[12px] text-amber-200/50 mt-2 tracking-[0.3em] uppercase">
               Encouraging Creativity & Literary Expression
@@ -103,14 +103,14 @@ export default function PoetryWritingPage() {
           <div className="lg:col-span-4 space-y-4">
             {/* System Integrity */}
             <div className="p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl mt-8">
-              <h4 className="text-[12px] text-amber-500/60 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
+              <h4 className="text-[12px] text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <Terminal className="w-3 h-3" /> Core_Compliance
               </h4>
               <div className="space-y-2">
-                <p className="text-[13px] text-amber-100/40 uppercase leading-tight font-bold">
+                <p className="text-[13px] text-amber-100 uppercase leading-tight font-bold">
                   All protocols will be strictly offline.
                 </p>
-                <p className="text-[13px] text-amber-100/40 uppercase leading-tight font-bold">
+                <p className="text-[13px] text-amber-100 uppercase leading-tight font-bold">
                   Originality of script is mandatory.
                 </p>
               </div>
@@ -119,7 +119,7 @@ export default function PoetryWritingPage() {
 
           {/* --- MANUSCRIPT VIEWPORT --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-black/40 border border-amber-500/20 rounded-3xl p-10 backdrop-blur-xl relative">
+            <div className="bg-black border border-amber-500/20 rounded-3xl p-10 backdrop-blur-xl relative">
               <div className="absolute top-4 right-6 text-amber-500/10">
                 <Quote className="w-24 h-24" />
               </div>
@@ -146,7 +146,7 @@ export default function PoetryWritingPage() {
                     ].map((focus) => (
                       <li
                         key={focus}
-                        className="text-[13px] text-gray-400 flex items-center gap-3"
+                        className="text-[14px] text-white flex items-center gap-3"
                       >
                         <div className="w-1 h-1 bg-amber-500" /> {focus}
                       </li>
@@ -155,7 +155,7 @@ export default function PoetryWritingPage() {
                 </div>
                 <div className="p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 flex flex-col justify-center">
                   <ScrollText className="w-8 h-8 text-amber-500/30 mb-2" />
-                  <span className="text-[12px] text-amber-500/60 uppercase font-bold">
+                  <span className="text-[12px] text-amber-500 uppercase font-bold">
                     Submission Method
                   </span>
                   <span className="text-sm text-white uppercase font-black mb-4">
@@ -233,7 +233,7 @@ function StatusNode({ icon, label, value }) {
         <span className="text-sm font-bold text-white tracking-tighter uppercase italic">
           {value}
         </span>
-        <span className="text-[9px] text-amber-500/40 ml-1 italic"></span>
+        <span className="text-[9px] text-amber-500 ml-1 italic"></span>
       </div>
     </div>
   );
@@ -242,7 +242,7 @@ function StatusNode({ icon, label, value }) {
 function BountyNode({ rank, amount }) {
   return (
     <div className="text-center group">
-      <div className={`text-[10px] font-bold uppercase mb-1 text-amber-500/60`}>
+      <div className={`text-[10px] font-bold uppercase mb-1 text-amber-500`}>
         {rank}_ACCESS
       </div>
       <div className="text-xl font-black text-white italic group-hover:scale-110 transition-transform">

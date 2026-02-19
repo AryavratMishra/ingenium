@@ -88,10 +88,7 @@ export default function UdgaarPage() {
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white uppercase">
-              UDGAAR{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-500 to-red-500">
-                3.0
-              </span>
+              UDGAAR
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-[12px] text-orange-400 uppercase tracking-widest">
               <span className="flex items-center gap-1">
