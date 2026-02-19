@@ -320,7 +320,9 @@ function RegistrationContent() {
 export default function RegistrationPageContent() {
   const { isLoggedIn } = useContext(AuthContext);
   const router = useRouter();
-  if (!isLoggedIn) router.back();
+  useEffect(() => {
+    if (!isLoggedIn) router.back();
+  }, []);
 
   return (
     <main className="min-h-screen bg-black/30 text-white flex items-center justify-center relative overflow-hidden">
