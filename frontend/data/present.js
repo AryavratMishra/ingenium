@@ -261,7 +261,7 @@ export const cult_competitions = [
   {
     id: "mystic",
     name: "Shutter Up",
-    tag: "Photo",
+    tag: "Photography",
     folder: "mystic",
     color: "emerald",
     prize_pool: "₹10,000",
@@ -269,7 +269,7 @@ export const cult_competitions = [
   {
     id: "poetry",
     name: "Udgaar",
-    tag: "Poetry",
+    tag: "Hindi Poetry",
     folder: "udgaar",
     color: "red",
     prize_pool: "₹10,000",
