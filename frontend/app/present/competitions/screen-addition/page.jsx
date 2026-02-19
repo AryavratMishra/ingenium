@@ -288,7 +288,7 @@ export default function ScreenAdditionPage() {
                                             Total Pool
                                         </span>
                                         <span className="text-xl font-black text-emerald-400 italic font-mono">
-                                            ₹15,000
+                                            ₹20,000
                                         </span>
                                     </div>
                                 </div>

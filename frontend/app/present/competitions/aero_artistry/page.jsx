@@ -202,7 +202,7 @@ export default function AeroAirtistryPS() {
                       {stage.details.map((detail, i) => (
                         <div
                           key={i}
-                          className="flex items-center gap-3 text-[11px] text-blue-200/60 uppercase"
+                          className="flex items-center gap-3 text-[13px] text-blue-200/60 uppercase"
                         >
                           <Zap className="w-2.5 h-2.5 text-blue-500" />
                           {detail}
@@ -233,6 +233,17 @@ export default function AeroAirtistryPS() {
                   </div>
                 </div>
               ))}
+            </div>
+            <div
+              className={`p-6 bg-linear-to-br flex justify-between items-center to-transparent border border-white/10 rounded-2xl`}
+            >
+              <div className="text-[16px] text-blue-500 uppercase tracking-tighter">
+                TOTAL_PRIZE_POOL
+              </div>
+              <div className="text-4xl font-black text-white italic tracking-tighter">
+                ₹20,000
+              </div>
+              {/* <div className="text-[12px] text-gray-400 uppercase mt-2"></div> */}
             </div>
           </div>
         </div>

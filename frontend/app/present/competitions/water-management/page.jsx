@@ -268,7 +268,7 @@ export default function WaterManagementPage() {
             </div>
 
             {/* REWARDS & COMMAND */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               <div className="bg-emerald-500/10 border border-emerald-500/30 p-8 rounded-3xl relative overflow-hidden group">
                 <Trophy className="absolute -right-6 -bottom-6 w-32 h-32 text-emerald-500/5 -rotate-12 group-hover:scale-110 transition-transform duration-700" />
                 <h4 className="text-sm font-black text-white uppercase mb-6 tracking-[0.3em]">
@@ -297,23 +297,6 @@ export default function WaterManagementPage() {
                   </span>
                 </div>
               </div>
-
-              <div className="bg-black/40 border border-emerald-500/10 p-8 rounded-3xl flex flex-col justify-between">
-                <div>
-                  <h4 className="text-sm font-black text-white uppercase mb-6 tracking-[0.3em] flex items-center gap-2">
-                    <Users className="w-4 h-4 text-emerald-500" />{" "}
-                    Command_Hierarchy
-                  </h4>
-                  <div className="space-y-3">
-                    <ContactInfo name="Rajnish Bairwa" role="Club Head" />
-                    <ContactInfo name="Anurag Sinha" role="Finance Head" />
-                    <ContactInfo name="Ashutosh Diyewar" role="Co-Head" />
-                  </div>
-                </div>
-                <p className="text-[9px] text-gray-600 mt-6 uppercase tracking-widest text-center">
-                  Organizers reserve rights to modify rules
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -341,8 +324,8 @@ function StatBox({ label, value, icon }) {
 function PrizeTier({ rank, amount }) {
   return (
     <div className="text-center p-2 bg-black/40 border border-emerald-500/10 rounded-lg">
-      <div className="text-[12px] text-emerald-500/50 mb-1">{rank}</div>
-      <div className="text-sm font-black text-white italic">₹{amount}</div>
+      <div className="text-[14px] text-emerald-500/50 mb-1">{rank}</div>
+      <div className="text-lg font-black text-white italic">₹{amount}</div>
     </div>
   );
 }
