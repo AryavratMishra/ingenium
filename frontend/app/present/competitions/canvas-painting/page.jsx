@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import {
   Brush,
@@ -22,9 +22,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function KalakritiPS() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionData = {
     name: "Canvas Painting",
@@ -32,7 +34,7 @@ export default function KalakritiPS() {
     teamSize: "Individual",
     duration: "4 Hours",
     format: "Single Round (Offline Finals)",
-    registrationPath: "/present/registration?competition=canvas",
+    registrationPath: "/present/registration?competition=canvas-painting",
     fee: "₹600",
     prizes: {
       first: "12,000",
@@ -141,7 +143,16 @@ export default function KalakritiPS() {
 
             {/* Primary Registration Button */}
             <motion.button
-              onClick={() => router.push(competitionData.registrationPath)}
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(
+                    `/present/registration?competition=canvas-painting`,
+                  );
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               whileHover={{
                 scale: 1.02,
                 boxShadow: "0 0 20px rgba(249,115,22,0.4)",
@@ -232,7 +243,16 @@ export default function KalakritiPS() {
               {/* Secondary CTA */}
               <div className="flex justify-center">
                 <button
-                  onClick={() => router.push(competitionData.registrationPath)}
+                  onClick={() => {
+                    if (isLoggedIn)
+                      router.push(
+                        `/present/registration?competition=canvas-painting`,
+                      );
+                    else
+                      alert(
+                        "Please login to register. Login button at botton-right corner.",
+                      );
+                  }}
                   className="text-[12px] font-bold text-orange-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
                 >
                   Initiate deployment into the registry{" "}

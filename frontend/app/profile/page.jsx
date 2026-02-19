@@ -65,7 +65,7 @@ export default function ProfilePage() {
           className="flex items-center gap-2 text-blue-500 mb-2"
         >
           <ChevronLeft className="w-4 h-4 animate-spin-slow" />
-          <span className="text-[10px] tracking-[0.5em] uppercase">Return</span>
+          <span className="text-[13px] tracking-[0.5em] uppercase">Return</span>
         </button>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* 1. Biometric Card */}

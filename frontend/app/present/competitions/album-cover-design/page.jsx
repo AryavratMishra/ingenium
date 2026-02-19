@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import {
   Palette,
@@ -19,9 +19,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function AlbumCoverPS() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionData = {
     title: "Album Cover Design",
@@ -95,9 +97,16 @@ export default function AlbumCoverPS() {
               value={competitionData.fee}
             />
             <button
-              onClick={() =>
-                router.push("/present/registration?competition=vlr")
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(
+                    `/present/registration?competition=album-cover-design`,
+                  );
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-black italic tracking-widest flex items-center gap-3 shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-105 active:scale-95"
             >
               <Zap className="w-5 h-5 fill-current" /> REGISTER NOW

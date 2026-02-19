@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Music,
@@ -16,10 +16,12 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function GroupDancePS() {
   const [activeTab, setActiveTab] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionData = {
     title: "Group Dance Competition",
@@ -105,9 +107,14 @@ export default function GroupDancePS() {
               />
             </div>
             <button
-              onClick={() =>
-                router.push(`/present/registration?competition=dance`)
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(`/present/registration?competition=dance`);
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="group relative px-8 py-3 bg-pink-600 hover:bg-pink-500 transition-all rounded-sm overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />

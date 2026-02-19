@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   BrainCircuit,
@@ -21,9 +21,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function NarrativaPage() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const activePS = 0;
   const problemStatements = [
@@ -143,9 +145,14 @@ export default function NarrativaPage() {
               </div>
 
               <button
-                onClick={() =>
-                  router.push(`/present/registration?competition=narrativa`)
-                }
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(`/present/registration?competition=narrativa`);
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="w-full py-4 bg-purple-600 hover:bg-purple-500 text-white font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(147,51,234,0.4)]"
               >
                 Register Now <ExternalLink className="w-4 h-4" />

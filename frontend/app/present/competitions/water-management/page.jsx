@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import {
   Droplets,
@@ -19,9 +19,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function WaterManagementPage() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const problemStatement = {
     id: 1,
@@ -204,11 +206,16 @@ export default function WaterManagementPage() {
                     </p>
                   </div>
                   <button
-                    onClick={() =>
-                      router.push(
-                        `/present/registration?competition=monsoon_water`,
-                      )
-                    }
+                    onClick={() => {
+                      if (isLoggedIn)
+                        router.push(
+                          `/present/registration?competition=water-management`,
+                        );
+                      else
+                        alert(
+                          "Please login to register. Login button at botton-right corner.",
+                        );
+                    }}
                     className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
                   >
                     Register Now

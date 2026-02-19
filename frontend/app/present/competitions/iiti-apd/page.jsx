@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   MessageSquare,
   Users,
@@ -17,10 +17,12 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function AsianParliamentaryDebatePS() {
   const [activePhase, setActivePhase] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionData = {
     title: "Asian Parliamentary Debate",
@@ -96,7 +98,14 @@ export default function AsianParliamentaryDebatePS() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() => router.push(`/present/registration?competition=apd`)}
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(`/present/registration?competition=iiti-apd`);
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 transition-all rounded-sm overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -264,7 +273,14 @@ export default function AsianParliamentaryDebatePS() {
             {/* Secondary CTA */}
             <div className="flex justify-center pt-4">
               <button
-                onClick={() => router.push(`/present/registration?competition=apd`)}
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(`/present/registration?competition=iiti-apd`);
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="text-[12px] font-bold text-blue-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
               >
                 Secure your slot in the registry{" "}

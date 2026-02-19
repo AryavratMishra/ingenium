@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
 import {
   Layers,
@@ -20,11 +20,13 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function AeroAirtistryPS() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -158,9 +160,16 @@ export default function AeroAirtistryPS() {
             </div>
 
             <button
-              onClick={() =>
-                router.push(`/present/registration?competition=glider`)
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(
+                    `/present/registration?competition=aero_airtistry`,
+                  );
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="w-full py-6 bg-blue-600 text-white rounded-2xl font-black italic tracking-widest flex items-center justify-center gap-3 hover:bg-blue-500 transition-all group overflow-hidden relative shadow-[0_0_20px_rgba(37,99,235,0.3)]"
             >
               <span className="relative z-10 uppercase">

@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             <StarField />
           </div>
 
-          {/* <NeuralLink /> */}
+          <NeuralLink />
 
           <div className="relative z-10">
             <TerminalTransition>{children}</TerminalTransition>

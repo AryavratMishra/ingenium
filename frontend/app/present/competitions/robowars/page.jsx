@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ShieldAlert,
@@ -22,9 +22,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function RobowarsPage() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const active = {
     id: "RW",
@@ -289,9 +291,14 @@ export default function RobowarsPage() {
             </div>
 
             <button
-              onClick={() =>
-                router.push(`/present/registration?competition=robowars`)
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(`/present/registration?competition=robowars`);
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="w-full py-4 bg-white text-black font-black uppercase italic text-sm tracking-tighter hover:bg-sky-500 hover:text-white transition-all transform hover:-translate-y-1 shadow-[0_4px_20px_rgba(244,63,94,0.3)] flex items-center justify-center gap-3 group"
             >
               Initiate_Registration

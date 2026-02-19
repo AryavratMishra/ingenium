@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import api from "@/lib/api";
 import { AuthContext } from "@/context/AuthContext";
 import { COMPETITION_CONFIG } from "@/data/competition_config";
+import { ChevronLeft } from "lucide-react";
 
 function RegistrationContent() {
   const searchParams = useSearchParams();
@@ -14,7 +15,8 @@ function RegistrationContent() {
   const containerRef = useRef(null);
 
   const competitionKey = searchParams.get("competition") || "General Entry";
-  const config = COMPETITION_CONFIG[competitionKey] || COMPETITION_CONFIG["General Entry"];
+  const config =
+    COMPETITION_CONFIG[competitionKey] || COMPETITION_CONFIG["General Entry"];
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -89,6 +91,15 @@ function RegistrationContent() {
       {/* HEADER HUD */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
         <div className="relative">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 text-accent mb-6 hover:text-accent transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            <span className="text-[12px] font-bold tracking-[0.5em] uppercase">
+              Return
+            </span>
+          </button>
           <div className="flex items-center gap-3 mb-2">
             <div className="h-0.5 w-12 bg-accent" />
             <span className="text-accent font-mono text-xs tracking-[0.4em] uppercase">
@@ -97,7 +108,7 @@ function RegistrationContent() {
                 : `Sector: ${config.sector}`}
             </span>
           </div>
-          <h1 className="text-5xl md:text-5xl font-black text-white tracking-tight uppercase leading-none">
+          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight uppercase leading-none">
             {status === "error" ? "TERMINATED" : config.name || competitionKey}
             <span className="text-accent opacity-50 block text-xl mt-2 font-light">
               {status === "error" ? "SYSTEM_CRASHED" : "SYSTEM_ACCESS_GRANTED"}
@@ -134,7 +145,7 @@ function RegistrationContent() {
                   <div className="space-y-10">
                     <div className="cyber-node">
                       <label className="text-xs font-mono text-accent mb-4 block tracking-widest uppercase">
-                        // Assign Team Alias
+                        // Assign Team Alias (Team Name)
                       </label>
                       <input
                         required
@@ -309,17 +320,12 @@ function RegistrationContent() {
 export default function RegistrationPageContent() {
   const { isLoggedIn } = useContext(AuthContext);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  if (!isLoggedIn)
-    router.push(
-      `/auth?path=/present/registration\?competition=${searchParams.get("competition")}`,
-    );
+  if (!isLoggedIn) router.back();
 
   return (
     <main className="min-h-screen bg-black/30 text-white flex items-center justify-center relative overflow-hidden">
       {/* GLOBAL BACKGROUND ELEMENTS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,20,20,1)_0%,rgba(0,0,0,1)_100%)]" />
         <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         {/* Scanlines */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] z-10 bg-size-[100%_4px,4px_100%]" />

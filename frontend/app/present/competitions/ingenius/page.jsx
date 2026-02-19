@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import {
   Lightbulb,
@@ -19,9 +19,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function QuizPS() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionData = {
     title: "Ingenius Quiz '26",
@@ -123,9 +125,14 @@ export default function QuizPS() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() =>
-                router.push(`/present/registration?competition=quiz`)
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(`/present/registration?competition=ingenius`);
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -291,9 +298,14 @@ export default function QuizPS() {
             {/* Secondary CTA */}
             <div className="flex justify-center pt-4">
               <button
-                onClick={() =>
-                  router.push(`/present/registration?competition=quiz`)
-                }
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(`/present/registration?competition=ingenius`);
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
               >
                 Sync your unit with the neural registry{" "}

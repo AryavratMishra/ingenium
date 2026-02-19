@@ -5,85 +5,116 @@ export const COMPETITION_CONFIG = {
     color: "#cbd5e1",
     sector: "GEN-00",
   },
-  glider: {
-    name: "RC Glider Soaring",
+  udgaar: {
+    name: "Udgaar",
+    teamSize: 1,
+    color: "#cbd5e1",
+    sector: "SRI-01",
+  },
+  aero_airtistry: {
+    name: "Aero Airtistry",
     teamSize: 2,
     color: "#00f2ff",
     sector: "AIR-01",
   },
-  analytic_x: {
+  "global-gourmet": {
     name: "Global Gourmet",
     teamSize: 2,
     color: "#8b5cf6",
     sector: "ANX-01",
   },
-  matiks: { name: "Matiks", teamSize: 2, color: "#8b5cf6", sector: "MAT-01" },
-  monsoon_water: {
-    name: "Monsoon-Season Water Management",
+  "brain-blitz": {
+    name: "Brain Blitz",
+    teamSize: 2,
+    color: "#8b5cf6",
+    sector: "MAT-01",
+  },
+  "water-management": {
+    name: "Water Management",
     teamSize: 2,
     color: "#f59e0b",
     sector: "CON-01",
   },
-  open_ground: {
-    name: "Strategic Planning",
+  "ground-utilization": {
+    name: "Ground Utilization",
     teamSize: 2,
     color: "#f59e0b",
     sector: "CON-02",
   },
-  sa: {
+  "silicon-architects": {
     name: "Silicon Architects",
     teamSize: 2,
     color: "#d9f99d",
     sector: "ELE-01",
   },
-  av: { name: "Analog Verse", teamSize: 2, color: "#d9f99d", sector: "ELE-02" },
-  web: {
-    name: "Scalable Video Streaming",
+  "analog-verse": {
+    name: "Analog Verse",
+    teamSize: 2,
+    color: "#d9f99d",
+    sector: "ELE-02",
+  },
+  scalastream: {
+    name: "ScalaStream",
     teamSize: 2,
     color: "#22d3ee",
     sector: "GDG-01",
   },
-  ml: {
-    name: "Narrative Synthesis",
+  narrativa: {
+    name: "Narrativa",
     teamSize: 2,
     color: "#22d3ee",
     sector: "GDG-02",
   },
-  game: { name: "Game Dev", teamSize: 2, color: "#22d3ee", sector: "GDG-03" },
-  "3d": {
+  "theme-forge": {
+    name: "ThemeForge",
+    teamSize: 2,
+    color: "#22d3ee",
+    sector: "GDG-03",
+  },
+  "3d-reconstruction": {
     name: "3D Reconstruction",
     teamSize: 2,
     color: "#f472b6",
     sector: "IVDC-01",
   },
-  cv: {
+  "cv-obstacourse": {
     name: "CV Obstacourse",
     teamSize: 2,
     color: "#f472b6",
     sector: "IVDC-02",
   },
-  qml: {
+  "qml-track": {
     name: "Quantum Map Generator",
     teamSize: 1,
     color: "#4f46e5",
     sector: "QML-01",
   },
-  rw: { name: "Robowars", teamSize: 4, color: "#ff0040", sector: "RBT-01" },
-  rs: { name: "Robosoccer", teamSize: 3, color: "#ff0040", sector: "RBT-02" },
-  lf: {
+  robowars: {
+    name: "Robowars",
+    teamSize: 4,
+    color: "#ff0040",
+    sector: "RBT-01",
+  },
+  robosoccer: {
+    name: "Robosoccer",
+    teamSize: 3,
+    color: "#ff0040",
+    sector: "RBT-02",
+  },
+  "line-follower": {
     name: "Line Follower",
     teamSize: 1,
     color: "#ff0040",
     sector: "RBT-03",
   },
-  patient_monitor: {
-    name: "Patient Monitoring",
+  "monitoring-system": {
+    name: "Monitoring System",
     teamSize: 2,
     color: "#10b981",
     sector: "SXB-01",
   },
-  screen_addiction: {
-    name: "Health-Tech Solutions",
+  "screen-sense": {
+    name: "Screen Sense",
     teamSize: 2,
     color: "#10b981",
     sector: "SXB-02",
@@ -102,46 +133,61 @@ export const COMPETITION_CONFIG = {
     color: "#ff4655",
     sector: "GAME-04",
   },
-  quiz: { name: "Quiz", teamSize: 4, color: "#fbbf24", sector: "QUIZ-01" },
-  apd: {
+  ingenius: {
+    name: "Ingenius Quiz",
+    teamSize: 4,
+    color: "#fbbf24",
+    sector: "QUIZ-01",
+  },
+  "iiti-apd": {
     name: "Asian Parliamentary Debate",
     teamSize: 4,
     color: "#fbbf24",
     sector: "DEB-01",
   },
-  sw: {
+  "story-writing": {
     name: "Story Writing",
     teamSize: 4,
     color: "#fbbf24",
     sector: "LIT-01",
   },
-  ps: { name: "Poetry Slam", teamSize: 4, color: "#fbbf24", sector: "LIT-03" },
-  nukkad: {
+  "poetry-slam": {
+    name: "Poetry Slam",
+    teamSize: 4,
+    color: "#fbbf24",
+    sector: "LIT-03",
+  },
+  "nukkad-natak": {
     name: "Nukkad Natak",
     teamSize: 4,
     color: "#c084fc",
     sector: "DRAMA-01",
   },
-  mono: { name: "MonoAct", teamSize: 4, color: "#c084fc", sector: "DRAMA-02" },
-  canvas: {
+  "mono-act": {
+    name: "MonoAct",
+    teamSize: 4,
+    color: "#c084fc",
+    sector: "DRAMA-02",
+  },
+  "canvas-painting": {
     name: "Canvas Painting",
     teamSize: 1,
     color: "#c084fc",
     sector: "KALA-01",
   },
-  bands: {
+  "battle-of-bands": {
     name: "Battle of Bands",
     teamSize: 4,
     color: "#c084fc",
     sector: "MUSIC-01",
   },
-  shutter: {
+  "shutter-up": {
     name: "Shutter Up",
     teamSize: 4,
     color: "#c084fc",
     sector: "PHOTO-01",
   },
-  vlr: {
+  "album-cover-design": {
     name: "Album Cover Design",
     teamSize: 4,
     color: "#c084fc",

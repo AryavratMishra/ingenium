@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   PenTool,
@@ -17,9 +17,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function PoetryWritingPage() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const item = {
     id: "SW",
@@ -84,7 +86,16 @@ export default function PoetryWritingPage() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() => router.push(item.registrationPath)}
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(
+                    `/present/registration?competition=story-writing`,
+                  );
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -173,7 +184,16 @@ export default function PoetryWritingPage() {
 
               {/* Secondary CTA */}
               <button
-                onClick={() => router.push(item.registrationPath)}
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(
+                      `/present/registration?competition=story-writing`,
+                    );
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
               >
                 Commit entry to the manuscript registry{" "}

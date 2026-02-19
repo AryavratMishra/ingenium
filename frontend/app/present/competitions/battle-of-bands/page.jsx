@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Music,
@@ -18,10 +18,12 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function BattleOfBandsPS() {
   const [activePhase, setActivePhase] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionData = {
     title: "Battle of Bands",
@@ -31,7 +33,7 @@ export default function BattleOfBandsPS() {
     duration: "15-20 Minutes",
     mode: "Offline",
     baseFee: "1500",
-    registrationPath: "/present/registration?competition=bands",
+    registrationPath: "/present/registration?competition=battle-of-bands",
     prizes: {
       first: "20,000",
       second: "12,000",
@@ -97,7 +99,16 @@ export default function BattleOfBandsPS() {
             </div>
 
             <button
-              onClick={() => router.push(competitionData.registrationPath)}
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(
+                    `/present/registration?competition=battle-of-bands`,
+                  );
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="group relative px-8 py-3 bg-purple-600 hover:bg-purple-500 transition-all rounded-sm overflow-hidden border border-purple-400/30"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -186,7 +197,16 @@ export default function BattleOfBandsPS() {
                 </div>
 
                 <button
-                  onClick={() => router.push(competitionData.registrationPath)}
+                  onClick={() => {
+                    if (isLoggedIn)
+                      router.push(
+                        `/present/registration?competition=battle-of-bands`,
+                      );
+                    else
+                      alert(
+                        "Please login to register. Login button at botton-right corner.",
+                      );
+                  }}
                   className="text-[13px] font-bold text-purple-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
                 >
                   R1 SUBMISSION DEADLINE: MARCH 7TH{" "}

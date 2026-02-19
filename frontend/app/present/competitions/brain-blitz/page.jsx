@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Zap,
@@ -20,10 +20,12 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function MatiksPS() {
   const [activePhase, setActivePhase] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const competitionStages = [
     {
@@ -209,9 +211,16 @@ export default function MatiksPS() {
                   </div>
 
                   <button
-                    onClick={() =>
-                      router.push(`/present/registration?competition=matiks`)
-                    }
+                    onClick={() => {
+                      if (isLoggedIn)
+                        router.push(
+                          `/present/registration?competition=brain-blitz`,
+                        );
+                      else
+                        alert(
+                          "Please login to register. Login button at botton-right corner.",
+                        );
+                    }}
                     className="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all group overflow-hidden relative"
                   >
                     <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />

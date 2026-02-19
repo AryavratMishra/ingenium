@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Server,
@@ -22,9 +22,11 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function ScalaStreamPage() {
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const activePS = 0;
   const problemStatements = [
@@ -151,9 +153,16 @@ export default function ScalaStreamPage() {
               </div>
 
               <button
-                onClick={() =>
-                  router.push(`/present/registration?competition=scalastream`)
-                }
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(
+                      `/present/registration?competition=scalastream`,
+                    );
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-black font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(34,211,238,0.2)]"
               >
                 Register Now <ExternalLink className="w-4 h-4" />

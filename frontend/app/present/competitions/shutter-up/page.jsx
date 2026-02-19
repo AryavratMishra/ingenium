@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Camera,
@@ -19,10 +19,12 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function ShutterUpPS() {
   const [activeTheme, setActiveTheme] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
   const competitionData = {
     title: "Shutter Up",
     category: "Photography",
@@ -100,7 +102,14 @@ export default function ShutterUpPS() {
 
             {/* Primary Registration Button */}
             <button
-              onClick={() => router.push(competitionData.registrationPath)}
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(`/present/registration?competition=shutter-up`);
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="group relative px-8 py-3 bg-white hover:bg-white/90 transition-all rounded-sm overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-black/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
@@ -216,7 +225,14 @@ export default function ShutterUpPS() {
 
               {/* Secondary CTA */}
               <button
-                onClick={() => router.push(competitionData.registrationPath)}
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(`/present/registration?competition=shutter-up`);
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="text-[12px] font-bold text-white uppercase tracking-[0.4em] hover:text-white/60 transition-colors flex items-center gap-2 group mb-8"
               >
                 Sync your narrative with the optical registry{" "}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Orbit,
@@ -25,10 +25,12 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function QuantumHackathonPS() {
   const [activeLayer, setActiveLayer] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const pipelineStages = [
     {
@@ -113,9 +115,14 @@ export default function QuantumHackathonPS() {
             />
             <HeaderNode icon={<Globe />} label="Mode" value="Online" />
             <button
-              onClick={() =>
-                router.push(`/present/registration?competition=qml`)
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(`/present/registration?competition=qml-track`);
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-4 rounded-lg font-black text-xs uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] active:scale-95 border-b-4 border-cyan-700"
             >
               Register_Now

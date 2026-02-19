@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Database,
@@ -25,10 +25,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function AnalyticXPS() {
   const [activePhase, setActivePhase] = useState(0);
   const router = useRouter();
+  const { isLoggedIn } = useContext(AuthContext);
 
   const phases = [
     {
@@ -111,7 +113,7 @@ export default function AnalyticXPS() {
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white">
-              GLOBAL{" "}<span className="text-cyan-500">GOURMET</span>
+              GLOBAL <span className="text-cyan-500">GOURMET</span>
             </h1>
             <p className="text-cyan-500/60 text-sm mt-2 tracking-widest uppercase flex items-center gap-2">
               <Globe className="w-3 h-3" /> Global Gourmet Case Study Challenge
@@ -125,9 +127,16 @@ export default function AnalyticXPS() {
               <p className="text-xl font-black text-white">CFA</p>
             </div>
             <button
-              onClick={() =>
-                router.push(`/present/registration?competition=analytic_x`)
-              }
+              onClick={() => {
+                if (isLoggedIn)
+                  router.push(
+                    `/present/registration?competition=global-gourmet`,
+                  );
+                else
+                  alert(
+                    "Please login to register. Login button at botton-right corner.",
+                  );
+              }}
               className="px-8 py-4 bg-cyan-500 text-black font-black text-sm rounded-sm -skew-x-12 hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center gap-2"
             >
               <Rocket className="w-4 h-4" /> REGISTER_TASKFORCE
@@ -366,9 +375,16 @@ export default function AnalyticXPS() {
                 </span>
               </div>
               <button
-                onClick={() =>
-                  router.push(`/present/registration?competition=analytic_x`)
-                }
+                onClick={() => {
+                  if (isLoggedIn)
+                    router.push(
+                      `/present/registration?competition=global-gourmet`,
+                    );
+                  else
+                    alert(
+                      "Please login to register. Login button at botton-right corner.",
+                    );
+                }}
                 className="mt-4 w-full py-3 bg-cyan-500 text-black font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all"
               >
                 INITIATE_DEPLOYMENT
