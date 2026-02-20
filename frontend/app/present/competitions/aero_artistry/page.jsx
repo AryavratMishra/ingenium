@@ -78,7 +78,7 @@ export default function AeroArtistryPS() {
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase italic leading-none">
-                AERO<span className="text-blue-500">_</span>AIRTISRY
+                AERO<span className="text-blue-500">_</span>ARTISTRY
               </h1>
               <p className="max-w-2xl text-xs md:text-sm text-blue-400/70 leading-relaxed uppercase tracking-widest mt-4">
                 Aerial Design & Endurance: Fabricate a lightweight, electric RC
