@@ -15,16 +15,25 @@ export const registerTeam = async (req, res) => {
       return res.status(400).json({ message: "Participants must be an array" });
     }
 
-    if (participants.length < 1 || participants.length > 6) {
+    if (participants.length < 1) {
       return res
         .status(400)
-        .json({ message: "Team must have 1 to 6 participants" });
+        .json({ message: "Team must have atleast 1 participant" });
     }
 
     for (const p of participants) {
-      if (!p.name || !p.email || !p.mobile) {
+      if (
+        !p.first_name ||
+        !p.last_name ||
+        !p.email ||
+        !p.mobile ||
+        !p.city ||
+        !p.state ||
+        !p.gender ||
+        !p.aadhaar
+      ) {
         return res.status(400).json({
-          message: "Each participant must have name, email and mobile",
+          message: "Each participant must have all details",
         });
       }
     }
@@ -70,10 +79,20 @@ export const registerTeam = async (req, res) => {
       } else {
         // 2️⃣ Create participant
         const newParticipant = await client.query(
-          `INSERT INTO participants (name, email, mobile)
-           VALUES ($1, $2, $3)
+          `INSERT INTO participants (first_name, last_name, gender, email, mobile, aadhaar, city, state, college)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
            RETURNING id`,
-          [p.name, p.email, p.mobile],
+          [
+            p.first_name,
+            p.last_name,
+            p.gender,
+            p.email,
+            p.mobile,
+            p.aadhaar,
+            p.city,
+            p.state,
+            p.college,
+          ],
         );
         participantId = newParticipant.rows[0].id;
       }
@@ -145,7 +164,7 @@ export const getTeamByParticipantEmail = async (req, res) => {
     for (const team of teamResult.rows) {
       const participantsResult = await pool.query(
         `
-      SELECT p.name, p.email, p.mobile
+      SELECT p.first_name, p.last_name, p.gender, p.email, p.mobile, p.aadhaar, p.city, p.state, p.college
       FROM participants p
       JOIN team_members tm ON tm.participant_id = p.id
       WHERE tm.team_id = $1
