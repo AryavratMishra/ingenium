@@ -30,7 +30,7 @@ export default function ScreenAdditionPage() {
   const medicalBrief = {
     id: 2,
     title: "Screen Addiction Mitigation",
-    theme: "Health-Tech Behavioral Intervention",
+    club: "Biocrats Club, IIT Indore",
     icon: <Smartphone className="w-6 h-6" />,
     href: "/PS/Screen_Addiction_SolveXBio.pdf",
     fee: "600",
@@ -101,7 +101,7 @@ export default function ScreenAdditionPage() {
               Screen <span className="text-emerald-500">Sense</span>
             </h1>
             <p className="text-[14px] text-emerald-500/60 tracking-[0.3em] uppercase">
-              {medicalBrief.theme}
+              {medicalBrief.club}
             </p>
           </div>
 

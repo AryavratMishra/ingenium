@@ -30,7 +30,7 @@ export default function PatientMonitorPage() {
   const medicalBrief = {
     id: 1,
     title: "Low-Cost Patient Monitor",
-    theme: "Frugal Biomedical Engineering",
+    club: "Biocrats Club, IIT Indore",
     icon: <HeartPulse className="w-6 h-6" />,
     href: "/PS/Low_Cost_Monitoring_Device_Ingenium.pdf",
     fee: "600",
@@ -101,7 +101,7 @@ export default function PatientMonitorPage() {
               Monitoring <span className="text-emerald-500">System</span>
             </h1>
             <p className="text-[14px] text-emerald-500/60 tracking-[0.3em] uppercase">
-              {medicalBrief.theme}
+              {medicalBrief.club}
             </p>
           </div>
 

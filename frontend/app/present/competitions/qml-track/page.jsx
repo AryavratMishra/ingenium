@@ -22,6 +22,8 @@ import {
   Users,
   CreditCard,
   Layers3,
+  Club,
+  Network,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -103,6 +105,10 @@ export default function QuantumHackathonPS() {
             <p className="text-[13px] text-cyan-500/80 tracking-[0.3em] uppercase flex items-center gap-2">
               <Terminal className="w-3 h-3" /> Quantum Procedural Content
               Generation (Q-PCG)
+            </p>
+            <p className="text-[13px] text-white tracking-[0.3em] uppercase flex items-center gap-2">
+              <Network className="w-3 h-3" /> Organized by Quantum Computing
+              Club
             </p>
           </div>
 
