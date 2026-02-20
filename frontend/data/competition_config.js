@@ -95,6 +95,18 @@ export const COMPETITION_CONFIG = {
     color: "#ff0040",
     sector: "RBT-01",
   },
+  "nitro-throttle": {
+    name: "Nitro Throttle",
+    teamSize: [4, 6],
+    color: "#ff0040",
+    sector: "RBT-01",
+  },
+  "rc-throttle": {
+    name: "RC Throttle",
+    teamSize: [4, 6],
+    color: "#ff0040",
+    sector: "RBT-04",
+  },
   robosoccer: {
     name: "Robosoccer",
     teamSize: [2, 4],

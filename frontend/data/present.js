@@ -1,11 +1,27 @@
 export const tech_competitions = [
+  // {
+  //   id: "robowars",
+  //   name: "Robowars",
+  //   tag: "Robo Combat",
+  //   folder: "robowars",
+  //   color: "red",
+  //   prize_pool: "₹90,000",
+  // },
   {
-    id: "robowars",
-    name: "Robowars",
-    tag: "Robo Combat",
-    folder: "robowars",
+    id: "nitro",
+    name: "Nitro Throttle",
+    tag: "Nitro Racing",
+    folder: "nitro-throttle",
     color: "red",
-    prize_pool: "₹90,000",
+    prize_pool: "₹45,000",
+  },
+  {
+    id: "rc",
+    name: "RC Throttle",
+    tag: "RC Racing",
+    folder: "rc-throttle",
+    color: "yellow",
+    prize_pool: "₹45,000",
   },
   {
     id: "robosoccer",
