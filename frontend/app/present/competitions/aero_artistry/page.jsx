@@ -22,7 +22,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 
-export default function AeroAirtistryPS() {
+export default function AeroArtistryPS() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const router = useRouter();
@@ -91,7 +91,7 @@ export default function AeroAirtistryPS() {
                 <StatCard
                   icon={<Users className="w-4 h-4" />}
                   label="Team Size"
-                  value="1-5 Members"
+                  value="1-4 Members"
                 />
                 <StatCard
                   icon={<Wallet className="w-4 h-4" />}
@@ -163,7 +163,7 @@ export default function AeroAirtistryPS() {
               onClick={() => {
                 if (isLoggedIn)
                   router.push(
-                    `/present/registration?competition=aero_airtistry`,
+                    `/present/registration?competition=aero_artistry`,
                   );
                 else
                   alert(

@@ -39,7 +39,7 @@ export default function AsianParliamentaryDebatePS() {
       {
         id: "PRELIM",
         title: "Preliminary Rounds",
-        detail: "16-team competition across four distinct rounds of debating.",
+        detail: "32-team competition across four distinct rounds of debating.",
       },
       {
         id: "SEMI",
@@ -139,11 +139,11 @@ export default function AsianParliamentaryDebatePS() {
 
             {/* Motion Domains */}
             <div className="p-6 bg-black/40 border border-white/5 rounded-2xl">
-              <h4 className="text-[14px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
+              <h4 className="text-[14px] text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-2 font-bold">
                 <BookOpen className="w-3 h-3" /> Motion_Spectrum
               </h4>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
+              {/* <div className="flex flex-wrap gap-2 mb-4"> */}
+              {/* {[
                   "Public Policy",
                   "Ethics",
                   "Technology",
@@ -155,8 +155,9 @@ export default function AsianParliamentaryDebatePS() {
                   >
                     {tag}
                   </span>
-                ))}
-              </div>
+                ))} */}
+              {/* </div> */}
+              <p className="italic mb-2 text-blue-300">To be decided...</p>
               <Link
                 href={"/PS/APD.pdf"}
                 target="_blank"
@@ -211,9 +212,15 @@ export default function AsianParliamentaryDebatePS() {
                     <div className="text-[12px] text-blue-500 uppercase font-bold tracking-widest">
                       Adjudication_Standard
                     </div>
-                    <div className="text-[13px] text-white uppercase italic">
+                    <Link
+                      href={
+                        "https://docs.google.com/document/d/1JoJa0oqDfW06vAQb3eBcAX37oG9p2g0hRO44vvCHv_Q/edit?tab=t.0"
+                      }
+                      target="_blank"
+                      className="text-[13px] text-white uppercase italic underline"
+                    >
                       UADC 2025 Handbook
-                    </div>
+                    </Link>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-2">

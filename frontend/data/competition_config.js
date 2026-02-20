@@ -11,9 +11,9 @@ export const COMPETITION_CONFIG = {
     color: "#cbd5e1",
     sector: "SRI-01",
   },
-  aero_airtistry: {
-    name: "Aero Airtistry",
-    teamSize: [1, 5],
+  aero_artistry: {
+    name: "Aero Artistry",
+    teamSize: [1, 4],
     color: "#00f2ff",
     sector: "AIR-01",
   },

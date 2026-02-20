@@ -205,10 +205,10 @@ export default function GroupDancePS() {
 
               {/* Scorecard Weights */}
               <div className="mt-12 pt-8 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-6">
-                <MetricBox label="Execution" weight="30%" />
-                <MetricBox label="Choreography" weight="30%" />
-                <MetricBox label="Costume/Props" weight="20%" />
-                <MetricBox label="Crowd Appeal" weight="20%" />
+                <MetricBox label="Choreography" weight="40%" />
+                <MetricBox label="Sync & Transition" weight="25%" />
+                <MetricBox label="Energy & X-factor" weight="15%" />
+                <MetricBox label="Costume and Props" weight="20%" />
               </div>
             </div>
 
