@@ -1,15 +1,20 @@
 "use client";
 
 import api from "@/lib/api";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Shield,
-  Settings,
-  Database,
   LogOut,
   Terminal,
-  Cpu,
   ChevronLeft,
+  CreditCard,
+  AlertCircle,
+  CheckCircle2,
+  X,
+  User,
+  Mail,
+  Phone,
+  MapPin,
 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { COMPETITION_CONFIG } from "@/data/competition_config";
@@ -19,6 +24,7 @@ import { AuthContext } from "@/context/AuthContext";
 export default function ProfilePage() {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedReg, setSelectedReg] = useState(null); // State for the Modal
   const router = useRouter();
   const { logout, user } = useContext(AuthContext);
 
@@ -36,9 +42,13 @@ export default function ProfilePage() {
         setLoading(false);
       }
     };
-
     fetchRegistrations();
   }, [user]);
+
+  const handlePayment = (e, teamName) => {
+    e.stopPropagation(); // Prevent opening modal when clicking payment
+    alert(`Initiating payment uplink for ${teamName}...`);
+  };
 
   const stats = [
     { label: "Identity Status", value: "Verified", color: "text-cyan-400" },
@@ -62,17 +72,18 @@ export default function ProfilePage() {
       <main className="relative z-20 max-w-6xl mx-auto px-6 py-12">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-blue-500 mb-2"
+          className="flex items-center gap-2 text-blue-500 mb-6 group"
         >
-          <ChevronLeft className="w-4 h-4 animate-spin-slow" />
+          <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span className="text-[13px] tracking-[0.5em] uppercase">Return</span>
         </button>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* 1. Biometric Card */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-1 p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md relative overflow-hidden group"
+            className="lg:col-span-1 p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
               <Shield className="w-12 h-12 text-blue-500" />
@@ -90,7 +101,7 @@ export default function ProfilePage() {
             <h2 className="text-xl font-bold text-center tracking-widest uppercase">
               {user?.name || "Unauthorized_User"}
             </h2>
-            <p className="text-[10px] text-blue-400/60 text-center mb-6 break-all">
+            <p className="text-[12px] text-blue-400/60 text-center mb-6 break-all">
               {user?.email || "NO_UPLINK_FOUND"}
             </p>
 
@@ -100,7 +111,7 @@ export default function ProfilePage() {
                   key={stat.label}
                   className="bg-white/5 p-3 rounded-lg border border-white/5"
                 >
-                  <div className="text-[10px] text-gray-500 uppercase">
+                  <div className="text-[12px] text-gray-500 uppercase">
                     {stat.label}
                   </div>
                   <div className={`text-lg font-bold ${stat.color}`}>
@@ -113,88 +124,65 @@ export default function ProfilePage() {
 
           {/* 2. Registration Logs */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-2 space-y-6"
           >
-            <div className="p-4 sm:p-8 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md min-h-100">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
-                <div className="flex items-center gap-3 mb-2 sm:mb-0">
-                  <Terminal className="w-5 h-5 text-cyan-400" />
-                  <h3 className="text-sm font-bold tracking-widest uppercase">
-                    Active_Event_Registrations
-                  </h3>
-                </div>
-                <div className="text-[10px]  self-end text-cyan-500 animate-pulse">
-                  ● {registrations.length} SECTORS_LOCKED
-                </div>
+            <div className="p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md">
+              <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+                <Terminal className="w-5 h-5 text-cyan-400" />
+                <h3 className="text-sm font-bold tracking-widest uppercase">
+                  Mission_Logs
+                </h3>
               </div>
 
-              <div className="space-y-6 font-mono">
-                {loading ? (
-                  <div className="text-gray-500 italic animate-pulse">
-                    Scanning database...
-                  </div>
-                ) : registrations.length > 0 ? (
-                  registrations.map((reg, i) => {
-                    const competition = COMPETITION_CONFIG[reg.ps_name] || {
-                      name: reg.ps_name,
-                      color: "#fff",
-                      sector: "UNK-00",
-                    };
-                    return (
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        key={i}
-                        className="group relative p-4 border border-white/5 bg-white/5 rounded-lg hover:border-blue-500/40 transition-colors"
-                      >
-                        <div className="flex flex-col sm:flex-row flex-wrap sm:justify-between sm:items-start gap-4">
-                          <div>
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
-                              <span className="text-[10px] px-2 py-0.5 bg-blue-500/20 w-fit text-blue-400 rounded">
-                                {competition.sector}
-                              </span>
-                              <h4 className="font-bold text-blue-100 uppercase tracking-tight">
-                                {competition.name}
-                              </h4>
-                            </div>
-                            <p className="text-xs text-gray-400">
-                              Team:{" "}
-                              <span className="text-gray-200">
-                                {reg.team_name}
-                              </span>
-                            </p>
+              <div className="space-y-4">
+                {registrations.map((reg, i) => {
+                  const comp = COMPETITION_CONFIG[reg.ps_name] || {
+                    name: reg.ps_name,
+                    sector: "SEC-X",
+                  };
+                  return (
+                    <motion.div
+                      key={i}
+                      onClick={() => setSelectedReg(reg)}
+                      className="cursor-pointer group relative p-5 border border-white/5 bg-white/5 rounded-xl hover:border-blue-500/40 hover:bg-blue-500/5 transition-all"
+                    >
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-[9px] px-1.5 py-0.5 bg-blue-500/20 text-blue-400 rounded">
+                              {comp.sector}
+                            </span>
+                            <h4 className="font-bold uppercase text-blue-100">
+                              {comp.name}
+                            </h4>
                           </div>
+                          <p className="text-xs text-gray-500 italic">
+                            Team: {reg.team_name}
+                          </p>
+                        </div>
 
-                          <div className="text-right self-end">
-                            <div className="flex -space-x-2 mb-2 justify-end">
-                              {reg.participants.map((p, idx) => (
-                                <div
-                                  key={idx}
-                                  title={p.name}
-                                  className="w-6 h-6 rounded-full border border-black bg-blue-900 flex items-center justify-center text-[8px]"
-                                >
-                                  {p.name[0]}
-                                </div>
-                              ))}
-                            </div>
-                            <div className="text-[10px] text-gray-500 uppercase italic">
-                              {reg.participants.length} Operative(s)
-                            </div>
+                        <div className="flex items-center gap-4">
+                          {!reg.fees_paid && (
+                            <button
+                              onClick={(e) => handlePayment(e, reg.team_name)}
+                              className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/20 border border-amber-500/50 text-amber-500 rounded text-[12px] font-bold uppercase hover:bg-amber-500 hover:text-black transition-colors"
+                            >
+                              <CreditCard className="w-3 h-3" /> Pay Fees
+                            </button>
+                          )}
+                          {reg.fees_paid && (
+                            <CheckCircle2 className="w-5 h-5 text-green-500" />
+                          )}
+                          <div className="text-[12px] text-gray-500">
+                            {reg.participants.length} Ops
                           </div>
                         </div>
-                      </motion.div>
-                    );
-                  })
-                ) : (
-                  <div className="text-gray-600 text-xs border border-dashed border-gray-800 p-8 text-center rounded-xl">
-                    NO_ACTIVE_REGISTRATIONS_DETECTED. <br />{" "}
-                    PLEASE_ENROLL_IN_MISSIONS.
-                  </div>
-                )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
@@ -205,7 +193,7 @@ export default function ProfilePage() {
                 className={`p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-blue-500/10 transition-all group flex flex-col items-center gap-2 hover:border-red-500/50 hover:text-red-400`}
               >
                 <LogOut className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
-                <span className="text-[10px] uppercase tracking-tighter">
+                <span className="text-[12px] uppercase tracking-tighter">
                   Logout
                 </span>
               </button>
@@ -214,11 +202,101 @@ export default function ProfilePage() {
         </div>
       </main>
 
-      {/* Decorative Frame */}
-      <div className="fixed inset-4 border border-blue-500/10 pointer-events-none" />
-      <div className="fixed top-8 left-8 text-[10px] text-blue-500/20 font-mono tracking-[0.5em] [writing-mode:vertical-lr] rotate-180 uppercase">
-        System_Interface_v4.2
-      </div>
+      {/* --- PARTICIPANT MODAL --- */}
+      <AnimatePresence>
+        {selectedReg && (
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedReg(null)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-2xl bg-[#0a0a0c] border border-blue-500/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+            >
+              {/* Modal Header */}
+              <div className="p-6 border-b border-white/10 flex justify-between items-center bg-blue-500/5">
+                <div>
+                  <h3 className="text-xl font-bold tracking-tighter text-blue-400 uppercase">
+                    {selectedReg.team_name} //{" "}
+                    <span className="text-white">{selectedReg.ps_name}</span>
+                  </h3>
+                  <p className="text-[12px] text-gray-500 uppercase tracking-widest mt-1">
+                    Manifest_Access_Granted
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedReg(null)}
+                  className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                >
+                  <X className="w-6 h-6 text-gray-400" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedReg.participants.map((p, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.05 }}
+                      className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-3 relative group overflow-hidden"
+                    >
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 -rotate-45 translate-x-8 -translate-y-8" />
+
+                      <div className="flex items-center gap-3 border-b border-white/5 pb-2">
+                        <div className="w-8 h-8 rounded bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">
+                          {idx + 1}
+                        </div>
+                        <span className="font-bold text-md uppercase tracking-tight">
+                          {p.first_name} {p.last_name}
+                        </span>
+                      </div>
+
+                      <div className="space-y-2 text-[13px]">
+                        <div className="flex items-center gap-2 text-gray-400">
+                          <Mail className="w-3 h-3 text-cyan-500" /> {p.email}
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-400">
+                          <Phone className="w-3 h-3 text-cyan-500" /> {p.mobile}
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-400">
+                          <MapPin className="w-3 h-3 text-cyan-500" /> {p.city},{" "}
+                          {p.state}
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-400">
+                          <User className="w-3 h-3 text-cyan-500" /> Aadhaar:{" "}
+                          {p.aadhaar}
+                        </div>
+                        {p.college && (
+                          <div className="mt-2 text-[12px] bg-blue-500/10 text-blue-300 px-2 py-1 rounded inline-block">
+                            {p.college}
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="p-4 bg-white/5 border-t border-white/10 text-center">
+                <p className="text-[9px] text-gray-600 uppercase tracking-[0.5em]">
+                  End of Transmission
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
