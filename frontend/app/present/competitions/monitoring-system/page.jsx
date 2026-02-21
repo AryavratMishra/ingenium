@@ -113,7 +113,7 @@ export default function PatientMonitorPage() {
             />
             <HeaderTag
               icon={<Wallet size={14} />}
-              label="Base Fee"
+              label="Base Fee (Per Team)"
               value={`₹${medicalBrief.fee}`}
             />
             <HeaderTag
@@ -133,7 +133,7 @@ export default function PatientMonitorPage() {
           {/* --- SIDEBAR: NAVIGATION & SCORING --- */}
           <div className="lg:col-span-4 space-y-6">
             {/* Round Tracker */}
-            <div className="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl">
               <h4 className="text-[14px] font-bold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <Target className="w-3 h-3" /> Competition_Rounds
               </h4>
@@ -162,7 +162,7 @@ export default function PatientMonitorPage() {
             </div>
 
             {/* Judging Criteria Table */}
-            <div className="p-6 bg-black/40 border border-emerald-500/20 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-emerald-500/20 rounded-2xl">
               <h4 className="text-[14px] font-bold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <ClipboardCheck className="w-3 h-3" /> Evaluation_Matrix (100
                 Marks)
@@ -199,7 +199,7 @@ export default function PatientMonitorPage() {
 
           {/* --- MAIN CONTENT --- */}
           <div className="lg:col-span-8 space-y-6">
-            <div className="bg-black/40 border border-emerald-500/20 rounded-3xl p-8 backdrop-blur-sm">
+            <div className="bg-black/40 border border-emerald-500/20 rounded-3xl p-4 sm:p-8 backdrop-blur-sm">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-4">
                   <h5 className="text-[14px] text-emerald-500 uppercase tracking-widest border-b border-emerald-500/20 pb-2">
@@ -314,7 +314,7 @@ export default function PatientMonitorPage() {
                 </div>
               </div>
 
-              <div className="p-6 bg-red-950/10 border border-red-500/20 rounded-3xl space-y-3">
+              <div className="p-3 sm:p-6 bg-red-950/10 border border-red-500/20 rounded-3xl space-y-3">
                 <h4 className="text-[14px] text-red-400 uppercase tracking-widest flex items-center gap-2 font-bold">
                   <AlertTriangle className="w-3 h-3" /> Compliance_Protocols
                 </h4>

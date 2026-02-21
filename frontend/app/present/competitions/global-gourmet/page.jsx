@@ -146,7 +146,7 @@ export default function AnalyticXPS() {
 
         {/* --- MISSION BRIEF & STATS --- */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <div className="lg:col-span-2 p-6 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 backdrop-blur-md relative overflow-hidden">
+          <div className="lg:col-span-2 p-3 sm:p-6 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 backdrop-blur-md relative overflow-hidden">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 italic">
               <Cpu className="w-5 h-5 text-cyan-500" /> MISSION_OVERVIEW
             </h3>
@@ -173,13 +173,13 @@ export default function AnalyticXPS() {
               />
               <StatCard
                 icon={<CreditCard className="w-4 h-4" />}
-                label="Base Fee"
+                label="Base Fee (Per Team)"
                 value="₹350"
               />
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-red-500/5 border border-red-500/20 flex flex-col">
+          <div className="p-3 sm:p-6 rounded-2xl bg-red-500/5 border border-red-500/20 flex flex-col">
             <h4 className="text-[12px] text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2">
               <FileWarning className="w-3 h-3" /> RULES_&_COMPLIANCE
             </h4>
@@ -251,7 +251,7 @@ export default function AnalyticXPS() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-black/60 border border-cyan-500/20 rounded-2xl p-8 backdrop-blur-xl h-full flex flex-col"
+                className="bg-black/60 border border-cyan-500/20 rounded-2xl p-4 sm:p-8 backdrop-blur-xl h-full flex flex-col"
               >
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-4">
@@ -281,7 +281,7 @@ export default function AnalyticXPS() {
                   </div>
                 </div>
 
-                <div className="mb-8 p-6 bg-cyan-950/30 border-r-4 border-cyan-500 rounded-lg">
+                <div className="mb-8 p-3 sm:p-6 bg-cyan-950/30 border-r-4 border-cyan-500 rounded-lg">
                   <p className="text-md text-cyan-100/90 leading-relaxed italic">
                     {phases[activePhase].task}
                   </p>
@@ -305,7 +305,7 @@ export default function AnalyticXPS() {
 
         {/* --- DATASETS & EVALUATION --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <div className="p-6 bg-black/40 border border-white/10 rounded-2xl">
+          <div className="p-3 sm:p-6 bg-black/40 border border-white/10 rounded-2xl">
             <h4 className="text-[12px] text-cyan-500 uppercase tracking-widest mb-6 flex items-center gap-2">
               <Activity className="w-3 h-3" /> EVALUATION_WEIGHTS
             </h4>
@@ -333,7 +333,7 @@ export default function AnalyticXPS() {
             </div>
           </div>
 
-          <div className="p-6 bg-black/40 border border-white/10 rounded-2xl">
+          <div className="p-3 sm:p-6 bg-black/40 border border-white/10 rounded-2xl">
             <h4 className="text-[12px] text-cyan-500 uppercase tracking-widest mb-6 flex items-center gap-2">
               <LinkIcon className="w-3 h-3" /> REFERENCE_DATA
             </h4>
@@ -356,7 +356,7 @@ export default function AnalyticXPS() {
             </div>
           </div>
 
-          <div className="p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+          <div className="p-3 sm:p-6 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.1)]">
             <h4 className="text-[12px] text-cyan-400 uppercase tracking-widest mb-6 flex items-center gap-2">
               <Trophy className="w-3 h-3" /> MISSION_BOUNTY
             </h4>
@@ -404,7 +404,7 @@ function StatCard({ icon, label, value }) {
     <div className="bg-black/40 p-3 border border-white/10 rounded-lg">
       <div className="flex items-center gap-2 text-cyan-500 mb-1">
         {icon}
-        <span className="text-[9px] uppercase tracking-tighter">{label}</span>
+        <span className="text-[11px] uppercase tracking-tighter">{label}</span>
       </div>
       <div className="text-sm text-white font-bold">{value}</div>
     </div>

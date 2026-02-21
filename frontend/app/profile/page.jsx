@@ -83,7 +83,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="lg:col-span-1 p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md relative overflow-hidden"
+            className="lg:col-span-1 p-3 sm:p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
               <Shield className="w-12 h-12 text-blue-500" />
@@ -128,7 +128,7 @@ export default function ProfilePage() {
             animate={{ opacity: 1, y: 0 }}
             className="lg:col-span-2 space-y-6"
           >
-            <div className="p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md">
+            <div className="p-3 sm:p-6 bg-black/40 border border-blue-500/20 rounded-2xl backdrop-blur-md">
               <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
                 <Terminal className="w-5 h-5 text-cyan-400" />
                 <h3 className="text-sm font-bold tracking-widest uppercase">
@@ -221,7 +221,7 @@ export default function ProfilePage() {
               className="relative w-full max-w-2xl bg-[#0a0a0c] border border-blue-500/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]"
             >
               {/* Modal Header */}
-              <div className="p-6 border-b border-white/10 flex justify-between items-center bg-blue-500/5">
+              <div className="p-3 sm:p-6 border-b border-white/10 flex justify-between items-center bg-blue-500/5">
                 <div>
                   <h3 className="text-xl font-bold tracking-tighter text-blue-400 uppercase">
                     {selectedReg.team_name} //{" "}
@@ -240,7 +240,7 @@ export default function ProfilePage() {
               </div>
 
               {/* Modal Content */}
-              <div className="p-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
+              <div className="p-3 sm:p-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {selectedReg.participants.map((p, idx) => (
                     <motion.div

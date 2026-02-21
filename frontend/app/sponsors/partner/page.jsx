@@ -115,7 +115,7 @@ export default function PartnerPage() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="group relative p-6 bg-white/5 border border-white/10 hover:border-violet-500/50 transition-all backdrop-blur-sm"
+                    className="group relative p-3 sm:p-6 bg-white/5 border border-white/10 hover:border-violet-500/50 transition-all backdrop-blur-sm"
                   >
                     <div className="text-2xl mb-4">{item.icon}</div>
                     <h3 className="text-lg font-bold text-white mb-2">
@@ -126,7 +126,7 @@ export default function PartnerPage() {
                 ))}
               </div>
 
-              <div className="relative p-8 border-l-2 border-violet-500/50 bg-linear-to-r from-violet-500/10 to-transparent">
+              <div className="relative p-4 sm:p-8 border-l-2 border-violet-500/50 bg-linear-to-r from-violet-500/10 to-transparent">
                 <p className="text-xl font-light italic text-violet-100/80 mb-4">
                   "The future isn't written; it's built through strategic
                   collaboration."
@@ -145,7 +145,7 @@ export default function PartnerPage() {
                 <TechCorner className="bottom-0 left-0 -translate-x-1 translate-y-1 -rotate-90" />
                 <TechCorner className="bottom-0 right-0 translate-x-1 translate-y-1 rotate-180" />
 
-                <div className="p-10 text-center">
+                <div className="p-5 sm:p-10 text-center">
                   <ScannerLine />
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold text-white mb-2 tracking-widest uppercase">
@@ -161,7 +161,7 @@ export default function PartnerPage() {
                     onClick={handleCopy}
                   >
                     <div className="absolute inset-0 bg-violet-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative bg-violet-950/30 border border-violet-500/40 p-6 rounded-sm transition-all group-hover:border-violet-400">
+                    <div className="relative bg-violet-950/30 border border-violet-500/40 p-3 sm:p-6 rounded-sm transition-all group-hover:border-violet-400">
                       <p className="text-sm font-mono text-violet-400 mb-2 uppercase tracking-widest">
                         Target Address
                       </p>

@@ -89,7 +89,7 @@ export default function GroupDancePS() {
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            <div className="mt-6 lg:mt-0 flex gap-4">
+            <div className="mt-6 lg:mt-0 flex gap-4 flex-wrap">
               <StatNode
                 icon={<Users />}
                 label="Team Size"
@@ -97,7 +97,7 @@ export default function GroupDancePS() {
               />
               <StatNode
                 icon={<Wallet />}
-                label="Base Fee"
+                label="Base Fee (Per Team)"
                 value={`₹${competitionData.baseFee}`}
               />
               <StatNode
@@ -134,7 +134,7 @@ export default function GroupDancePS() {
             <h3 className="text-[14px] text-pink-500 uppercase tracking-widest mb-4 font-bold">
               Operational_Context
             </h3>
-            <div className="p-6 bg-pink-900/10 border border-pink-500/20 rounded-2xl backdrop-blur-md">
+            <div className="p-3 sm:p-6 bg-pink-900/10 border border-pink-500/20 rounded-2xl backdrop-blur-md">
               <p className="text-md leading-relaxed text-pink-100/80 mb-6 italic border-l-2 border-pink-500 pl-4">
                 "Where collaborative artistry meets technical precision across
                 two high-stakes rounds."
@@ -147,7 +147,7 @@ export default function GroupDancePS() {
             </div>
 
             {/* Penalty Logic */}
-            <div className="p-6 bg-red-950/20 border border-red-500/20 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-red-950/20 border border-red-500/20 rounded-2xl">
               <h4 className="text-[12px] text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <AlertTriangle className="w-3 h-3" /> Technical_Deductions
               </h4>
@@ -169,8 +169,8 @@ export default function GroupDancePS() {
 
           {/* --- ROUND MATRIX --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Layers className="w-48 h-48" />
               </div>
 
@@ -196,7 +196,7 @@ export default function GroupDancePS() {
                   ))}
                 </div>
 
-                <div className="p-6 bg-pink-500/5 border-l-2 border-pink-500 rounded-r-xl min-h-25">
+                <div className="p-3 sm:p-6 bg-pink-500/5 border-l-2 border-pink-500 rounded-r-xl min-h-25">
                   <p className="text-md text-pink-100/80 leading-relaxed italic">
                     {competitionData.phases[activeTab].detail}
                   </p>
@@ -213,8 +213,8 @@ export default function GroupDancePS() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-pink-500/5 border border-pink-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-pink-500/5 border border-pink-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 

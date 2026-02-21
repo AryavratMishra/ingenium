@@ -32,7 +32,7 @@ const HexFrame = ({ src, name }) => (
 const MemberCard = ({ member, index }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="relative p-8 bg-slate-950/50 border border-emerald-500/10 hover:border-emerald-500/40 transition-all rounded-2xl group overflow-hidden h-full"
+    className="relative p-4 sm:p-8 bg-slate-950/50 border border-emerald-500/10 hover:border-emerald-500/40 transition-all rounded-2xl group overflow-hidden h-full"
   >
     <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
       <span className="font-mono text-[40px] leading-none">

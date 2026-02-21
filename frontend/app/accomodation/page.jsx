@@ -70,7 +70,7 @@ export default function AccommodationNexus() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* --- COST & ELIGIBILITY --- */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 bg-cyan-950/20 border border-cyan-500/30 rounded-3xl backdrop-blur-xl relative overflow-hidden group">
+            <div className="p-4 sm:p-8 bg-cyan-950/20 border border-cyan-500/30 rounded-3xl backdrop-blur-xl relative overflow-hidden group">
               <div className="absolute -top-4 -right-4 text-cyan-500/10 group-hover:text-cyan-500/20 transition-colors">
                 <CreditCard className="w-24 h-24" />
               </div>
@@ -102,7 +102,7 @@ export default function AccommodationNexus() {
             </div>
 
             {/* System Integrity Warning */}
-            <div className="p-6 bg-red-950/20 border border-red-500/30 rounded-2xl relative overflow-hidden">
+            <div className="p-3 sm:p-6 bg-red-950/20 border border-red-500/30 rounded-2xl relative overflow-hidden">
               <div className="flex items-center gap-3 mb-4">
                 <ShieldAlert className="w-5 h-5 text-red-500 animate-pulse" />
                 <h4 className="text-xs font-black text-white uppercase tracking-widest">
@@ -120,7 +120,7 @@ export default function AccommodationNexus() {
 
           {/* --- UPLINK PORTAL --- */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-10 backdrop-blur-md relative">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-10 backdrop-blur-md relative">
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-6 flex items-center gap-3">
                 <Lock className="w-5 h-5 text-cyan-500" /> Habitation_Uplink
               </h3>

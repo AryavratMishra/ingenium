@@ -80,7 +80,7 @@ export default function BattleOfBandsPS() {
           </div>
 
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <StatNode
                 icon={<Users />}
                 label="Team Size"
@@ -88,7 +88,7 @@ export default function BattleOfBandsPS() {
               />
               <StatNode
                 icon={<Wallet />}
-                label="Base Fee"
+                label="Base Fee (Per Team)"
                 value={`₹${competitionData.baseFee}`}
               />
               <StatNode
@@ -128,7 +128,7 @@ export default function BattleOfBandsPS() {
             <h3 className="text-[12px] text-purple-500 uppercase tracking-widest mb-4 font-bold">
               Sonic_Context
             </h3>
-            <div className="p-6 bg-purple-900/10 border border-purple-500/20 rounded-2xl backdrop-blur-xl">
+            <div className="p-3 sm:p-6 bg-purple-900/10 border border-purple-500/20 rounded-2xl backdrop-blur-xl">
               <p className="text-md leading-relaxed text-purple-100/80 mb-6 italic border-l-2 border-purple-500 pl-4">
                 "Nurturing musical talent across genres, providing a platform
                 for creative expression and live exploration."
@@ -140,7 +140,7 @@ export default function BattleOfBandsPS() {
               </div>
             </div>
 
-            <div className="p-6 bg-black/40 border border-white/5 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-white/5 rounded-2xl">
               <h4 className="text-[12px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <Radio className="w-3 h-3" /> Technical_Deductions
               </h4>
@@ -162,8 +162,8 @@ export default function BattleOfBandsPS() {
 
           {/* --- PERFORMANCE MATRIX --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Speaker className="w-48 h-48" />
               </div>
 
@@ -190,7 +190,7 @@ export default function BattleOfBandsPS() {
                   ))}
                 </div>
 
-                <div className="p-6 bg-purple-500/5 border-l-2 border-purple-500 rounded-r-xl mb-8 min-h-25">
+                <div className="p-3 sm:p-6 bg-purple-500/5 border-l-2 border-purple-500 rounded-r-xl mb-8 min-h-25">
                   <p className="text-md text-purple-100/80 leading-relaxed italic">
                     {competitionData.phases[activePhase].detail}
                   </p>
@@ -237,8 +237,8 @@ export default function BattleOfBandsPS() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-purple-500/5 border border-purple-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-purple-500/5 border border-purple-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 

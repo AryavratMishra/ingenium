@@ -226,7 +226,7 @@ export default function PastPage() {
                       </span>
                     </div>
 
-                    <div className="p-6 relative z-10">
+                    <div className="p-3 sm:p-6 relative z-10">
                       <TechCorner className="top-0 left-0 rotate-0" />
                       <TechCorner className="bottom-0 right-0 rotate-180" />
 

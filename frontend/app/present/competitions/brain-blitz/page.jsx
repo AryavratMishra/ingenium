@@ -39,7 +39,7 @@ export default function MatiksPS() {
         "Individual participation format.",
         "Target: School (8th+) & UG Students.",
         "Expected Footfall: 70-100 participants.",
-        "Base Fee: ₹350.",
+        "Base Fee (Per Team): ₹350.",
       ],
     },
     {
@@ -102,7 +102,7 @@ export default function MatiksPS() {
 
           <div className="mt-6 lg:mt-0 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <HeaderStat icon={<Globe />} label="Mode" value="Offline" />
-            <HeaderStat icon={<Wallet />} label="Fee" value="₹350" />
+            <HeaderStat icon={<Wallet />} label="Base Fee (Per Team)" value="₹350" />
             <HeaderStat icon={<Layers />} label="Phases" value="3 Total" />
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function MatiksPS() {
             </div>
 
             {/* Judging Criteria */}
-            <div className="p-6 bg-black/60 border border-amber-500/20 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/60 border border-amber-500/20 rounded-2xl">
               <h4 className="text-[14px] text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <Layout className="w-3 h-3" /> Evaluation_Vector
               </h4>
@@ -173,7 +173,7 @@ export default function MatiksPS() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="bg-black/60 border border-amber-500/20 rounded-3xl p-8 backdrop-blur-md relative overflow-hidden"
+                className="bg-black/60 border border-amber-500/20 rounded-3xl p-4 sm:p-8 backdrop-blur-md relative overflow-hidden"
               >
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
@@ -236,7 +236,7 @@ export default function MatiksPS() {
             {/* Prizes & Rules Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Bounty Registry */}
-              <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-6 relative overflow-hidden">
+              <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3 sm:p-6 relative overflow-hidden">
                 <div className="flex items-center gap-3 mb-4 text-amber-500">
                   <Award className="w-5 h-5" />
                   <h3 className="text-sm font-bold uppercase tracking-widest">

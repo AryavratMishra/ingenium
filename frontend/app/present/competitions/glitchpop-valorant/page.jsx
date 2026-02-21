@@ -108,7 +108,7 @@ export default function GlitchPopValorant() {
                                 <p>PING: 12ms</p>
                             </div>
 
-                            <div className="h-full w-full bg-black/40 flex flex-col justify-center items-center text-center p-8 backdrop-blur-sm">
+                            <div className="h-full w-full bg-black/40 flex flex-col justify-center items-center text-center p-4 sm:p-8 backdrop-blur-sm">
                                 <Swords className="w-16 h-16 text-white mb-4" />
                                 <h3 className="text-xl font-bold uppercase tracking-widest text-white">
                                     Format
@@ -157,7 +157,7 @@ function StatBox({ label, value, sub }) {
 
 function RoleCard({ icon, role, desc }) {
     return (
-        <div className="bg-white/5 p-6 hover:bg-white/10 transition-colors border border-white/5 group">
+        <div className="bg-white/5 p-3 sm:p-6 hover:bg-white/10 transition-colors border border-white/5 group">
             <div className="text-red-500 mb-4 group-hover:scale-110 transition-transform">{icon}</div>
             <h4 className="text-lg font-bold uppercase text-white mb-2">{role}</h4>
             <p className="text-xs text-gray-400 leading-relaxed">{desc}</p>

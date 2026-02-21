@@ -130,7 +130,7 @@ export default function CVObstacoursePage() {
               </div>
             </div>
 
-            <div className="p-6 bg-blue-950/20 border border-blue-500/20 rounded-2xl relative group">
+            <div className="p-3 sm:p-6 bg-blue-950/20 border border-blue-500/20 rounded-2xl relative group">
               <div className="flex items-center gap-2 text-blue-400 text-[14px] uppercase tracking-widest mb-4">
                 <Activity className="w-3 h-3 animate-pulse" /> Mission_Core
               </div>
@@ -148,7 +148,7 @@ export default function CVObstacoursePage() {
             </div>
 
             {/* PRIZE POOL CARD */}
-            <div className="p-6 bg-linear-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-linear-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 rounded-2xl">
               <div className="flex justify-between items-center mb-6">
                 <h4 className="text-[14px] text-yellow-500 uppercase tracking-widest font-bold">
                   Bounty_Pool
@@ -186,7 +186,7 @@ export default function CVObstacoursePage() {
                 <div className="flex items-center gap-3">
                   <CreditCard className="w-5 h-5 text-blue-400" />
                   <span className="text-xs uppercase text-blue-200">
-                    Base Fee
+                    Base Fee (Per Team)
                   </span>
                 </div>
                 <span className="text-lg font-black text-white">
@@ -215,7 +215,7 @@ export default function CVObstacoursePage() {
           <div className="lg:col-span-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* COMPLIANCE & RULES */}
-              <div className="p-6 bg-red-500/5 border border-red-500/20 rounded-2xl">
+              <div className="p-3 sm:p-6 bg-red-500/5 border border-red-500/20 rounded-2xl">
                 <h4 className="text-[14px] text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                   <ShieldCheck className="w-3 h-3" /> Rules_&_Compliance
                 </h4>
@@ -241,7 +241,7 @@ export default function CVObstacoursePage() {
               </div>
 
               {/* TASKS */}
-              <div className="p-6 bg-blue-950/20 border border-blue-500/20 rounded-2xl">
+              <div className="p-3 sm:p-6 bg-blue-950/20 border border-blue-500/20 rounded-2xl">
                 <h4 className="text-[14px] text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                   <Target className="w-3 h-3" /> Operation_Workflow
                 </h4>
@@ -261,7 +261,7 @@ export default function CVObstacoursePage() {
             </div>
 
             {/* EVALUATION PARAMETERS */}
-            <div className="p-6 bg-black/40 border border-blue-500/10 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-blue-500/10 rounded-2xl">
               <h4 className="text-[14px] text-blue-400 uppercase tracking-widest mb-4">
                 Evaluation_Logic
               </h4>
@@ -278,7 +278,7 @@ export default function CVObstacoursePage() {
             </div>
 
             {/* HARDWARE & ASSETS */}
-            <div className="p-8 bg-linear-to-r from-blue-900/10 to-transparent border border-blue-500/10 rounded-3xl">
+            <div className="p-4 sm:p-8 bg-linear-to-r from-blue-900/10 to-transparent border border-blue-500/10 rounded-3xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div>
                   <h3 className="text-lg font-black text-white uppercase mb-4">

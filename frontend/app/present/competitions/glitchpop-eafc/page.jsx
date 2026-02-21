@@ -28,7 +28,7 @@ export default function GlitchPopEAFC() {
                 <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-green-500/20 blur-[120px] rounded-full animate-pulse" />
             </div>
 
-            <div className="relative z-10 max-w-6xl mx-auto p-6 md:p-12">
+            <div className="relative z-10 max-w-6xl mx-auto p-3 sm:p-6 md:p-12">
                 {/* Header - Scoreboard Style */}
                 <div className="flex flex-col items-center text-center mb-16">
                     <button
@@ -68,7 +68,7 @@ export default function GlitchPopEAFC() {
 
                     {/* Center - Main Card */}
                     <div className="bg-linear-to-b from-yellow-500/10 to-transparent p-1 rounded-[30px] shadow-[0_0_50px_rgba(34,197,94,0.1)]">
-                        <div className="bg-black/40 backdrop-blur-md rounded-[28px] p-8 h-full flex flex-col items-center text-center border border-yellow-500/20 relative overflow-hidden">
+                        <div className="bg-black/40 backdrop-blur-md rounded-[28px] p-4 sm:p-8 h-full flex flex-col items-center text-center border border-yellow-500/20 relative overflow-hidden">
                             <div className="absolute top-0 w-full h-1 bg-linear-to-r from-transparent via-yellow-500 to-transparent" />
 
                             <Gamepad2 className="w-24 h-24 text-green-400 mb-6 drop-shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
@@ -100,7 +100,7 @@ export default function GlitchPopEAFC() {
 
                     {/* Right Wing - Rules */}
                     <div className="space-y-6">
-                        <div className="bg-white/5 border border-white/5 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                        <div className="bg-white/5 border border-white/5 rounded-2xl p-3 sm:p-6 hover:bg-white/10 transition-colors">
                             <div className="flex items-center gap-3 mb-3">
                                 <Timer className="w-6 h-6 text-green-400" />
                                 <h3 className="text-lg font-bold uppercase">Format</h3>
@@ -108,7 +108,7 @@ export default function GlitchPopEAFC() {
                             <p className="text-sm text-gray-400">Group Stage (Bo1) &rarr; Double Elimination Finale (Bo3/Bo5).</p>
                         </div>
 
-                        <div className="bg-white/5 border border-white/5 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                        <div className="bg-white/5 border border-white/5 rounded-2xl p-3 sm:p-6 hover:bg-white/10 transition-colors">
                             <div className="flex items-center gap-3 mb-3">
                                 <Flag className="w-6 h-6 text-green-400" />
                                 <h3 className="text-lg font-bold uppercase">Mode</h3>
@@ -116,7 +116,7 @@ export default function GlitchPopEAFC() {
                             <p className="text-sm text-gray-400">Offline Matches at IIT Indore.</p>
                         </div>
 
-                        <div className="bg-white/5 border border-white/5 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                        <div className="bg-white/5 border border-white/5 rounded-2xl p-3 sm:p-6 hover:bg-white/10 transition-colors">
                             <div className="flex items-center gap-3 mb-3">
                                 <Award className="w-6 h-6 text-green-400" />
                                 <h3 className="text-lg font-bold uppercase">Console</h3>

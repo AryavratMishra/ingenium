@@ -88,7 +88,7 @@ export default function RCRacingPS() {
               1:8 Off-Road Buggy Championship
             </p>
           </div>
-          <div className="mt-6 lg:mt-0 flex gap-4">
+          <div className="mt-6 lg:mt-0 flex flex-wrap gap-4">
             <StatNode
               icon={<Users />}
               label="Squad"
@@ -101,7 +101,7 @@ export default function RCRacingPS() {
             />
             <StatNode
               icon={<Zap />}
-              label="Fee"
+              label="Base Fee (Per Team)"
               value={competitionData.baseFee}
             />
           </div>
@@ -138,7 +138,7 @@ export default function RCRacingPS() {
             </div>
 
             {/* Fuel & Safety Module */}
-            <div className="p-6 bg-black/40 border border-white/10 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-white/10 rounded-2xl">
               <h4 className="text-[12px] text-orange-500/60 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <Fuel className="w-3 h-3" /> Chemical_Constraints
               </h4>
@@ -152,7 +152,7 @@ export default function RCRacingPS() {
 
           {/* --- CIRCUIT PROTOCOLS --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative overflow-hidden">
               <div className="absolute top-4 right-4 text-orange-500/10">
                 <Gauge className="w-32 h-32" />
               </div>
@@ -205,7 +205,7 @@ export default function RCRacingPS() {
                         "Please login to register. Login button at botton-right corner.",
                       );
                   }}
-                  className="w-full py-4 bg-orange-600 border-b-4 border-orange-800 rounded-xl text-black font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:bg-orange-500 transition-all flex items-center justify-center gap-3"
+                  className="w-full py-4 bg-orange-600 border-b-4 border-orange-800 rounded-xl text-black font-black uppercase tracking-wider shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:bg-orange-500 transition-all flex items-center justify-center gap-3"
                 >
                   Initialize_Race_Entry <Zap className="w-4 h-4 fill-current" />
                 </motion.button>
@@ -213,8 +213,8 @@ export default function RCRacingPS() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-orange-500/5 border border-orange-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-orange-500/5 border border-orange-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 

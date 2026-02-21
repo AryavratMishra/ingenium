@@ -203,7 +203,7 @@ const ArenaSection = () => {
                             {/* Card Border Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-orange-500/20 opacity-50 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="relative p-6 bg-slate-950/90 h-full border border-slate-800 group-hover:border-cyan-500/50 transition-colors">
+                            <div className="relative p-3 sm:p-6 bg-slate-950/90 h-full border border-slate-800 group-hover:border-cyan-500/50 transition-colors">
                                 {/* Hover Spark Effect */}
                                 <div className="absolute -top-10 -right-10 w-20 h-20 bg-cyan-400/20 blur-[30px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

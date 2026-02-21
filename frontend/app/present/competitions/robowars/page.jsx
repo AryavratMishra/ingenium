@@ -108,7 +108,7 @@ export default function RobowarsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* LEFT COLUMN */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
                 {active.icon}
               </div>
@@ -129,7 +129,7 @@ export default function RobowarsPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[12px] text-gray-500 uppercase font-bold">
-                    Base Fee
+                    Base Fee (Per Team)
                   </span>
                   <span className="text-sm font-bold text-sky-500 uppercase flex items-center gap-2">
                     <CreditCard className="w-3 h-3" /> ₹{active.regFee}
@@ -155,7 +155,7 @@ export default function RobowarsPage() {
               ))}
             </div>
 
-            <div className="p-6 bg-black/60 border-l-2 border-sky-500 rounded-r-xl">
+            <div className="p-3 sm:p-6 bg-black/60 border-l-2 border-sky-500 rounded-r-xl">
               <h3 className="text-[14px] font-black tracking-[0.2em] mb-4 uppercase text-gray-400 flex items-center gap-2">
                 <Maximize className="w-3 h-3" /> Arena_Specs
               </h3>
@@ -180,7 +180,7 @@ export default function RobowarsPage() {
 
           {/* MIDDLE COLUMN: EXPLICIT ROUNDS */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-5">
                 <Layers className="w-32 h-32" />
               </div>
@@ -214,7 +214,7 @@ export default function RobowarsPage() {
               </div>
             </div>
 
-            <div className="p-6 bg-black/40 border border-white/10 rounded-xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-white/10 rounded-xl">
               <h3 className="text-[14px] font-black tracking-[0.2em] mb-4 uppercase text-gray-400 flex items-center gap-2">
                 <ShieldCheck className="w-3 h-3 text-sky-500" />{" "}
                 Protocol_Compliance
@@ -247,7 +247,7 @@ export default function RobowarsPage() {
 
           {/* RIGHT COLUMN */}
           <div className="lg:col-span-3 space-y-6">
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl relative group">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl relative group">
               <h3 className="text-[14px] font-black tracking-[0.2em] mb-4 uppercase text-sky-500 flex items-center gap-2">
                 <Info className="w-3 h-3" /> Event_Context
               </h3>
@@ -256,7 +256,7 @@ export default function RobowarsPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-linear-to-br from-sky-500 to-sky-700 rounded-xl text-black shadow-lg shadow-sky-500/20">
+            <div className="p-3 sm:p-6 bg-linear-to-br from-sky-500 to-sky-700 rounded-xl text-black shadow-lg shadow-sky-500/20">
               <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-2">
                   <Trophy className="w-5 h-5" />

@@ -93,7 +93,7 @@ export default function AlbumCoverPS() {
             />
             <HeaderTag
               icon={<ImageIcon />}
-              label="Base Fee"
+              label="Base Fee (Per Team)"
               value={competitionData.fee}
             />
             <button
@@ -148,7 +148,7 @@ export default function AlbumCoverPS() {
               </div>
             </section>
 
-            <section className="p-6 bg-red-950/20 border border-red-500/20 rounded-2xl">
+            <section className="p-3 sm:p-6 bg-red-950/20 border border-red-500/20 rounded-2xl">
               <h4 className="text-[14px] text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <AlertTriangle className="w-4 h-4" /> Critical_Compliances
               </h4>
@@ -174,7 +174,7 @@ export default function AlbumCoverPS() {
 
           {/* --- MAIN CONTENT: WORKFLOW & PRIZES --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-black/40 border border-purple-500/20 rounded-3xl p-8 backdrop-blur-xl relative">
+            <div className="bg-black/40 border border-purple-500/20 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative">
               <h2 className="text-2xl font-black text-white uppercase tracking-tighter mb-8 flex items-center gap-3">
                 <History className="text-purple-500" /> Chrono-Submission
                 Workflow
@@ -283,7 +283,7 @@ export default function AlbumCoverPS() {
             </div>
 
             {/* --- REWARDS SECTION --- */}
-            <div className="bg-purple-600 border border-purple-400 rounded-3xl p-8 relative overflow-hidden">
+            <div className="bg-purple-600 border border-purple-400 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
               <div className="flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
                 <div className="flex items-center gap-4">
                   <Award className="w-12 h-12 text-white" />
@@ -330,10 +330,10 @@ function HeaderTag({ icon, label, value }) {
     <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl backdrop-blur-sm">
       <div className="text-purple-500">{icon}</div>
       <div>
-        <span className="text-[9px] text-gray-500 uppercase block leading-none mb-1">
+        <span className="text-[11px] text-gray-500 uppercase block leading-none mb-1">
           {label}
         </span>
-        <span className="text-xs font-bold text-white tracking-tighter uppercase">
+        <span className="text-sm font-bold text-white tracking-tighter uppercase">
           {value}
         </span>
       </div>

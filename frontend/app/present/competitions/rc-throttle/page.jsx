@@ -88,7 +88,7 @@ export default function RCThrottlePS() {
               1:8 Precision Electric Off-Road Circuit
             </p>
           </div>
-          <div className="mt-6 lg:mt-0 flex gap-4">
+          <div className="mt-6 lg:mt-0 flex gap-4 flex-wrap">
             <StatNode
               icon={<Users />}
               label="Squad"
@@ -101,7 +101,7 @@ export default function RCThrottlePS() {
             />
             <StatNode
               icon={<Lock />}
-              label="Auth Fee"
+              label="Base Fee (Per Team)"
               value={competitionData.baseFee}
             />
           </div>
@@ -137,7 +137,7 @@ export default function RCThrottlePS() {
             </div>
 
             {/* Driver Aid Restrictions */}
-            <div className="p-6 bg-black/40 border border-white/10 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-white/10 rounded-2xl">
               <h4 className="text-[12px] text-blue-500/60 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <Cpu className="w-3 h-3" /> Binary_Restrictions
               </h4>
@@ -151,7 +151,7 @@ export default function RCThrottlePS() {
 
           {/* --- OPERATIONAL PROTOCOLS --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative overflow-hidden">
               <div className="absolute top-4 right-4 text-blue-500/10">
                 <Navigation2 className="w-32 h-32" />
               </div>
@@ -203,7 +203,7 @@ export default function RCThrottlePS() {
                         "Please login to register. Login button at botton-right corner.",
                       );
                   }}
-                  className="w-full py-4 bg-blue-600 border-b-4 border-blue-800 rounded-xl text-black font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:bg-blue-500 transition-all flex items-center justify-center gap-3"
+                  className="w-full py-4 bg-blue-600 border-b-4 border-blue-800 rounded-xl text-black font-black uppercase tracking-wider shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:bg-blue-500 transition-all flex items-center justify-center gap-3"
                 >
                   Initialize_Throttle_Uplink{" "}
                   <Zap className="w-4 h-4 fill-current" />
@@ -212,8 +212,8 @@ export default function RCThrottlePS() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-blue-500/5 border border-blue-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 

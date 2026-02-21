@@ -67,7 +67,7 @@ export default function PoetrySlamPage() {
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <StatusNode
                 icon={<MapPin />}
                 label="Deployment"
@@ -75,7 +75,7 @@ export default function PoetrySlamPage() {
               />
               <StatusNode
                 icon={<IndianRupee />}
-                label="Base Fee"
+                label="Base Fee (Per Team)"
                 value={item.fee}
               />
               <StatusNode
@@ -111,7 +111,7 @@ export default function PoetrySlamPage() {
           {/* --- COMPETITION SELECTOR --- */}
           <div className="lg:col-span-4 space-y-4">
             {/* System Integrity */}
-            <div className="p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl mt-8">
+            <div className="p-3 sm:p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl mt-8">
               <h4 className="text-[12px] text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <Terminal className="w-3 h-3" /> Core_Compliance
               </h4>
@@ -128,7 +128,7 @@ export default function PoetrySlamPage() {
 
           {/* --- MANUSCRIPT VIEWPORT --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-black border border-amber-500/20 rounded-3xl p-10 backdrop-blur-xl relative">
+            <div className="bg-black border border-amber-500/20 rounded-3xl p-5 sm:p-10 backdrop-blur-xl relative">
               <div className="absolute top-4 right-6 text-amber-500/10">
                 <Quote className="w-24 h-24" />
               </div>
@@ -137,7 +137,7 @@ export default function PoetrySlamPage() {
                 Module_{item.id}: {item.title}
               </h2>
 
-              <p className="text-md leading-relaxed text-amber-100/70 mb-12 p-6 bg-amber-500/5 border-l-2 border-amber-500 italic max-w-2xl">
+              <p className="text-md leading-relaxed text-amber-100/70 mb-12 p-3 sm:p-6 bg-amber-500/5 border-l-2 border-amber-500 italic max-w-2xl">
                 "{item.description}"
               </p>
 
@@ -162,7 +162,7 @@ export default function PoetrySlamPage() {
                     ))}
                   </ul>
                 </div>
-                <div className="p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 flex flex-col justify-center">
+                <div className="p-3 sm:p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 flex flex-col justify-center">
                   <ScrollText className="w-8 h-8 text-amber-500/30 mb-2" />
                   <span className="text-[12px] text-amber-500 uppercase font-bold">
                     Submission Method
@@ -200,8 +200,8 @@ export default function PoetrySlamPage() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 

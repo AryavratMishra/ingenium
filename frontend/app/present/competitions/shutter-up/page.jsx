@@ -90,9 +90,9 @@ export default function ShutterUpPS() {
           </div>
 
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <StatusNode label="Category" value={competitionData.category} />
-              <StatusNode label="Base Fee" value={competitionData.fee} />
+              <StatusNode label="Base Fee (Per Team)" value={competitionData.fee} />
               <StatusNode
                 label="Participation"
                 value={competitionData.participation}
@@ -160,7 +160,7 @@ export default function ShutterUpPS() {
             </div>
 
             {/* Metadata Requirements */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl mt-8">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-2xl mt-8">
               <h4 className="text-[12px] text-white/60 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <FileSearch className="w-3 h-3" /> EXIF_Validation_Required
               </h4>
@@ -182,13 +182,13 @@ export default function ShutterUpPS() {
 
           {/* --- VIEWPORT: RULES & CRITERIA --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative">
               <div className="absolute top-4 right-4 opacity-5">
                 <Camera className="w-32 h-32" />
               </div>
 
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-8 flex items-center gap-3">
-                <Maximize2 className="w-5 h-5" /> Narrative_Capture_Protocol
+                <Maximize2 className="w-5 h-5" /> Capture_Protocol
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
@@ -250,8 +250,8 @@ export default function ShutterUpPS() {
             </div>
 
             {/* --- REWARD ALLOCATION --- */}
-            <div className="bg-white/10 border border-white/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-white/10 border border-white/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 

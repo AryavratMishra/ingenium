@@ -86,7 +86,7 @@ export default function AuthTerminal() {
           style={{ top: "0%" }}
         />
 
-        <div className="p-8 border border-white/5 bg-linear-to-b from-blue-500/5 to-transparent">
+        <div className="p-4 sm:p-8 border border-white/5 bg-linear-to-b from-blue-500/5 to-transparent">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/40 mb-4 group">

@@ -24,7 +24,7 @@ const ArchiveCard = ({ item, setSelectedItem }) => (
     />
 
     {/* Metadata Tab */}
-    <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-black via-black/80 to-transparent z-30">
+    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 bg-linear-to-t from-black via-black/80 to-transparent z-30">
       <div className="flex justify-between items-start">
         <div>
           <p className="text-blue-500 font-bold text-[10px] tracking-widest uppercase mb-1 flex items-center gap-2">
@@ -61,7 +61,7 @@ export default function KineticGallery() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,40,80,0.2),transparent)]" />
 
       {/* --- HEADER --- */}
-      <header className="relative z-50 p-8 flex justify-between items-center border-b border-blue-500/10 backdrop-blur-xl">
+      <header className="relative z-50 p-4 sm:p-8 flex justify-between items-center border-b border-blue-500/10 backdrop-blur-xl">
         <div className="space-y-1">
           <button
             onClick={() => router.push("/?state=navigation")}
@@ -111,7 +111,7 @@ export default function KineticGallery() {
       </div>
 
       {/* --- STATUS FOOTER --- */}
-      <footer className="absolute bottom-0 w-full p-8 border-t border-blue-500/10 flex justify-between items-end opacity-60">
+      <footer className="absolute bottom-0 w-full p-4 sm:p-8 border-t border-blue-500/10 flex justify-between items-end opacity-60">
         <div className="text-[10px] space-y-2">
           <p className="flex items-center gap-2">
             <Cpu className="w-3 h-3" /> SYNC_STATUS: ACTIVE

@@ -113,7 +113,7 @@ export default function GroundUtilizationPage() {
               icon={<Users className="w-3 h-3" />}
             />
             <StatBox
-              label="Base Fee"
+              label="Base Fee (Per Team)"
               value={`₹${problemStatement.baseFee}`}
               icon={<CreditCard className="w-3 h-3" />}
             />
@@ -124,7 +124,7 @@ export default function GroundUtilizationPage() {
           {/* --- SIDEBAR --- */}
           <div className="lg:col-span-4 space-y-6">
             {/* MISSION ROADMAP (ROUNDS) */}
-            <div className="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
+            <div className="p-3 sm:p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
               <h4 className="text-[14px] text-emerald-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                 <Calendar className="w-4 h-4" /> Competition_Roadmap
               </h4>
@@ -155,7 +155,7 @@ export default function GroundUtilizationPage() {
             </div>
 
             {/* Judging Matrix */}
-            <div className="p-6 bg-black/60 border border-white/5 rounded-xl">
+            <div className="p-3 sm:p-6 bg-black/60 border border-white/5 rounded-xl">
               <h4 className="text-[14px] text-emerald-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <Scale className="w-3 h-3" /> Scoring_Weights
               </h4>
@@ -197,7 +197,7 @@ export default function GroundUtilizationPage() {
           {/* --- MAIN CONTENT --- */}
           <div className="lg:col-span-8 space-y-6">
             <div className="bg-black/60 border border-emerald-500/20 rounded-3xl overflow-hidden backdrop-blur-md">
-              <div className="p-8">
+              <div className="p-4 sm:p-8">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-8">
                   <div>
                     <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-1 leading-none">
@@ -280,7 +280,7 @@ export default function GroundUtilizationPage() {
 
             {/* PRIZES & CONTACTS */}
             <div className="grid grid-cols-1 gap-6">
-              <div className="bg-emerald-500/10 border border-emerald-500/30 p-8 rounded-3xl relative overflow-hidden group">
+              <div className="bg-emerald-500/10 border border-emerald-500/30 p-4 sm:p-8 rounded-3xl relative overflow-hidden group">
                 <Trophy className="absolute -right-6 -bottom-6 w-32 h-32 text-emerald-500/5 -rotate-12 group-hover:scale-110 transition-transform duration-700" />
                 <h4 className="text-sm font-black text-white uppercase mb-6 tracking-[0.3em]">
                   Reward_Manifest
@@ -318,10 +318,10 @@ export default function GroundUtilizationPage() {
 
 function StatBox({ label, value, icon }) {
   return (
-    <div className="px-6 py-3 bg-emerald-500/5 border border-emerald-500/20 rounded-xl flex items-center gap-3">
+    <div className="px-3 py-3 bg-emerald-500/5 border border-emerald-500/20 rounded-xl flex items-center gap-3">
       <div className="text-emerald-500 opacity-50">{icon}</div>
       <div>
-        <span className="block text-[12px] text-emerald-500/50 uppercase font-bold tracking-widest">
+        <span className="block text-[10px] text-emerald-500/70 uppercase font-bold tracking-widest">
           {label}
         </span>
         <span className="text-[12px] text-white font-bold uppercase">

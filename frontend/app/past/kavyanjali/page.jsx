@@ -15,10 +15,10 @@ const GlitchText = ({ text, className = "" }) => {
     return (
         <div className={`relative inline-block group ${className}`}>
             <span className="relative z-10">{text}</span>
-            <span className="absolute top-0 left-0 -z-10 w-full h-full text-amber-600/50 opacity-0 group-hover:opacity-100 group-hover:-translate-x-[2px] group-hover:translate-y-[2px] transition-all duration-100 animate-pulse">
+            <span className="absolute top-0 left-0 -z-10 w-full h-full text-amber-600/50 opacity-0 group-hover:opacity-100 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 transition-all duration-100 animate-pulse">
                 {text}
             </span>
-            <span className="absolute top-0 left-0 -z-10 w-full h-full text-amber-300/50 opacity-0 group-hover:opacity-100 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-all duration-100 delay-75">
+            <span className="absolute top-0 left-0 -z-10 w-full h-full text-amber-300/50 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-100 delay-75">
                 {text}
             </span>
         </div>
@@ -116,7 +116,7 @@ const HeroSection = () => {
                     </span>
                 </div>
 
-                <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-amber-100 to-amber-700 mb-6 drop-shadow-[0_0_25px_rgba(245,158,11,0.2)] font-serif">
+                <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-amber-100 to-amber-700 mb-6 drop-shadow-[0_0_25px_rgba(245,158,11,0.2)] font-serif">
                     <GlitchText text="KAVYANJALI" />
                 </h1>
 
@@ -130,7 +130,7 @@ const HeroSection = () => {
             {/* Scroll Indicator */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
                 <span className="text-[10px] text-amber-500/50 font-mono uppercase tracking-widest">Read Manuscript</span>
-                <div className="w-px h-12 bg-gradient-to-b from-amber-500/50 to-transparent" />
+                <div className="w-px h-12 bg-linear-to-b from-amber-500/50 to-transparent" />
             </div>
         </section>
     );
@@ -152,7 +152,7 @@ const FeaturedPoetsSection = () => {
                     {poets.map((poet, i) => (
                         <motion.div
                             key={i}
-                            className="group relative p-8 border border-amber-900/30 bg-amber-950/10 hover:bg-amber-950/20 transition-all duration-500"
+                            className="group relative p-4 sm:p-8 border border-amber-900/30 bg-amber-950/10 hover:bg-amber-950/20 transition-all duration-500"
                             whileHover={{ y: -5 }}
                         >
                             <div className="absolute top-0 left-0 w-full h-1 bg-amber-500/20 group-hover:bg-amber-500 transition-colors" />

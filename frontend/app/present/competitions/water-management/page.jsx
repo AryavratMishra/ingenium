@@ -125,7 +125,7 @@ export default function WaterManagementPage() {
           {/* --- SIDEBAR --- */}
           <div className="lg:col-span-4 space-y-6">
             {/* MISSION ROADMAP */}
-            <div className="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
+            <div className="p-3 sm:p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
               <h4 className="text-[14px] text-emerald-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                 <Calendar className="w-4 h-4" /> Submission_Timeline
               </h4>
@@ -156,7 +156,7 @@ export default function WaterManagementPage() {
             </div>
 
             {/* Evaluation Matrix */}
-            <div className="p-6 bg-black/60 border border-white/5 rounded-xl">
+            <div className="p-3 sm:p-6 bg-black/60 border border-white/5 rounded-xl">
               <h4 className="text-[14px] text-emerald-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <Scale className="w-3 h-3" /> Scoring_Architecture
               </h4>
@@ -195,7 +195,7 @@ export default function WaterManagementPage() {
           {/* --- MAIN CONTENT --- */}
           <div className="lg:col-span-8 space-y-6">
             <div className="bg-black/60 border border-emerald-500/20 rounded-3xl overflow-hidden backdrop-blur-md">
-              <div className="p-8">
+              <div className="p-4 sm:p-8">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-8">
                   <div>
                     <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-1 leading-none">
@@ -276,7 +276,7 @@ export default function WaterManagementPage() {
 
             {/* REWARDS & COMMAND */}
             <div className="grid grid-cols-1 gap-6">
-              <div className="bg-emerald-500/10 border border-emerald-500/30 p-8 rounded-3xl relative overflow-hidden group">
+              <div className="bg-emerald-500/10 border border-emerald-500/30 p-4 sm:p-8 rounded-3xl relative overflow-hidden group">
                 <Trophy className="absolute -right-6 -bottom-6 w-32 h-32 text-emerald-500/5 -rotate-12 group-hover:scale-110 transition-transform duration-700" />
                 <h4 className="text-sm font-black text-white uppercase mb-6 tracking-[0.3em]">
                   Reward_Inventory

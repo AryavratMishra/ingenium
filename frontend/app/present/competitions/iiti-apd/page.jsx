@@ -86,13 +86,13 @@ export default function AsianParliamentaryDebatePS() {
           </div>
 
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <StatNode
                 icon={<Users />}
                 label="Team Structure"
                 value="3 Speakers"
               />
-              <StatNode icon={<IndianRupee />} label="Base Fee" value="₹600" />
+              <StatNode icon={<IndianRupee />} label="Base Fee (Per Team)" value="₹600" />
               <StatNode icon={<Mic2 />} label="Format" value="APD (3v3)" />
               <StatNode icon={<Activity />} label="Status" value="Offline" />
             </div>
@@ -125,7 +125,7 @@ export default function AsianParliamentaryDebatePS() {
             <h3 className="text-[14px] text-blue-500 uppercase tracking-widest mb-4 font-bold">
               Operational_Context
             </h3>
-            <div className="p-6 bg-blue-900/10 border border-blue-500/20 rounded-2xl backdrop-blur-md">
+            <div className="p-3 sm:p-6 bg-blue-900/10 border border-blue-500/20 rounded-2xl backdrop-blur-md">
               <p className="text-md leading-relaxed text-blue-100/80 mb-6 italic border-l-2 border-blue-500 pl-4">
                 "Fostering critical thinking and structured argumentation
                 through collaborative reasoning and policy analysis."
@@ -138,7 +138,7 @@ export default function AsianParliamentaryDebatePS() {
             </div>
 
             {/* Motion Domains */}
-            <div className="p-6 bg-black/40 border border-white/5 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-white/5 rounded-2xl">
               <h4 className="text-[14px] text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-2 font-bold">
                 <BookOpen className="w-3 h-3" /> Motion_Spectrum
               </h4>
@@ -170,8 +170,8 @@ export default function AsianParliamentaryDebatePS() {
 
           {/* --- TOURNAMENT MATRIX --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Scale className="w-48 h-48" />
               </div>
 
@@ -197,7 +197,7 @@ export default function AsianParliamentaryDebatePS() {
                   ))}
                 </div>
 
-                <div className="p-6 bg-blue-500/5 border-l-2 border-blue-500 rounded-r-xl">
+                <div className="p-3 sm:p-6 bg-blue-500/5 border-l-2 border-blue-500 rounded-r-xl">
                   <p className="text-md text-blue-100/80 leading-relaxed italic">
                     {competitionData.phases[activePhase].detail}
                   </p>
@@ -233,8 +233,8 @@ export default function AsianParliamentaryDebatePS() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-blue-500/5 border border-blue-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 
@@ -305,13 +305,13 @@ export default function AsianParliamentaryDebatePS() {
 
 function StatNode({ icon, label, value }) {
   return (
-    <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-lg">
+    <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-2 py-3 rounded-lg">
       <div className="text-blue-500">{icon}</div>
       <div>
         <span className="text-[10px] text-gray-500 uppercase block leading-none mb-1 font-bold">
           {label}
         </span>
-        <span className="text-sm font-bold text-white tracking-wide uppercase">
+        <span className="text-[12px] font-bold text-white tracking-wide uppercase">
           {value}
         </span>
       </div>

@@ -159,7 +159,7 @@ function RegistrationContent() {
       </div>
 
       <div className="bg-black/60 backdrop-blur-xl border border-accent/20 rounded-sm relative shadow-[0_0_100px_rgba(0,0,0,1)]">
-        <div className="p-6 md:p-10 border border-white/5">
+        <div className="p-3 sm:p-6 md:p-10 border border-white/5">
           <AnimatePresence mode="wait">
             {status === "idle" && (
               <motion.form

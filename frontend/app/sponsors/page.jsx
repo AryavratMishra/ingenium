@@ -205,7 +205,7 @@ export default function FuturePage() {
 
           {/* CTA: Mission Uplink */}
           <section className="max-w-4xl mx-auto mt-16 md:mt-32">
-            <div className="relative border border-violet-500/30 bg-black/60 overflow-hidden rounded-2xl p-6 md:p-12 text-center">
+            <div className="relative border border-violet-500/30 bg-black/60 overflow-hidden rounded-2xl p-3 sm:p-6 md:p-12 text-center">
               <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-violet-500 to-transparent" />
               <div className="absolute -left-10 -top-10 w-40 h-40 bg-violet-500/20 blur-[50px] rounded-full" />
 

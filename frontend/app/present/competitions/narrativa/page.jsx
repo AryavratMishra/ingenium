@@ -95,7 +95,7 @@ export default function NarrativaPage() {
                 CORE
               </span>
             </h1>
-            <div className="flex items-center gap-4 text-[10px] text-purple-400 uppercase tracking-widest">
+            <div className="flex flex-wrap items-center gap-4 text-[10px] text-purple-400 uppercase tracking-widest">
               <span className="flex items-center gap-1">
                 <Users className="w-3 h-3" />{" "}
                 {problemStatements[activePS].meta.format}
@@ -118,7 +118,7 @@ export default function NarrativaPage() {
           {/* LEFT COLUMN: INTEL, REWARDS & RULES */}
           <div className="lg:col-span-4 space-y-6">
             {/* Mission Brief */}
-            <div className="p-8 bg-black/60 border-t-4 border-purple-500 rounded-b-xl backdrop-blur-md">
+            <div className="p-4 sm:p-8 bg-black/60 border-t-4 border-purple-500 rounded-b-xl backdrop-blur-md">
               <div className="flex items-center gap-2 mb-4 text-purple-400">
                 <Cpu className="w-4 h-4 animate-pulse" />
                 <span className="text-[14px] tracking-widest font-bold uppercase">
@@ -136,7 +136,7 @@ export default function NarrativaPage() {
                 <div className="flex items-center gap-2">
                   <CircleDollarSign className="w-5 h-5 text-emerald-400" />
                   <span className="text-xs uppercase text-slate-300 tracking-tighter">
-                    Base Fee
+                    Base Fee (Per Team)
                   </span>
                 </div>
                 <span className="text-xl font-black text-white">
@@ -160,7 +160,7 @@ export default function NarrativaPage() {
             </div>
 
             {/* Bounty Protocol */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
                 <Trophy size={100} />
               </div>
@@ -201,7 +201,7 @@ export default function NarrativaPage() {
             </div>
 
             {/* Rules & Compliances */}
-            <div className="p-6 bg-red-500/5 border border-red-500/20 rounded-xl">
+            <div className="p-3 sm:p-6 bg-red-500/5 border border-red-500/20 rounded-xl">
               <h3 className="text-[14px] font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <ShieldAlert className="w-4 h-4" /> Compliance_Protocols
               </h3>
@@ -230,7 +230,7 @@ export default function NarrativaPage() {
           <div className="lg:col-span-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Functional Specs */}
-              <div className="p-8 bg-black/40 border border-white/10 rounded-xl backdrop-blur-md">
+              <div className="p-4 sm:p-8 bg-black/40 border border-white/10 rounded-xl backdrop-blur-md">
                 <h3 className="text-[14px] font-bold text-purple-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                   <Layers className="w-4 h-4" /> System_Objectives
                 </h3>
@@ -247,7 +247,7 @@ export default function NarrativaPage() {
               </div>
 
               {/* Deliverables */}
-              <div className="p-8 bg-white/5 border border-white/10 rounded-xl">
+              <div className="p-4 sm:p-8 bg-white/5 border border-white/10 rounded-xl">
                 <h3 className="text-[14px] font-bold text-cyan-400 uppercase tracking-widest mb-6 flex items-center gap-2">
                   <FileCode2 className="w-4 h-4" /> Protocol_Deliverables
                 </h3>
@@ -268,8 +268,8 @@ export default function NarrativaPage() {
             </div>
 
             {/* Status & Rounds Bar */}
-            <div className="p-6 bg-black/40 border-2 border-dashed border-white/10 rounded-xl flex flex-wrap items-center justify-between gap-6">
-              <div className="flex gap-8">
+            <div className="p-3 sm:p-6 bg-black/40 border-2 border-dashed border-white/10 rounded-xl flex flex-wrap items-center justify-between gap-6">
+              <div className="flex gap-8 flex-wrap">
                 <div className="space-y-1">
                   <div className="text-[11px] text-slate-500 uppercase">
                     Submission_Mode

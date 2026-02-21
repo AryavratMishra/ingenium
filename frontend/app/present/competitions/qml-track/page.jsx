@@ -140,7 +140,7 @@ export default function QuantumHackathonPS() {
           {/* --- LEFT COLUMN: INTEL & REQS --- */}
           <div className="lg:col-span-4 space-y-6">
             {/* Background & Objective Module */}
-            <div className="p-6 bg-black/40 border border-cyan-500/20 rounded-2xl backdrop-blur-md">
+            <div className="p-3 sm:p-6 bg-black/40 border border-cyan-500/20 rounded-2xl backdrop-blur-md">
               <h3 className="text-[14px] text-cyan-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <Target className="w-4 h-4" /> Operational_Brief
               </h3>
@@ -167,7 +167,7 @@ export default function QuantumHackathonPS() {
                   <div className="bg-white/5 p-3 rounded-xl border border-white/10">
                     <CreditCard className="w-4 h-4 text-cyan-500 mb-1" />
                     <p className="text-[12px] text-gray-500 uppercase">
-                      Base Fee
+                      Base Fee (Per Team)
                     </p>
                     <p className="text-[13px] text-white font-bold">₹350</p>
                   </div>
@@ -176,7 +176,7 @@ export default function QuantumHackathonPS() {
             </div>
 
             {/* Event Structure & Rounds */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-2xl">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-[14px] text-cyan-500 uppercase tracking-widest">
                   Phase_Cycle
@@ -227,7 +227,7 @@ export default function QuantumHackathonPS() {
             </div>
 
             {/* Research Anchor */}
-            <div className="p-6 bg-cyan-950/30 border-l-4 border-cyan-500 rounded-r-2xl relative group">
+            <div className="p-3 sm:p-6 bg-cyan-950/30 border-l-4 border-cyan-500 rounded-r-2xl relative group">
               <h4 className="text-[14px] text-cyan-400 uppercase font-bold mb-2 flex items-center gap-2">
                 <Dna className="w-3 h-3" /> Research_Anchor
               </h4>
@@ -253,7 +253,7 @@ export default function QuantumHackathonPS() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="bg-black/60 border border-cyan-500/20 rounded-3xl p-8 backdrop-blur-2xl relative min-h-110"
+                className="bg-black/60 border border-cyan-500/20 rounded-3xl p-4 sm:p-8 backdrop-blur-2xl relative min-h-110"
               >
                 <div className="flex justify-between items-start mb-6">
                   <div>
@@ -345,7 +345,7 @@ export default function QuantumHackathonPS() {
               </div>
 
               {/* Prize Pool & Compliances */}
-              <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-2xl p-6 relative overflow-hidden">
+              <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-2xl p-3 sm:p-6 relative overflow-hidden">
                 <div className="absolute -right-4 -bottom-4 opacity-10">
                   <Trophy className="w-24 h-24 text-cyan-500" />
                 </div>

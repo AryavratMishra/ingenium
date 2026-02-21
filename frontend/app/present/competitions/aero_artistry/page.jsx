@@ -95,7 +95,7 @@ export default function AeroArtistryPS() {
                 />
                 <StatCard
                   icon={<Wallet className="w-4 h-4" />}
-                  label="Base Fee"
+                  label="Base Fee (Per Team)"
                   value="₹600"
                 />
               </div>
@@ -148,7 +148,7 @@ export default function AeroArtistryPS() {
               </Link>
             </SectionBox>
 
-            <div className="p-6 bg-red-900/10 border border-red-500/30 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-red-900/10 border border-red-500/30 rounded-2xl">
               <h4 className="text-[12px] text-red-400 uppercase mb-3 flex items-center gap-2">
                 <AlertTriangle className="w-3 h-3" /> System_Fault_Penalties
               </h4>
@@ -279,7 +279,7 @@ function StatCard({ icon, label, value }) {
 
 function SectionBox({ title, children }) {
   return (
-    <div className="p-8 bg-white/5 border border-white/10 rounded-3xl relative overflow-hidden">
+    <div className="p-4 sm:p-8 bg-white/5 border border-white/10 rounded-3xl relative overflow-hidden">
       <div className="text-[12px] text-blue-500 uppercase tracking-[0.4em] mb-4 flex items-center gap-2">
         <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
         {title}

@@ -31,7 +31,7 @@ export default function GlitchPopBGMI() {
                 </div>
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto p-6 md:p-12">
+            <div className="relative z-10 max-w-7xl mx-auto p-3 sm:p-6 md:p-12">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
                     <div className="space-y-4">
@@ -79,7 +79,7 @@ export default function GlitchPopBGMI() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-black/40 border border-orange-500/20 p-8 rounded-3xl backdrop-blur-sm relative overflow-hidden"
+                            className="bg-black/40 border border-orange-500/20 p-4 sm:p-8 rounded-3xl backdrop-blur-sm relative overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 p-4 opacity-10">
                                 <MapPin className="w-32 h-32 text-orange-500" />
@@ -100,7 +100,7 @@ export default function GlitchPopBGMI() {
                         </motion.div>
 
                         {/* Rules / Format */}
-                        <div className="bg-orange-950/20 border border-orange-500/10 p-8 rounded-3xl">
+                        <div className="bg-orange-950/20 border border-orange-500/10 p-4 sm:p-8 rounded-3xl">
                             <h3 className="text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-2">
                                 <Timer className="w-5 h-5 text-orange-500" /> Tournament Phases
                             </h3>
@@ -125,7 +125,7 @@ export default function GlitchPopBGMI() {
                     </div>
                 </div>
 
-                <div className="bg-neutral-900 border border-white/10 p-6 rounded-3xl">
+                <div className="bg-neutral-900 border border-white/10 p-3 sm:p-6 rounded-3xl">
                     <h4 className="text-xs font-bold uppercase text-gray-500 tracking-widest mb-4">Loot Box</h4>
                     <ul className="space-y-3">
                         <li className="flex items-center gap-3 text-sm text-gray-300">

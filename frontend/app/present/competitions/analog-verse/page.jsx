@@ -58,7 +58,7 @@ export default function AnalogVersePage() {
         name: "The PCB Layout",
         type: "Offline Finals",
         deadline: "March 15th, 2026",
-        task: "Convert validated schematics into manufacture-ready PCB layouts with live demonstration at IIT Indore.",
+        task: "Convert validated schematics into manufacture-ready PCB layouts, independently fabricating your own PCB, with a live demonstration at IIT Indore (software simulation acceptable if hardware is unavailable).",
         details:
           "Proper grounding (ground planes/star grounding) and DRC clearance mandatory.",
       },
@@ -132,7 +132,7 @@ export default function AnalogVersePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* LEFT: SPECS & PRIZES */}
           <div className="lg:col-span-4 space-y-8">
-            <section className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4">
+            <section className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-2xl space-y-4">
               <div className="flex items-center justify-between text-[12px] uppercase font-bold">
                 <span className="text-amber-500/60 flex items-center gap-2">
                   <Users className="w-4 h-4" /> Team Format
@@ -141,13 +141,13 @@ export default function AnalogVersePage() {
               </div>
               <div className="flex items-center justify-between text-[12px] uppercase font-bold">
                 <span className="text-amber-500/60 flex items-center gap-2">
-                  <CreditCard className="w-4 h-4" /> Base Fee
+                  <CreditCard className="w-4 h-4" /> Base Fee (Per Team)
                 </span>
                 <span className="text-white">₹{competition.fee}</span>
               </div>
             </section>
 
-            <section className="p-6 bg-white/5 border border-white/10 rounded-2xl relative overflow-hidden">
+            <section className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Trophy className="w-20 h-20 text-amber-500" />
               </div>
@@ -228,7 +228,7 @@ export default function AnalogVersePage() {
                         {round.deadline}
                       </span>
                     </div>
-                    <div className="bg-white/5 border border-white/5 p-6 rounded-br-3xl rounded-tl-xl backdrop-blur-sm hover:border-amber-500/30 transition-colors">
+                    <div className="bg-white/5 border border-white/5 p-3 sm:p-6 rounded-br-3xl rounded-tl-xl backdrop-blur-sm hover:border-amber-500/30 transition-colors">
                       <div className="flex gap-3 mb-4 text-amber-200/90 italic">
                         <FileText className="w-4 h-4 shrink-0" />
                         <p className="text-[11px] uppercase font-bold leading-tight">
@@ -270,7 +270,7 @@ export default function AnalogVersePage() {
 
           {/* RIGHT: TECH & SCORING */}
           <div className="lg:col-span-3 space-y-6">
-            <div className="p-8 bg-black/40 border border-white/10 rounded-3xl h-full flex flex-col relative overflow-hidden">
+            <div className="p-4 sm:p-8 bg-black/40 border border-white/10 rounded-3xl h-full flex flex-col relative overflow-hidden">
               <div className="flex items-center gap-2 mb-8 relative">
                 <Terminal className="w-5 h-5 text-amber-500" />
                 <h3 className="text-sm font-bold text-white uppercase tracking-widest">

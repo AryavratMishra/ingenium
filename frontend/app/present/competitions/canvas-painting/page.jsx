@@ -86,7 +86,7 @@ export default function KalakritiPS() {
             />
             <HeaderStat
               icon={<IndianRupee className="w-4 h-4" />}
-              label="Base Fee"
+              label="Base Fee (Per Team)"
               value={competitionData.fee}
             />
             <HeaderStat
@@ -105,7 +105,7 @@ export default function KalakritiPS() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* --- LEFT COLUMN: MISSION LOGISTICS --- */}
           <div className="lg:col-span-4 space-y-6">
-            <section className="bg-black/40 backdrop-blur-xl border border-orange-500/30 p-6 rounded-2xl relative overflow-hidden">
+            <section className="bg-black/40 backdrop-blur-xl border border-orange-500/30 p-3 sm:p-6 rounded-2xl relative overflow-hidden">
               <div className="relative z-10 space-y-6">
                 <div>
                   <h3 className="text-[12px] text-orange-500 uppercase tracking-widest mb-3 font-bold flex items-center gap-2">
@@ -181,7 +181,7 @@ export default function KalakritiPS() {
           {/* --- RIGHT COLUMN: EVALUATION & REWARDS --- */}
           <div className="lg:col-span-8 space-y-8">
             {/* EVALUATION MATRIX */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md relative overflow-hidden group">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-md relative overflow-hidden group">
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px]" />
 
               <div className="relative z-10">
@@ -209,7 +209,7 @@ export default function KalakritiPS() {
             {/* PRIZE POOL TERMINAL */}
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="md:col-span-3 bg-linear-to-r from-orange-600/10 to-transparent border border-orange-500/20 rounded-2xl p-6 flex flex-col md:flex-row justify-around items-center gap-6">
+                <div className="md:col-span-3 bg-linear-to-r from-orange-600/10 to-transparent border border-orange-500/20 rounded-2xl p-3 sm:p-6 flex flex-col md:flex-row justify-around items-center gap-6">
                   <PrizeSlot
                     rank="01"
                     amount={competitionData.prizes.first}
@@ -229,7 +229,7 @@ export default function KalakritiPS() {
                   />
                 </div>
 
-                <div className="bg-orange-500 p-6 rounded-2xl flex flex-col justify-center items-center shadow-xl shadow-orange-950/40">
+                <div className="bg-orange-500 p-3 sm:p-6 rounded-2xl flex flex-col justify-center items-center shadow-xl shadow-orange-950/40">
                   <Trophy className="w-6 h-6 text-black mb-2" />
                   <span className="text-[11px] text-black font-black uppercase mb-1">
                     Total Bounty
@@ -304,7 +304,7 @@ function RuleItem({ text, prohibited = false }) {
 
 function ScoreCard({ label, weight }) {
   return (
-    <div className="p-6 bg-black/40 border border-white/5 rounded-2xl text-center group hover:border-orange-500/30 transition-all">
+    <div className="p-3 sm:p-6 bg-black/40 border border-white/5 rounded-2xl text-center group hover:border-orange-500/30 transition-all">
       <div className="text-4xl font-black text-orange-500 mb-1 group-hover:scale-110 transition-transform">
         {weight}
       </div>
@@ -317,7 +317,7 @@ function ScoreCard({ label, weight }) {
 
 function ThemeCard({ label, weight }) {
   return (
-    <div className="p-6 bg-orange-500/10 border border-orange-500/40 rounded-2xl text-center shadow-lg shadow-orange-500/5">
+    <div className="p-3 sm:p-6 bg-orange-500/10 border border-orange-500/40 rounded-2xl text-center shadow-lg shadow-orange-500/5">
       <div className="text-4xl font-black text-orange-500 mb-1">{weight}</div>
       <div className="text-[12px] text-white uppercase font-black tracking-[0.2em]">
         {label}

@@ -115,7 +115,7 @@ export default function UdgaarPage() {
           {/* LEFT COLUMN: INTEL, REWARDS & RULES */}
           <div className="lg:col-span-4 space-y-6">
             {/* Mission Brief */}
-            <div className="p-8 bg-black/60 border-t-4 border-orange-500 rounded-b-xl backdrop-blur-md">
+            <div className="p-4 sm:p-8 bg-black/60 border-t-4 border-orange-500 rounded-b-xl backdrop-blur-md">
               <div className="flex items-center gap-2 mb-4 text-orange-400">
                 <Cpu className="w-4 h-4 animate-pulse" />
                 <span className="text-[14px] tracking-widest font-bold uppercase">
@@ -133,7 +133,7 @@ export default function UdgaarPage() {
                 <div className="flex items-center gap-2">
                   <CircleDollarSign className="w-5 h-5 text-emerald-400" />
                   <span className="text-xs uppercase text-slate-300 tracking-tighter">
-                    Base Fee
+                    Base Fee (Per Team)
                   </span>
                 </div>
                 <span className="text-xl font-black text-white">
@@ -157,7 +157,7 @@ export default function UdgaarPage() {
             </div>
 
             {/* Bounty Protocol */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
                 <Trophy size={100} />
               </div>
@@ -198,7 +198,7 @@ export default function UdgaarPage() {
             </div>
 
             {/* Rules & Compliances */}
-            <div className="p-6 bg-red-500/5 border border-red-500/20 rounded-xl">
+            <div className="p-3 sm:p-6 bg-red-500/5 border border-red-500/20 rounded-xl">
               <h3 className="text-[14px] font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                 <ShieldAlert className="w-4 h-4" /> Participation_Rules
               </h3>
@@ -227,7 +227,7 @@ export default function UdgaarPage() {
           <div className="lg:col-span-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Performance Objectives */}
-              <div className="p-8 bg-black/40 border border-white/10 rounded-xl backdrop-blur-md">
+              <div className="p-4 sm:p-8 bg-black/40 border border-white/10 rounded-xl backdrop-blur-md">
                 <h3 className="text-[14px] font-bold text-orange-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                   <BookOpen className="w-4 h-4" /> Competition_Objectives
                 </h3>
@@ -244,7 +244,7 @@ export default function UdgaarPage() {
               </div>
 
               {/* Execution Phases */}
-              <div className="p-8 bg-white/5 border border-white/10 rounded-xl">
+              <div className="p-4 sm:p-8 bg-white/5 border border-white/10 rounded-xl">
                 <h3 className="text-[14px] font-bold text-yellow-500 uppercase tracking-widest mb-6 flex items-center gap-2">
                   <Layers className="w-4 h-4" /> Competition_Flow
                 </h3>
@@ -265,8 +265,8 @@ export default function UdgaarPage() {
             </div>
 
             {/* Status Bar */}
-            <div className="p-6 bg-black/40 border-2 border-dashed border-white/10 rounded-xl flex flex-wrap items-center justify-between gap-6">
-              <div className="flex gap-8">
+            <div className="p-3 sm:p-6 bg-black/40 border-2 border-dashed border-white/10 rounded-xl flex flex-wrap items-center justify-between gap-6">
+              <div className="flex gap-8 flex-wrap">
                 <div className="space-y-1">
                   <div className="text-[13px] text-slate-500 uppercase">
                     Submission_Mode

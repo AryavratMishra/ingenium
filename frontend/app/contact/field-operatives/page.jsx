@@ -93,7 +93,7 @@ export default function FieldOperativesPage() {
                                         <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent" />
 
                                         {/* Content */}
-                                        <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <div className="absolute inset-0 p-3 sm:p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                             <div className="mb-2">
                                                 <span className="text-[12px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
                                                     {co.team}

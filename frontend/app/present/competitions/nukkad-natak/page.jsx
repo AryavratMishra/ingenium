@@ -90,7 +90,7 @@ export default function NukkadNatakPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* --- MODULE INTEL --- */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 bg-black/60 border-l-4 border-orange-500 rounded-r-2xl backdrop-blur-xl relative group">
+            <div className="p-4 sm:p-8 bg-black/60 border-l-4 border-orange-500 rounded-r-2xl backdrop-blur-xl relative group">
               <div className="absolute top-4 right-4 text-orange-500/10 group-hover:text-orange-500/20 transition-colors">
                 <Volume2 className="w-16 h-16" />
               </div>
@@ -105,7 +105,7 @@ export default function NukkadNatakPage() {
               </p>
               <div className="space-y-4 border-t border-white/5 pt-6">
                 <IntelRow label="Participation" value={item.participation} />
-                <IntelRow label="Base Fee" value={item.fee} />
+                <IntelRow label="Base Fee (Per Team)" value={item.fee} />
                 <IntelRow label="Core Format" value={item.format} />
                 <p className="text-md leading-relaxed text-gray-400 italic">
                   "{item.objective}"
@@ -114,13 +114,13 @@ export default function NukkadNatakPage() {
             </div>
 
             {/* --- REWARD ALLOCATION --- */}
-            <div className="p-8 bg-orange-500/5 border border-orange-500/20 rounded-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="p-4 sm:p-8 bg-orange-500/5 border border-orange-500/20 rounded-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
               <div className="relative z-10">
-                <div className="flex justify-between items-center mb-8">
-                  <div>
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+                  <div className="self-start">
                     <h3 className="text-lg font-black text-white uppercase tracking-[0.2em]">
                       Bounty_Registry
                     </h3>
@@ -128,7 +128,7 @@ export default function NukkadNatakPage() {
                       Performative_Excellence_Rewards
                     </p>
                   </div>
-                  <div className="text-right">
+                  <div className="text-right self-end">
                     <span className="text-2xl font-black text-orange-500 italic leading-none">
                       ₹{item.prizes.total}
                     </span>
@@ -157,7 +157,7 @@ export default function NukkadNatakPage() {
 
           {/* --- CONTENT MATRIX --- */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-md">
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-10 flex items-center gap-4">
                 <Sparkles className="text-orange-500" /> Operational_Parameters
               </h3>
@@ -313,7 +313,7 @@ function PrizeBox({ rank, amount, label }) {
 
 function PhaseCard({ idx, label, detail }) {
   return (
-    <div className="p-6 bg-white/5 border border-white/5 rounded-2xl group hover:bg-orange-500/5 transition-all">
+    <div className="p-3 sm:p-6 bg-white/5 border border-white/5 rounded-2xl group hover:bg-orange-500/5 transition-all">
       <div className="flex items-center gap-3 mb-2">
         <span className="text-[12px] font-black text-orange-500">
           PHASE_{idx}

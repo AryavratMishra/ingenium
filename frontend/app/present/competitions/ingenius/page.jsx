@@ -96,12 +96,12 @@ export default function QuizPS() {
               INGENIUS <span className="text-amber-500">QUIZ</span> '26
             </h1>
             <p className="text-[12px] text-amber-500/60 mt-2 tracking-[0.3em] uppercase">
-              {competitionData.sub}
+              {competitionData.org}
             </p>
           </div>
 
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <StatNode
                 icon={<Users />}
                 label="Audience"
@@ -114,7 +114,7 @@ export default function QuizPS() {
               />
               <StatNode
                 icon={<IndianRupee />}
-                label="Base Fee"
+                label="Base Fee (Per Team)"
                 value={competitionData.fee}
               />
               <StatNode
@@ -152,7 +152,7 @@ export default function QuizPS() {
             <h3 className="text-[12px] text-amber-500 uppercase tracking-widest mb-4 font-bold">
               Cognitive_Context
             </h3>
-            <div className="p-6 bg-amber-900/10 border border-amber-500/20 rounded-2xl backdrop-blur-xl">
+            <div className="p-3 sm:p-6 bg-amber-900/10 border border-amber-500/20 rounded-2xl backdrop-blur-xl">
               <p className="text-md leading-relaxed text-amber-100/80 mb-6 italic border-l-2 border-amber-500 pl-4">
                 "Beyond factual recall, emphasizing logical thinking, lateral
                 connections, and informed engagement with the world."
@@ -165,7 +165,7 @@ export default function QuizPS() {
             </div>
 
             {/* Knowledge Spectrum */}
-            <div className="p-6 bg-black/40 border border-white/5 rounded-2xl">
+            <div className="p-3 sm:p-6 bg-black/40 border border-white/5 rounded-2xl">
               <h4 className="text-[12px] text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <Network className="w-3 h-3" /> Data_Sectors
               </h4>
@@ -195,8 +195,8 @@ export default function QuizPS() {
 
           {/* --- SYSTEM LOGIC --- */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <HelpCircle className="w-48 h-48" />
               </div>
 
@@ -251,8 +251,8 @@ export default function QuizPS() {
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
-            <div className="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
+            <div className="bg-amber-500/5 border border-amber-500/20 rounded-3xl p-4 sm:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5">
                 <Trophy className="w-32 h-32" />
               </div>
 
