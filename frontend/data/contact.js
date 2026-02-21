@@ -323,14 +323,6 @@ export const team = [
     // instagram: "https://www.instagram.com/madhur_.mittal",
   },
   {
-    name: "Shatakshi Basu",
-    email: "pr.ingenium@iiti.ac.in",
-    // email: "ce250004041@iiti.ac.in",
-    team: "Public Relations and Outreach",
-    // linkedin: "https://www.linkedin.com/in/shatakshi-basu-bb485338b",
-    // instagram: "https://www.instagram.com/shatakshi__basu",
-  },
-  {
     name: "Prince Kumar",
     email: "pr.ingenium@iiti.ac.in",
     // email: "ce240004043@iiti.ac.in",
@@ -345,14 +337,6 @@ export const team = [
     team: "Public Relations and Outreach",
     // linkedin: "",
     // instagram: "",
-  },
-  {
-    name: "Nilesh Kalra",
-    email: "pr.ingenium@iiti.ac.in",
-    // email: "ee250002044@iiti.ac.in",
-    team: "Public Relations and Outreach",
-    // linkedin: "https://www.linkedin.com/in/nilesh-kalra-083840395",
-    // instagram: "https://www.instagram.com/nileshhkalra",
   },
   {
     name: "Aditya Kumar",
