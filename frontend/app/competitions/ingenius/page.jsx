@@ -16,6 +16,7 @@ import {
   ChevronRight,
   ExternalLink,
   IndianRupee,
+  User2,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -223,9 +224,9 @@ export default function QuizPS() {
                       value="Optimized"
                     />
                     <MetricNode
-                      icon={<Lightbulb />}
-                      label="Teamwork"
-                      value="Mandatory"
+                      icon={<User2 />}
+                      label="Team Size"
+                      value="1-3"
                     />
                   </div>
                 </div>

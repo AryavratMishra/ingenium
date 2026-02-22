@@ -19,6 +19,9 @@ import {
   CircleDollarSign,
   RefreshCcw,
   Languages,
+  Clock,
+  Scale,
+  FileText,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -33,29 +36,39 @@ export default function UdgaarPage() {
     {
       id: 4,
       type: "Literary Performance",
-      title: "Udgaar - Poetry Slam",
-      sub: "SRIJAN - Hindi Poetry Recitation & Performance",
+      title: "UDGAAR - Hindi Poetry Slam",
+      sub: "SRIJAN - The Hindi Literature Club of IIT Indore",
       icon: <Mic2 className="w-6 h-6" />,
       href: "/PS/udgaar.pdf",
       context:
-        "Express ideas, emotions, and social realities through original poetic compositions. Connect directly with the audience through impactful delivery and linguistic depth in this spoken-word performance arena.",
+        "UDGAAR is a Hindi literary performance competition featuring Poetry Slam, where participants express ideas, emotions, and social realities through original poetic compositions. It provides a platform for spoken-word expression and linguistic depth.",
       objectives: [
-        "Perform original poetic compositions on stage",
-        "Express social commentary and personal articulation",
-        "Demonstrate linguistic depth and impactful delivery",
-        "Explore themes like identity, technology, and contemporary challenges",
-        "Contribute to the preservation and creative expression of Hindi ",
+        "Express ideas, emotions, and social realities through original compositions",
+        "Connect directly with the audience through impactful delivery",
+        "Highlight the role of language in shaping thought and empathy",
+        "Utilize poetry as a tool for social commentary and personal articulation",
+        "Explore themes like identity, technology, culture, and campus life",
       ],
       phases: [
         "Phase 1: Online Registration",
-        "Phase 2: Live On-stage Performances at IIT Indore",
+        "Phase 2: Live On-stage Poetry Recitation",
         "Final Evaluation and Prize Distribution",
       ],
       rules: [
-        "Individual participation format only",
-        "Must be original and creative work",
-        "Focus on language quality and literary expression",
-        "Strong emphasis on stage presence and performance",
+        "Poems must be in Hindi; English and Urdu words are allowed, but not for the entire composition",
+        "The script of the composition must be in Devanagari",
+        "Originality must be announced before the performance",
+        "Maximum performance time is 5 minutes (multiple poems allowed within this limit)",
+        "Performances exceeding 5 minutes face a 10-point penalty; exceeding 6 minutes leads to disqualification",
+        "Any form of vulgarity or obscenity in content is strictly prohibited",
+        "Participants may refer to a piece of paper or a phone while reciting",
+      ],
+      judging: [
+        { criteria: "Vocabulary and Poetry Language", weight: "25%" },
+        { criteria: "Creativity and Content", weight: "20%" },
+        { criteria: "Performing Style and Diction", weight: "20%" },
+        { criteria: "Originality", weight: "20%" },
+        { criteria: "Overall Impact", weight: "15%" },
       ],
       prizes: {
         first: "5,000",
@@ -65,8 +78,8 @@ export default function UdgaarPage() {
       },
       meta: {
         club: "SRIJAN",
-        mode: "Offline",
-        format: "Individual",
+        mode: "Offline / Live",
+        format: "Individual Participation",
         fee: "350",
         rounds: "2",
       },
@@ -90,7 +103,7 @@ export default function UdgaarPage() {
               </span>
             </button>
             <h1 className="text-5xl font-black tracking-tighter text-white uppercase">
-              UDGAAR
+              {competitionData[activePS].title}
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-[12px] text-orange-400 uppercase tracking-widest">
               <span className="flex items-center gap-1">
@@ -119,11 +132,11 @@ export default function UdgaarPage() {
               <div className="flex items-center gap-2 mb-4 text-orange-400">
                 <Cpu className="w-4 h-4 animate-pulse" />
                 <span className="text-[14px] tracking-widest font-bold uppercase">
-                  Performance_Brief
+                  Event_Overview
                 </span>
               </div>
               <h2 className="text-3xl font-black text-white leading-tight uppercase mb-4">
-                {competitionData[activePS].title}
+                UDGAAR
               </h2>
               <p className="text-sm text-slate-400 leading-relaxed font-sans border-l-2 border-white/10 pl-4 mb-6 italic">
                 "{competitionData[activePS].context}"
@@ -152,84 +165,44 @@ export default function UdgaarPage() {
                 }}
                 className="w-full py-4 bg-orange-600 hover:bg-orange-500 text-white font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(249,115,22,0.4)]"
               >
-                Register Now <ExternalLink className="w-4 h-4" />
+                Register for Phase 1 <ExternalLink className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Bounty Protocol */}
-            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
-                <Trophy size={100} />
-              </div>
-              <h3 className="text-[14px] font-bold text-yellow-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                Prize_Pool_Allocation
+            {/* Judging Matrix */}
+            <div className="p-3 sm:p-6 bg-white/5 border border-white/10 rounded-xl">
+              <h3 className="text-[14px] font-bold text-blue-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                <Scale className="w-4 h-4" /> Judging_Criteria
               </h3>
               <div className="space-y-4">
-                {[
-                  {
-                    label: "Alpha_Rank",
-                    val: competitionData[activePS].prizes.first,
-                    color: "text-yellow-500",
-                  },
-                  {
-                    label: "Beta_Rank",
-                    val: competitionData[activePS].prizes.second,
-                    color: "text-slate-300",
-                  },
-                  {
-                    label: "Gamma_Rank",
-                    val: competitionData[activePS].prizes.third,
-                    color: "text-orange-400",
-                  },
-                ].map((p, i) => (
+                {competitionData[activePS].judging.map((item, i) => (
                   <div
                     key={i}
                     className="flex justify-between items-center border-b border-white/5 pb-2"
                   >
-                    <span className="text-[12px] text-slate-500 uppercase">
-                      {p.label}
+                    <span className="text-[12px] text-slate-400 uppercase">
+                      {item.criteria}
                     </span>
-                    <span className={`text-xl font-black ${p.color}`}>
-                      ₹{p.val}
+                    <span className="text-sm font-black text-white">
+                      {item.weight}
                     </span>
                   </div>
                 ))}
+                <p className="text-[12px] text-slate-500 italic mt-2">
+                  *Non-original compositions receive zero points for
+                  Originality, Creativity, and Vocabulary.
+                </p>
               </div>
-            </div>
-
-            {/* Rules & Compliances */}
-            <div className="p-3 sm:p-6 bg-red-500/5 border border-red-500/20 rounded-xl">
-              <h3 className="text-[14px] font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                <ShieldAlert className="w-4 h-4" /> Participation_Rules
-              </h3>
-              <div className="space-y-3 mb-6">
-                {competitionData[activePS].rules.map((rule, i) => (
-                  <div
-                    key={i}
-                    className="flex gap-2 text-[13px] text-slate-400 leading-tight"
-                  >
-                    <span className="text-red-500">»</span> {rule}
-                  </div>
-                ))}
-              </div>
-              <Link
-                href={competitionData[activePS].href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[13px] text-orange-400 underline decoration-orange-500/50 hover:text-orange-300 transition-colors uppercase font-bold"
-              >
-                [OPEN_FULL_GUIDELINES.PDF]
-              </Link>
             </div>
           </div>
 
           {/* RIGHT COLUMN: TECHNICAL SPECS & PHASES */}
           <div className="lg:col-span-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Performance Objectives */}
+              {/* Competition Objectives */}
               <div className="p-4 sm:p-8 bg-black/40 border border-white/10 rounded-xl backdrop-blur-md">
                 <h3 className="text-[14px] font-bold text-orange-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" /> Competition_Objectives
+                  <BookOpen className="w-4 h-4" /> Key_Objectives
                 </h3>
                 <div className="space-y-4">
                   {competitionData[activePS].objectives.map((obj, i) => (
@@ -261,6 +234,37 @@ export default function UdgaarPage() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-6 p-4 border border-dashed border-white/10 rounded-lg">
+                  <h4 className="text-[11px] text-slate-500 uppercase mb-2 flex items-center gap-2">
+                    <Clock className="w-3 h-3" /> Time_Limits
+                  </h4>
+                  <div className="text-[12px] text-slate-300">
+                    Max 5 mins per recital. Over 5 mins: -10 pts. Over 6 mins:
+                    DISQUALIFIED.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Rules & Penalties */}
+            <div className="p-3 sm:p-6 bg-red-500/5 border border-red-500/20 rounded-xl">
+              <h3 className="text-[14px] font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <ShieldAlert className="w-4 h-4" /> Rules_&_Penalties
+              </h3>
+              <div className="space-y-3 mb-6">
+                {competitionData[activePS].rules.map((rule, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-2 text-[13px] text-slate-400 leading-tight"
+                  >
+                    <span className="text-red-500 font-bold">/</span> {rule}
+                  </div>
+                ))}
+              </div>
+              <div className="p-3 bg-red-950/20 border border-red-500/30 rounded text-[11px] text-red-300">
+                <strong>CRITICAL:</strong> Incorrect originality claims or
+                failure to announce non-original parts leads to cancellation of
+                entry.
               </div>
             </div>
 
@@ -269,36 +273,36 @@ export default function UdgaarPage() {
               <div className="flex gap-8 flex-wrap">
                 <div className="space-y-1">
                   <div className="text-[13px] text-slate-500 uppercase">
-                    Submission_Mode
+                    Performance_Mode
                   </div>
                   <div className="text-sm font-bold text-white uppercase flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />{" "}
-                    {competitionData[activePS].meta.mode}
+                    Live On-Stage
                   </div>
                 </div>
                 <div className="space-y-1">
                   <div className="text-[13px] text-slate-500 uppercase">
-                    Organizing_Entity
+                    Organizing_Club
                   </div>
                   <div className="text-sm font-bold text-white uppercase flex items-center gap-2">
                     <RefreshCcw className="w-3 h-3 text-orange-500" />{" "}
-                    SRIJAN_CLUB
+                    SRIJAN_IIT_INDORE
                   </div>
                 </div>
                 <div className="space-y-1">
                   <div className="text-[13px] text-slate-500 uppercase">
-                    Venue
+                    Thematic_Scope
                   </div>
                   <div className="text-sm font-bold text-white uppercase flex items-center gap-2">
-                    <Target className="w-3 h-3 text-red-500" />{" "}
-                    Stage_Performances
+                    <Target className="w-3 h-3 text-red-500" /> Contemporary &
+                    Social
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col items-end gap-1">
                 <span className="text-[13px] text-slate-500 uppercase">
-                  Total_Bounty_Pool
+                  Prize Pool
                 </span>
                 <span className="text-2xl font-black text-white tracking-tighter italic">
                   ₹{competitionData[activePS].prizes.total}
@@ -306,27 +310,20 @@ export default function UdgaarPage() {
               </div>
             </div>
 
-            <div className="p-4 bg-white/5 rounded-xl border border-white/5 flex items-center gap-4">
-              <Info className="w-4 h-4 text-orange-400 shrink-0" />
-              <div className="text-[13px] text-slate-500 uppercase tracking-widest leading-relaxed">
-                <span className="text-orange-300">
-                  Originality (Creativity)
-                </span>{" "}
-                •
-                <span className="text-orange-300">
-                  {" "}
-                  Content Depth (Thematic)
-                </span>{" "}
-                •
-                <span className="text-orange-300">
-                  {" "}
-                  Literary Quality (Expression)
-                </span>{" "}
-                •
-                <span className="text-orange-300">
-                  {" "}
-                  Stage Presence (Performance)
-                </span>
+            {/* Additional Details */}
+            <div className="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col gap-4">
+              <div className="flex items-center gap-4">
+                <Info className="w-4 h-4 text-orange-400 shrink-0" />
+                <div className="text-[13px] text-slate-400 uppercase tracking-widest leading-relaxed">
+                  Jazz/Beat poetry carries no extra marks • Judges' word is
+                  final and binding
+                </div>
+              </div>
+              <div className="flex items-center gap-4 border-t border-white/5 pt-4">
+                <FileText className="w-4 h-4 text-blue-400 shrink-0" />
+                <div className="text-[13px] text-slate-400 uppercase tracking-widest leading-relaxed">
+                  SRIJAN promotes preservation of Hindi and Indian languages
+                </div>
               </div>
             </div>
           </div>
