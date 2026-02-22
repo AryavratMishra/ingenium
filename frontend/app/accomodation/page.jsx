@@ -79,10 +79,10 @@ export default function AccommodationNexus() {
               </h3>
               <div className="flex items-baseline gap-2 mb-6">
                 <span className="text-4xl font-black text-white italic">
-                  ₹740
+                  ₹500
                 </span>
                 <span className="text-xs text-cyan-500/60 font-bold tracking-tighter">
-                  + GST / Night
+                  / Night (inclusive all taxes)
                 </span>
               </div>
               <div className="space-y-3 pt-6 border-t border-white/5">

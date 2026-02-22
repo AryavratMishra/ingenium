@@ -171,7 +171,7 @@ export default function ShutterUpPS() {
                 <RequirementRow text="30-50 Word Concept Story" />
               </div>
               <Link
-                href={"/PS/Shutter_Up.pdf"}
+                href={"/PS/shutter-up.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
               >

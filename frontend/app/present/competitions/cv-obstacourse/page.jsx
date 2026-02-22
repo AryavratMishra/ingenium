@@ -37,7 +37,7 @@ export default function CVObstacoursePage() {
       rounds: "1 Round",
       regFee: "₹600",
       icon: <Eye className="w-6 h-6" />,
-      href: "/PS/CV_Obstacourse.pdf",
+      href: "/PS/cv-obstacourse.pdf",
       motivation:
         "This competition integrates image processing and sensor-driven navigation, emphasizing precise path tracking and obstacle avoidance at high speeds.",
       problemStatement:

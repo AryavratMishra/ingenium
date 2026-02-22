@@ -157,7 +157,7 @@ export default function GroupDancePS() {
                 <p>▪ Prop Mismanagement: -20 Pts</p>
               </div>
               <Link
-                href={"/PS/Dance Proposal.pdf"}
+                href={"/PS/dance.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-red-400 underline hover:text-red-300 transition-colors"

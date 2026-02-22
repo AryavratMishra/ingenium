@@ -90,7 +90,7 @@ export default function AsianParliamentaryDebatePS() {
               <StatNode
                 icon={<Users />}
                 label="Team Structure"
-                value="3 Speakers"
+                value="3 Speakers (+1)"
               />
               <StatNode icon={<IndianRupee />} label="Base Fee (Per Team)" value="₹600" />
               <StatNode icon={<Mic2 />} label="Format" value="APD (3v3)" />
@@ -159,7 +159,7 @@ export default function AsianParliamentaryDebatePS() {
               {/* </div> */}
               <p className="italic mb-2 text-blue-300">To be decided...</p>
               <Link
-                href={"/PS/APD.pdf"}
+                href={"/PS/iiti-apd.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
               >

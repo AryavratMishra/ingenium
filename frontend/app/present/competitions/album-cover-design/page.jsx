@@ -162,7 +162,7 @@ export default function AlbumCoverPS() {
                   considered.
                 </p>
                 <Link
-                  href={"/PS/VLR_Album_Cover.pdf"}
+                  href={"/PS/album-cover-design.pdf"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

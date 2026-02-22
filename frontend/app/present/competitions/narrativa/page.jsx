@@ -35,7 +35,7 @@ export default function NarrativaPage() {
       title: "Intelligent Narrative Synthesis",
       sub: "Autonomous Agentic Presentation Engine",
       icon: <BrainCircuit className="w-6 h-6" />,
-      href: "/PS/Narrativa.pdf",
+      href: "/PS/narrativa.pdf",
       context:
         "True automation moves beyond simple execution to complex orchestration, turning raw data into compelling, structured narratives. Build an engine functioning as a research analyst, copywriter, and visual designer.",
       objectives: [

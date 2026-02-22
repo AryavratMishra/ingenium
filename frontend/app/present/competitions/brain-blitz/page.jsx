@@ -155,7 +155,7 @@ export default function MatiksPS() {
                 <EvaluationRow label="Consistency" value="Required" />
               </div>
               <Link
-                href={"/PS/Matiks.pdf"}
+                href={"/PS/brain-blitz.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[12px] text-amber-500 underline hover:text-amber-400"

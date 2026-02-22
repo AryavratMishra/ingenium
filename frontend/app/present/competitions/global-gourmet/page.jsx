@@ -198,7 +198,7 @@ export default function AnalyticXPS() {
               </li>
             </ul>
             <Link
-              href={"/PS/AnalyticX.pdf"}
+              href={"/PS/global-gourmet.pdf"}
               target="_blank"
               className="mt-auto text-center py-2 border border-red-500/40 text-red-400 hover:bg-red-500/10 transition-all text-[13px] font-bold tracking-widest uppercase"
             >

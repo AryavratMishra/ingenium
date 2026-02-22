@@ -150,7 +150,7 @@ export default function BattleOfBandsPS() {
                 <p>▪ Late Submission (R1): -10 Pts</p>
               </div>
               <Link
-                href={"/PS/Battle_of_Bands.pdf"}
+                href={"/PS/battle-of-bands.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-purple-400 underline hover:text-purple-300 transition-colors"

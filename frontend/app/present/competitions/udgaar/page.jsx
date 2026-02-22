@@ -36,7 +36,7 @@ export default function UdgaarPage() {
       title: "Udgaar - Poetry Slam",
       sub: "SRIJAN - Hindi Poetry Recitation & Performance",
       icon: <Mic2 className="w-6 h-6" />,
-      href: "/PS/Srijan_Club.pdf",
+      href: "/PS/udgaar.pdf",
       context:
         "Express ideas, emotions, and social realities through original poetic compositions. Connect directly with the audience through impactful delivery and linguistic depth in this spoken-word performance arena.",
       objectives: [

@@ -30,7 +30,7 @@ export default function SiliconArchitectsPage() {
     theme: "The HDL Hackathon",
     sub: "Digital Design, Computer Architecture, and FPGA Prototyping",
     icon: <Cpu className="w-6 h-6" />,
-    href: "/PS/Silicon_Architects.pdf",
+    href: "/PS/silicon-architects.pdf",
     fee: "600",
     teamSize: "2-4 People",
     objective:

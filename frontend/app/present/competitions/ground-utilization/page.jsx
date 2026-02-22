@@ -30,7 +30,7 @@ export default function GroundUtilizationPage() {
     title: "Open Ground Utilization",
     subtitle: "Strategic Planning & Multi-Functional Design",
     icon: <Layout className="w-5 h-5" />,
-    href: "/PS/Open__Spaces_Management_Concastle.pdf",
+    href: "/PS/ground-utilization.pdf",
     baseFee: "350",
     context:
       "IIT Indore campus includes several open ground spaces between hostel clusters that offer significant potential for enhancing student life, community interaction, and environmental sustainability through scientific planning and civil engineering design principles.",

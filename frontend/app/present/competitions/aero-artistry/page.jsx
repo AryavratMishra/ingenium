@@ -139,7 +139,7 @@ export default function AeroArtistryPS() {
                 </code>
               </div>
               <Link
-                href="/PS/Glider_Soaring.pdf"
+                href="/PS/aero-artistry.pdf"
                 className="flex items-center gap-2 text-xs text-blue-400 hover:text-white transition-colors uppercase tracking-widest"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -163,7 +163,7 @@ export default function AeroArtistryPS() {
               onClick={() => {
                 if (isLoggedIn)
                   router.push(
-                    `/present/registration?competition=aero_artistry`,
+                    `/present/registration?competition=aero-artistry`,
                   );
                 else
                   alert(

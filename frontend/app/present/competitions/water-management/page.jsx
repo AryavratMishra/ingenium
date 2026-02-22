@@ -30,7 +30,7 @@ export default function WaterManagementPage() {
     title: "Monsoon Water Management",
     subtitle: "Hydrological Mobility Planning",
     icon: <Droplets className="w-5 h-5" />,
-    href: "/PS/Water_Management_Concastle.pdf",
+    href: "/PS/water-management.pdf",
     baseFee: "350",
     context:
       "During the monsoon season, certain locations within the IIT Indore campus experience temporary surface water accumulation due to heavy rainfall. This event challenges participants to apply civil engineering principles related to stormwater management and drainage planning to optimize mobility.",

@@ -37,7 +37,7 @@ export default function ThreeDReconstructionPage() {
       rounds: "1 Round",
       regFee: "₹600",
       icon: <Box className="w-6 h-6" />,
-      href: "/PS/3D_Design_IVDC.pdf",
+      href: "/PS/3d-reconstruction.pdf",
       motivation:
         "Modern technology leaders use high-fidelity 3D reconstruction and virtual simulation to experiment without the cost of physical prototypes. Virtual environments enable rapid iteration and robust validation of real-world systems.",
       problemStatement:

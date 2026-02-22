@@ -30,7 +30,7 @@ export default function AnalogVersePage() {
     theme: "The Circuit Design Challenge",
     sub: "Analog Signal Processing, Simulation, and PCB Design",
     icon: <Radio className="w-6 h-6" />,
-    href: "/PS/Analog_Verse.pdf",
+    href: "/PS/analog-verse.pdf",
     fee: "600",
     teamSize: "2-4 People",
     objective:

@@ -36,7 +36,7 @@ export default function ScalaStreamPage() {
       title: "Scalable Video Streaming Service",
       sub: "ScalaStream - Video Streaming Systems & Architecture",
       icon: <Server className="w-6 h-6" />,
-      href: "/PS/Scalastream.pdf",
+      href: "/PS/scalastream.pdf",
       context:
         "Modern video streaming platforms require engineered architectures spanning ingestion, processing, storage, and delivery. Focus on distributed systems, scalability trade-offs, and cost-efficient decisions.",
       objectives: [

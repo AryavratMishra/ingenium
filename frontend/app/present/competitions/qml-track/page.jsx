@@ -217,7 +217,7 @@ export default function QuantumHackathonPS() {
                 ))}
               </div>
               <Link
-                href={"/PS/QML_track.pdf"}
+                href={"/PS/qml-track.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[13px] text-cyan-400 hover:text-white transition-colors flex items-center gap-1"

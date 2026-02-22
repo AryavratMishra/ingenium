@@ -34,7 +34,7 @@ export default function LineFollowerPage() {
     sub: "Robotics Club // Precision Auto",
     icon: <Orbit className="w-8 h-8" />,
     color: "sky",
-    href: "/PS/Line_Follower.pdf",
+    href: "/PS/line-follower.pdf",
     teamSize: "1 to 3 people",
     regFee: "600",
     objective:

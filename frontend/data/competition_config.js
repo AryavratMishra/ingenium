@@ -11,7 +11,7 @@ export const COMPETITION_CONFIG = {
     color: "#cbd5e1",
     sector: "SRI-01",
   },
-  aero_artistry: {
+  "aero-artistry": {
     name: "Aero Artistry",
     teamSize: [1, 4],
     color: "#00f2ff",
@@ -169,7 +169,7 @@ export const COMPETITION_CONFIG = {
   },
   "canvas-painting": {
     name: "Canvas Painting",
-    teamSize: [1, 1],
+    teamSize: [1, 3],
     color: "#c084fc",
     sector: "KALA-01",
   },

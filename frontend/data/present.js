@@ -88,10 +88,10 @@ export const tech_competitions = [
     prize_pool: "₹20,000",
   },
   {
-    id: "aero_artistry",
+    id: "aero-artistry",
     name: "Aero Artistry",
     tag: "Aeromodelling",
-    folder: "aero_artistry",
+    folder: "aero-artistry",
     color: "emerald",
     prize_pool: "₹20,000",
   },

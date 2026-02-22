@@ -35,7 +35,7 @@ export default function ThemeForgePage() {
       title: "Thematic Game Challenge",
       sub: "Themeforge - Gameplay Systems & Creative Design",
       icon: <Gamepad2 className="w-6 h-6" />,
-      href: "/PS/ThemeForge.pdf",
+      href: "/PS/theme-forge.pdf",
       context:
         "This competition challenges participants to design and develop a game that expresses abstract themes through meaningful gameplay systems rather than surface-level visuals or narrative alone.",
       objectives: [

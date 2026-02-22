@@ -32,7 +32,7 @@ export default function ScreenAdditionPage() {
     title: "Screen Addiction Mitigation",
     club: "Biocrats Club, IIT Indore",
     icon: <Smartphone className="w-6 h-6" />,
-    href: "/PS/Screen_Addiction_SolveXBio.pdf",
+    href: "/PS/screen-sense.pdf",
     fee: "600",
     teamSize: "2-4 members",
     background:

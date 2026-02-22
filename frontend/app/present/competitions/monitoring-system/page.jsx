@@ -32,7 +32,7 @@ export default function PatientMonitorPage() {
     title: "Low-Cost Patient Monitor",
     club: "Biocrats Club, IIT Indore",
     icon: <HeartPulse className="w-6 h-6" />,
-    href: "/PS/Low_Cost_Monitoring_Device_Ingenium.pdf",
+    href: "/PS/monitoring-system.pdf",
     fee: "600",
     teamSize: "2-4 members",
     background:

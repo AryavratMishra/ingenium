@@ -184,7 +184,7 @@ export default function QuizPS() {
                 </span>
               </div>
               <Link
-                href={"/PS/Quiz_Club.pdf"}
+                href={"/PS/ingenius.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
               >

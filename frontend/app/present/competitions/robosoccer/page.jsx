@@ -34,7 +34,7 @@ export default function RobosoccerPage() {
     sub: "Robotics Club // Tactical Sports",
     icon: <Gamepad className="w-8 h-8" />,
     color: "blue",
-    href: "/PS/Robosoccer.pdf",
+    href: "/PS/robosoccer.pdf",
     teamSize: "2 to 4 people",
     regFee: "1500",
     objective:

@@ -31,7 +31,7 @@ export default function KalakritiPS() {
   const competitionData = {
     name: "Canvas Painting",
     org: "Ingenium 3.0 IIT Indore",
-    teamSize: "Individual",
+    teamSize: "Team (1-3)",
     duration: "4 Hours",
     format: "Single Round (Offline Finals)",
     registrationPath: "/present/registration?competition=canvas-painting",
@@ -112,7 +112,7 @@ export default function KalakritiPS() {
                     <Info className="w-3 h-3" /> Mission_Description
                   </h3>
                   <p className="text-sm leading-relaxed text-orange-100/70 italic border-l-2 border-orange-500 pl-4">
-                    "Individual competition where participants create artwork on
+                    "Individual/Team competition where participants create artwork on
                     a given theme using paints. Theme provided on-site."
                   </p>
                 </div>
@@ -122,8 +122,8 @@ export default function KalakritiPS() {
                     Standard_Operating_Rules
                   </h3>
                   <div className="grid gap-3">
-                    <RuleItem text="A3-sized canvas provided by HQ" />
-                    <RuleItem text="BYO paints, brushes, & palettes" />
+                    <RuleItem text="A3-sized canvas provided by Oragnizers" />
+                    <RuleItem text="BYO paints, brushes, & palettes to be organized by participants" />
                     <RuleItem text="Network data (Internet) allowed for ref" />
                     <RuleItem
                       text="Manual scales strictly prohibited"
@@ -131,7 +131,7 @@ export default function KalakritiPS() {
                     />
                   </div>
                   <Link
-                    href={"/PS/Kalakriti_Canvas.pdf"}
+                    href={"/PS/canvas-painting.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
