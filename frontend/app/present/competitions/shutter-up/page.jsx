@@ -92,7 +92,10 @@ export default function ShutterUpPS() {
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
             <div className="flex gap-4 flex-wrap">
               <StatusNode label="Category" value={competitionData.category} />
-              <StatusNode label="Base Fee (Per Team)" value={competitionData.fee} />
+              <StatusNode
+                label="Base Fee (Per Team)"
+                value={competitionData.fee}
+              />
               <StatusNode
                 label="Participation"
                 value={competitionData.participation}
@@ -174,6 +177,7 @@ export default function ShutterUpPS() {
                 href={"/PS/shutter-up.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="underline"
               >
                 View Rules
               </Link>

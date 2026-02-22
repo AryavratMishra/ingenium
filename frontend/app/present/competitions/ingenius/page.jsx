@@ -187,6 +187,7 @@ export default function QuizPS() {
                 href={"/PS/ingenius.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="underline"
               >
                 View Rules
               </Link>

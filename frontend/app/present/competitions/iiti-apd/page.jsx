@@ -162,6 +162,7 @@ export default function AsianParliamentaryDebatePS() {
                 href={"/PS/iiti-apd.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="underline"
               >
                 View Rules
               </Link>

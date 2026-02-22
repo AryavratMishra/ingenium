@@ -222,6 +222,7 @@ export default function NukkadNatakPage() {
                 href={"/PS/Monoact_and_Nukkad.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="underline"
               >
                 View Rules
               </Link>

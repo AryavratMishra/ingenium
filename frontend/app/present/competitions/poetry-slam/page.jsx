@@ -174,6 +174,7 @@ export default function PoetrySlamPage() {
                     href={"/PS/Literary_Competitions.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
                     View Rules
                   </Link>

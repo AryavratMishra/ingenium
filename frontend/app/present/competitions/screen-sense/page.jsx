@@ -343,6 +343,7 @@ export default function ScreenAdditionPage() {
                   href={medicalBrief.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="underline"
                 >
                   View Rules
                 </Link>

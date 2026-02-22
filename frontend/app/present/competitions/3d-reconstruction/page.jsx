@@ -231,7 +231,7 @@ export default function ThreeDReconstructionPage() {
                   href={challenges[activeModule].href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs uppercase font-bold text-red-400 hover:text-red-300 transition-colors flex items-center gap-2"
+                  className="text-xs uppercase font-bold text-red-400 hover:text-red-300 transition-colors flex items-center gap-2 underline"
                 >
                   <FileText className="w-4 h-4" /> View Full Documentation
                 </Link>

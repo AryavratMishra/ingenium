@@ -140,7 +140,7 @@ export default function AeroArtistryPS() {
               </div>
               <Link
                 href="/PS/aero-artistry.pdf"
-                className="flex items-center gap-2 text-xs text-blue-400 hover:text-white transition-colors uppercase tracking-widest"
+                className="flex items-center gap-2 text-xs text-blue-400 hover:text-white transition-colors uppercase tracking-widest underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

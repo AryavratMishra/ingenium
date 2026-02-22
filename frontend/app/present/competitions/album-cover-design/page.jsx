@@ -165,6 +165,7 @@ export default function AlbumCoverPS() {
                   href={"/PS/album-cover-design.pdf"}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="underline"
                 >
                   View Rules
                 </Link>

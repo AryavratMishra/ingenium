@@ -134,6 +134,7 @@ export default function KalakritiPS() {
                     href={"/PS/canvas-painting.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="underline"
                   >
                     View Rules
                   </Link>

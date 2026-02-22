@@ -232,7 +232,7 @@ export default function FuturePage() {
                 <Link
                   href={"/brochure/marketing.pdf"}
                   target="_blank"
-                  className="w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-transparent border border-violet-500/50 text-violet-400 hover:text-white hover:border-violet-400 font-bold tracking-widest uppercase text-sm transition-all"
+                  className="w-full md:w-auto px-6 py-3 md:px-8 md:py-4 bg-transparent border border-violet-500/50 text-violet-400 hover:text-white hover:border-violet-400 font-bold tracking-widest uppercase text-sm transition-all underline"
                 >
                   View Prospectus
                 </Link>

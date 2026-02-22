@@ -220,7 +220,7 @@ export default function QuantumHackathonPS() {
                 href={"/PS/qml-track.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13px] text-cyan-400 hover:text-white transition-colors flex items-center gap-1"
+                className="text-[13px] text-cyan-400 hover:text-white transition-colors flex items-center gap-1 underline"
               >
                 View Rules & Compliances <ExternalLink className="w-3 h-3" />
               </Link>

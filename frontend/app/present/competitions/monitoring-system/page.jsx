@@ -343,6 +343,7 @@ export default function PatientMonitorPage() {
                   href={medicalBrief.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                className="underline"
                 >
                   View Rules
                 </Link>
