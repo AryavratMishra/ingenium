@@ -43,7 +43,7 @@ export default function RobosoccerPage() {
       "Emphasizes navigation, sensing, actuation, and real-time control strategies in a soccer-style format.",
     constraints: [
       { label: "Max Weight", val: "4 kg", detail: "Total robot mass" },
-      { label: "Dimensions", val: "250x200x200 mm", detail: "Max footprint" },
+      { label: "Dimensions", val: "300x250x200 mm", detail: "Max footprint" },
       { label: "Drive", val: "Wheeled Only", detail: "No legs/tracks" },
       { label: "Power", val: "Rechargeable", detail: "On-board battery" },
     ],
@@ -55,7 +55,7 @@ export default function RobosoccerPage() {
     stages: [
       {
         title: "Phase 01: System Design",
-        meta: "Online Submission",
+        meta: "Online Submission // 7 March",
         details:
           "Submit system block diagrams, sensor strategies, and power management plans.",
       },

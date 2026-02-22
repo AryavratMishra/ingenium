@@ -149,10 +149,14 @@ export default function QuantumHackathonPS() {
                   Bridge the gap between theoretical knowledge and practical
                   implementation. Targeting{" "}
                   <span className="text-cyan-400 font-bold">
-                    UG/PG Students
+                    UG/PG Students{" "}
                   </span>
                   to explore probabilistic outcomes over traditional classical
-                  methods.
+                  methods. <br /> The total duration of the competition will be
+                  48 hours. <br />
+                  <span className="font-bold">
+                    Duration : 13th March 6:00 PM - 15th March 6:00 PM
+                  </span>
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="bg-white/5 p-3 rounded-xl border border-white/10">

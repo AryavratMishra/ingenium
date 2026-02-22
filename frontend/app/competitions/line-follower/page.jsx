@@ -63,9 +63,9 @@ export default function LineFollowerPage() {
     stages: [
       {
         title: "Phase 01: Logic Design",
-        meta: "Online Submission // 8 March",
+        meta: "Online Submission // 7 March",
         details:
-          "Submission of sensor configuration and PID/Logic control overviews.",
+          "Submission of sensor configuration and PID/Logic control overviews. Video link (15-30 seconds) of the robot following a basic line.",
       },
       {
         title: "Phase 02: Track Trial",

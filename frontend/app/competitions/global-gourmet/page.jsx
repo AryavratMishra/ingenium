@@ -129,9 +129,7 @@ export default function AnalyticXPS() {
             <button
               onClick={() => {
                 if (isLoggedIn)
-                  router.push(
-                    `/registration?competition=global-gourmet`,
-                  );
+                  router.push(`/registration?competition=global-gourmet`);
                 else
                   alert(
                     "Please login to register. Login button at botton-right corner.",
@@ -303,6 +301,97 @@ export default function AnalyticXPS() {
           </div>
         </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12">
+          {/* Deliverables Section */}
+          <div className="lg:col-span-8 p-3 sm:p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+            <h4 className="text-[12px] text-cyan-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+              <ShieldCheck className="w-3 h-3" /> FINAL_DELIVERABLES
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="shrink-0 w-8 h-8 rounded bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-xs border border-cyan-500/30">
+                    PDF
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm uppercase">
+                      Technical Report
+                    </p>
+                    <p className="text-[12px] text-gray-400 mt-1">
+                      Detailed end-to-end workflow, problem framing, hypotheses,
+                      and executive summary.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <div className="shrink-0 w-8 h-8 rounded bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-xs border border-cyan-500/30">
+                    IPYNB
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm uppercase">
+                      Jupyter/Colab Notebook
+                    </p>
+                    <p className="text-[12px] text-gray-400 mt-1">
+                      Single executable file containing all EDA, cleaning, and
+                      model training code.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="shrink-0 w-8 h-8 rounded bg-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-xs border border-cyan-500/30">
+                    DATA
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm uppercase">
+                      Supporting Files
+                    </p>
+                    <p className="text-[12px] text-gray-400 mt-1">
+                      Raw/cleaned CSVs and a comprehensive data dictionary for
+                      all features.
+                    </p>
+                  </div>
+                </div>
+                <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+                  <p className="text-[10px] text-red-400 uppercase leading-tight">
+                    <FileWarning className="inline w-3 h-3 mr-1 mb-0.5" />
+                    Note: Rules are subject to change at organizer discretion.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Deadline Countdown Area */}
+          <div className="lg:col-span-4 p-6 rounded-2xl bg-linear-to-br from-red-500/20 to-transparent border border-red-500/30 flex flex-col justify-center items-center text-center relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
+              <Zap className="w-16 h-16 text-red-500" />
+            </div>
+            <h4 className="text-[12px] text-red-500 uppercase tracking-[0.3em] mb-2 font-black">
+              MISSION_EXPIRY
+            </h4>
+            <div className="text-5xl font-black text-white tracking-tighter mb-2">
+              13 MARCH
+            </div>
+            <div className="text-xl font-bold text-red-500 tracking-widest uppercase mb-4">
+              EOD_TERMINUS
+            </div>
+            <div className="w-full h-1 bg-red-950 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: "100%" }}
+                animate={{ width: "15%" }}
+                transition={{ duration: 2, ease: "easeOut" }}
+                className="h-full bg-red-500"
+              />
+            </div>
+            <p className="text-[10px] text-red-200/50 mt-4 uppercase tracking-tighter italic">
+              All final deliverables must be synced to the portal before 23:59
+              IST.
+            </p>
+          </div>
+        </div>
+
         {/* --- DATASETS & EVALUATION --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           <div className="p-3 sm:p-6 bg-black/40 border border-white/10 rounded-2xl">
@@ -377,9 +466,7 @@ export default function AnalyticXPS() {
               <button
                 onClick={() => {
                   if (isLoggedIn)
-                    router.push(
-                      `/registration?competition=global-gourmet`,
-                    );
+                    router.push(`/registration?competition=global-gourmet`);
                   else
                     alert(
                       "Please login to register. Login button at botton-right corner.",

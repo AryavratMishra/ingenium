@@ -44,7 +44,7 @@ export default function WaterManagementPage() {
       {
         id: 1,
         title: "Abstract Submission",
-        date: "6 March",
+        date: "7 March",
         detail:
           "Screening round - 1-2 page summary of problem understanding and methodology.",
       },
@@ -75,8 +75,12 @@ export default function WaterManagementPage() {
       { label: "Report", val: "30 Marks" },
       { label: "Presentation", val: "50 Marks" },
       { label: "Technical Depth", val: "20%" },
+      { label: "Problem Understanding Depth", val: "15%" },
       { label: "Innovation", val: "15%" },
+      { label: "Sustainability", val: "15%" },
       { label: "Implementability", val: "10%" },
+      { label: "Cost-Effectiveness", val: "10%" },
+      { label: "Clarity of Communication", val: "10%" },
     ],
   };
 
