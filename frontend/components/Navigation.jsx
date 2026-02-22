@@ -72,7 +72,7 @@ const NODES = [
   },
   {
     id: "competitions",
-    location: "present",
+    location: "competitions",
     label: "COMPS",
     sub: "Live Ops",
     // Desktop: Center

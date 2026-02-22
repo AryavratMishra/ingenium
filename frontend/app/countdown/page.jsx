@@ -81,7 +81,7 @@ const EventHorizon = () => {
           TEMPORAL ANOMALY DETECTED // PROTOCOL ACTIVATED
         </p>
       </div>
-      <Link href="/present" className="z-20">
+      <Link href="/competitions" className="z-20">
         <button className="mt-12 px-8 py-3 sm:px-12 sm:py-4 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-500 font-mono uppercase text-sm sm:text-base tracking-[0.3em] shadow-[0_0_20px_rgba(6,182,212,0.4)]">
           Enter the Event
         </button>
@@ -371,7 +371,7 @@ export default function TimeCorePage() {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 relative z-20 w-full max-w-md sm:max-w-none px-6 sm:px-0">
-                <Link href="/present" className="w-full sm:w-auto">
+                <Link href="/competitions" className="w-full sm:w-auto">
                   <button
                     className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500 hover:text-black hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-all duration-300 font-mono text-xs sm:text-sm uppercase tracking-widest clip-path-polygon"
                     style={{
