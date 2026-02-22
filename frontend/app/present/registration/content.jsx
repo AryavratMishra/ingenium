@@ -107,7 +107,7 @@ function RegistrationContent() {
 
     setStatus("processing");
     try {
-      await api.post("http://localhost:5000/api/registration/register", {
+      await api.post("/registration/register", {
         teamName: formData.teamName,
         psName: competitionKey,
         participants: formData.members,

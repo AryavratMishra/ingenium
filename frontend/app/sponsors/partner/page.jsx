@@ -50,25 +50,26 @@ export default function PartnerPage() {
           {/* Header */}
           <div className="text-center mb-16 relative">
             <div className="max-w-7xl mx-auto mb-8 md:mb-12 flex justify-between items-center border-b border-violet-500/20 pb-4">
-              <button onClick={() => router.back()}>
-                <button className="group flex items-center gap-2 md:gap-3 text-violet-400/80 hover:text-violet-300 transition-colors uppercase text-[12px] md:text-sm tracking-[0.2em]">
-                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border border-violet-500/30 flex items-center justify-center group-hover:bg-violet-500/10 transition-all">
-                    <svg
-                      className="w-3 h-3 md:w-4 md:h-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                  </div>
-                  <span>RETURN TO SPONSORS</span>
-                </button>
+              <button
+                onClick={() => router.back()}
+                className="group flex items-center gap-2 md:gap-3 text-violet-400/80 hover:text-violet-300 transition-colors uppercase text-[12px] md:text-sm tracking-[0.2em]"
+              >
+                <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border border-violet-500/30 flex items-center justify-center group-hover:bg-violet-500/10 transition-all">
+                  <svg
+                    className="w-3 h-3 md:w-4 md:h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </div>
+                <span>RETURN TO SPONSORS</span>
               </button>
             </div>
 

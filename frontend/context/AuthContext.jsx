@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await api.post("http://localhost:5000/api/user/logout");
+      await api.post("/user/logout");
       localStorage.clear();
       router.replace("/");
     } finally {

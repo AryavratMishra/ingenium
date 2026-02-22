@@ -99,8 +99,7 @@ export default function FuturePage() {
             </div>
           </header>
 
-          <section className="max-w-7xl mx-auto mb-16 md:mb-20">
-            {/* Platinum Grid */}
+          {/* <section className="max-w-7xl mx-auto mb-16 md:mb-20">
             <div className="mb-8 md:mb-12">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-8 md:w-12 bg-violet-500/30" />
@@ -130,7 +129,6 @@ export default function FuturePage() {
               </div>
             </div>
 
-            {/* Gold Grid */}
             <div className="mb-8 md:mb-12">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-8 md:w-12 bg-amber-500/30" />
@@ -166,7 +164,6 @@ export default function FuturePage() {
               </div>
             </div>
 
-            {/* Silver Grid */}
             <div className="mb-8 md:mb-12">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-px w-8 md:w-12 bg-slate-500/30" />
@@ -201,7 +198,7 @@ export default function FuturePage() {
                   ))}
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* CTA: Mission Uplink */}
           <section className="max-w-4xl mx-auto mt-16 md:mt-32">

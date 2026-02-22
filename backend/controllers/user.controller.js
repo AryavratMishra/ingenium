@@ -1,6 +1,8 @@
 import pool from "../db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import nodemailer from "nodemailer";
+import crypto from "crypto";
 import { signAccessToken, signRefreshToken } from "../utils/token.js";
 import { refreshCookieOptions } from "../utils/cookies.js";
 
@@ -68,7 +70,7 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.json({ message: "All fields required" });
+      return res.status(400).json({ message: "All fields required" });
     }
 
     const { rows } = await pool.query(
@@ -107,12 +109,14 @@ export const login = async (req, res) => {
   }
 };
 
+export const send_otp = async (req, res) => {};
+
 export const signup = async (req, res) => {
   try {
     const { email, password, name } = req.body;
 
     if (!email || !password || !name) {
-      return res.json({ message: "All fields required" });
+      return res.status(400).json({ message: "All fields required" });
     }
 
     const existing = await pool.query("SELECT id FROM users WHERE email = $1", [
@@ -178,4 +182,131 @@ export const logout = async (req, res) => {
   res.clearCookie("refresh_token", refreshCookieOptions);
 
   res.status(200).json({ message: "Logged out" });
+};
+
+const otpMap = new Map();
+
+export const sendOtp = async (req, res) => {
+  const { email } = req.body;
+
+  const existingUser = await pool.query(
+    "SELECT id, name, email, created_at FROM users WHERE email = $1",
+    [email],
+  );
+  if (existingUser.rows.length > 0) {
+    return res.status(400).json({ message: "Email already in use" });
+  }
+
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  const expiresAt = Date.now() + 5 * 60 * 1000;
+
+  otpMap.set(email, { otp, expiresAt });
+
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+
+  await transporter.sendMail({
+    from: `"Ingenium" <${process.env.EMAIL}>`,
+    to: email,
+    subject: "Email Verification OTP",
+    text: `Your OTP is ${otp}. It will expire in 5 minutes.`,
+  });
+
+  res.json({ message: "OTP sent" });
+};
+
+export const verifyOtp = async (req, res) => {
+  const { email, otp } = req.body;
+  const record = otpMap.get(email);
+
+  if (!record || Date.now() > record.expiresAt) {
+    return res.status(400).json({ message: "OTP expired or not found" });
+  }
+
+  if (record.otp !== otp) {
+    return res.status(400).json({ message: "Invalid OTP" });
+  }
+
+  otpMap.delete(email);
+  res.json({ message: "Email verified" });
+};
+
+const resetTokenMap = new Map();
+
+export const requestPasswordReset = async (req, res) => {
+  const { email } = req.body;
+
+  const user = await pool.query(
+    "SELECT id, name, email, created_at FROM users WHERE email = $1",
+    [email],
+  );
+
+  console.log(email);
+  console.log(user);
+
+  if (user.rows.length == 0)
+    return res.status(404).json({ message: "User not found" });
+
+  const token = crypto.randomBytes(32).toString("hex");
+  const expiresAt = Date.now() + 15 * 60 * 1000;
+
+  resetTokenMap.set(token, { userId: user.rows[0].id, expiresAt });
+
+  const resetLink = `${process.env.FRONTEND_URL}/auth/reset_password?token=${token}`;
+
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+
+  await transporter.sendMail({
+    from: `"Ingenium" <${process.env.EMAIL}>`,
+    to: email,
+    subject: "Reset your password",
+    text: `Click this link to reset your password: ${resetLink}\n\nThe link expires in 15 minutes.`,
+  });
+
+  res.json({ message: "Reset link sent" });
+};
+
+export const resetPassword = async (req, res) => {
+  const { token, newPassword } = req.body;
+
+  try {
+    const record = resetTokenMap.get(token);
+    if (!record || Date.now() > record.expiresAt) {
+      return res.status(400).json({ message: "Token invalid or expired" });
+    }
+
+    const user = await pool.query(
+      "SELECT id, name, email, created_at FROM users WHERE id = $1",
+      [record.userId],
+    );
+    if (user.rows.length == 0)
+      return res.status(404).json({ message: "User not found" });
+
+    const hashed = await bcrypt.hash(newPassword, 10);
+
+    await pool.query("UPDATE users SET password_hash = $2 WHERE id = $1", [
+      user.rows[0].id,
+      hashed,
+    ]);
+
+    resetTokenMap.delete(token);
+
+    res.status(200).json({
+      message: "Password updated successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 };

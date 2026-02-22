@@ -4,10 +4,10 @@ export const registerTeam = async (req, res) => {
   const client = await pool.connect();
 
   try {
-    const { teamName, psName, participants } = req.body;
+    const { teamName, psName, participants, email } = req.body;
 
     /* ---------- VALIDATION ---------- */
-    if (!teamName || !psName || !participants) {
+    if (!teamName || !psName || !participants || !email) {
       return res.status(400).json({ message: "All fields required" });
     }
 
@@ -55,10 +55,10 @@ export const registerTeam = async (req, res) => {
 
     /* ---------- CREATE TEAM ---------- */
     const teamResult = await client.query(
-      `INSERT INTO teams (team_name, ps_name, fees_paid)
-       VALUES ($1, $2, FALSE)
+      `INSERT INTO teams (team_name, ps_name, fees_paid, registered_by)
+       VALUES ($1, $2, FALSE, $3)
        RETURNING id`,
-      [teamName, psName],
+      [teamName, psName, email],
     );
 
     const teamId = teamResult.rows[0].id;

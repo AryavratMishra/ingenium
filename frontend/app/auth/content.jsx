@@ -11,6 +11,7 @@ import {
   Cpu,
   ArrowRight,
   FileExclamationPoint,
+  FileQuestionIcon,
 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/lib/api";
@@ -39,15 +40,46 @@ export default function AuthTerminal() {
       if (isLogin) {
         const res = await api.post("/user/login", formData);
         localStorage.setItem("access_token", res.data.access_token);
+        refreshUser();
+        router.push(searchParams.get("path"));
       } else {
-        const res = await api.post("/user/signup", formData);
-        localStorage.setItem("access_token", res.data.access_token);
+        const res = await api.post("/user/sendOtp", { email: formData.email });
+        localStorage.setItem(
+          "formData",
+          JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+            name: formData.name,
+          }),
+        );
+        router.push(
+          `/auth/otp_verification?email=${formData.email}&path=${searchParams.get("path")}`,
+        );
       }
-      refreshUser();
-      router.push(searchParams.get("path"));
     } catch (error) {
       console.log(error);
       setError(error.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async (e) => {
+    if (!formData.email) {
+      setError("Please enter email id");
+      return;
+    }
+    setError("");
+    setLoading(true);
+    e.preventDefault();
+    try {
+      const res = await api.post(`/user/requestPasswordReset`, {
+        email: formData.email,
+      });
+      setError("Reset password email sent");
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -96,7 +128,7 @@ export default function AuthTerminal() {
               {isLogin ? "Identity Link" : "Neural Archive"}
             </h1>
             <p className="text-[10px] text-blue-400/60 uppercase tracking-widest mt-2">
-              Chrono-Secure Protocol v4.0.2
+              Chrono-Secure Protocol v3.0.0
             </p>
           </div>
 
@@ -151,9 +183,19 @@ export default function AuthTerminal() {
                 />
               </div>
 
+              {isLogin && (
+                <button
+                  onClick={handleForgotPassword}
+                  className={`relative z-10 flex text-blue-400/50 items-center justify-start gap-2 hover:text-blue-400 text-[12px] cursor-pointer mb-8 underline`}
+                >
+                  FORGOT PASSWORD
+                  <FileQuestionIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              )}
+
               {error && (
                 <div className="relative w-full group overflow-hidden py-4 bg-red-600/20 border border-red-500/50 rounded-lg text-red-400 font-bold tracking-widest hover:bg-red-600/30 transition-all active:scale-95">
-                  <span className="relative z-10 flex items-center justify-center gap-2">
+                  <span className="relative z-10 text[12px] flex items-center justify-center gap-2">
                     <FileExclamationPoint className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     {error}
                   </span>
@@ -181,7 +223,7 @@ export default function AuthTerminal() {
                 setIsLogin(!isLogin);
                 setError(null);
               }}
-              className="text-[10px] text-blue-500/60 cursor-pointer hover:text-blue-400 transition-colors flex items-center justify-center gap-2 mx-auto uppercase tracking-tighter"
+              className="text-[13px] text-blue-500/60 cursor-pointer hover:text-blue-400 transition-colors flex items-center justify-center gap-2 mx-auto uppercase tracking-tighter"
             >
               <Cpu className="w-3 h-3" />
               {isLogin
