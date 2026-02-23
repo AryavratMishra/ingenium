@@ -4,6 +4,7 @@ import { StarField } from "@/components/chronoverse";
 import TerminalTransition from "@/components/TerminalTransition";
 import NeuralLink from "@/components/NeuralLink";
 import { AuthProvider } from "@/context/AuthContext";
+import SlidingDisclaimer from "@/components/SlidingDisclaimer";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export default function RootLayout({ children }) {
           </div>
 
           <NeuralLink />
-
+          <SlidingDisclaimer />
           <div className="relative z-10">
             <TerminalTransition>{children}</TerminalTransition>
           </div>

@@ -115,6 +115,14 @@ export default function AccommodationNexus() {
                 authority to revoke/cancel registration for any individual at
                 its sole discretion.
               </p>
+              <br />
+              <p className="text-[11px] text-red-200/70 leading-relaxed uppercase font-bold italic">
+                Accomodation is subject to availability strictly based upon
+                first come first serve basis. Payment of accomodation fee does
+                not ensure the same. In case of unavailability, the paid money
+                will be refunded. Participants are responsible of their own
+                accommodation.
+              </p>
             </div>
           </div>
 
