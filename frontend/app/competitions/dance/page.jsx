@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Music,
   Users,
@@ -12,7 +12,8 @@ import {
   Layers,
   ChevronLeft,
   ExternalLink,
-  Wallet,
+  Trash2,
+  Clock,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -25,10 +26,10 @@ export default function GroupDancePS() {
 
   const competitionData = {
     title: "Group Dance Competition",
-    org: "Dance Club, IIT Indore",
+    org: "Ingenium 3.0, IIT Indore",
     teamSize: "5-35 members",
     mode: "Offline",
-    baseFee: "1500",
+    duration: "5-15 mins",
     prizes: {
       first: "20,000",
       second: "12,000",
@@ -37,16 +38,22 @@ export default function GroupDancePS() {
     },
     phases: [
       {
-        id: "R1",
-        title: "Round 01: Screening",
+        id: "P1",
+        title: "Phase 01: Registration",
         detail:
-          "Track submission and online screening. Submissions will be evaluated for choreography potential and synchronization. Deadline: 7th March.",
+          "Teams must register before the deadline and finalize composition. Music tracks (MP3) must be 5-13 minutes and submitted beforehand.",
       },
       {
-        id: "R2",
-        title: "Round 02: Finals",
+        id: "P2",
+        title: "Phase 02: Performance",
         detail:
-          "Live final performances on stage. Teams must bring their high-energy routines for the ultimate showdown at the venue.",
+          "Includes a quick sound check and performance in allocated slots. Total stage time (setup to cleanup) is 5-15 minutes.",
+      },
+      {
+        id: "P3",
+        title: "Phase 03: Results",
+        detail:
+          "Evaluation by judges based on choreography, synchronization, costumes, and energy. Judges' decisions are final.",
       },
     ],
   };
@@ -85,7 +92,7 @@ export default function GroupDancePS() {
               KINETIC <span className="text-pink-500">SYNCHRONY</span>
             </h1>
             <p className="text-[12px] text-pink-400/60 mt-2 tracking-[0.3em] uppercase">
-              Organized by {competitionData.org}
+              {competitionData.title} • {competitionData.org}
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
@@ -96,9 +103,9 @@ export default function GroupDancePS() {
                 value={competitionData.teamSize}
               />
               <StatNode
-                icon={<Wallet />}
-                label="Base Fee (Per Team)"
-                value={`₹${competitionData.baseFee}`}
+                icon={<Clock />}
+                label="Total Slot"
+                value={competitionData.duration}
               />
               <StatNode
                 icon={<Activity />}
@@ -108,11 +115,10 @@ export default function GroupDancePS() {
             </div>
             <button
               onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=dance`);
+                if (isLoggedIn) router.push(`/registration?competition=dance`);
                 else
                   alert(
-                    "Please login to register. Login button at botton-right corner.",
+                    "Please login to register. Login button at bottom-right corner.",
                   );
               }}
               className="group relative px-8 py-3 bg-pink-600 hover:bg-pink-500 transition-all rounded-sm overflow-hidden"
@@ -136,13 +142,12 @@ export default function GroupDancePS() {
             </h3>
             <div className="p-3 sm:p-6 bg-pink-900/10 border border-pink-500/20 rounded-2xl backdrop-blur-md">
               <p className="text-md leading-relaxed text-pink-100/80 mb-6 italic border-l-2 border-pink-500 pl-4">
-                "Where collaborative artistry meets technical precision across
-                two high-stakes rounds."
+                "Showcasing creativity, synchronization, and artistic vision."
               </p>
               <div className="space-y-4">
-                <ObjectiveItem text="Online Screening Qualifier" />
-                <ObjectiveItem text="Offline Main-Stage Finals" />
-                <ObjectiveItem text="Multi-genre Synchrony" />
+                <ObjectiveItem text="5-13 Min Music Duration" />
+                <ObjectiveItem text="Self-Provided Props Allowed" />
+                <ObjectiveItem text="Original Choreography Focus" />
               </div>
             </div>
 
@@ -151,10 +156,23 @@ export default function GroupDancePS() {
               <h4 className="text-[12px] text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
                 <AlertTriangle className="w-3 h-3" /> Technical_Deductions
               </h4>
-              <div className="space-y-2 text-[13px] text-red-200/50 uppercase font-bold italic mb-4">
-                <p>▪ Late Submission: -10 Pts</p>
-                <p>▪ Unethical Content: Immediate DQ</p>
-                <p>▪ Prop Mismanagement: -20 Pts</p>
+              <div className="space-y-3 text-[12px] text-red-200/60 uppercase font-bold italic mb-4">
+                <div className="flex justify-between items-start border-b border-red-500/10 pb-1">
+                  <span>Unclean Stage</span>
+                  <span className="text-red-400">-30 Pts</span>
+                </div>
+                <div className="flex justify-between items-start border-b border-red-500/10 pb-1">
+                  <span>Copied Step (&gt;15s)</span>
+                  <span className="text-red-400">-10 Pts</span>
+                </div>
+                <div className="flex justify-between items-start border-b border-red-500/10 pb-1">
+                  <span>Dangerous Stunts/Fire</span>
+                  <span className="text-red-400">DQ</span>
+                </div>
+                <div className="flex justify-between items-start border-b border-red-500/10 pb-1">
+                  <span>15:00-16:00 Mins</span>
+                  <span className="text-red-400">-40 Pts</span>
+                </div>
               </div>
               <Link
                 href={"/PS/dance.pdf"}
@@ -162,7 +180,7 @@ export default function GroupDancePS() {
                 rel="noopener noreferrer"
                 className="text-sm text-red-400 underline hover:text-red-300 transition-colors"
               >
-                Download Rulebook.pdf
+                Full Rulebook.pdf
               </Link>
             </div>
           </div>
@@ -176,20 +194,20 @@ export default function GroupDancePS() {
 
               <div className="relative z-10">
                 <h3 className="text-xl font-black text-white uppercase tracking-widest mb-10 flex items-center gap-3">
-                  <Star className="text-pink-500" /> Competition_Rounds
+                  <Star className="text-pink-500" /> Competition_Flow
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
                   {competitionData.phases.map((phase, idx) => (
                     <button
                       key={phase.id}
                       onClick={() => setActiveTab(idx)}
                       className={`p-6 text-left border rounded-xl transition-all ${activeTab === idx ? "bg-pink-500/10 border-pink-500 shadow-[0_0_15px_rgba(236,72,153,0.3)]" : "bg-black/20 border-white/5 hover:border-white/20"}`}
                     >
-                      <div className="text-[13px] text-pink-500 mb-1 font-bold">
+                      <div className="text-[11px] text-pink-500 mb-1 font-bold">
                         PHASE_0{idx + 1}
                       </div>
-                      <div className="text-sm font-bold text-white uppercase">
+                      <div className="text-sm font-bold text-white uppercase leading-tight">
                         {phase.title}
                       </div>
                     </button>
@@ -206,9 +224,9 @@ export default function GroupDancePS() {
               {/* Scorecard Weights */}
               <div className="mt-12 pt-8 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-6">
                 <MetricBox label="Choreography" weight="40%" />
-                <MetricBox label="Sync & Transition" weight="25%" />
-                <MetricBox label="Energy & X-factor" weight="15%" />
-                <MetricBox label="Costume and Props" weight="20%" />
+                <MetricBox label="Sync & Transitions" weight="25%" />
+                <MetricBox label="Costume & Props" weight="20%" />
+                <MetricBox label="Energy & X-Factor" weight="15%" />
               </div>
             </div>
 
@@ -221,26 +239,26 @@ export default function GroupDancePS() {
               <div className="flex flex-col md:flex-row justify-between items-center relative z-10 gap-8">
                 <div className="text-center md:text-left">
                   <h3 className="text-lg font-black text-white uppercase tracking-[0.2em]">
-                    Bounty_Registry
+                    Prize_Pool
                   </h3>
                   <p className="text-[12px] text-pink-500 uppercase tracking-widest italic font-bold">
-                    Prize Breakdown
+                    Official Recognition
                   </p>
                 </div>
 
                 <div className="flex gap-8">
                   <BountyNode
-                    rank="ALPHA"
+                    rank="GOLD"
                     amount={competitionData.prizes.first}
                     label="1st Place"
                   />
                   <BountyNode
-                    rank="BETA"
+                    rank="SILVER"
                     amount={competitionData.prizes.second}
                     label="2nd Place"
                   />
                   <BountyNode
-                    rank="GAMMA"
+                    rank="BRONZE"
                     amount={competitionData.prizes.third}
                     label="3rd Place"
                   />
@@ -248,7 +266,7 @@ export default function GroupDancePS() {
 
                 <div className="px-6 py-4 bg-pink-500/10 border border-pink-500/30 rounded-xl text-center min-w-35">
                   <span className="text-[11px] text-pink-500 uppercase block font-bold mb-1">
-                    Total Pool
+                    Total Grant
                   </span>
                   <span className="text-2xl font-black text-pink-400 italic">
                     ₹{competitionData.prizes.total}
@@ -270,7 +288,7 @@ function StatNode({ icon, label, value }) {
     <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-lg min-w-35">
       <div className="text-pink-500 w-5 h-5">{icon}</div>
       <div>
-        <span className="text-[12px] text-gray-500 uppercase block leading-none mb-1 font-bold">
+        <span className="text-[10px] text-gray-500 uppercase block leading-none mb-1 font-bold">
           {label}
         </span>
         <span className="text-xs font-bold text-white tracking-tighter uppercase">
@@ -296,7 +314,7 @@ function MetricBox({ label, weight }) {
       <div className="text-lg font-black text-pink-500 mb-1 group-hover:scale-110 transition-transform">
         {weight}
       </div>
-      <div className="text-[12px] text-white/60 uppercase font-bold tracking-widest leading-tight">
+      <div className="text-[11px] text-white/60 uppercase font-bold tracking-widest leading-tight">
         {label}
       </div>
     </div>
@@ -306,13 +324,13 @@ function MetricBox({ label, weight }) {
 function BountyNode({ rank, amount, label }) {
   return (
     <div className="text-center group">
-      <div className="text-[12px] text-pink-500 uppercase mb-1 font-bold tracking-tighter">
+      <div className="text-[10px] text-pink-500 uppercase mb-1 font-bold tracking-tighter">
         {rank}
       </div>
       <div className="text-xl font-black text-white italic group-hover:scale-110 transition-transform">
         ₹{amount}
       </div>
-      <div className="text-[11px] text-pink-400/40 uppercase mt-1 font-bold">
+      <div className="text-[10px] text-pink-400/40 uppercase mt-1 font-bold">
         {label}
       </div>
     </div>

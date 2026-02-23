@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Mic2,
   Quote,
@@ -14,6 +14,10 @@ import {
   ExternalLink,
   ScrollText,
   IndianRupee,
+  Clock,
+  User,
+  AlertTriangle,
+  Scale,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -25,13 +29,13 @@ export default function PoetrySlamPage() {
 
   const item = {
     id: "PS",
-    title: "Poetry Slam",
-    sub: "Spoken Word Synthesis",
+    title: "English Poetry Slam",
+    sub: "Individual Performance Competition",
     icon: <Mic2 className="w-5 h-5" />,
     fee: "₹350",
     registrationPath: "/registration?competition=ps",
     description:
-      "A competitive performance-based event where poets recite original work focused on rhythm and delivery.",
+      "A non-theme-based individual performance competition where participants present original poetic compositions through spoken-word recital. The competition emphasizes expression, linguistic creativity, stage presence, and emotional impact.",
     prizes: {
       first: "5,000",
       second: "3,000",
@@ -63,25 +67,21 @@ export default function PoetrySlamPage() {
               POETRY <span className="text-amber-500">SLAM</span>
             </h1>
             <p className="text-[12px] text-amber-200/50 mt-2 tracking-[0.3em] uppercase">
-              Encouraging Creativity & Literary Expression
+              IIT Indore • Spoken-Word Recital
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
             <div className="flex gap-4 flex-wrap">
               <StatusNode
-                icon={<MapPin />}
-                label="Deployment"
-                value="Offline Mode"
+                icon={<User />}
+                label="Team Composition"
+                value="Individual (1)"
               />
+              <StatusNode icon={<Clock />} label="Duration" value="5 Minutes" />
               <StatusNode
                 icon={<IndianRupee />}
-                label="Base Fee (Per Team)"
+                label="Base Fee"
                 value={item.fee}
-              />
-              <StatusNode
-                icon={<Sparkles />}
-                label="Objective"
-                value="Active Participation"
               />
             </div>
             {/* Primary Registration Button */}
@@ -91,7 +91,7 @@ export default function PoetrySlamPage() {
                   router.push(`/registration?competition=poetry-slam`);
                 else
                   alert(
-                    "Please login to register. Login button at botton-right corner.",
+                    "Please login to register. Login button at bottom-right corner.",
                   );
               }}
               className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30"
@@ -99,7 +99,7 @@ export default function PoetrySlamPage() {
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">
                 <span className="text-sm font-black tracking-[0.2em] text-white uppercase">
-                  Register
+                  Register Now
                 </span>
                 <ExternalLink className="w-4 h-4 text-white" />
               </div>
@@ -108,21 +108,55 @@ export default function PoetrySlamPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* --- COMPETITION SELECTOR --- */}
+          {/* --- COMPETITION SIDEBAR --- */}
           <div className="lg:col-span-4 space-y-4">
-            {/* System Integrity */}
-            <div className="p-3 sm:p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl mt-8">
+            {/* Judging Criteria Table */}
+            <div className="p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl">
               <h4 className="text-[12px] text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
-                <Terminal className="w-3 h-3" /> Core_Compliance
+                <Scale className="w-3 h-3" /> Judging_Criteria
               </h4>
-              <div className="space-y-2">
-                <p className="text-[13px] text-amber-100 uppercase leading-tight font-bold">
-                  All protocols will be strictly offline.
-                </p>
-                <p className="text-[13px] text-amber-100 uppercase leading-tight font-bold">
-                  Originality of script is mandatory.
-                </p>
+              <div className="space-y-3">
+                {[
+                  { label: "Vocabulary & Language", val: "25%" },
+                  { label: "Creativity & Content", val: "20%" },
+                  { label: "Performing Style/Diction", val: "20%" },
+                  { label: "Originality", val: "20%" },
+                  { label: "Overall Impact", val: "15%" },
+                ].map((crit) => (
+                  <div
+                    key={crit.label}
+                    className="flex justify-between border-b border-amber-500/5 pb-1"
+                  >
+                    <span className="text-[12px] text-amber-100/70 uppercase">
+                      {crit.label}
+                    </span>
+                    <span className="text-[12px] text-amber-500 font-bold">
+                      {crit.val}
+                    </span>
+                  </div>
+                ))}
               </div>
+            </div>
+
+            {/* Penalties */}
+            <div className="p-6 bg-red-950/10 border border-red-500/20 rounded-2xl">
+              <h4 className="text-[12px] text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
+                <AlertTriangle className="w-3 h-3" /> Protocol_Violations
+              </h4>
+              <ul className="space-y-2 text-[12px] text-amber-100/60 uppercase mb-2">
+                <li>• Exceeding 5 mins: -10 Points</li>
+                <li>• Exceeding 6 mins: Disqualification</li>
+                <li>• Undeclared non-original work: Cancellation</li>
+                <li>• Vulgarity: Disqualification</li>
+              </ul>
+              <Link
+                href={"/PS/poetry-slam.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 text-[13px] underline text-amber-400 hover:text-white transition-colors"
+              >
+                Download Full Rulebook (PDF)
+              </Link>
             </div>
           </div>
 
@@ -133,8 +167,8 @@ export default function PoetrySlamPage() {
                 <Quote className="w-24 h-24" />
               </div>
 
-              <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-4">
-                Module_{item.id}: {item.title}
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter mb-4">
+                Competition_Overview
               </h2>
 
               <p className="text-md leading-relaxed text-amber-100/70 mb-12 p-3 sm:p-6 bg-amber-500/5 border-l-2 border-amber-500 italic max-w-2xl">
@@ -144,40 +178,35 @@ export default function PoetrySlamPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-4">
                   <h4 className="text-[12px] text-amber-500 uppercase tracking-[0.2em] font-bold">
-                    Lexical_Focus
+                    Performance_Rules
                   </h4>
                   <ul className="space-y-3">
                     {[
-                      "Conceptual Creativity",
-                      "Linguistic Flow",
-                      "Performance Impact",
-                      "Thematic Unity",
-                    ].map((focus) => (
+                      "All poem forms allowed (English only)",
+                      "Originality must be declared at start",
+                      "Multiple poems allowed within 5 mins",
+                      "Paper/Phone reference permitted",
+                      "Judges' decision is final and binding",
+                    ].map((rule) => (
                       <li
-                        key={focus}
-                        className="text-[14px] text-white flex items-center gap-3"
+                        key={rule}
+                        className="text-[14px] text-white flex items-start gap-3"
                       >
-                        <div className="w-1 h-1 bg-amber-500" /> {focus}
+                        <div className="w-1 h-1 bg-amber-500 mt-2 shrink-0" />{" "}
+                        {rule}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="p-3 sm:p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 flex flex-col justify-center">
-                  <ScrollText className="w-8 h-8 text-amber-500/30 mb-2" />
+                  <Terminal className="w-8 h-8 text-amber-500/30 mb-2" />
                   <span className="text-[12px] text-amber-500 uppercase font-bold">
-                    Submission Method
+                    Special Note
                   </span>
-                  <span className="text-sm text-white uppercase font-black mb-4">
-                    Offline Manifest
-                  </span>
-                  <Link
-                    href={"/PS/Literary_Competitions.pdf"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline"
-                  >
-                    View Rules
-                  </Link>
+                  <p className="text-[13px] text-white uppercase font-bold leading-tight mt-1">
+                    Jazz and Beat poetry are welcome but carry no additional
+                    marks.
+                  </p>
                 </div>
               </div>
 
@@ -185,13 +214,8 @@ export default function PoetrySlamPage() {
               <button
                 onClick={() => {
                   if (isLoggedIn)
-                    router.push(
-                      `/registration?competition=poetry-slam`,
-                    );
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
+                    router.push(`/registration?competition=poetry-slam`);
+                  else alert("Please login to register.");
                 }}
                 className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
               >
@@ -209,25 +233,25 @@ export default function PoetrySlamPage() {
               <div className="flex flex-col md:flex-row justify-between items-center relative z-10 gap-8">
                 <div className="text-center md:text-left">
                   <h3 className="text-lg font-black text-white uppercase tracking-[0.2em]">
-                    Bounty_Registry
+                    Prize_Pool
                   </h3>
                   <p className="text-[12px] text-amber-500 uppercase tracking-widest italic font-bold">
-                    Creative_Lexicon_Rewards
+                    Performance_Recognition
                   </p>
                 </div>
 
                 <div className="flex gap-8">
-                  <BountyNode rank="ALPHA" amount={item.prizes.first} />
-                  <BountyNode rank="BETA" amount={item.prizes.second} />
-                  <BountyNode rank="GAMMA" amount={item.prizes.third} />
+                  <BountyNode rank="1ST" amount={item.prizes.first} />
+                  <BountyNode rank="2ND" amount={item.prizes.second} />
+                  <BountyNode rank="3RD" amount={item.prizes.third} />
                 </div>
 
                 <div className="px-6 py-4 bg-amber-500/10 border border-amber-500/30 rounded-xl text-center min-w-35">
                   <span className="text-[11px] text-amber-500 uppercase block font-bold mb-1">
-                    Total Pool
+                    Total Bounty
                   </span>
                   <span className="text-2xl font-black text-amber-400 italic leading-none">
-                    ₹10,000
+                    ₹{item.prizes.total}
                   </span>
                 </div>
               </div>
@@ -252,7 +276,6 @@ function StatusNode({ icon, label, value }) {
         <span className="text-sm font-bold text-white tracking-tighter uppercase italic">
           {value}
         </span>
-        <span className="text-[9px] text-amber-500 ml-1 italic"></span>
       </div>
     </div>
   );
@@ -262,7 +285,7 @@ function BountyNode({ rank, amount }) {
   return (
     <div className="text-center group">
       <div className={`text-[10px] font-bold uppercase mb-1 text-amber-500`}>
-        {rank}_ACCESS
+        {rank}
       </div>
       <div className="text-xl font-black text-white italic group-hover:scale-110 transition-transform">
         ₹{amount}

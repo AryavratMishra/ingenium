@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ExternalLink,
   Wallet,
+  Clock,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -29,8 +30,9 @@ export default function BattleOfBandsPS() {
     title: "Battle of Bands",
     org: "Music Club, IIT Indore",
     participation: "Team (Bands)",
-    teamSize: "10-12 Members",
-    duration: "15-20 Minutes",
+    teamSize: "Min 4 Members",
+    duration: "25 Minutes",
+    soundCheck: "15 Minutes",
     mode: "Offline",
     baseFee: "1500",
     registrationPath: "/registration?competition=battle-of-bands",
@@ -43,15 +45,15 @@ export default function BattleOfBandsPS() {
     phases: [
       {
         id: "R1",
-        title: "Round 01: Online Screening",
+        title: "Phase 1: Registration & Shortlisting",
         detail:
-          "Submission of high-quality audio or video samples for preliminary evaluation. Deadline for submission: 7th March.",
+          "Online registration for participating bands. Shortlisting is based on submitted audio or video samples. Audio tracks must be submitted before the stipulated deadline.",
       },
       {
         id: "R2",
-        title: "Round 02: Final Performances",
+        title: "Phase 2: Final Competition",
         detail:
-          "Shortlisted bands will perform live on the main stage. Judgment based on technical skill, stage presence, and audience impact.",
+          "Live performances by shortlisted bands before a panel of judges and a live audience. Evaluation emphasizes musical tightness, originality, and stage presence.",
       },
     ],
   };
@@ -75,7 +77,7 @@ export default function BattleOfBandsPS() {
               BATTLE <span className="text-purple-500">OF</span> BANDS
             </h1>
             <p className="text-[12px] text-purple-400/60 mt-2 tracking-[0.3em] uppercase">
-              Host: {competitionData.org}
+              Ingenium 3.0 | {competitionData.org}
             </p>
           </div>
 
@@ -87,9 +89,9 @@ export default function BattleOfBandsPS() {
                 value={competitionData.teamSize}
               />
               <StatNode
-                icon={<Wallet />}
-                label="Base Fee (Per Team)"
-                value={`₹${competitionData.baseFee}`}
+                icon={<Clock />}
+                label="Sound Check"
+                value={competitionData.soundCheck}
               />
               <StatNode
                 icon={<Activity />}
@@ -101,9 +103,7 @@ export default function BattleOfBandsPS() {
             <button
               onClick={() => {
                 if (isLoggedIn)
-                  router.push(
-                    `/registration?competition=battle-of-bands`,
-                  );
+                  router.push(`/registration?competition=battle-of-bands`);
                 else
                   alert(
                     "Please login to register. Login button at botton-right corner.",
@@ -130,13 +130,14 @@ export default function BattleOfBandsPS() {
             </h3>
             <div className="p-3 sm:p-6 bg-purple-900/10 border border-purple-500/20 rounded-2xl backdrop-blur-xl">
               <p className="text-md leading-relaxed text-purple-100/80 mb-6 italic border-l-2 border-purple-500 pl-4">
-                "Nurturing musical talent across genres, providing a platform
-                for creative expression and live exploration."
+                "Providing a platform for creative expression and live musical
+                performance, encouraging real-time collaboration."
               </p>
               <div className="space-y-4">
-                <ObjectiveItem text="Technical Proficiency" />
-                <ObjectiveItem text="Originality & Arrangement" />
-                <ObjectiveItem text="Inter-college band culture" />
+                <ObjectiveItem text="Musical Expression" />
+                <ObjectiveItem text="Stage Presence" />
+                <ObjectiveItem text="Audience Engagement" />
+                <ObjectiveItem text="Teamwork" />
               </div>
             </div>
 
@@ -145,9 +146,9 @@ export default function BattleOfBandsPS() {
                 <Radio className="w-3 h-3" /> Technical_Deductions
               </h4>
               <div className="space-y-2 text-[13px] text-purple-300/60 uppercase font-bold italic mb-4">
-                <p>▪ Exceeding 20 min slot: -20 Pts</p>
-                <p>▪ Poor Equipment Handling: -15 Pts</p>
-                <p>▪ Late Submission (R1): -10 Pts</p>
+                <p>▪ Exceeding 25 min: -10% Score/Min</p>
+                <p>▪ Equipment Negligence: -15 Pts</p>
+                <p>▪ Late Audio Submission: -10 Pts</p>
               </div>
               <Link
                 href={"/PS/battle-of-bands.pdf"}
@@ -181,7 +182,7 @@ export default function BattleOfBandsPS() {
                       className={`p-6 text-left border rounded-xl transition-all ${activePhase === idx ? "bg-purple-500/10 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.3)]" : "bg-black/20 border-white/5 hover:border-white/20"}`}
                     >
                       <div className="text-[12px] text-purple-500 mb-1 font-bold">
-                        ROUND_0{idx + 1}
+                        PHASE_0{idx + 1}
                       </div>
                       <div className="text-sm font-bold text-white uppercase">
                         {phase.title}
@@ -195,26 +196,8 @@ export default function BattleOfBandsPS() {
                     {competitionData.phases[activePhase].detail}
                   </p>
                 </div>
-
-                <button
-                  onClick={() => {
-                    if (isLoggedIn)
-                      router.push(
-                        `/registration?competition=battle-of-bands`,
-                      );
-                    else
-                      alert(
-                        "Please login to register. Login button at botton-right corner.",
-                      );
-                  }}
-                  className="text-[13px] font-bold text-purple-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
-                >
-                  R1 SUBMISSION DEADLINE: MARCH 7TH{" "}
-                  <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </button>
               </div>
 
-              {/* Judging Criteria Matrix */}
               <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-4">
                   <Zap className="w-8 h-8 text-purple-500/40 animate-pulse" />
@@ -223,15 +206,16 @@ export default function BattleOfBandsPS() {
                       Evaluation_Logic
                     </div>
                     <div className="text-[13px] text-white uppercase italic">
-                      Performance Metrics
+                      Weighted Criteria
                     </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-                  <EvaluationMetric label="Musicality (30%)" />
-                  <EvaluationMetric label="Tightness (20%)" />
-                  <EvaluationMetric label="Stage Energy (25%)" />
-                  <EvaluationMetric label="Sound Balance (25%)" />
+                  <EvaluationMetric label="Individual Skills (25%)" />
+                  <EvaluationMetric label="Synchronization (25%)" />
+                  <EvaluationMetric label="Overall Impact (20%)" />
+                  <EvaluationMetric label="Creativity (15%)" />
+                  <EvaluationMetric label="Song Selection (15%)" />
                 </div>
               </div>
             </div>
