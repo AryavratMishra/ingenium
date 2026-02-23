@@ -157,13 +157,13 @@ export const COMPETITION_CONFIG = {
   },
   "nukkad-natak": {
     name: "Nukkad Natak",
-    teamSize: [8, 30],
+    teamSize: [5, 30],
     color: "#c084fc",
     sector: "DRAMA-01",
   },
   "mono-act": {
     name: "MonoAct",
-    teamSize: [1, 1],
+    teamSize: [1, 5],
     color: "#c084fc",
     sector: "DRAMA-02",
   },

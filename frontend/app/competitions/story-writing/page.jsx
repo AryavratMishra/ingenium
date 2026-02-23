@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   PenTool,
   Quote,
@@ -14,30 +13,39 @@ import {
   ExternalLink,
   ScrollText,
   IndianRupee,
+  Clock,
+  Users,
+  AlertTriangle,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 
-export default function PoetryWritingPage() {
+export default function StoryWritingPage() {
   const router = useRouter();
   const { isLoggedIn } = useContext(AuthContext);
 
-  const item = {
+  const competitionData = {
     id: "SW",
-    title: "Story Writing",
-    sub: "Pure Lexical Artistry",
+    title: "English Story Writing",
+    sub: "Ingenium 3.0 IIT Indore",
     icon: <PenTool className="w-5 h-5" />,
     fee: "₹350",
-    registrationPath: "/registration?competition=sw",
-    description:
-      "A traditional writing competition focusing on structural integrity, imagery, and thematic depth.",
+    duration: "4 Hours",
+    wordLimit: "1000 - 2000 words",
     prizes: {
       first: "5,000",
       second: "3,000",
       third: "2,000",
       total: "10,000",
     },
+    judging: [
+      { criteria: "Prose Structure", weight: "15%" },
+      { criteria: "Creativity and Content", weight: "30%" },
+      { criteria: "Vocabulary and Language", weight: "20%" },
+      { criteria: "Relevance to Prompt", weight: "25%" },
+      { criteria: "Overall Impact", weight: "10%" },
+    ],
   };
 
   return (
@@ -63,38 +71,33 @@ export default function PoetryWritingPage() {
               STORY <span className="text-amber-500">WRITING</span>
             </h1>
             <p className="text-[12px] text-amber-200/50 mt-2 tracking-[0.3em] uppercase">
-              Encouraging Creativity & Literary Expression
+              {competitionData.sub}
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
             <div className="flex gap-4 flex-wrap">
               <StatusNode
-                icon={<MapPin />}
-                label="Deployment"
-                value="Offline Mode"
+                icon={<Clock />}
+                label="Duration"
+                value={competitionData.duration}
+              />
+              <StatusNode
+                icon={<Users />}
+                label="Team Size"
+                value="Individual"
               />
               <StatusNode
                 icon={<IndianRupee />}
-                label="Base Fee (Per Team)"
-                value={item.fee}
-              />
-              <StatusNode
-                icon={<Sparkles />}
-                label="Objective"
-                value="Active Participation"
+                label="Base Fee"
+                value={"₹350"}
               />
             </div>
             {/* Primary Registration Button */}
             <button
               onClick={() => {
                 if (isLoggedIn)
-                  router.push(
-                    `/registration?competition=story-writing`,
-                  );
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
+                  router.push(`/registration?competition=story-writing`);
+                else alert("Please login to register.");
               }}
               className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30"
             >
@@ -110,25 +113,36 @@ export default function PoetryWritingPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* --- COMPETITION SELECTOR --- */}
+          {/* --- SIDEBAR PROTOCOLS --- */}
           <div className="lg:col-span-4 space-y-4">
-            {/* System Integrity */}
-            <div className="p-3 sm:p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl mt-8">
+            <div className="p-6 bg-amber-950/20 border border-amber-500/10 rounded-2xl">
               <h4 className="text-[12px] text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
-                <Terminal className="w-3 h-3" /> Core_Compliance
+                <Terminal className="w-3 h-3" /> Mandatory_Protocols
               </h4>
-              <div className="space-y-2">
-                <p className="text-[13px] text-amber-100 uppercase leading-tight font-bold">
-                  All protocols will be strictly offline.
-                </p>
-                <p className="text-[13px] text-amber-100 uppercase leading-tight font-bold">
-                  Originality of script is mandatory.
-                </p>
+              <ul className="space-y-4">
+                <ProtocolItem text="Prompt-based individual writing." />
+                <ProtocolItem text="Word limit: 1000-2000 words (including title)." />
+                <ProtocolItem text="Prompts provided on the spot (min. 2 options)." />
+                <ProtocolItem text="Roman/Latin script only." />
+                <ProtocolItem text="No electronic gadgets allowed." />
+              </ul>
+            </div>
+
+            <div className="p-6 bg-red-950/10 border border-red-500/20 rounded-2xl">
+              <h4 className="text-[12px] text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2 font-bold">
+                <AlertTriangle className="w-3 h-3" /> Penalty_Matrix
+              </h4>
+              <div className="space-y-2 text-[12px] text-red-200/70 uppercase">
+                <p>• Missing Title: -5 Points</p>
+                <p>• 2001-2050 words: -1 Point</p>
+                <p>• 2051-2100 words: -2 Points</p>
+                <p>• Non-Latin words: -1 to -2 Points</p>
+                <p>• Illustrations/Graphs: -5 Points</p>
               </div>
             </div>
           </div>
 
-          {/* --- MANUSCRIPT VIEWPORT --- */}
+          {/* --- MAIN CONTENT --- */}
           <div className="lg:col-span-8 space-y-8">
             <div className="bg-black border border-amber-500/20 rounded-3xl p-5 sm:p-10 backdrop-blur-xl relative">
               <div className="absolute top-4 right-6 text-amber-500/10">
@@ -136,70 +150,54 @@ export default function PoetryWritingPage() {
               </div>
 
               <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-4">
-                Module_{item.id}: {item.title}
+                Module_{competitionData.id}: STORY WRITING
               </h2>
 
               <p className="text-md leading-relaxed text-amber-100/70 mb-12 p-3 sm:p-6 bg-amber-500/5 border-l-2 border-amber-500 italic max-w-2xl">
-                "{item.description}"
+                "Participants will compose a short story of 1000-2000 words in
+                English within the given time. Prompts will be provided on the
+                spot."
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-4">
                   <h4 className="text-[12px] text-amber-500 uppercase tracking-[0.2em] font-bold">
-                    Lexical_Focus
+                    Judging_Criteria
                   </h4>
-                  <ul className="space-y-3">
-                    {[
-                      "Conceptual Creativity",
-                      "Linguistic Flow",
-                      "Performance Impact",
-                      "Thematic Unity",
-                    ].map((focus) => (
-                      <li
-                        key={focus}
-                        className="text-[14px] text-white flex items-center gap-3"
+                  <div className="space-y-3">
+                    {competitionData.judging.map((item) => (
+                      <div
+                        key={item.criteria}
+                        className="flex justify-between items-center border-b border-white/5 pb-1"
                       >
-                        <div className="w-1 h-1 bg-amber-500" /> {focus}
-                      </li>
+                        <span className="text-[13px] text-white">
+                          {item.criteria}
+                        </span>
+                        <span className="text-[13px] text-amber-500 font-bold">
+                          {item.weight}
+                        </span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
-                <div className="p-3 sm:p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 flex flex-col justify-center">
+                <div className="p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 flex flex-col justify-center">
                   <ScrollText className="w-8 h-8 text-amber-500/30 mb-2" />
                   <span className="text-[12px] text-amber-500 uppercase font-bold">
-                    Submission Method
+                    Official Documentation
                   </span>
                   <span className="text-sm text-white uppercase font-black mb-4">
-                    Offline Manifest
+                    Ingenium_Protocol_v3.0
                   </span>
                   <Link
-                    href={"/PS/Literary_Competitions.pdf"}
+                    href={"/PS/story-writing.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline"
+                    className="text-amber-400 hover:text-white underline text-sm transition-colors"
                   >
-                    View Rules
+                    View Official Rulebook (PDF)
                   </Link>
                 </div>
               </div>
-
-              {/* Secondary CTA */}
-              <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(
-                      `/registration?competition=story-writing`,
-                    );
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
-              >
-                Commit entry to the manuscript registry{" "}
-                <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </button>
             </div>
 
             {/* --- BOUNTY REGISTRY --- */}
@@ -219,9 +217,18 @@ export default function PoetryWritingPage() {
                 </div>
 
                 <div className="flex gap-8">
-                  <BountyNode rank="ALPHA" amount={item.prizes.first} />
-                  <BountyNode rank="BETA" amount={item.prizes.second} />
-                  <BountyNode rank="GAMMA" amount={item.prizes.third} />
+                  <BountyNode
+                    rank="ALPHA"
+                    amount={competitionData.prizes.first}
+                  />
+                  <BountyNode
+                    rank="BETA"
+                    amount={competitionData.prizes.second}
+                  />
+                  <BountyNode
+                    rank="GAMMA"
+                    amount={competitionData.prizes.third}
+                  />
                 </div>
 
                 <div className="px-6 py-4 bg-amber-500/10 border border-amber-500/30 rounded-xl text-center min-w-35">
@@ -229,7 +236,7 @@ export default function PoetryWritingPage() {
                     Total Pool
                   </span>
                   <span className="text-2xl font-black text-amber-400 italic leading-none">
-                    ₹10,000
+                    ₹{competitionData.prizes.total}
                   </span>
                 </div>
               </div>
@@ -241,12 +248,12 @@ export default function PoetryWritingPage() {
   );
 }
 
-// --- Internal Scriptorium Components ---
+// --- Internal UI Components ---
 
 function StatusNode({ icon, label, value }) {
   return (
     <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-lg">
-      <div className="text-amber-500">{icon}</div>
+      <div className="text-amber-500 w-4 h-4">{icon}</div>
       <div>
         <span className="text-[10px] text-gray-500 uppercase block leading-none mb-1 font-bold">
           {label}
@@ -254,9 +261,17 @@ function StatusNode({ icon, label, value }) {
         <span className="text-sm font-bold text-white tracking-tighter uppercase italic">
           {value}
         </span>
-        <span className="text-[9px] text-amber-500 ml-1 italic"></span>
       </div>
     </div>
+  );
+}
+
+function ProtocolItem({ text }) {
+  return (
+    <li className="text-[13px] text-amber-100/80 flex items-start gap-3 leading-tight uppercase font-bold">
+      <div className="w-1.5 h-1.5 bg-amber-500 mt-1 shrink-0" />
+      {text}
+    </li>
   );
 }
 

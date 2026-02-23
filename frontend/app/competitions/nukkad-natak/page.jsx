@@ -11,6 +11,9 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
+  ShieldAlert,
+  Clock,
+  Maximize,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -23,11 +26,11 @@ export default function NukkadNatakPage() {
   const item = {
     id: "NN",
     title: "Nukkad Natak",
-    sub: "Street Theatre Syndicate",
+    sub: "Hunkaar 2.0 | IITI Dramatics",
     icon: <Users className="w-6 h-6" />,
     fee: "₹1500",
-    participation: "Team Participation",
-    format: "Open-air street theatre format",
+    participation: "Team (5-30 members)",
+    format: "Open-air street theatre",
     objective:
       "Addressing real societal concerns through live interaction and social commentary.",
     prizes: {
@@ -60,18 +63,17 @@ export default function NukkadNatakPage() {
               NUKKAD <span className="text-orange-500">NATAK</span>
             </h1>
             <p className="text-[12px] text-orange-500/60 mt-2 tracking-[0.3em] uppercase">
-              Celebrating Social Reflection & Creativity
+              Hunkaar 2.0: Celebrating Social Reflection & Creativity
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            {/* Primary Registration Button */}
             <button
               onClick={() => {
                 if (isLoggedIn)
                   router.push(`/registration?competition=nukkad-natak`);
                 else
                   alert(
-                    "Please login to register. Login button at botton-right corner.",
+                    "Please login to register. Login button at bottom-right corner.",
                   );
               }}
               className="group relative px-8 py-3 bg-orange-600 hover:bg-orange-500 transition-all rounded-sm overflow-hidden"
@@ -95,7 +97,7 @@ export default function NukkadNatakPage() {
                 <Volume2 className="w-16 h-16" />
               </div>
               <h3 className="text-[12px] text-orange-500 uppercase tracking-widest mb-4 font-bold flex items-center gap-2">
-                <Megaphone className="w-3 h-3" /> Module_Briefing
+                <Megaphone className="w-3 h-3" /> Competition_Overview
               </h3>
               <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-1">
                 {item.title}
@@ -104,13 +106,35 @@ export default function NukkadNatakPage() {
                 {item.sub}
               </p>
               <div className="space-y-4 border-t border-white/5 pt-6">
-                <IntelRow label="Participation" value={item.participation} />
+                <IntelRow label="Team Size" value="5-30 Participants" />
+                <IntelRow label="Time Limit" value="15-30 Mins" />
+                <IntelRow label="Language" value="Hindi / English" />
                 <IntelRow label="Base Fee (Per Team)" value={item.fee} />
-                <IntelRow label="Core Format" value={item.format} />
                 <p className="text-md leading-relaxed text-gray-400 italic">
-                  "{item.objective}"
+                  "Addressing real societal concerns through live interaction
+                  and social commentary."
                 </p>
               </div>
+            </div>
+
+            <div className="p-4 sm:p-8 bg-red-500/5 border border-red-500/20 rounded-2xl">
+              <h3 className="text-[12px] text-red-500 uppercase tracking-widest mb-4 font-bold flex items-center gap-2">
+                <ShieldAlert className="w-3 h-3" /> Critical_Protocols
+              </h3>
+              <ul className="space-y-3">
+                <li className="text-[11px] text-gray-400 uppercase leading-tight">
+                  <span className="text-red-500 font-bold mr-2">!</span> No
+                  powdery substances, fluids, or fire
+                </li>
+                <li className="text-[11px] text-gray-400 uppercase leading-tight">
+                  <span className="text-red-500 font-bold mr-2">!</span> 30pt
+                  deduction for unclean/damaged stage
+                </li>
+                <li className="text-[11px] text-gray-400 uppercase leading-tight">
+                  <span className="text-red-500 font-bold mr-2">!</span>{" "}
+                  Re-entry after stepping out: 5pt penalty
+                </li>
+              </ul>
             </div>
 
             {/* --- REWARD ALLOCATION --- */}
@@ -159,25 +183,28 @@ export default function NukkadNatakPage() {
           <div className="lg:col-span-7 space-y-8">
             <div className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-8 backdrop-blur-md">
               <h3 className="text-xl font-black text-white uppercase tracking-widest mb-10 flex items-center gap-4">
-                <Sparkles className="text-orange-500" /> Operational_Parameters
+                <Sparkles className="text-orange-500" /> Scoring_&_Parameters
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                 <div>
-                  <h4 className="text-[12px] text-orange-500 uppercase tracking-widest mb-4 font-bold">
-                    Thematic_Spectrum
+                  <h4 className="text-[12px] text-orange-500 uppercase tracking-widest mb-4 font-bold flex items-center gap-2">
+                    <Maximize className="w-3 h-3" /> Performance_Area
                   </h4>
+                  <p className="text-[12px] text-gray-400 uppercase mb-2">
+                    Matted 30 x 30 ft square with a 2ft buffer zone.
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {[
                       "Social Issues",
-                      "Campus Life",
                       "Tech Ethics",
                       "Human Emotions",
                       "Identity",
+                      "Campus Life",
                     ].map((theme) => (
                       <span
                         key={theme}
-                        className="text-[12px] bg-orange-500/10 border border-orange-500/20 px-3 py-1 rounded text-orange-200 uppercase font-bold"
+                        className="text-[10px] bg-orange-500/10 border border-orange-500/20 px-2 py-1 rounded text-orange-200 uppercase font-bold"
                       >
                         {theme}
                       </span>
@@ -185,81 +212,60 @@ export default function NukkadNatakPage() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-[12px] text-orange-500 uppercase tracking-widest mb-4 font-bold">
-                    Unique_Features
+                  <h4 className="text-[12px] text-orange-500 uppercase tracking-widest mb-4 font-bold flex items-center gap-2">
+                    <Clock className="w-3 h-3" /> Overtime_Penalties
                   </h4>
-                  <ul className="space-y-2">
-                    <li className="text-[13px] text-gray-400 flex gap-2">
-                      <span className="text-orange-500 font-bold">▪</span>{" "}
-                      Audience Interaction
+                  <ul className="space-y-1">
+                    <li className="text-[11px] text-gray-400 flex justify-between uppercase">
+                      <span>30-31 Mins:</span>{" "}
+                      <span className="text-orange-500">-5 Pts</span>
                     </li>
-                    <li className="text-[13px] text-gray-400 flex gap-2">
-                      <span className="text-orange-500 font-bold">▪</span>{" "}
-                      Minimal Props Policy
+                    <li className="text-[11px] text-gray-400 flex justify-between uppercase">
+                      <span>34-35 Mins:</span>{" "}
+                      <span className="text-orange-500">-25 Pts</span>
                     </li>
-                    <li className="text-[13px] text-gray-400 flex gap-2">
-                      <span className="text-orange-500 font-bold">▪</span>{" "}
-                      Impact Focus
+                    <li className="text-[11px] text-gray-400 flex justify-between uppercase font-bold">
+                      <span>&gt;35 Mins:</span>{" "}
+                      <span className="text-red-500">Disqualification</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              {/* Scorecard Matrix */}
-              <div className="pt-8 border-t border-white/5 grid grid-cols-2 md:grid-cols-3 gap-6">
-                <MetricItem label="Creativity/Originality" />
-                <MetricItem label="Storytelling Innovation" />
-                <MetricItem label="Stage Presence" />
-                <MetricItem label="Social Impact" />
-                <MetricItem label="Audience Engagement" />
-                <div className="p-4 bg-orange-500/5 border border-orange-500/20 rounded-xl flex items-center justify-center">
-                  <span className="text-[12px] text-orange-400 uppercase font-bold text-center">
-                    Evaluated by expert panel
-                  </span>
-                </div>
+              <div className="pt-8 border-t border-white/5 grid grid-cols-2 md:grid-cols-2 gap-6">
+                <MetricItem label="Acting, Energy & Voice" weight="40%" />
+                <MetricItem label="Script & Originality" weight="20%" />
+                <MetricItem label="Direction & Coherence" weight="20%" />
+                <MetricItem label="Creativity & Impact" weight="20%" />
               </div>
-              <Link
-                href={"/PS/Monoact_and_Nukkad.pdf"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                View Rules
-              </Link>
+
+              <div className="mt-8 flex justify-between items-center">
+                <Link
+                  href={"/PS/Monoact_and_Nukkad.pdf"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[12px] uppercase font-black text-orange-500 hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" /> Download Official
+                  Rulebook
+                </Link>
+                <span className="text-[10px] text-gray-600 uppercase tracking-widest italic">
+                  Judges' Decision is Final
+                </span>
+              </div>
             </div>
 
-            {/* Deployment Phase */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <PhaseCard
                 idx="01"
                 label="Registration & Screening"
-                detail="Online registration & basic screening of entries."
+                detail="Online registration and basic screening based on entry volume."
               />
               <PhaseCard
                 idx="02"
                 label="Final Showcase"
-                detail="Final performances in front of live audience."
+                detail="Performances in front of a larger audience with professional judging."
               />
-            </div>
-
-            {/* Secondary CTA */}
-            <div className="flex justify-center pt-4">
-              <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(
-                      `/registration?competition=nukkad-natak`,
-                    );
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="text-[12px] font-bold text-orange-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
-              >
-                Secure your position in the performative core{" "}
-                <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </button>
             </div>
           </div>
         </div>
@@ -267,8 +273,6 @@ export default function NukkadNatakPage() {
     </div>
   );
 }
-
-// --- Internal Synthesis Components ---
 
 function IntelRow({ label, value }) {
   return (
@@ -279,17 +283,19 @@ function IntelRow({ label, value }) {
   );
 }
 
-function MetricItem({ label }) {
+function MetricItem({ label, weight }) {
   return (
     <div className="space-y-2">
-      <div className="text-[12px] text-white/60 uppercase font-bold tracking-tighter leading-tight">
-        {label} <span className="text-[10px] text-orange-500/40 italic"></span>
+      <div className="flex justify-between text-[12px] text-white/60 uppercase font-bold tracking-tighter">
+        <span>{label}</span>
+        <span className="text-orange-500">{weight}</span>
       </div>
       <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
-          whileInView={{ width: "65%" }}
-          className="h-full bg-orange-500/40"
+          whileInView={{ width: weight }}
+          transition={{ duration: 1 }}
+          className="h-full bg-orange-500/60"
         />
       </div>
     </div>

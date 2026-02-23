@@ -11,6 +11,9 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
+  Clock,
+  AlertTriangle,
+  Users,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -23,13 +26,13 @@ export default function MonoActPage() {
   const item = {
     id: "MA",
     title: "Mono Act",
-    sub: "Solo Narrative Core",
+    sub: "Hunkaar 2.0",
     icon: <User className="w-6 h-6" />,
-    participation: "Individual Participation",
+    participation: "1 Actor + Max 4 Background Members",
     fee: "₹600",
-    format: "Performative Storytelling",
+    format: "Theatrical Performance",
     objective:
-      "Using theatre as a medium to highlight human narratives and emotional intelligence.",
+      "A platform for reflection, dialogue, and emotional intelligence, complementing Ingenium's techno-cultural ethos.",
     prizes: {
       first: "12,000",
       second: "5,000",
@@ -60,11 +63,10 @@ export default function MonoActPage() {
               MONO <span className="text-orange-500">ACT</span>
             </h1>
             <p className="text-[12px] text-orange-500/60 mt-2 tracking-[0.3em] uppercase">
-              Celebrating Social Reflection & Creativity
+              Part of Ingenium 3.0 IIT Indore
             </p>
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
-            {/* Primary Registration Button */}
             <button
               onClick={() => {
                 if (isLoggedIn)
@@ -104,9 +106,9 @@ export default function MonoActPage() {
                 {item.sub}
               </p>
               <div className="space-y-4 border-t border-white/5 pt-6">
-                <IntelRow label="Participation" value={item.participation} />
-                <IntelRow label="Base Fee (Per Team)" value={item.fee} />
-                <IntelRow label="Core Format" value={item.format} />
+                <IntelRow label="Composition" value={item.participation} />
+                <IntelRow label="Base Fee" value={item.fee} />
+                <IntelRow label="Duration" value="5-10 Minutes" />{" "}
                 <p className="text-md leading-relaxed text-gray-400 italic">
                   "{item.objective}"
                 </p>
@@ -171,9 +173,10 @@ export default function MonoActPage() {
                     {[
                       "Social Issues",
                       "Campus Life",
-                      "Tech Ethics",
+                      "Technological Ethics",
                       "Human Emotions",
                       "Identity",
+                      "Contemporary Challenges",
                     ].map((theme) => (
                       <span
                         key={theme}
@@ -186,59 +189,77 @@ export default function MonoActPage() {
                 </div>
                 <div>
                   <h4 className="text-[12px] text-orange-500 uppercase tracking-widest mb-4 font-bold">
-                    Unique_Features
+                    Critical_Rules
                   </h4>
                   <ul className="space-y-2">
                     <li className="text-[13px] text-gray-400 flex gap-2">
-                      <span className="text-orange-500 font-bold">▪</span>{" "}
-                      Audience Interaction
+                      <span className="text-orange-500 font-bold">▪</span> Empty
+                      Stage: 5-10 mins limit
                     </li>
                     <li className="text-[13px] text-gray-400 flex gap-2">
                       <span className="text-orange-500 font-bold">▪</span>{" "}
-                      Minimal Props Policy
+                      English and/or Hindi only
                     </li>
                     <li className="text-[13px] text-gray-400 flex gap-2">
                       <span className="text-orange-500 font-bold">▪</span>{" "}
-                      Impact Focus
+                      Harmful content leads to DQ
                     </li>
                   </ul>
                 </div>
               </div>
 
-              {/* Scorecard Matrix */}
               <div className="pt-8 border-t border-white/5 grid grid-cols-2 md:grid-cols-3 gap-6">
-                <MetricItem label="Creativity/Originality" />
-                <MetricItem label="Storytelling Innovation" />
-                <MetricItem label="Stage Presence" />
-                <MetricItem label="Social Impact" />
-                <MetricItem label="Audience Engagement" />
-                <div className="p-4 bg-orange-500/5 border border-orange-500/20 rounded-xl flex items-center justify-center">
-                  <span className="text-[12px] text-orange-400 uppercase font-bold text-center">
-                    Evaluated by expert panel
+                <MetricItem label="Acting (40%)" value="40%" />
+                <MetricItem label="Script & Direction (25%)" value="25%" />
+                <MetricItem label="Creativity/Impact (20%)" value="20%" />
+                <MetricItem label="Lights & Music (15%)" value="15%" />
+                <div className="p-4 bg-orange-500/5 border border-orange-500/20 rounded-xl flex flex-col items-center justify-center">
+                  <span className="text-[10px] text-orange-400 uppercase font-bold text-center">
+                    Penalty: Stage Damage
                   </span>
+                  <span className="text-[12px] text-red-500 font-black uppercase">
+                    Disqualification
+                  </span>{" "}
+                </div>
+                <div className="p-4 bg-orange-500/5 border border-orange-500/20 rounded-xl flex flex-col items-center justify-center">
+                  <span className="text-[10px] text-orange-400 uppercase font-bold text-center">
+                    Penalty: Dirty Stage
+                  </span>
+                  <span className="text-[12px] text-red-500 font-black uppercase">
+                    -30 Points
+                  </span>{" "}
                 </div>
               </div>
-              <Link
-                href={"/PS/Monoact_and_Nukkad.pdf"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                View Rules
-              </Link>
+              <div className="mt-8 flex items-center justify-between">
+                <Link
+                  href={"/PS/Monoact_and_Nukkad.pdf"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-xs text-orange-500 hover:text-orange-400"
+                >
+                  View Full Competition Document
+                </Link>
+                <div className="flex gap-4">
+                  <div className="flex items-center gap-1 text-[10px] text-gray-500 uppercase">
+                    <Clock className="w-3 h-3" /> Time Limit: 10m
+                  </div>
+                  <div className="flex items-center gap-1 text-[10px] text-gray-500 uppercase">
+                    <Users className="w-3 h-3" /> Max Background: 4
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Deployment Phase */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <PhaseCard
                 idx="01"
-                label="Registration & Screening"
-                detail="Online registration & basic screening of entries."
+                label="Registration / Screening"
+                detail="Online registration and basic screening based on entry volume."
               />
               <PhaseCard
                 idx="02"
                 label="Final Showcase"
-                detail="Final performances in front of live audience."
+                detail="Performances in front of a larger audience and judge evaluation."
               />
             </div>
 
@@ -255,7 +276,7 @@ export default function MonoActPage() {
                 }}
                 className="text-[12px] font-bold text-orange-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
               >
-                Secure your position in the performative core{" "}
+                Enter the theatrical circle{" "}
                 <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -277,16 +298,16 @@ function IntelRow({ label, value }) {
   );
 }
 
-function MetricItem({ label }) {
+function MetricItem({ label, value }) {
   return (
     <div className="space-y-2">
       <div className="text-[12px] text-white/60 uppercase font-bold tracking-tighter leading-tight">
-        {label} <span className="text-[10px] text-orange-500/40 italic"></span>
+        {label}
       </div>
       <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
-          whileInView={{ width: "65%" }}
+          whileInView={{ width: value }}
           className="h-full bg-orange-500/40"
         />
       </div>
