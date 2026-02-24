@@ -3,23 +3,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Home,
   Users,
   CreditCard,
   ShieldAlert,
-  ExternalLink,
+  ArrowRight,
   Info,
   MapPin,
   Zap,
   CheckCircle2,
   Lock,
   ChevronLeft,
+  Layers,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function AccommodationNexus() {
-  const googleFormLink = "https://forms.gle/your-google-form-link";
   const router = useRouter();
+
   return (
     <div className="relative min-h-screen text-cyan-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
       {/* Structural HUD Decoration */}
@@ -39,7 +39,7 @@ export default function AccommodationNexus() {
           <div className="space-y-1">
             <button
               onClick={() => router.push("/?state=navigation")}
-              className="flex items-center gap-2 text-cyan-400"
+              className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-4"
             >
               <ChevronLeft className="w-4 h-4" />
               <span className="text-[12px] tracking-[0.5em] uppercase font-bold">
@@ -92,11 +92,11 @@ export default function AccommodationNexus() {
                 />
                 <EligibilityRow
                   icon={<CheckCircle2 />}
-                  text="Verify Biometric Identity"
+                  text="Select 'Add Habitation' at Checkout"
                 />
                 <EligibilityRow
                   icon={<CheckCircle2 />}
-                  text="Clear Terminal Scrutiny"
+                  text="Verify Biometric Identity"
                 />
               </div>
             </div>
@@ -126,38 +126,66 @@ export default function AccommodationNexus() {
             </div>
           </div>
 
-          {/* --- UPLINK PORTAL --- */}
+          {/* --- CONSOLIDATED REGISTRATION INFO --- */}
           <div className="lg:col-span-7 space-y-8">
             <div className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-10 backdrop-blur-md relative">
-              <h3 className="text-xl font-black text-white uppercase tracking-widest mb-6 flex items-center gap-3">
-                <Lock className="w-5 h-5 text-cyan-500" /> Habitation_Uplink
-              </h3>
-              <p className="text-sm text-gray-400 leading-relaxed mb-10">
-                Data entry for accommodation is handled via a secure external
-                node. Use the button below to initialize your habitation request
-                through the official Google Form terminal.
-              </p>
+              <div className="flex items-center gap-3 mb-6">
+                <Layers className="w-6 h-6 text-cyan-500" />
+                <h3 className="text-xl font-black text-white uppercase tracking-widest">
+                  Unified Registration Protocol
+                </h3>
+              </div>
 
-              <motion.a
-                href={googleFormLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              <div className="space-y-6 text-sm text-gray-400 leading-relaxed mb-10">
+                <p>
+                  To streamline your arrival,{" "}
+                  <span className="text-cyan-400 font-bold">
+                    Habitation Access
+                  </span>{" "}
+                  is now bundled with competition registration.
+                </p>
+                <div className="bg-cyan-500/5 p-4 rounded-xl border border-cyan-500/10">
+                  <p className="text-xs text-cyan-200/80 uppercase font-bold mb-2">
+                    How to Secure Lodging:
+                  </p>
+                  <ol className="list-decimal list-inside space-y-2 text-[13px]">
+                    <li>
+                      Navigate to the{" "}
+                      <span className="text-white">Competitions Terminal</span>.
+                    </li>
+                    <li>Select your primary event(s).</li>
+                    <li>
+                      During the{" "}
+                      <span className="text-white">Payment Interface</span>,
+                      toggle the{" "}
+                      <span className="text-cyan-400">
+                        "Request Campus Accommodation"
+                      </span>{" "}
+                      option.
+                    </li>
+                    <li>Complete the transaction to lock in your base camp.</li>
+                  </ol>
+                </div>
+              </div>
+
+              <motion.button
+                onClick={() => router.push("/competitions")}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="block w-full p-5 bg-cyan-600/20 border-2 border-cyan-500/50 rounded-2xl text-center group hover:bg-cyan-500/30 transition-all shadow-[0_0_30px_rgba(6,182,212,0.1)]"
               >
                 <div className="flex items-center justify-center gap-3">
-                  <span className="text-sm font-black text-white tracking-[0.3em] uppercase">
-                    Initialize_Form_Uplink
+                  <span className="text-sm font-black text-white tracking-[0.2em] uppercase">
+                    Access Competitions Terminal
                   </span>
-                  <ExternalLink className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-2 transition-transform" />
                 </div>
-              </motion.a>
+              </motion.button>
 
               <div className="mt-10 flex items-center gap-4 p-4 bg-cyan-500/5 border border-cyan-500/20 rounded-xl">
                 <Zap className="w-8 h-8 text-cyan-500/40" />
                 <span className="text-[11px] text-gray-500 uppercase font-bold leading-tight">
-                  Processing Speed: Synchronized <br />
+                  Status: Integrated Checkout Enabled <br />
                   Data Sensitivity: Class-A Encrypted
                 </span>
               </div>
@@ -166,8 +194,8 @@ export default function AccommodationNexus() {
             {/* Protocol Summary */}
             <div className="flex justify-between items-center px-4 opacity-40">
               <div className="flex gap-6 text-[10px] uppercase tracking-widest font-black">
-                <span>ID: Habitation-001</span>
-                <span>Status: Online</span>
+                <span>ID: Habitation-002</span>
+                <span>Status: Active</span>
                 <span>Node: IITI-Base-1</span>
               </div>
               <Info className="w-3 h-3" />
