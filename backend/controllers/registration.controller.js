@@ -56,9 +56,9 @@ export const registerTeam = async (req, res) => {
     /* ---------- CREATE TEAM ---------- */
     const teamResult = await client.query(
       `INSERT INTO teams (team_name, ps_name, fees_paid, registered_by)
-       VALUES ($1, $2, FALSE, $3)
+       VALUES ($1, $2, $3, $4)
        RETURNING id`,
-      [teamName, psName, email],
+      [teamName, psName, email.split("@")[1] == "iiti.ac.in", email],
     );
 
     const teamId = teamResult.rows[0].id;

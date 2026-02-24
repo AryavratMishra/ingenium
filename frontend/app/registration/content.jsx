@@ -13,12 +13,15 @@ import {
   ShieldCheck,
   MapPin,
   Fingerprint,
+  ShieldAlert,
 } from "lucide-react";
+import Link from "next/link";
 
 function RegistrationContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const containerRef = useRef(null);
+  const user = JSON.parse(localStorage.getItem("user") || null);
 
   const competitionKey = searchParams.get("competition") || "General Entry";
   const config =
@@ -111,6 +114,7 @@ function RegistrationContent() {
         teamName: formData.teamName,
         psName: competitionKey,
         participants: formData.members,
+        email: user.email,
       });
       setStatus("success");
     } catch (error) {
@@ -472,12 +476,46 @@ function RegistrationContent() {
                   Team {formData.teamName} has been successfully updated in the{" "}
                   {config.name} archives.
                 </p>
-                <button
-                  onClick={() => router.push("/competitions")}
-                  className="px-12 py-4 bg-accent text-black font-bold uppercase text-[12px] tracking-[0.5em] hover:bg-white transition-all"
-                >
-                  Terminate Link
-                </button>
+                {user.email.split("@")[1] == "iiti.ac.in" ? (
+                  <button
+                    onClick={() => router.push("/competitions")}
+                    className="px-12 py-4 bg-accent text-black font-bold uppercase text-[12px] tracking-[0.5em] hover:bg-white transition-all"
+                  >
+                    Terminate Link
+                  </button>
+                ) : (
+                  <div className="flex flex-col gap-4">
+                    <div className="p-3 sm:p-6 bg-red-950/20 border border-red-500/30 rounded-2xl relative overflow-hidden">
+                      <div className="flex items-center gap-3 mb-4">
+                        <ShieldAlert className="w-5 h-5 text-red-500 animate-pulse" />
+                        <h4 className="text-xs font-black text-white uppercase tracking-widest">
+                          Entry Authorization Disclaimer
+                        </h4>
+                      </div>
+                      <p className="text-[11px] text-red-200/70 leading-relaxed uppercase font-bold italic">
+                        Mere payment of registration and habitation fees does
+                        not guarantee terminal access. IIT Indore maintains
+                        absolute authority to revoke/cancel registration for any
+                        individual at its sole discretion.
+                      </p>
+                      <br />
+                      <p className="text-[11px] text-red-200/70 leading-relaxed uppercase font-bold italic">
+                        Accomodation is subject to availability strictly based
+                        upon first come first serve basis. Payment of
+                        accomodation fee does not ensure the same. In case of
+                        unavailability, the paid money will be refunded.
+                        Participants are responsible of their own accommodation.
+                      </p>
+                    </div>
+                    <Link
+                      href={"https://registration.iiti.ac.in/ingenium26/"}
+                      target="_blank"
+                      className="px-4 sm:px-6 lg:px-8 xl:px-12 py-4 bg-accent text-black font-bold uppercase text-[12px] tracking-[0.2em] lg:tracking-[0.5em] hover:bg-white transition-all"
+                    >
+                      Pay Registration Fees
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </AnimatePresence>

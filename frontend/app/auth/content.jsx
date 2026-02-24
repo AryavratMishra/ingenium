@@ -140,7 +140,7 @@ export default function AuthTerminal() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -20, opacity: 0 }}
               className="space-y-5"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleLoginSignup}
             >
               {!isLogin && (
                 <div className="relative">
@@ -185,6 +185,7 @@ export default function AuthTerminal() {
 
               {isLogin && (
                 <button
+                  type="button"
                   onClick={handleForgotPassword}
                   className={`relative z-10 flex text-blue-400/50 items-center justify-start gap-2 hover:text-blue-400 text-[12px] cursor-pointer mb-8 underline`}
                 >
@@ -204,7 +205,7 @@ export default function AuthTerminal() {
               )}
 
               <button
-                onClick={handleLoginSignup}
+                type="submit"
                 className="relative w-full group overflow-hidden py-4 bg-blue-600/20 border border-blue-500/50 rounded-lg text-blue-400 font-bold tracking-widest hover:bg-blue-600/30 transition-all active:scale-95"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
