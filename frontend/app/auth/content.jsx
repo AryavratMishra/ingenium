@@ -41,7 +41,7 @@ export default function AuthTerminal() {
         const res = await api.post("/user/login", formData);
         localStorage.setItem("access_token", res.data.access_token);
         refreshUser();
-        router.push(searchParams.get("path"));
+        router.push(searchParams.get("path") || "/");
       } else {
         const res = await api.post("/user/sendOtp", { email: formData.email });
         localStorage.setItem(

@@ -33,7 +33,7 @@ export default function ProfilePage() {
       if (!user?.email) return;
       try {
         const response = await api.get(
-          `http://localhost:5000/api/registration?email=${user.email}`,
+          `/registration?email=${user.email}`,
         );
         setRegistrations(response.data);
       } catch (error) {

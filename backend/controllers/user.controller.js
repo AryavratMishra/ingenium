@@ -109,8 +109,6 @@ export const login = async (req, res) => {
   }
 };
 
-export const send_otp = async (req, res) => {};
-
 export const signup = async (req, res) => {
   try {
     const { email, password, name } = req.body;

@@ -64,7 +64,7 @@ export default function OTPVerification() {
       localStorage.removeItem("formData");
       localStorage.setItem("access_token", res.data.access_token);
       refreshUser();
-      router.push(searchParams.get("path") || "/dashboard");
+      router.push(searchParams.get("path") || "/");
     } catch (err) {
       setError(err.response?.data?.message || "DECRYPTION FAILED: INVALID OTP");
     } finally {
