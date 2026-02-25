@@ -485,6 +485,29 @@ function RegistrationContent() {
                   </button>
                 ) : (
                   <div className="flex flex-col gap-4">
+                    <div className="p-3 sm:p-6 bg-green-950/20 border border-green-500/30 rounded-2xl relative overflow-hidden">
+                      <div className="flex items-center gap-3 mb-4">
+                        <ShieldAlert className="w-5 h-5 text-green-500 animate-pulse" />
+                        <h4 className="text-xs font-black text-white uppercase tracking-widest">
+                          Registration & Accommodation Policy
+                        </h4>
+                      </div>
+
+                      <p className="text-[11px] text-green-200/70 leading-relaxed uppercase font-bold italic">
+                        Registration fee is required to be paid only once per
+                        team. A single successful payment completes the
+                        registration process for the entire team.
+                      </p>
+
+                      <br />
+
+                      <p className="text-[11px] text-green-200/70 leading-relaxed uppercase font-bold italic">
+                        Accommodation charges (if applicable) must be paid
+                        individually based on the total number of participants
+                        accompanying the team to the campus. The accommodation
+                        fee is calculated per person.
+                      </p>
+                    </div>
                     <div className="p-3 sm:p-6 bg-red-950/20 border border-red-500/30 rounded-2xl relative overflow-hidden">
                       <div className="flex items-center gap-3 mb-4">
                         <ShieldAlert className="w-5 h-5 text-red-500 animate-pulse" />

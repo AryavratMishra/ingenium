@@ -12,6 +12,7 @@ import {
   ArrowRight,
   FileExclamationPoint,
   FileQuestionIcon,
+  Loader,
 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/lib/api";
@@ -206,12 +207,17 @@ export default function AuthTerminal() {
 
               <button
                 type="submit"
-                className="relative w-full group overflow-hidden py-4 bg-blue-600/20 border border-blue-500/50 rounded-lg text-blue-400 font-bold tracking-widest hover:bg-blue-600/30 transition-all active:scale-95"
+                disabled={loading}
+                className={`relative w-full group overflow-hidden items-center py-4 bg-blue-600/20 border border-blue-500/50 rounded-lg text-blue-400 font-bold tracking-widest hover:bg-blue-600/30 transition-all active:scale-95 ${loading ? "cursor-not-allowed" : ""}`}
               >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  {isLogin ? "INITIALIZE SESSION" : "RESERVE TIMELINE"}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
+                {!loading ? (
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {isLogin ? "INITIALIZE SESSION" : "RESERVE TIMELINE"}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                ) : (
+                  <Loader className="mx-auto" />
+                )}
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full duration-1000 transition-transform" />
               </button>
             </motion.form>

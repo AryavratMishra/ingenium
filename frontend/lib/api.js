@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://ingenium.iiti.ac.in/api",
+  baseURL: "http://localhost:3000/api",
   withCredentials: true,
 });
 

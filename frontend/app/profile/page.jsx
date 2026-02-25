@@ -32,9 +32,7 @@ export default function ProfilePage() {
     const fetchRegistrations = async () => {
       if (!user?.email) return;
       try {
-        const response = await api.get(
-          `/registration?email=${user.email}`,
-        );
+        const response = await api.get(`/registration?email=${user.email}`);
         setRegistrations(response.data);
       } catch (error) {
         console.error("Failed to fetch registrations:", error);
@@ -135,6 +133,14 @@ export default function ProfilePage() {
                   Mission_Logs
                 </h3>
               </div>
+
+              {user?.email.split("@")[1] != "iiti.ac.in" ? (
+                <p className="text-xs text-gray-500 italic">
+                  If you have already completed the payment and the portal is
+                  still displaying the payment option, please note that the
+                  status will be updated by the end of the day.
+                </p>
+              ) : null}
 
               <div className="space-y-4">
                 {registrations.map((reg, i) => {
