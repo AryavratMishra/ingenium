@@ -63,7 +63,7 @@ export default function CompetitionsPage() {
         </div>
 
         {/* --- SECTOR SELECTOR (TABS) --- */}
-        <div className="flex gap-4 mb-10">
+        <div className="flex gap-4 mb-3">
           {[
             { id: "tech", label: "Technical Sectors", icon: Zap },
             { id: "cult", label: "Cultural Sectors", icon: Music },
@@ -90,14 +90,21 @@ export default function CompetitionsPage() {
           ))}
         </div>
 
+        <Link
+          href={
+            "https://docs.google.com/spreadsheets/d/10xTpiVmQRbPIw39qOMLUUh6_EkzkPNlBK9PWfLT2DUM/edit?usp=sharing"
+          }
+          target="_blank"
+          className="underline text-sm font-bold uppercase tracking-widest font-mono text-blue-500"
+        >
+          Schedule Link
+        </Link>
+
         {/* --- GRID OF NODES --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-100 mt-8">
           {filteredCompetitions.length > 0 ? (
             filteredCompetitions.map((sector) => (
-              <Link
-                key={sector.id}
-                href={`/competitions/${sector.folder}`}
-              >
+              <Link key={sector.id} href={`/competitions/${sector.folder}`}>
                 <div className="group relative bg-black/60 border border-white/10 p-3 sm:p-6 h-45 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
                   <NodeCorner color={sector.color} />
 
