@@ -23,6 +23,9 @@ const poppins = Poppins({
 export const metadata = {
   title: "Ingenium",
   description: "Techno Cultural Festival",
+  verification: {
+    google: "F3N8mKNsuT46OCayL-eJ-7AQJTwXaUCdmjmJ1GRC6LI",
+  },
 };
 
 export default function RootLayout({ children }) {
