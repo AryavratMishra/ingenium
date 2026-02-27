@@ -95,7 +95,6 @@ export default function AnalogVersePage() {
       "Max board dimensions: 100mm x 100mm.",
       "Use standard component footprints (SMD 0805 or Through-Hole).",
       "Proper grounding techniques are mandatory.",
-      "PS release is T-7 days before submission.",
     ],
   };
 
@@ -257,6 +256,30 @@ export default function AnalogVersePage() {
                     <span className="text-amber-500">▶</span> {rule}
                   </li>
                 ))}
+                <li className="flex gap-3 text-[11px] text-amber-400 leading-tight uppercase">
+                  <span className="text-amber-500">▶</span>
+                  <Link
+                    href={
+                      "https://docs.google.com/document/d/1ZouESIPnIgMfJ_Vj_Cs22WRU7gU9RRMwYfacLmLEe94/"
+                    }
+                    target="_blank"
+                    className="underline"
+                  >
+                    Problem Statement
+                  </Link>
+                </li>
+                <li className="flex gap-3 text-[11px] text-amber-400 leading-tight uppercase">
+                  <span className="text-amber-500">▶</span>
+                  <Link
+                    href={
+                      "https://docs.google.com/document/d/1s9ywz_I9rlCc5Fypq4NTzVkGatZ1WGATjFqWftmt600/"
+                    }
+                    target="_blank"
+                    className="underline"
+                  >
+                    Simulation Instructions
+                  </Link>
+                </li>
               </ul>
               <Link
                 href={competition.href}
