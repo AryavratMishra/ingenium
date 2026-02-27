@@ -269,8 +269,8 @@ export default function UdgaarPage() {
             </div>
 
             {/* Status Bar */}
-            <div className="p-3 sm:p-6 bg-black/40 border-2 border-dashed border-white/10 rounded-xl flex flex-wrap items-center justify-between gap-6">
-              <div className="flex gap-8 flex-wrap">
+            <div className="p-3 sm:p-6 bg-black/40 border-2 border-dashed border-white/10 rounded-xl flex items-center justify-evenly gap-10 flex-col md:flex-row">
+              <div className="flex flex-col items-center gap-8 flex-wrap">
                 <div className="space-y-1">
                   <div className="text-[13px] text-slate-500 uppercase">
                     Performance_Mode
@@ -300,13 +300,28 @@ export default function UdgaarPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col items-end gap-1">
-                <span className="text-[13px] text-slate-500 uppercase">
-                  Prize Pool
-                </span>
-                <span className="text-2xl font-black text-white tracking-tighter italic">
-                  ₹{competitionData[activePS].prizes.total}
-                </span>
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-3 sm:p-6 relative overflow-hidden flex flex-1 flex-col w-full">
+                <div className="absolute -right-4 -bottom-4 opacity-10">
+                  <Trophy className="w-24 h-24 text-yellow-500" />
+                </div>
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <Trophy className="w-4 h-4 text-yellow-500" /> Bounty_Registry
+                </h3>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-3 gap-2 text-center">
+                    <PrizeTier rank="1st" amount="5,000" />
+                    <PrizeTier rank="2nd" amount="3,000" />
+                    <PrizeTier rank="3rd" amount="2,000" />
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-t border-yellow-500/30">
+                    <span className="text-[12px] text-gray-400 uppercase font-bold">
+                      Total Prize Pool
+                    </span>
+                    <span className="text-xl font-black text-white italic">
+                      ₹10,000
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -329,6 +344,15 @@ export default function UdgaarPage() {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function PrizeTier({ rank, amount }) {
+  return (
+    <div className="bg-black/20 p-2 rounded border border-white/5">
+      <p className="text-[12px] text-yellow-500 uppercase font-bold">{rank}</p>
+      <p className="text-md font-black text-white italic">₹{amount}</p>
     </div>
   );
 }

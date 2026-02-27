@@ -175,7 +175,7 @@ export const COMPETITION_CONFIG = {
   },
   "battle-of-bands": {
     name: "Battle of Bands",
-    teamSize: [10, 12],
+    teamSize: [4, 12],
     color: "#c084fc",
     sector: "MUSIC-01",
   },

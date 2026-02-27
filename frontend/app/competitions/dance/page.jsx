@@ -14,6 +14,7 @@ import {
   ExternalLink,
   Trash2,
   Clock,
+  IndianRupee,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -30,6 +31,7 @@ export default function GroupDancePS() {
     teamSize: "5-35 members",
     mode: "Offline",
     duration: "5-15 mins",
+    fee: "1500",
     prizes: {
       first: "20,000",
       second: "12,000",
@@ -111,6 +113,11 @@ export default function GroupDancePS() {
                 icon={<Activity />}
                 label="Mode"
                 value={competitionData.mode}
+              />
+              <StatNode
+                icon={<IndianRupee />}
+                label="Base Fee (Per Team)"
+                value={competitionData.fee}
               />
             </div>
             <button

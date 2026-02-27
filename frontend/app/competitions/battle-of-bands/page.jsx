@@ -16,6 +16,7 @@ import {
   ExternalLink,
   Wallet,
   Clock,
+  IndianRupee,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -97,6 +98,11 @@ export default function BattleOfBandsPS() {
                 icon={<Activity />}
                 label="Mode"
                 value={competitionData.mode}
+              />
+              <StatNode
+                icon={<IndianRupee />}
+                label="Base Fee (Per Team)"
+                value={competitionData.baseFee}
               />
             </div>
 
@@ -278,10 +284,10 @@ function StatNode({ icon, label, value }) {
     <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-lg min-w-35">
       <div className="text-purple-500 w-5 h-5">{icon}</div>
       <div>
-        <span className="text-[12px] text-gray-500 uppercase block leading-none mb-1 font-bold">
+        <span className="text-[11px] text-gray-500 uppercase block leading-none mb-1 font-bold">
           {label}
         </span>
-        <span className="text-sm font-bold text-white tracking-tighter uppercase">
+        <span className="text-[13px] font-bold text-white tracking-tighter uppercase">
           {value}
         </span>
       </div>
