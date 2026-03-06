@@ -115,7 +115,7 @@ export default function CompetitionsPage() {
                     </span>
                   </div>
 
-                  <div className="absolute -bottom-2 -right-2 font-black text-6xl text-white/5 pointer-events-none select-none group-hover:text-blue-500/10 transition-colors uppercase italic whitespace-nowrap">
+                  <div className={`absolute -bottom-2 -right-2 font-black text-6xl pointer-events-none select-none transition-colors uppercase italic whitespace-nowrap ${sector.id === 'nitro' ? 'text-white/10 group-hover:text-cyan-500/30 z-10' : 'text-white/5 group-hover:text-blue-500/10'}`}>
                     {sector.tag}
                   </div>
 
