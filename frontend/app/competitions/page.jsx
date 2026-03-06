@@ -6,6 +6,7 @@ import { PageTransitionWrapper } from "@/components/chronoverse";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, Zap, Music } from "lucide-react";
 import { tech_competitions, cult_competitions } from "@/data/competitions";
+import NitroEffect from "@/components/NitroEffect";
 
 const NodeCorner = ({ color }) => (
   <div
@@ -72,8 +73,8 @@ export default function CompetitionsPage() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${activeTab === tab.id
-                  ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                  : "border-white/10 text-white/40 hover:border-white/30"
+                ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                : "border-white/10 text-white/40 hover:border-white/30"
                 }`}
             >
               {activeTab === tab.id && (
@@ -105,6 +106,7 @@ export default function CompetitionsPage() {
             filteredCompetitions.map((sector) => (
               <Link key={sector.id} href={`/competitions/${sector.folder}`}>
                 <div className="group relative bg-black/60 border border-white/10 p-3 sm:p-6 h-45 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
+                  {sector.id === "nitro" && <NitroEffect />}
                   <NodeCorner color={sector.color} />
 
                   <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
