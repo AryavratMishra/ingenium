@@ -5,6 +5,8 @@ import TerminalTransition from "@/components/TerminalTransition";
 import NeuralLink from "@/components/NeuralLink";
 import { AuthProvider } from "@/context/AuthContext";
 import SlidingDisclaimer from "@/components/SlidingDisclaimer";
+import GlobalLogo from "@/components/GlobalLogo";
+import { Suspense } from "react";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -35,7 +37,12 @@ export default function RootLayout({ children }) {
         className={`${oxanium.variable} ${poppins.variable} antialiased overflow-x-hidden`}
       >
         <AuthProvider>
-          <div className="fixed inset-0 z-0">
+          {/* --- GLOBAL LOGO --- */}
+          <Suspense fallback={null}>
+            <GlobalLogo />
+          </Suspense>
+
+          <div className="fixed inset-0 z-0 pointer-events-none">
             <StarField />
           </div>
 

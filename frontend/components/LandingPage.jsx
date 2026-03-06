@@ -210,7 +210,10 @@ export default function LandingPage({ onNavigate }) {
       <div className="warp-flash absolute inset-0 bg-white opacity-0 pointer-events-none z-50" />
 
       {/* --- TOP LEFT HEADING (Event Logo Only) --- */}
-      <div className="absolute top-6 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:flex justify-center items-center">
+      <div 
+        onClick={handleEnter}
+        className="absolute top-6 left-8 z-30 pointer-events-auto mix-blend-screen hidden sm:flex justify-center items-center cursor-pointer transition-transform hover:scale-105"
+      >
         <img src="/favicon.png" alt="ingenium logo" className="w-28 h-28" />
       </div>
 

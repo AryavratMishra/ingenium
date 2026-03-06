@@ -1,0 +1,43 @@
+[00:00:04.134] Server  LOG     ✓ Ready in 2.8s
+[00:00:11.857] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.259] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:00:12.259] Browser WARN    GSAP target  not found. https://gsap.com
+[00:00:12.722] Browser WARN    GSAP target  not found. https://gsap.com
+[00:00:49.680] Browser WARN    GSAP target .landing-container not found. https://gsap.com
+[00:00:50.359] Browser WARN    GSAP target .nav-node-container not found. https://gsap.com
+[00:00:50.359] Browser WARN    GSAP target  not found. https://gsap.com
+[00:00:50.359] Browser WARN    GSAP target .nav-node-container not found. https://gsap.com
+[00:00:50.359] Browser WARN    GSAP target  not found. https://gsap.com
+[00:02:37.215] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933178386
+[00:02:48.412] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933189595
+[00:03:17.033] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933218210
+[00:03:25.026] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target  not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target  not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target  not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target  not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target .nav-node-container not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target  not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target .nav-node-container not found. https://gsap.com
+[00:03:25.026] Browser WARN    GSAP target  not found. https://gsap.com
+[00:03:50.338] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933251523
+[00:04:01.108] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933262294
+[00:04:03.359] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933264536
+[00:04:04.358] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1769933264536
+[00:04:04.826] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target .nav-node-container not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target .nav-node-container not found. https://gsap.com
+[00:04:04.826] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:06.741] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:04:06.741] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:06.741] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:06.741] Browser WARN    GSAP target .char-reveal not found. https://gsap.com
+[00:04:06.741] Browser WARN    GSAP target  not found. https://gsap.com
+[00:04:07.226] Browser WARN    GSAP target  not found. https://gsap.com
