@@ -209,6 +209,138 @@ const DataEffect = ({ colorClass, hexColor }) => (
 );
 
 // ==========================================
+// SCENE 8: DANCE (Kinetic Synchrony)
+// ==========================================
+const DanceEffect = ({ colorClass, hexColor }) => (
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className={`absolute w-40 h-40 border border-${colorClass}-500/30 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]`} />
+        <div className={`absolute w-20 h-20 border-2 border-${colorClass}-400/50 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]`} />
+
+        {/* Abstract figures/Ribbons */}
+        <svg className="absolute w-full h-full opacity-60">
+            <path d="M 0 100 Q 50 20 100 100 T 200 100" fill="none" stroke={hexColor} strokeWidth="2" strokeLinecap="round" className="animate-[dance-wave_3s_ease-in-out_infinite_alternate]" />
+            <path d="M 0 150 Q 80 50 150 150 T 300 150" fill="none" stroke={hexColor} strokeWidth="1" strokeLinecap="round" opacity="0.5" className="animate-[dance-wave_2s_ease-in-out_infinite_alternate-reverse]" />
+        </svg>
+
+        <style jsx>{`
+      @keyframes dance-wave {
+        0% { transform: translateY(0) scaleY(1); }
+        100% { transform: translateY(-30px) scaleY(1.5); }
+      }
+    `}</style>
+    </div>
+);
+
+// ==========================================
+// SCENE 9: MUSIC (Battle of Bands)
+// ==========================================
+const MusicEffect = ({ colorClass, hexColor }) => (
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-1">
+        {[...Array(12)].map((_, i) => (
+            <div
+                key={i}
+                className={`w-2 bg-${colorClass}-500 rounded-t-sm animate-[eq_0.5s_ease-in-out_infinite_alternate]`}
+                style={{
+                    height: '10px',
+                    animationDuration: `${0.3 + Math.random() * 0.5}s`,
+                    animationDelay: `${Math.random() * 0.5}s`
+                }}
+            />
+        ))}
+        <style jsx>{`
+      @keyframes eq {
+        0% { height: 10px; }
+        100% { height: 80px; }
+      }
+    `}</style>
+    </div>
+);
+
+// ==========================================
+// SCENE 10: ART/DESIGN (Canvas, Shutter Up, Album Cover)
+// ==========================================
+const ArtEffect = ({ colorClass, hexColor }) => (
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <svg className="absolute w-[200%] h-[200%] -top-1/2 -left-1/2 animate-[spin_10s_linear_infinite]">
+            <g fill="none" strokeWidth="4" strokeLinecap="round">
+                <path d="M 100 100 C 150 50, 200 150, 250 100" stroke={hexColor} className="animate-[dash_2s_ease-in-out_infinite_alternate]" strokeDasharray="100 200" />
+                <path d="M 50 150 C 100 200, 200 50, 250 150" stroke={hexColor} opacity="0.6" strokeWidth="8" className="animate-[dash_3s_ease-in-out_infinite_alternate-reverse]" strokeDasharray="150 300" />
+            </g>
+        </svg>
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-${colorClass}-500 blur-xl opacity-30 animate-pulse`} />
+    </div>
+);
+
+// ==========================================
+// SCENE 11: DRAMA (Nukkad Natak, Mono Act)
+// ==========================================
+const DramaEffect = ({ colorClass, hexColor }) => (
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        {/* Spotlights */}
+        <div className="absolute top-0 left-1/4 w-32 h-[150%] bg-gradient-to-b from-white/20 to-transparent transform -skew-x-12 origin-top animate-[spotlight-left_4s_ease-in-out_infinite_alternate]" />
+        <div className="absolute top-0 right-1/4 w-32 h-[150%] bg-gradient-to-b from-white/20 to-transparent transform skew-x-12 origin-top animate-[spotlight-right_4s_ease-in-out_infinite_alternate-reverse]" />
+
+        {/* Abstract Theatre Masks overlapping */}
+        <div className={`w-16 h-20 border-2 border-${colorClass}-400 rounded-full flex flex-col items-center justify-center gap-2 transform -rotate-12 translate-x-4 bg-black/50 backdrop-blur-sm`}>
+            <div className="flex gap-2"><div className="w-2 h-2 rounded-full bg-white animate-bounce" /><div className="w-2 h-2 rounded-full bg-white animate-bounce" style={{ animationDelay: '0.2s' }} /></div>
+            <div className={`w-6 h-1 rounded-full bg-${colorClass}-500 animate-pulse`} />
+        </div>
+        <div className={`w-16 h-20 border-2 border-white/40 rounded-full flex flex-col items-center justify-center gap-2 transform rotate-12 -translate-x-4 bg-black/50 backdrop-blur-sm`}>
+            <div className="flex gap-2"><div className="w-2 h-2 rounded-full bg-white animate-bounce" style={{ animationDelay: '0.5s' }} /><div className="w-2 h-2 rounded-full bg-white animate-bounce" style={{ animationDelay: '0.7s' }} /></div>
+            <div className={`w-4 h-4 rounded-full border-2 border-white/40 animate-pulse`} />
+        </div>
+
+        <style jsx>{`
+      @keyframes spotlight-left {
+        0% { transform: skewX(-10deg); }
+        100% { transform: skewX(-30deg); }
+      }
+      @keyframes spotlight-right {
+        0% { transform: skewX(10deg); }
+        100% { transform: skewX(30deg); }
+      }
+    `}</style>
+    </div>
+);
+
+// ==========================================
+// SCENE 12: LITERATURE/Oratory (Quiz, Poetry, Debate)
+// ==========================================
+const LitEffect = ({ colorClass, hexColor }) => (
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Flowing text lines */}
+        <div className="absolute inset-0 flex flex-col justify-center gap-4 px-6 opacity-30 transform -skew-x-12 scale-110">
+            <div className={`w-full h-1 bg-${colorClass}-400 rounded-full transform -translate-x-full animate-[typewriter_2s_ease-out_infinite_alternate]`} />
+            <div className={`w-3/4 h-1 bg-${colorClass}-400 rounded-full transform -translate-x-full animate-[typewriter_2.5s_ease-out_infinite_alternate-reverse]`} />
+            <div className={`w-5/6 h-1 bg-${colorClass}-400 rounded-full transform -translate-x-full animate-[typewriter_1.8s_ease-out_infinite_alternate]`} />
+        </div>
+
+        {/* Sparkling ideas/quotes */}
+        {[...Array(5)].map((_, i) => (
+            <div
+                key={i}
+                className="absolute text-white/50 text-2xl font-serif italic animate-ping"
+                style={{
+                    top: `${20 + Math.random() * 60}%`,
+                    left: `${20 + Math.random() * 60}%`,
+                    animationDuration: `${1 + Math.random()}s`,
+                    animationDelay: `${Math.random() * 2}s`
+                }}
+            >
+                "
+            </div>
+        ))}
+
+        <style jsx>{`
+            @keyframes typewriter {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(0); }
+            }
+        `}</style>
+    </div >
+);
+
+// ==========================================
 // MAIN FACTORY COMPONENT
 // ==========================================
 export default function TileEffect({ id, tag, color }) {
@@ -247,6 +379,16 @@ export default function TileEffect({ id, tag, color }) {
         SceneComponent = CircuitEffect;
     } else if (["aero-artistry"].includes(id)) {
         SceneComponent = AeroEffect;
+    } else if (["dance"].includes(id)) {
+        SceneComponent = DanceEffect;
+    } else if (["music"].includes(id)) {
+        SceneComponent = MusicEffect;
+    } else if (["canvas", "mystic", "VLR"].includes(id)) {
+        SceneComponent = ArtEffect;
+    } else if (["nukkad-natak", "mono-act"].includes(id)) {
+        SceneComponent = DramaEffect;
+    } else if (["debate", "quiz", "poetry-slam", "story-writing", "poetry", "matiks"].includes(id)) {
+        SceneComponent = LitEffect;
     } else {
         // Fallback for Data / Civil / Default tech cards
         SceneComponent = DataEffect;
