@@ -70,7 +70,7 @@ export default function NitroEffect() {
       </div>
 
       {/* High Speed Hover Buggies (Z-20 escapes mix-blend-screen and overlaps page.jsx text which is Z-10) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 overflow-x-hidden pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 
         {/* Buggy 1 (Farthest back, smallest, slowest) */}
         <div className="absolute bottom-6 -left-[50%] w-[80px] group-hover:animate-fly-by-1 drop-shadow-[0_0_10px_rgba(56,189,248,0.5)] opacity-60">
