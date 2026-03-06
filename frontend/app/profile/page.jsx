@@ -20,6 +20,7 @@ import { useContext, useEffect, useState } from "react";
 import { COMPETITION_CONFIG } from "@/data/competition_config";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
+import Link from "next/link";
 
 export default function ProfilePage() {
   const [registrations, setRegistrations] = useState([]);
@@ -35,7 +36,6 @@ export default function ProfilePage() {
         const response = await api.get(`/registration?email=${user.email}`);
         setRegistrations(response.data);
       } catch (error) {
-        console.error("Failed to fetch registrations:", error);
       } finally {
         setLoading(false);
       }
@@ -44,7 +44,7 @@ export default function ProfilePage() {
   }, [user]);
 
   const handlePayment = (e, teamName) => {
-    e.stopPropagation(); // Prevent opening modal when clicking payment
+    e.stopPropagation();
     alert(`Initiating payment uplink for ${teamName}...`);
   };
 
@@ -171,12 +171,14 @@ export default function ProfilePage() {
 
                         <div className="flex items-center gap-4">
                           {!reg.fees_paid && (
-                            <button
-                              onClick={(e) => handlePayment(e, reg.team_name)}
+                            <Link
+                              href={
+                                "https://registration.iiti.ac.in/ingenium26/"
+                              }
                               className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/20 border border-amber-500/50 text-amber-500 rounded text-[12px] font-bold uppercase hover:bg-amber-500 hover:text-black transition-colors"
                             >
                               <CreditCard className="w-3 h-3" /> Pay Fees
-                            </button>
+                            </Link>
                           )}
                           {reg.fees_paid && (
                             <CheckCircle2 className="w-5 h-5 text-green-500" />

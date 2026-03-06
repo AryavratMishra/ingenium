@@ -58,7 +58,6 @@ export default function AuthTerminal() {
         );
       }
     } catch (error) {
-      console.log(error);
       setError(error.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
@@ -79,7 +78,6 @@ export default function AuthTerminal() {
       });
       setError("Reset password email sent");
     } catch (err) {
-      console.error(err);
       setError(err.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);

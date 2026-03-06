@@ -211,7 +211,7 @@ export default function LandingPage({ onNavigate }) {
 
       {/* --- TOP LEFT HEADING (Event Logo Only) --- */}
       <div className="absolute top-6 left-8 z-30 pointer-events-none mix-blend-screen hidden sm:flex justify-center items-center">
-        <img src="/favicon.png" className="w-28 h-28" />
+        <img src="/favicon.png" alt="ingenium logo" className="w-28 h-28" />
       </div>
 
       {/* --- TOP RIGHT HEADING (College Name) --- */}
@@ -219,25 +219,7 @@ export default function LandingPage({ onNavigate }) {
         className="absolute top-10 right-8 z-30 pointer-events-auto cursor-pointer hidden sm:flex flex-col items-end group"
         onMouseEnter={() => setHeaderHoverTrigger((prev) => prev + 1)}
       >
-        {/* <div className="flex items-center gap-4"> */}
-        {/* Tech Decoration Lines - Animated */}
-        {/* <div className="flex flex-col gap-1.5 items-end opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-16 h-[3px] bg-blue-500 shadow-[0_0_8px_#3b82f6] animate-[widthPulse_3s_ease-in-out_infinite]" />
-            <div className="w-10 h-[3px] bg-blue-400 shadow-[0_0_5px_#60a5fa] animate-[widthPulse_2s_ease-in-out_infinite_reverse]" />
-            <div className="w-12 h-[3px] bg-blue-600 shadow-[0_0_3px_#2563eb] animate-[widthPulse_4s_ease-in-out_infinite_0.5s]" />
-          </div>
-
-          <div className="text-right">
-            <div className="text-5xl font-black leading-[0.8] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-100 to-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]" style={{ fontFamily: "Oxanium, sans-serif" }}>
-              <ScrambleText text="IIT" delay={0} trigger={headerHoverTrigger} />
-            </div>
-            <div className="text-2xl font-bold tracking-[0.3em] text-blue-200 mt-1 border-t-2 border-blue-500 pt-1 shadow-[0_-2px_10px_rgba(59,130,246,0.3)] relative overflow-hidden" style={{ fontFamily: "Oxanium, sans-serif" }}>
-              <ScrambleText text="INDORE" delay={100} className="relative z-10" trigger={headerHoverTrigger} />
-              <div className="absolute inset-0 bg-blue-400/20 blur-md animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-          </div>
-        </div> */}
-        <img src="/informal_IITI.png" className="h-13" />
+        <img src="/informal_IITI.png" alt="iiti logo" className="h-13" />
       </div>
 
       {/* --- THE CHRONO GATE (Central 3D Element) --- */}

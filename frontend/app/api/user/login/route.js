@@ -60,8 +60,6 @@ export async function POST(request) {
 
     return response;
   } catch (error) {
-    console.error(error);
-
     if (error.code === "ER_DUP_ENTRY") {
       return NextResponse.json(
         { message: "Duplicate token detected" },

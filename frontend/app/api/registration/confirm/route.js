@@ -37,8 +37,6 @@ export async function POST(request) {
       { status: 200 },
     );
   } catch (error) {
-    console.error(error);
-
     if (error.code === "ER_DUP_ENTRY") {
       return NextResponse.json(
         { message: "Payment already recorded" },

@@ -51,7 +51,6 @@ export default function ResetPassword() {
     setLoading(true);
     try {
       const token = searchParams.get("token");
-      console.log(token);
       const res = await api.post("/user/resetPassword", {
         token,
         newPassword: formData.password,

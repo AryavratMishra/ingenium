@@ -118,8 +118,6 @@ export async function POST(request) {
     );
   } catch (error) {
     await connection.rollback();
-    console.error(error);
-
     if (error.code === "ER_DUP_ENTRY") {
       return NextResponse.json(
         { message: "Duplicate registration detected" },
