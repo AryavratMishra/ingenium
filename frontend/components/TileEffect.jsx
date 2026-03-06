@@ -116,18 +116,30 @@ const BioEffect = ({ colorClass, hexColor }) => (
 
 const ScreenSenseEffect = ({ colorClass, hexColor }) => (
     <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-        <div className={`w-36 h-24 border-4 border-${colorClass}-500/80 rounded-sm relative bg-black flex items-center justify-center overflow-hidden`}>
-            <div className="w-10 h-1 bg-gray-600 absolute -bottom-1 left-1/2 -translate-x-1/2" />
-            <div className={`w-full h-1 bg-${colorClass}-400 opacity-80 animate-[tv-glitch_0.5s_steps(2)_infinite]`} />
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:100%_4px]" />
+        {/* Matrix digital rain background */}
+        <div className={`absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.8),transparent)]`} />
+        {[...Array(20)].map((_, i) => (
+            <div key={i} className={`absolute w-0.5 h-12 bg-${colorClass}-500/80 animate-[rain_1s_linear_infinite] drop-shadow-[0_0_8px_currentColor]`} style={{
+                left: `${Math.random() * 100}%`,
+                top: `${(Math.random() - 1) * 100}%`,
+                animationDuration: `${0.5 + Math.random() * 1.5}s`,
+                animationDelay: `${Math.random() * 2}s`
+            }} />
+        ))}
+        {/* Giant Glitching Eye */}
+        <div className={`w-32 h-20 border-t-4 border-b-4 border-${colorClass}-500/80 rounded-[50%] relative flex items-center justify-center animate-pulse drop-shadow-[0_0_15px_${hexColor}] bg-black/50 overflow-hidden`}>
+            {/* The pupil */}
+            <div className="w-10 h-10 rounded-full border-4 border-red-500 animate-[eye-scan_2s_ease-in-out_infinite_alternate] drop-shadow-[0_0_10px_rgba(239,68,68,1)] flex items-center justify-center">
+                <div className="w-2 h-2 bg-red-500 rounded-full" />
+            </div>
+            {/* Horizontal glitch line */}
+            <div className="absolute top-1/2 left-0 w-full h-[2px] bg-white opacity-50 animate-[glitch-line_0.2s_steps(2)_infinite]" />
         </div>
         <style jsx>{`
-        @keyframes tv-glitch {
-          0% { transform: translateY(-30px); opacity: 0.8; }
-          50% { transform: translateY(10px) scaleY(2); opacity: 1; }
-          100% { transform: translateY(40px); opacity: 0.2; }
-        }
-       `}</style>
+            @keyframes rain { to { transform: translateY(300px); } }
+            @keyframes eye-scan { 0% { transform: translateX(-15px) scaleY(1); } 50% { transform: translateX(0px) scaleY(0.2); } 100% { transform: translateX(15px) scaleY(1); } }
+            @keyframes glitch-line { 0% { transform: translateY(-5px); } 100% { transform: translateY(5px); } }
+        `}</style>
     </div>
 );
 
@@ -287,36 +299,61 @@ const ThemeForgeEffect = ({ colorClass, hexColor }) => (
 );
 
 const WaterManagementEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
-        <div className={`w-3 h-4 bg-${colorClass}-400 rounded-b-full rounded-t-[50%] animate-[drop-fall_2s_ease-in_infinite] drop-shadow-[0_0_10px_currentColor]`} />
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square rounded-[50%] border-[3px] border-${colorClass}-400/80 animate-[ripple_2s_ease-out_infinite] [transform:scale(0)_scaleY(0.4)]`} />
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square rounded-[50%] border-[2px] border-${colorClass}-400/40 animate-[ripple_2s_ease-out_infinite_0.3s] [transform:scale(0)_scaleY(0.4)]`} />
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Tsunami Wave */}
+        <svg className="absolute bottom-0 w-[200%] h-[150%] animate-[wave-flow_3s_linear_infinite]" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0 100 L 0 50 Q 15 30 25 50 T 50 50 T 75 50 T 100 50 L 100 100 Z" fill={`url(#waterGrad)`} className="opacity-40" />
+            <path d="M 0 100 L 0 60 Q 15 40 25 60 T 50 60 T 75 60 T 100 60 L 100 100 Z" fill={`url(#waterGrad)`} className="opacity-60 [transform:translateX(-25%)]" />
+            <defs>
+                <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={hexColor} />
+                    <stop offset="100%" stopColor="transparent" />
+                </linearGradient>
+            </defs>
+        </svg>
+        {/* Splashing glowing droplets */}
+        {[...Array(15)].map((_, i) => (
+            <div key={i} className={`absolute w-1.5 h-3 bg-${colorClass}-400 rounded-full blur-[1px] animate-[splash-up_1s_ease-out_infinite]`} style={{
+                bottom: '20%',
+                left: `${20 + Math.random() * 60}%`,
+                animationDuration: `${0.8 + Math.random()}s`,
+                animationDelay: `${Math.random()}s`,
+                transform: `rotate(${(Math.random() - 0.5) * 60}deg)`
+            }} />
+        ))}
         <style jsx>{`
-        @keyframes drop-fall {
-          0% { transform: translateY(-80px) scaleY(1.2); opacity: 1; }
-          45% { transform: translateY(0px) scaleY(1); opacity: 1; }
-          50%, 100% { opacity: 0; }
-        }
-        @keyframes ripple {
-          0%, 45% { transform: translate(-50%, -50%) scale(0) scaleY(0.4); opacity: 1; }
-          100% { transform: translate(-50%, -50%) scale(1) scaleY(0.4); opacity: 0; }
-        }
+        @keyframes wave-flow { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes splash-up { 0% { transform: translateY(0) scale(1.5); opacity: 1; } 100% { transform: translateY(-100px) scale(0.5); opacity: 0; } }
       `}</style>
     </div>
 );
 
 const GroundUtilizationEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8 perspective-1000">
-        <div className="relative w-20 flex flex-col-reverse items-center justify-start">
-            {[...Array(6)].map((_, i) => (
-                <div key={i} className={`w-full h-5 border border-${colorClass}-400 bg-${colorClass}-500/10 [transform:skewX(-30deg)] animate-[build-up_3s_ease-out_infinite] drop-shadow-[0_0_5px_currentColor] outline outline-1 outline-black`} style={{ animationDelay: `${i * 0.15}s`, opacity: 0, marginTop: '-5px' }} />
-            ))}
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        {/* 3D Wireframe City Block */}
+        <div className="relative w-32 h-32 perspective-1000 transform rotateX(60deg) rotateZ(45deg) animate-[spin-city_10s_linear_infinite] [transform-style:preserve-3d]">
+            {/* Ground Grid */}
+            <div className={`absolute inset-0 border border-${colorClass}-500/50 bg-${colorClass}-900/20 shadow-[0_0_20px_${hexColor}_inset]`} />
+            {/* Main Skyscraper */}
+            <div className={`absolute bottom-4 left-4 w-12 h-12 bg-black/80 border-2 border-${colorClass}-400 [transform:translateZ(60px)] shadow-[0_0_15px_${hexColor}] flex items-center justify-center`}>
+                <div className="w-full h-1 bg-white animate-[scan-city_2s_linear_infinite]" />
+                {/* 3D Walls using borders and translation */}
+                <div className={`absolute top-full left-0 w-full h-16 border-l-2 border-r-2 border-b-2 border-${colorClass}-500/50 bg-${colorClass}-500/10 origin-top [transform:rotateX(-90deg)]`} />
+                <div className={`absolute top-0 -left-12 w-12 h-16 border-t-2 border-l-2 border-b-2 border-${colorClass}-500/50 bg-${colorClass}-500/10 origin-right [transform:rotateY(-90deg)]`} />
+            </div>
+            {/* Floating Data Blocks */}
+            <div className={`absolute bottom-4 right-4 w-6 h-6 border border-${colorClass}-300/80 [transform:translateZ(30px)] animate-pulse`} />
+            <div className={`absolute top-4 right-8 w-8 h-8 border border-${colorClass}-300/80 [transform:translateZ(40px)] animate-ping`} />
         </div>
         <style jsx>{`
-         @keyframes build-up {
-           0% { opacity: 0; transform: translateY(20px) skewX(-30deg); }
-           20%, 80% { opacity: 1; transform: translateY(0) skewX(-30deg); }
-           100% { opacity: 0; transform: translateY(0) skewX(-30deg); }
+         @keyframes spin-city {
+            0% { transform: rotateX(60deg) rotateZ(0deg); }
+            100% { transform: rotateX(60deg) rotateZ(360deg); }
+         }
+         @keyframes scan-city {
+            0% { transform: translateY(-24px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(24px); opacity: 0; }
          }
        `}</style>
     </div>
@@ -391,13 +428,19 @@ const MusicEffect = ({ colorClass, hexColor }) => (
 
 const ArtEffect = ({ colorClass, hexColor }) => (
     <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <svg className="absolute w-[200%] h-[200%] -top-1/2 -left-1/2 animate-[spin_10s_linear_infinite]">
-            <g fill="none" strokeWidth="6" strokeLinecap="round">
-                <path d="M 100 100 C 150 50, 200 150, 250 100" stroke={hexColor} className="animate-[dash_2s_ease-in-out_infinite_alternate] drop-shadow-[0_0_8px_currentColor]" strokeDasharray="100 200" />
-                <path d="M 50 150 C 100 200, 200 50, 250 150" stroke={hexColor} opacity="0.6" strokeWidth="10" className="animate-[dash_3s_ease-in-out_infinite_alternate-reverse]" strokeDasharray="150 300" />
-            </g>
+        {/* Wild Neon Paint Splatters (Using SVG Paths for Splatters) */}
+        <div className={`absolute top-1/4 left-1/4 w-16 h-16 bg-${colorClass}-500 rounded-full blur-xl opacity-60 animate-ping`} />
+        <div className={`absolute bottom-1/4 right-1/4 w-20 h-20 bg-rose-500 rounded-full blur-xl opacity-60 animate-pulse`} style={{ animationDelay: '0.5s' }} />
+        <div className={`absolute top-1/2 left-1/2 w-24 h-24 bg-blue-500 rounded-full blur-2xl opacity-40 animate-[spin_3s_linear_infinite]`} />
+
+        {/* Dynamic Glowing Brush Strokes drawing an infinity/mandala shape */}
+        <svg className="absolute w-[150%] h-[150%] -top-1/4 -left-1/4 drop-shadow-[0_0_10px_currentColor] animate-[spin_8s_linear_infinite]">
+            <path d="M 150 50 Q 250 150 150 250 Q 50 150 150 50 Z" fill="none" stroke={hexColor} strokeWidth="4" strokeLinecap="round" className="animate-[draw-art_2s_ease-in-out_infinite_alternate]" strokeDasharray="600" strokeDashoffset="600" />
+            <path d="M 50 150 Q 150 250 250 150 Q 150 50 50 150 Z" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" className="animate-[draw-art_2s_ease-in-out_infinite_alternate-reverse]" strokeDasharray="600" strokeDashoffset="600" />
         </svg>
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-${colorClass}-400 blur-[30px] opacity-40 animate-pulse`} />
+        <style jsx>{`
+            @keyframes draw-art { to { stroke-dashoffset: 0; } }
+        `}</style>
     </div>
 );
 
@@ -519,53 +562,66 @@ const MysticEffect = ({ colorClass, hexColor }) => (
 );
 
 const PoetryEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="absolute inset-0 flex items-center justify-center">
-            <svg viewBox="0 0 200 100" className="w-[150%] h-[150%] drop-shadow-[0_0_8px_currentColor]" stroke={hexColor}>
-                <path d="M 20 60 Q 40 10, 70 50 T 130 50 T 180 80" fill="none" strokeWidth="4" strokeLinecap="round" className="animate-[draw-path_3s_ease-out_infinite]" strokeDasharray="300" strokeDashoffset="300" />
-            </svg>
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        {/* Glowing Book Base */}
+        <div className="absolute bottom-4 w-32 h-8 perspective-1000">
+            <div className={`w-full h-full border-b-4 border-${colorClass}-500 rounded-[50%] animate-pulse drop-shadow-[0_0_15px_${hexColor}]`} />
+            <div className={`absolute top-0 left-1/2 w-[2px] h-full bg-${colorClass}-400`} />
         </div>
-        <div className="absolute w-16 h-24 animate-[pen-move_3s_ease-out_infinite] drop-shadow-xl z-30">
-            <svg viewBox="0 0 50 100" className="w-full h-full transform -rotate-45" fill="none" stroke={hexColor} strokeWidth="2">
-                <path d="M 25 100 L 15 60 Q 25 20, 25 10 Q 25 20, 35 60 Z" fill={hexColor} fillOpacity="0.2" className="backdrop-blur-sm" />
-                <line x1="25" y1="60" x2="25" y2="100" strokeWidth="3" />
-                <circle cx="25" cy="80" r="2" fill="#fff" />
-            </svg>
+
+        {/* Words / Poetry spiraling out of the book like a tornado */}
+        <div className="absolute bottom-12 w-full h-full perspective-500 [transform-style:preserve-3d]">
+            {['कल्पना', 'भावना', 'रस', 'अलंकार', 'छंद', 'शब्द', 'कविता', 'साहित्य', 'काव्य'].map((word, i) => (
+                <div key={i} className={`absolute bottom-0 left-1/2 -translate-x-1/2 text-${colorClass}-300 font-serif font-bold text-xl drop-shadow-[0_0_8px_currentColor] opacity-0 animate-[spiral-up_4s_linear_infinite]`} style={{ animationDelay: `${i * 0.45}s` }}>
+                    {word}
+                </div>
+            ))}
         </div>
         <style jsx>{`
-         @keyframes draw-path { 0% { stroke-dashoffset: 300; } 70%, 100% { stroke-dashoffset: 0; } }
-         @keyframes pen-move {
-           0% { left: 0%; top: 50%; }
-           20% { left: 20%; top: 30%; }
-           50% { left: 60%; top: 50%; }
-           70%, 100% { left: 100%; top: 70%; opacity: 0; }
-         }
-      `}</style>
+            @keyframes spiral-up {
+                0% { transform: translateX(-50%) translateY(0) rotateY(0deg) scale(0.5); opacity: 0; }
+                20% { opacity: 1; }
+                100% { transform: translateX(-50%) translateY(-250px) rotateY(720deg) scale(2); opacity: 0; }
+            }
+        `}</style>
     </div>
 );
 
 const StoryWritingEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="absolute inset-0 flex flex-col justify-center gap-5 px-8 opacity-60 transform -skew-x-12 scale-110">
-            <div className={`w-full h-1.5 bg-${colorClass}-400 rounded-full transform -translate-x-full animate-[typewriter_2s_ease-out_infinite_alternate] shadow-[0_0_10px_currentColor]`} />
-            <div className={`w-3/4 h-1.5 bg-${colorClass}-400 rounded-full transform -translate-x-full animate-[typewriter_2.5s_ease-out_infinite_alternate-reverse] shadow-[0_0_10px_currentColor]`} />
-            <div className={`w-5/6 h-1.5 bg-${colorClass}-400 rounded-full transform -translate-x-full animate-[typewriter_1.8s_ease-out_infinite_alternate] shadow-[0_0_10px_currentColor]`} />
+    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        {/* Dynamic Glowing Quill that sweeps across the screen */}
+        <div className="absolute w-12 h-16 z-30 animate-[quill-write_4s_ease-in-out_infinite] drop-shadow-[0_0_15px_#fff]">
+            <svg viewBox="0 0 50 100" className="w-full h-full transform -rotate-45">
+                <path d="M 25 100 Q 10 50 25 10 Q 40 50 25 100 Z" fill={hexColor} className="opacity-80" />
+                <path d="M 25 100 L 25 30" stroke="#000" strokeWidth="2" />
+            </svg>
         </div>
-        {[...Array(6)].map((_, i) => (
-            <div
-                key={i}
-                className="absolute text-white/80 text-3xl font-serif italic animate-ping drop-shadow-md"
-                style={{
-                    top: `${15 + Math.random() * 70}%`,
-                    left: `${15 + Math.random() * 70}%`,
-                    animationDuration: `${1 + Math.random()}s`,
-                    animationDelay: `${Math.random() * 2}s`
-                }}
-            >
-                "
-            </div>
+
+        {/* Glowing Cursive Trail (using multiple overlapping SVGs drawn via dashoffset) */}
+        <svg className="absolute inset-0 w-[150%] h-full -left-1/4 opacity-70">
+            <path d="M 0 50 C 50 20, 80 80, 120 50 S 180 80, 220 40 S 300 90, 350 50" fill="none" stroke={hexColor} strokeWidth="3" strokeLinecap="round" className="animate-[cursive-trail_4s_ease-in-out_infinite]" strokeDasharray="500" strokeDashoffset="500" />
+            <path d="M -50 70 C 20 40, 50 100, 90 70 S 150 100, 190 60 S 270 110, 320 70" fill="none" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" className="animate-[cursive-trail_4s_ease-in-out_infinite_0.2s]" strokeDasharray="500" strokeDashoffset="500" opacity="0.6" />
+        </svg>
+
+        {/* Magic Dust Particles left behind */}
+        {[...Array(20)].map((_, i) => (
+            <div key={i} className={`absolute w-1.5 h-1.5 bg-yellow-300 rounded-full animate-[magic-dust_4s_ease-out_infinite] blur-[1px]`} style={{
+                left: `${10 + (i * 4)}%`,
+                top: `${40 + Math.sin(i) * 20}%`,
+                animationDelay: `${i * 0.15}s`
+            }} />
         ))}
-        <style jsx>{` @keyframes typewriter { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } } `}</style>
+        <style jsx>{`
+            @keyframes quill-write {
+                0% { transform: translate(-100px, 0px) rotate(-10deg); }
+                25% { transform: translate(0px, -20px) rotate(5deg); }
+                50% { transform: translate(100px, 10px) rotate(-15deg); }
+                75% { transform: translate(180px, -10px) rotate(10deg); }
+                100% { transform: translate(250px, 0px) rotate(-10deg); opacity: 0; }
+            }
+            @keyframes cursive-trail { 0% { stroke-dashoffset: 500; } 80%, 100% { stroke-dashoffset: 0; } }
+            @keyframes magic-dust { 0% { transform: translateY(0) scale(1); opacity: 0; } 10% { opacity: 1; } 50% { transform: translateY(20px) scale(0); opacity: 0; } 100% { opacity: 0; } }
+        `}</style>
     </div>
 );
 
