@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   Clock,
   Rocket,
@@ -142,7 +143,20 @@ const NODES = [
 
 // --- Sub-Components ---
 
-const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile }) => {
+const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile, mouseX, mouseY }) => {
+  const ref = useRef(null);
+
+  const distance = useTransform([mouseX, mouseY], ([latestX, latestY]) => {
+    const bounds = ref.current?.getBoundingClientRect();
+    if (!bounds) return Infinity; // Return a large number if not mounted
+    const centerX = bounds.x + bounds.width / 2;
+    const centerY = bounds.y + bounds.height / 2;
+    return Math.hypot(latestX - centerX, latestY - centerY);
+  });
+
+  // Scale goes from 1.5 at center to 1 at 200px away
+  const scaleSync = useTransform(distance, [0, 200], [1.5, 1]);
+  const scale = useSpring(scaleSync, { damping: 15, mass: 0.1, stiffness: 200 });
   // Use mobile coordinates if on mobile
   const finalX = isMobile ? node.mobileX : node.x;
   const finalY = isMobile ? node.mobileY : node.y;
@@ -155,65 +169,67 @@ const NavNode = ({ node, isHovered, onHover, onLeave, onClick, isMobile }) => {
       onMouseLeave={onLeave}
       onClick={onClick}
     >
-      {/* 3D Orb Structure */}
-      <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-30 lg:h-30 flex items-center justify-center">
-        {/* Outer Rotating Ring */}
-        <div
-          className="absolute inset-0 rounded-full border border-dashed border-white/20 animate-[spin_10s_linear_infinite]"
-          style={{
-            borderColor: isHovered ? node.color : "rgba(255,255,255,0.1)",
-          }}
-        />
-
-        {/* Inner Counter-Rotating Ring */}
-        <div
-          className="absolute inset-1 md:inset-2 rounded-full border border-dotted border-white/30 animate-[spin_15s_linear_infinite_reverse]"
-          style={{
-            borderColor: isHovered ? node.color : "rgba(255,255,255,0.15)",
-          }}
-        />
-
-        {/* Core Glow */}
-        <div
-          className="absolute inset-4 md:inset-6 rounded-full blur-md transition-all duration-500"
-          style={{
-            backgroundColor: node.color,
-            opacity: isHovered ? 0.4 : 0.1,
-            transform: isHovered ? "scale(1.5)" : "scale(1)",
-          }}
-        />
-
-        {/* Icon Hexagon */}
-        <div
-          className="relative z-10 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-black/80 backdrop-blur-md flex items-center justify-center clip-path-hexagon border transition-all duration-300 group-hover:scale-110"
-          style={{
-            borderColor: isHovered ? node.color : "rgba(255,255,255,0.2)",
-            borderWidth: "1px",
-            clipPath:
-              "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          }}
-        >
+      <motion.div ref={ref} style={{ scale }}>
+        {/* 3D Orb Structure */}
+        <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-30 lg:h-30 flex items-center justify-center">
+          {/* Outer Rotating Ring */}
           <div
-            className="text-white transition-transform duration-300 group-hover:text-white [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6 lg:[&>svg]:w-8 lg:[&>svg]:h-8"
-            style={{ color: isHovered ? "#fff" : node.color }}
+            className="absolute inset-0 rounded-full border border-dashed border-white/20 animate-[spin_10s_linear_infinite]"
+            style={{
+              borderColor: isHovered ? node.color : "rgba(255,255,255,0.1)",
+            }}
+          />
+
+          {/* Inner Counter-Rotating Ring */}
+          <div
+            className="absolute inset-1 md:inset-2 rounded-full border border-dotted border-white/30 animate-[spin_15s_linear_infinite_reverse]"
+            style={{
+              borderColor: isHovered ? node.color : "rgba(255,255,255,0.15)",
+            }}
+          />
+
+          {/* Core Glow */}
+          <div
+            className="absolute inset-4 md:inset-6 rounded-full blur-md transition-all duration-500"
+            style={{
+              backgroundColor: node.color,
+              opacity: isHovered ? 0.4 : 0.1,
+              transform: isHovered ? "scale(1.5)" : "scale(1)",
+            }}
+          />
+
+          {/* Icon Hexagon */}
+          <div
+            className="relative z-10 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-black/80 backdrop-blur-md flex items-center justify-center clip-path-hexagon border transition-all duration-300 group-hover:scale-110"
+            style={{
+              borderColor: isHovered ? node.color : "rgba(255,255,255,0.2)",
+              borderWidth: "1px",
+              clipPath:
+                "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+            }}
           >
-            {node.icon}
+            <div
+              className="text-white transition-transform duration-300 group-hover:text-white [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6 lg:[&>svg]:w-8 lg:[&>svg]:h-8"
+              style={{ color: isHovered ? "#fff" : node.color }}
+            >
+              {node.icon}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Label */}
-      <div
-        className={`absolute top-full left-1/2 -translate-x-1/2 text-center transition-all duration-300 ${isHovered ? "opacity-100 translate-y-0" : "opacity-60 translate-y-2"}`}
-      >
-        <div className="text-[14px] lg:text-md font-bold tracking-[0.2em] text-white font-mono whitespace-nowrap bg-black/50 px-1.5 py-0.5 md:px-2 md:py-1 rounded border border-white/10 backdrop-blur-sm">
-          {node.label}
+        {/* Label */}
+        <div
+          className={`absolute top-full left-1/2 -translate-x-1/2 text-center transition-all duration-300 ${isHovered ? "opacity-100 translate-y-0" : "opacity-60 translate-y-2"}`}
+        >
+          <div className="text-[14px] lg:text-md font-bold tracking-[0.2em] text-white font-mono whitespace-nowrap bg-black/50 px-1.5 py-0.5 md:px-2 md:py-1 rounded border border-white/10 backdrop-blur-sm">
+            {node.label}
+          </div>
+          <div className="hidden md:block text-[8px] lg:text-[12px] text-white tracking-widest uppercase mt-1 font-mono">
+            {node.sub}
+          </div>
+          <div className="absolute -top-2 md:-top-4 left-1/2 w-px h-2 md:h-4 bg-linear-to-b from-transparent to-white/20" />
         </div>
-        <div className="hidden md:block text-[8px] lg:text-[12px] text-white tracking-widest uppercase mt-1 font-mono">
-          {node.sub}
-        </div>
-        <div className="absolute -top-2 md:-top-4 left-1/2 w-px h-2 md:h-4 bg-linear-to-b from-transparent to-white/20" />
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -226,6 +242,9 @@ export default function Navigation({ onNavigate }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
+
+  const mouseX = useMotionValue(Infinity);
+  const mouseY = useMotionValue(Infinity);
 
   // Screen Size Detection
   useEffect(() => {
@@ -268,6 +287,8 @@ export default function Navigation({ onNavigate }) {
     const yPct = (clientY / height - 0.5) * 2;
 
     setMousePos({ x: clientX, y: clientY });
+    mouseX.set(clientX);
+    mouseY.set(clientY);
 
     gsap.to(mapRef.current, {
       rotateY: xPct * 5,
@@ -436,6 +457,8 @@ export default function Navigation({ onNavigate }) {
             onHover={() => setHoveredNode(node.id)}
             onLeave={() => setHoveredNode(null)}
             onClick={() => handleNodeClick(node.location)}
+            mouseX={mouseX}
+            mouseY={mouseY}
           />
         ))}
       </div>

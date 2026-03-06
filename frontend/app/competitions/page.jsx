@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { ChevronLeft, Zap, Music } from "lucide-react";
 import { tech_competitions, cult_competitions } from "@/data/competitions";
 import NitroEffect from "@/components/NitroEffect";
+import TileEffect from "@/components/TileEffect";
 
 const NodeCorner = ({ color }) => (
   <div
@@ -120,7 +121,11 @@ export default function CompetitionsPage() {
             filteredCompetitions.map((sector) => (
               <Link key={sector.id} href={`/competitions/${sector.folder}`}>
                 <div className="group relative bg-black/60 border border-white/10 p-3 sm:p-6 h-45 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:border-blue-500/50 hover:bg-blue-900/10 hover:-translate-y-1">
-                  {sector.id === "nitro" && <NitroEffect />}
+                  {sector.id === "nitro" ? (
+                    <NitroEffect />
+                  ) : (
+                    <TileEffect id={sector.id} tag={sector.tag} color={sector.color} />
+                  )}
                   <NodeCorner color={sector.color} />
 
                   <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
