@@ -71,11 +71,10 @@ export default function CompetitionsPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${
-                activeTab === tab.id
+              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${activeTab === tab.id
                   ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
                   : "border-white/10 text-white/40 hover:border-white/30"
-              }`}
+                }`}
             >
               {activeTab === tab.id && (
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent animate-scan-fast" />

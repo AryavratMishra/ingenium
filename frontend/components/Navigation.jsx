@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import SocialDock from "./SocialDock";
 
 // --- Configuration ---
 
@@ -441,51 +442,8 @@ export default function Navigation({ onNavigate }) {
 
       {/* HUD Corners - Hidden on mobile to save space */}
       <div className="hidden md:block absolute bottom-8 left-8 w-32 h-32 border-l border-b border-blue-500/20 rounded-bl-3xl pointer-events-none" />
-      <div className="hidden md:block absolute top-8 right-8 w-32 h-32 border-r border-t border-blue-500/20 rounded-tr-3xl pointer-events-none" />
-      <div className="flex flex-row sm:flex-col gap-3 absolute bottom-12 left-15">
-        <Link
-          href={"mailto:pr.ingenium@iiti.ac.in"}
-          className="text-green-500"
-          target="_blank"
-        >
-          <Mail className="w-7 h-7" />
-        </Link>
-        <Link
-          href={"https://www.instagram.com/ingeniumxfluxus_iit_indore"}
-          className="text-rose-500"
-          target="_blank"
-        >
-          <Instagram className="w-7 h-7" />
-        </Link>
-        <Link
-          href={"https://www.linkedin.com/company/fluxus---iit-indore/"}
-          className="text-sky-500"
-          target="_blank"
-        >
-          <Linkedin className="w-7 h-7" />
-        </Link>
-        <Link
-          href={"https://x.com/fluxusiiti_"}
-          className="text-blue-500"
-          target="_blank"
-        >
-          <Twitter className="w-7 h-7" />
-        </Link>
-        <Link
-          href={"https://www.facebook.com/fluxusiiti/"}
-          className="text-blue-500"
-          target="_blank"
-        >
-          <Facebook className="w-7 h-7" />
-        </Link>
-        <Link
-          href={"https://www.youtube.com/@fluxusiitindore"}
-          className="text-red-500"
-          target="_blank"
-        >
-          <Youtube className="w-7 h-7" />
-        </Link>
-      </div>
+      <SocialDock isMobile={isMobile} />
+
 
       <style jsx global>{`
         .perspective-1000 {
