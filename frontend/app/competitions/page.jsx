@@ -14,6 +14,20 @@ const NodeCorner = ({ color }) => (
   />
 );
 
+const HOVER_COLORS = {
+  red: "group-hover:text-red-500/30",
+  yellow: "group-hover:text-yellow-500/30",
+  blue: "group-hover:text-blue-500/30",
+  cyan: "group-hover:text-cyan-500/30",
+  emerald: "group-hover:text-emerald-500/30",
+  orange: "group-hover:text-orange-500/30",
+  violet: "group-hover:text-violet-500/30",
+  amber: "group-hover:text-amber-500/30",
+  purple: "group-hover:text-purple-500/30",
+  green: "group-hover:text-green-500/30",
+  rose: "group-hover:text-rose-500/30",
+};
+
 export default function CompetitionsPage() {
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState("tech");
@@ -115,7 +129,7 @@ export default function CompetitionsPage() {
                     </span>
                   </div>
 
-                  <div className={`absolute -bottom-2 -right-2 font-black text-6xl text-white/10 pointer-events-none select-none transition-colors uppercase italic whitespace-nowrap group-hover:text-${sector.color}-500/30 z-10`}>
+                  <div className={`absolute -bottom-2 -right-2 font-black text-6xl text-white/10 pointer-events-none select-none transition-colors uppercase italic whitespace-nowrap ${HOVER_COLORS[sector.color] || 'group-hover:text-blue-500/30'} z-10`}>
                     {sector.tag}
                   </div>
 
