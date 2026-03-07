@@ -37,11 +37,6 @@ export default function RootLayout({ children }) {
         className={`${oxanium.variable} ${poppins.variable} antialiased overflow-x-hidden`}
       >
         <AuthProvider>
-          {/* --- GLOBAL LOGO --- */}
-          <Suspense fallback={null}>
-            <GlobalLogo />
-          </Suspense>
-
           <div className="fixed inset-0 z-0 pointer-events-none">
             <StarField />
           </div>
