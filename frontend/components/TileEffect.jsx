@@ -8,7 +8,7 @@ import { Cpu, Brain } from "lucide-react";
 // ==========================================
 
 const RacingEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] border-[2px] border-dashed border-yellow-500/20 rounded-full animate-[spin_10s_linear_infinite]" />
         <div className="absolute w-[40px] h-[40px] drop-shadow-[0_0_15px_rgba(234,179,8,0.8)] animate-[circle-track_3s_linear_infinite]">
             <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
@@ -28,7 +28,7 @@ const RacingEffect = ({ colorClass, hexColor }) => (
 );
 
 const RoboSoccerEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] animate-[scrollMatrix_10s_linear_infinite]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-blue-500/30 rounded-full flex items-center justify-center animate-[spin_4s_linear_infinite_reverse]">
             <div className="w-24 h-24 border border-dashed border-blue-400/50 rounded-full animate-[spin_3s_linear_infinite]" />
@@ -43,7 +43,7 @@ const RoboSoccerEffect = ({ colorClass, hexColor }) => (
 );
 
 const LineFollowerEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <svg viewBox="0 0 200 100" className="w-full h-full opacity-60">
             <path d="M 0 50 L 50 50 L 50 20 L 150 20 L 150 80 L 200 80" fill="none" stroke={hexColor} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="animate-[draw-maze_4s_linear_infinite]" strokeDasharray="300" strokeDashoffset="300" />
             <circle r="6" fill={hexColor} className="animate-[follow-maze_4s_linear_infinite] drop-shadow-[0_0_10px_currentColor]" />
@@ -65,7 +65,7 @@ const LineFollowerEffect = ({ colorClass, hexColor }) => (
 );
 
 const ThreeDEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center perspective-[500px]">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center perspective-[500px]">
         <div className="w-20 h-20 relative animate-[spin-3d_5s_linear_infinite] [transform-style:preserve-3d]">
             <div className={`absolute inset-0 border-2 border-${colorClass}-400/80 [transform:translateZ(40px)] drop-shadow-[0_0_10px_${hexColor}] bg-${colorClass}-500/10`} />
             <div className={`absolute inset-0 border-2 border-${colorClass}-400/80 [transform:translateZ(-40px)] bg-${colorClass}-500/10`} />
@@ -81,7 +81,7 @@ const ThreeDEffect = ({ colorClass, hexColor }) => (
 );
 
 const VisionEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`absolute w-32 h-32 border border-${colorClass}-500 transition-all duration-300 group-hover:w-40 group-hover:h-24`}>
             <div className={`absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-${colorClass}-400 animate-pulse`} />
             <div className={`absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-${colorClass}-400 animate-pulse`} />
@@ -102,7 +102,7 @@ const VisionEffect = ({ colorClass, hexColor }) => (
 );
 
 const BioEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.1)_1px,transparent_1px)] bg-[size:30px_30px] opacity-30" />
         <div className="relative w-full h-32 flex items-center justify-center">
             <svg viewBox="0 0 500 100" className="w-[150%] h-full stroke-emerald-400 drop-shadow-[0_0_5px_rgba(52,211,153,0.8)] flex-none" fill="none" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round">
@@ -115,7 +115,7 @@ const BioEffect = ({ colorClass, hexColor }) => (
 );
 
 const ScreenSenseEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         {/* Matrix digital rain background */}
         <div className={`absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.8),transparent)]`} />
         {[...Array(20)].map((_, i) => (
@@ -144,7 +144,7 @@ const ScreenSenseEffect = ({ colorClass, hexColor }) => (
 );
 
 const CircuitEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-black/50 border border-${colorClass}-500/50 flex items-center justify-center drop-shadow-[0_0_15px_${hexColor}]`}>
             <Cpu className={`w-10 h-10 text-${colorClass}-400 animate-pulse`} />
         </div>
@@ -167,7 +167,7 @@ const CircuitEffect = ({ colorClass, hexColor }) => (
 );
 
 const AnalogEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`w-[90%] h-24 border-2 border-${colorClass}-500/50 rounded-lg bg-${colorClass}-900/10 relative overflow-hidden backdrop-blur-sm`}>
             <div className={`absolute inset-0 bg-[linear-gradient(rgba(249,115,22,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(249,115,22,0.1)_1px,transparent_1px)] bg-[size:10px_10px]`} />
             <svg viewBox="0 0 200 50" className="w-[200%] h-full opacity-80" preserveAspectRatio="none">
@@ -181,7 +181,7 @@ const AnalogEffect = ({ colorClass, hexColor }) => (
 );
 
 const AeroEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute w-[80px] h-[80px] drop-shadow-[0_0_20px_rgba(52,211,153,0.8)] animate-[drone-flight_4s_ease-in-out_infinite_alternate]">
             <svg viewBox="0 0 100 100" className="w-full h-full">
                 <g fill="none" stroke={hexColor} strokeWidth="3" strokeLinecap="round">
@@ -205,7 +205,7 @@ const AeroEffect = ({ colorClass, hexColor }) => (
 );
 
 const QMLEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`absolute w-32 h-32 animate-[spin_8s_linear_infinite]`}>
             <svg viewBox="0 0 100 100" className="w-full h-full">
                 <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke={hexColor} strokeWidth="1" transform="rotate(0 50 50)" className="opacity-70" />
@@ -223,7 +223,7 @@ const QMLEffect = ({ colorClass, hexColor }) => (
 );
 
 const ScalaStreamEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <svg viewBox="0 0 200 100" className="absolute w-full h-full">
             <path d="M 0 20 Q 50 20 100 50 T 200 80" fill="none" stroke={hexColor} strokeWidth="2" className="opacity-30" />
             <path d="M 0 80 Q 50 80 100 50 T 200 20" fill="none" stroke={hexColor} strokeWidth="2" className="opacity-30" />
@@ -251,7 +251,7 @@ const ScalaStreamEffect = ({ colorClass, hexColor }) => (
 );
 
 const NarrativaEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
         <svg viewBox="0 0 100 50" className="w-24 h-12 drop-shadow-[0_0_15px_currentColor]" stroke={hexColor}>
             <path d="M 50 40 Q 25 20 5 30 L 5 10 Q 25 0 50 20 Q 75 0 95 10 L 95 30 Q 75 20 50 40 Z" fill="none" strokeWidth="2" />
             <path d="M 50 20 L 50 40" strokeWidth="2" />
@@ -276,7 +276,7 @@ const NarrativaEffect = ({ colorClass, hexColor }) => (
 );
 
 const ThemeForgeEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute w-[60px] h-[60px] animate-[fly-space_3s_ease-out_infinite]">
             <svg viewBox="0 0 100 100" className="w-full h-full transform rotate-45" fill={hexColor}>
                 <path d="M 50 10 L 90 90 L 50 70 L 10 90 Z" />
@@ -299,7 +299,7 @@ const ThemeForgeEffect = ({ colorClass, hexColor }) => (
 );
 
 const WaterManagementEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {/* Tsunami Wave */}
         <svg className="absolute bottom-0 w-[200%] h-[150%] animate-[wave-flow_3s_linear_infinite]" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 0 100 L 0 50 Q 15 30 25 50 T 50 50 T 75 50 T 100 50 L 100 100 Z" fill={`url(#waterGrad)`} className="opacity-40" />
@@ -329,7 +329,7 @@ const WaterManagementEffect = ({ colorClass, hexColor }) => (
 );
 
 const GroundUtilizationEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         {/* 3D Wireframe City Block */}
         <div className="relative w-32 h-32 perspective-1000 transform rotateX(60deg) rotateZ(45deg) animate-[spin-city_10s_linear_infinite] [transform-style:preserve-3d]">
             {/* Ground Grid */}
@@ -360,7 +360,7 @@ const GroundUtilizationEffect = ({ colorClass, hexColor }) => (
 );
 
 const GlobalGourmetEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`w-28 h-28 rounded-full border-2 border-${colorClass}-400/40 overflow-hidden relative animate-[spin_8s_linear_infinite] drop-shadow-[0_0_15px_currentColor]`}>
             <svg viewBox="0 0 100 100" className="w-full h-full opacity-60">
                 <ellipse cx="50" cy="50" rx="20" ry="50" fill="none" stroke={hexColor} strokeWidth="2" />
@@ -375,7 +375,7 @@ const GlobalGourmetEffect = ({ colorClass, hexColor }) => (
 );
 
 const MatiksEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute inset-0 flex items-center justify-center font-mono text-xl font-bold italic opacity-80">
             <div className={`absolute animate-[float-1_3s_ease-in-out_infinite] text-${colorClass}-400 drop-shadow-[0_0_8px_currentColor]`}>∫e^x dx</div>
             <div className={`absolute animate-[float-2_2.5s_ease-in-out_infinite] text-${colorClass}-300 drop-shadow-[0_0_8px_currentColor]`}>∑(n=1 to ∞)</div>
@@ -396,7 +396,7 @@ const MatiksEffect = ({ colorClass, hexColor }) => (
 // ==========================================
 
 const DanceEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`absolute w-32 h-32 border-[3px] border-${colorClass}-500/30 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]`} />
         <div className={`absolute w-16 h-16 border-[3px] border-${colorClass}-400/50 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]`} />
         <svg className="absolute w-full h-full opacity-80" preserveAspectRatio="none">
@@ -410,7 +410,7 @@ const DanceEffect = ({ colorClass, hexColor }) => (
 );
 
 const MusicEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-1.5">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-1.5">
         {[...Array(10)].map((_, i) => (
             <div
                 key={i}
@@ -427,7 +427,7 @@ const MusicEffect = ({ colorClass, hexColor }) => (
 );
 
 const ArtEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {/* Wild Neon Paint Splatters (Using SVG Paths for Splatters) */}
         <div className={`absolute top-1/4 left-1/4 w-16 h-16 bg-${colorClass}-500 rounded-full blur-xl opacity-60 animate-ping`} />
         <div className={`absolute bottom-1/4 right-1/4 w-20 h-20 bg-rose-500 rounded-full blur-xl opacity-60 animate-pulse`} style={{ animationDelay: '0.5s' }} />
@@ -445,7 +445,7 @@ const ArtEffect = ({ colorClass, hexColor }) => (
 );
 
 const DramaEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="absolute top-0 left-1/4 w-32 h-[150%] bg-gradient-to-b from-white/30 to-transparent transform -skew-x-12 origin-top animate-[spotlight-left_4s_ease-in-out_infinite_alternate]" />
         <div className="absolute top-0 right-1/4 w-32 h-[150%] bg-gradient-to-b from-white/30 to-transparent transform skew-x-12 origin-top animate-[spotlight-right_4s_ease-in-out_infinite_alternate-reverse]" />
 
@@ -465,7 +465,7 @@ const DramaEffect = ({ colorClass, hexColor }) => (
 );
 
 const MonoActEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[150%] bg-gradient-to-b from-white/40 via-white/10 to-transparent origin-top animate-pulse" />
         <div className={`w-16 h-24 border-4 border-${colorClass}-400 rounded-full flex flex-col items-center justify-center gap-3 bg-black/80 backdrop-blur-md shadow-[0_0_20px_${hexColor}]`}>
             <div className="flex gap-3"><div className="w-3 h-3 rounded-full bg-white" /><div className="w-3 h-3 rounded-full bg-white" /></div>
@@ -475,7 +475,7 @@ const MonoActEffect = ({ colorClass, hexColor }) => (
 );
 
 const QuizEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`text-8xl font-black font-serif text-${colorClass}-400 drop-shadow-[0_0_20px_currentColor] animate-[quiz-spin_3s_ease-in-out_infinite]`}>
             ?
         </div>
@@ -496,7 +496,7 @@ const QuizEffect = ({ colorClass, hexColor }) => (
 );
 
 const DebateEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
         <div className="relative w-10 h-24 transform rotate-[25deg] animate-[mic-bounce_1s_ease-in-out_infinite_alternate] drop-shadow-[0_0_10px_currentColor]" style={{ color: hexColor }}>
             <div className={`w-10 h-14 border-[3px] border-${colorClass}-400 rounded-full bg-black/80`} />
             <div className={`w-1.5 h-10 bg-${colorClass}-500 mx-auto mt-1`} />
@@ -520,7 +520,7 @@ const DebateEffect = ({ colorClass, hexColor }) => (
 );
 
 const VLREffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="relative w-36 h-36 animate-[spin_1.5s_linear_infinite]">
             <div className={`absolute inset-0 border-[10px] border-black rounded-full drop-shadow-[0_0_20px_${hexColor}]`} />
             <div className={`absolute inset-3 border-[2px] border-${colorClass}-500/50 rounded-full`} />
@@ -538,7 +538,7 @@ const VLREffect = ({ colorClass, hexColor }) => (
 );
 
 const MysticEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className={`absolute w-36 h-36 border-[6px] border-${colorClass}-500/60 rounded-full flex items-center justify-center bg-black/50 drop-shadow-[0_0_15px_${hexColor}]`}>
             <svg viewBox="0 0 100 100" className="w-[85%] h-[85%] opacity-90 animate-[shutter_2.5s_ease-in-out_infinite]">
                 <polygon points="50,10 90,50 60,60 40,40" fill="none" stroke={hexColor} strokeWidth="3" />
@@ -562,7 +562,7 @@ const MysticEffect = ({ colorClass, hexColor }) => (
 );
 
 const PoetryEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         {/* Glowing Book Base */}
         <div className="absolute bottom-4 w-32 h-8 perspective-1000">
             <div className={`w-full h-full border-b-4 border-${colorClass}-500 rounded-[50%] animate-pulse drop-shadow-[0_0_15px_${hexColor}]`} />
@@ -588,7 +588,7 @@ const PoetryEffect = ({ colorClass, hexColor }) => (
 );
 
 const StoryWritingEffect = ({ colorClass, hexColor }) => (
-    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         {/* Dynamic Glowing Quill that sweeps across the screen */}
         <div className="absolute w-12 h-16 z-30 animate-[quill-write_4s_ease-in-out_infinite] drop-shadow-[0_0_15px_#fff]">
             <svg viewBox="0 0 50 100" className="w-full h-full transform -rotate-45">
