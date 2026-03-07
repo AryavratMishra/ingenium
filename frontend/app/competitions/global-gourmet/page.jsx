@@ -372,7 +372,7 @@ export default function AnalyticXPS() {
               MISSION_EXPIRY
             </h4>
             <div className="text-5xl font-black text-white tracking-tighter mb-2">
-              13 MARCH
+              15 MARCH
             </div>
             <div className="text-xl font-bold text-red-500 tracking-widest uppercase mb-4">
               EOD_TERMINUS

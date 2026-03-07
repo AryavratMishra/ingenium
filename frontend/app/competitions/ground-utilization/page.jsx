@@ -44,7 +44,7 @@ export default function GroundUtilizationPage() {
       {
         id: 1,
         title: "Abstract Submission",
-        date: "7 March",
+        date: "11 March",
         detail:
           "Screening round - submit project understanding and initial methodology.",
       },

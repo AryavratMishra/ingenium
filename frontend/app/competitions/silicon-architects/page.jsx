@@ -49,7 +49,7 @@ export default function SiliconArchitectsPage() {
       {
         name: "Soft Core Challenge",
         type: "Online Qualifier",
-        deadline: "March 7th, 2026",
+        deadline: "March 11th, 2026",
         task: "Design a processor module with integrated peripherals. Submit synthesizable RTL in a Vivado/Quartus ZIP project.",
         details:
           "Participants must validate design against their own testbench and simulation waveforms.",

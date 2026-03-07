@@ -49,7 +49,7 @@ export default function AnalogVersePage() {
       {
         name: "Design & Simulation",
         type: "Online Qualifier",
-        deadline: "March 7th, 2026",
+        deadline: "March 11th, 2026",
         task: "Perform literature review for topologies and conduct SPICE simulations for specified applications.",
         details:
           "Deliverables: Simulation logs for Transient, AC Analysis, and Noise Analysis.",

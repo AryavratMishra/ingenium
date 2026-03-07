@@ -44,7 +44,7 @@ export default function WaterManagementPage() {
       {
         id: 1,
         title: "Abstract Submission",
-        date: "7 March",
+        date: "11 March",
         detail:
           "Screening round - 1-2 page summary of problem understanding and methodology.",
       },

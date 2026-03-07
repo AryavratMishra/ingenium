@@ -306,7 +306,7 @@ function ConstraintRow({ icon, label, value }) {
 const stages = [
   {
     title: "Technical Abstract",
-    meta: "Online | 8 March",
+    meta: "Online | 11 March",
     details: [
       "Technical Report (Max 5 pages)",
       "Construction Logs & Photos",
