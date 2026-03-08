@@ -87,10 +87,11 @@ export default function CompetitionsPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${activeTab === tab.id
-                ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                : "border-white/10 text-white/40 hover:border-white/30"
-                }`}
+              className={`relative flex items-center gap-3 px-6 py-3 border transition-all duration-300 overflow-hidden group ${
+                activeTab === tab.id
+                  ? "border-blue-500 bg-blue-500/10 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                  : "border-white/10 text-white/40 hover:border-white/30"
+              }`}
             >
               {activeTab === tab.id && (
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent animate-scan-fast" />
@@ -115,6 +116,14 @@ export default function CompetitionsPage() {
           Schedule Link
         </Link>
 
+        <Link
+          href={"/competition_POC.pdf"}
+          target="_blank"
+          className="underline ml-4 text-sm font-bold uppercase tracking-widest font-mono text-blue-500"
+        >
+          Doubt Contact
+        </Link>
+
         {/* --- GRID OF NODES --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-100 mt-8">
           {filteredCompetitions.length > 0 ? (
@@ -124,7 +133,11 @@ export default function CompetitionsPage() {
                   {sector.id === "nitro" ? (
                     <NitroEffect />
                   ) : (
-                    <TileEffect id={sector.id} tag={sector.tag} color={sector.color} />
+                    <TileEffect
+                      id={sector.id}
+                      tag={sector.tag}
+                      color={sector.color}
+                    />
                   )}
                   <NodeCorner color={sector.color} />
 
@@ -134,7 +147,9 @@ export default function CompetitionsPage() {
                     </span>
                   </div>
 
-                  <div className={`absolute -bottom-2 -right-2 font-black text-6xl text-white/10 pointer-events-none select-none transition-colors uppercase italic whitespace-nowrap ${HOVER_COLORS[sector.color] || 'group-hover:text-blue-500/30'} z-10`}>
+                  <div
+                    className={`absolute -bottom-2 -right-2 font-black text-6xl text-white/10 pointer-events-none select-none transition-colors uppercase italic whitespace-nowrap ${HOVER_COLORS[sector.color] || "group-hover:text-blue-500/30"} z-10`}
+                  >
                     {sector.tag}
                   </div>
 
