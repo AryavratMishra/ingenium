@@ -55,7 +55,7 @@ export default function RobosoccerPage() {
     stages: [
       {
         title: "Phase 01: System Design",
-        meta: "Online Submission // 7 March",
+        meta: "Online Submission // 11 March",
         details:
           "Submit system block diagrams, sensor strategies, and power management plans.",
       },
