@@ -32,7 +32,7 @@ export default function BattleOfBandsPS() {
     org: "Music Club, IIT Indore",
     participation: "Team (Bands)",
     teamSize: "Min 4 Members",
-    duration: "25 Minutes",
+    duration: "30 Minutes",
     soundCheck: "15 Minutes",
     mode: "Offline",
     baseFee: "1500",
@@ -152,7 +152,7 @@ export default function BattleOfBandsPS() {
                 <Radio className="w-3 h-3" /> Technical_Deductions
               </h4>
               <div className="space-y-2 text-[13px] text-purple-300/60 uppercase font-bold italic mb-4">
-                <p>▪ Exceeding 25 min: -10% Score/Min</p>
+                <p>▪ Exceeding 30 min: -10% Score/Min</p>
                 <p>▪ Equipment Negligence: -15 Pts</p>
                 <p>▪ Late Audio Submission: -10 Pts</p>
               </div>
