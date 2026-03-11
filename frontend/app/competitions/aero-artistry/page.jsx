@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function AeroArtistryPS() {
   const containerRef = useRef(null);
@@ -54,9 +55,8 @@ export default function AeroArtistryPS() {
       ref={containerRef}
       className="relative min-h-screen text-blue-100 font-mono p-4 md:p-8 bg-black/30"
     >
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Aero Artistry"}
-        deadline={"11 March 2026, 11:59 PM"}
       />
       {/* HUD Corner Accents */}
       <div className="fixed top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-blue-500/30 rounded-tl-3xl pointer-events-none" />
@@ -165,15 +165,8 @@ export default function AeroArtistryPS() {
             </div>
 
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=aero-artistry`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="w-full py-6 bg-blue-600 text-white rounded-2xl font-black italic tracking-widest flex items-center justify-center gap-3 hover:bg-blue-500 transition-all group overflow-hidden relative shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+              disabled
+              className="w-full py-6 bg-blue-600 text-white rounded-2xl font-black italic tracking-widest flex items-center justify-center gap-3 hover:bg-blue-500 transition-all group overflow-hidden relative shadow-[0_0_20px_rgba(37,99,235,0.3)] cursor-not-allowed!"
             >
               <span className="relative z-10 uppercase">
                 Initiate_Registration

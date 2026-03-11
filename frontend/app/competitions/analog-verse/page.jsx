@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function AnalogVersePage() {
   const router = useRouter();
@@ -101,9 +102,8 @@ export default function AnalogVersePage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-amber-100 font-mono p-4 md:p-8 lg:p-12">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Analog Verse"}
-        deadline={"11 March 2026, 11:59 PM"}
       />
       <div className="max-w-7xl mx-auto space-y-12">
         {/* --- HEADER --- */}
@@ -184,15 +184,8 @@ export default function AnalogVersePage() {
             </section>
 
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=analog-verse`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="w-full group relative overflow-hidden bg-amber-500 py-6 rounded-sm transition-transform active:scale-95 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+              disabled
+              className="w-full group relative overflow-hidden bg-amber-500 py-6 rounded-sm transition-transform active:scale-95 shadow-[0_0_30px_rgba(245,158,11,0.2)] cursor-not-allowed!"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <div className="relative flex items-center justify-center gap-3 text-black font-black uppercase tracking-[0.4em] text-sm">

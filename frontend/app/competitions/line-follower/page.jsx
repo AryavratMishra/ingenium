@@ -24,6 +24,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function LineFollowerPage() {
   const router = useRouter();
@@ -85,10 +86,7 @@ export default function LineFollowerPage() {
 
   return (
     <div className="relative min-h-screen text-white font-mono p-4 md:p-8 bg-black/30">
-      <RegistrationDeadlineDisclaimer
-        competition={"Line Follower"}
-        deadline={"11 March 2026, 11:59 PM"}
-      />
+      <RegistrationClosedDisclaimer competition={"Line Follower"} />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
         <header className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 border-b border-white/10 pb-6">
@@ -294,15 +292,8 @@ export default function LineFollowerPage() {
             </div>
 
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=line-follower`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="w-full py-4 bg-white text-black font-black uppercase italic text-sm tracking-tighter hover:bg-sky-500 hover:text-white transition-all transform hover:-translate-y-1 shadow-[0_4px_20px_rgba(244,63,94,0.3)] flex items-center justify-center gap-3 group"
+              disabled
+              className="w-full py-4 bg-white text-black font-black uppercase italic text-sm tracking-tighter hover:bg-sky-500 hover:text-white transition-all transform hover:-translate-y-1 shadow-[0_4px_20px_rgba(244,63,94,0.3)] flex items-center justify-center gap-3 group cursor-not-allowed!"
             >
               Initiate_Registration
               <Zap className="w-4 h-4 fill-current group-hover:scale-125 transition-transform" />

@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
 
           <NeuralLink />
           <SlidingDisclaimer />
-          <SubmissionDisclaimer />
+          {/* <SubmissionDisclaimer /> */}
           <div className="relative z-10">
             <TerminalTransition>{children}</TerminalTransition>
           </div>
