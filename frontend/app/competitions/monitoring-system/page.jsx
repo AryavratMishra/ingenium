@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useContext } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   HeartPulse,
   ChevronLeft,
   Target,
   Cpu,
   Boxes,
-  Microscope,
   ArrowRight,
   AlertTriangle,
   FileText,
@@ -22,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import CancelledDisclaimer from "@/components/CancelledDisclaimer";
 
 export default function PatientMonitorPage() {
   const router = useRouter();
@@ -84,6 +83,7 @@ export default function PatientMonitorPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-emerald-100 font-mono p-4 md:p-8">
+      <CancelledDisclaimer competition={'Monitoring System'} />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 border-b border-emerald-500/30 pb-8 gap-6">
@@ -258,17 +258,8 @@ export default function PatientMonitorPage() {
 
                 <div className="shrink-0 w-full md:w-auto">
                   <button
-                    onClick={() => {
-                      if (isLoggedIn)
-                        router.push(
-                          `/registration?competition=monitoring-system`,
-                        );
-                      else
-                        alert(
-                          "Please login to register. Login button at botton-right corner.",
-                        );
-                    }}
-                    className="w-full md:w-auto px-10 py-5 bg-emerald-500 hover:bg-emerald-400 text-black font-black rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+                    disabled
+                    className="w-full md:w-auto px-10 py-5 bg-emerald-500 hover:bg-emerald-400 text-black font-black rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.3)] cursor-not-allowed!"
                   >
                     <Cpu size={18} />
                     START REGISTRATION (₹{medicalBrief.fee})
