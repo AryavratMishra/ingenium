@@ -23,6 +23,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function RobosoccerPage() {
   const router = useRouter();
@@ -76,6 +77,11 @@ export default function RobosoccerPage() {
 
   return (
     <div className="relative min-h-screen text-white font-mono p-4 md:p-8 bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"RoboSoccer"}
+        deadline={"11 March 2026, 11:59 PM"}
+      />
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
         <header className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 border-b border-white/10 pb-6">

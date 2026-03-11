@@ -20,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function GroundUtilizationPage() {
   const router = useRouter();
@@ -81,6 +82,7 @@ export default function GroundUtilizationPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-emerald-100 font-mono p-4 md:p-8">
+      <RegistrationClosedDisclaimer competition={"Ground Utilization"} />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 border-b border-emerald-500/20 pb-8">
@@ -208,17 +210,8 @@ export default function GroundUtilizationPage() {
                     </p>
                   </div>
                   <button
-                    onClick={() => {
-                      if (isLoggedIn)
-                        router.push(
-                          `/registration?competition=ground-utilization`,
-                        );
-                      else
-                        alert(
-                          "Please login to register. Login button at botton-right corner.",
-                        );
-                    }}
-                    className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+                    disabled
+                    className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] cursor-not-allowed!"
                   >
                     Register Now
                     <Zap className="w-4 h-4 fill-current" />

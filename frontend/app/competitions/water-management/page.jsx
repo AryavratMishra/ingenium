@@ -210,17 +210,8 @@ export default function WaterManagementPage() {
                     </p>
                   </div>
                   <button
-                    onClick={() => {
-                      if (isLoggedIn)
-                        router.push(
-                          `/registration?competition=water-management`,
-                        );
-                      else
-                        alert(
-                          "Please login to register. Login button at botton-right corner.",
-                        );
-                    }}
-                    className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+                    disabled
+                    className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] cursor-not-allowed!"
                   >
                     Register Now
                     <Zap className="w-4 h-4 fill-current" />
