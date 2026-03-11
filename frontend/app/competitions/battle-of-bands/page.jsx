@@ -21,6 +21,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function BattleOfBandsPS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -61,6 +62,10 @@ export default function BattleOfBandsPS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"Battle of Bands"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- AMPLIFIED HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 border-b border-purple-500/20 pb-8">

@@ -21,6 +21,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function QuizPS() {
   const router = useRouter();
@@ -52,6 +53,11 @@ export default function QuizPS() {
 
   return (
     <div className="relative min-h-screen text-amber-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"Ingenius"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       {/* Neural Network Background Decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <svg className="w-full h-full">

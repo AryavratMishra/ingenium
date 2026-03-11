@@ -22,6 +22,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function CVObstacoursePage() {
   const router = useRouter();
@@ -85,6 +86,10 @@ export default function CVObstacoursePage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-blue-100 font-mono p-4 md:p-8">
+      <RegistrationDeadlineDisclaimer
+        competition={"CV Obstacourse"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 border-b border-blue-500/30 pb-6">
@@ -196,9 +201,7 @@ export default function CVObstacoursePage() {
               <button
                 onClick={() => {
                   if (isLoggedIn)
-                    router.push(
-                      `/registration?competition=cv-obstacourse`,
-                    );
+                    router.push(`/registration?competition=cv-obstacourse`);
                   else
                     alert(
                       "Please login to register. Login button at botton-right corner.",

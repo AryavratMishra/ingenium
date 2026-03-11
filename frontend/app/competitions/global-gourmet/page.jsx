@@ -26,6 +26,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function AnalyticXPS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -99,6 +100,7 @@ export default function AnalyticXPS() {
 
   return (
     <div className="relative min-h-screen text-cyan-100 font-mono p-4 md:p-8 bg-black/30">
+      <RegistrationDeadlineDisclaimer competition={'Global Gourmet'} deadline={'12 March 2026, 11:59 PM'} />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- TOP HUD --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-cyan-500/30 pb-8">

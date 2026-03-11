@@ -20,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function AlbumCoverPS() {
   const router = useRouter();
@@ -49,6 +50,10 @@ export default function AlbumCoverPS() {
 
   return (
     <div className="relative min-h-screen text-purple-100 font-mono p-4 md:p-8 bg-black/30 backdrop-blur-sm">
+      <RegistrationDeadlineDisclaimer
+        competition={"Album Cover Design"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER BLOCK --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 border-b border-purple-500/20 pb-8 gap-6">
@@ -99,9 +104,7 @@ export default function AlbumCoverPS() {
             <button
               onClick={() => {
                 if (isLoggedIn)
-                  router.push(
-                    `/registration?competition=album-cover-design`,
-                  );
+                  router.push(`/registration?competition=album-cover-design`);
                 else
                   alert(
                     "Please login to register. Login button at botton-right corner.",

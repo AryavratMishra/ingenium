@@ -22,6 +22,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function ThemeForgePage() {
   const router = useRouter();
@@ -75,6 +76,11 @@ export default function ThemeForgePage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-slate-200 font-mono p-4 md:p-8">
+      <RegistrationDeadlineDisclaimer
+        competition={"Theme Forge"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- NAVIGATION & HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 gap-6">
@@ -147,9 +153,7 @@ export default function ThemeForgePage() {
               <button
                 onClick={() => {
                   if (isLoggedIn)
-                    router.push(
-                      `/registration?competition=theme-forge`,
-                    );
+                    router.push(`/registration?competition=theme-forge`);
                   else
                     alert(
                       "Please login to register. Login button at botton-right corner.",

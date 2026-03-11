@@ -20,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer.jsx";
 
 export default function WaterManagementPage() {
   const router = useRouter();
@@ -86,6 +87,10 @@ export default function WaterManagementPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-emerald-100 font-mono p-4 md:p-8">
+      <RegistrationDeadlineDisclaimer
+        competition={"Water Management"}
+        deadline={"11 March 2026, 11:59 PM"}
+      />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 border-b border-emerald-500/20 pb-8">
@@ -210,8 +215,17 @@ export default function WaterManagementPage() {
                     </p>
                   </div>
                   <button
-                    disabled
-                    className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] cursor-not-allowed!"
+                    onClick={() => {
+                      if (isLoggedIn)
+                        router.push(
+                          `/registration?competition=water-management`,
+                        );
+                      else
+                        alert(
+                          "Please login to register. Login button at botton-right corner.",
+                        );
+                    }}
+                    className="flex items-center gap-3 bg-emerald-500 text-black px-6 py-4 font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
                   >
                     Register Now
                     <Zap className="w-4 h-4 fill-current" />

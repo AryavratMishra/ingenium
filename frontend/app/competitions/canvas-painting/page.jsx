@@ -23,6 +23,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function KalakritiPS() {
   const router = useRouter();
@@ -46,6 +47,10 @@ export default function KalakritiPS() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-orange-100 font-mono p-4 md:p-8 lg:p-12">
+      <RegistrationDeadlineDisclaimer
+        competition={"Canvas Painting"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
       <div className="max-w-7xl mx-auto">
         {/* --- DYNAMIC HEADER --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6 border-b border-orange-500/20 pb-8">
@@ -112,8 +117,9 @@ export default function KalakritiPS() {
                     <Info className="w-3 h-3" /> Mission_Description
                   </h3>
                   <p className="text-sm leading-relaxed text-orange-100/70 italic border-l-2 border-orange-500 pl-4">
-                    "Individual/Team competition where participants create artwork on
-                    a given theme using paints. Theme provided on-site."
+                    "Individual/Team competition where participants create
+                    artwork on a given theme using paints. Theme provided
+                    on-site."
                   </p>
                 </div>
 
@@ -146,9 +152,7 @@ export default function KalakritiPS() {
             <motion.button
               onClick={() => {
                 if (isLoggedIn)
-                  router.push(
-                    `/registration?competition=canvas-painting`,
-                  );
+                  router.push(`/registration?competition=canvas-painting`);
                 else
                   alert(
                     "Please login to register. Login button at botton-right corner.",
@@ -246,9 +250,7 @@ export default function KalakritiPS() {
                 <button
                   onClick={() => {
                     if (isLoggedIn)
-                      router.push(
-                        `/registration?competition=canvas-painting`,
-                      );
+                      router.push(`/registration?competition=canvas-painting`);
                     else
                       alert(
                         "Please login to register. Login button at botton-right corner.",

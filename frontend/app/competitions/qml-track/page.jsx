@@ -28,6 +28,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function QuantumHackathonPS() {
   const [activeLayer, setActiveLayer] = useState(0);
@@ -81,6 +82,11 @@ export default function QuantumHackathonPS() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-cyan-100 font-mono p-4 md:p-8 backdrop-blur-sm">
+      <RegistrationDeadlineDisclaimer
+        competition={"QML Track"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- DYNAMIC HEADER SYSTEM --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 border-b border-cyan-500/30 pb-8 gap-6">

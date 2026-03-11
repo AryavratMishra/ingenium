@@ -22,6 +22,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function NarrativaPage() {
   const router = useRouter();
@@ -76,6 +77,11 @@ export default function NarrativaPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-slate-200 font-mono p-4 md:p-8">
+      <RegistrationDeadlineDisclaimer
+        competition={"Narrativa"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- NAVIGATION & HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-10 gap-6">

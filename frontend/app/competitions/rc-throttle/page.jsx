@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function RCThrottlePS() {
   const router = useRouter();
@@ -47,6 +48,11 @@ export default function RCThrottlePS() {
 
   return (
     <div className="relative min-h-screen text-blue-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"RC Throttle"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       {/* High-Voltage Circuit Background Decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <svg viewBox="0 0 1000 1000" className="w-full h-full">
@@ -195,9 +201,7 @@ export default function RCThrottlePS() {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     if (isLoggedIn)
-                      router.push(
-                        `/registration?competition=rc-throttle`,
-                      );
+                      router.push(`/registration?competition=rc-throttle`);
                     else
                       alert(
                         "Please login to register. Login button at botton-right corner.",

@@ -22,6 +22,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function PoetrySlamPage() {
   const router = useRouter();
@@ -46,6 +47,11 @@ export default function PoetrySlamPage() {
 
   return (
     <div className="relative min-h-screen text-amber-50 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"Poetry Slam"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       {/* Ink-Drip Decoration */}
       <div className="absolute top-0 left-1/4 w-px h-64 bg-linear-to-b from-amber-500/50 to-transparent opacity-20" />
       <div className="absolute top-20 right-1/3 w-px h-48 bg-linear-to-b from-amber-500/50 to-transparent opacity-10" />

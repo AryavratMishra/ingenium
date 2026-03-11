@@ -20,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function ShutterUpPS() {
   const [activeTheme, setActiveTheme] = useState(0);
@@ -59,6 +60,11 @@ export default function ShutterUpPS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"Shutter Up"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       {/* Viewfinder UI Overlay */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-10 left-10 w-20 h-20 border-t-2 border-l-2 border-white/20" />

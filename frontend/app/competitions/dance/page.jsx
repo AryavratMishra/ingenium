@@ -19,6 +19,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function GroupDancePS() {
   const [activeTab, setActiveTab] = useState(0);
@@ -62,6 +63,10 @@ export default function GroupDancePS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"Kinetic Synchrony"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
       {/* Motion-Trail Background Decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <svg viewBox="0 0 1000 1000" className="w-full h-full">

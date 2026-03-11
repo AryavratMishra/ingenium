@@ -18,6 +18,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function MonoActPage() {
   const router = useRouter();
@@ -43,6 +44,11 @@ export default function MonoActPage() {
 
   return (
     <div className="relative min-h-screen text-orange-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"MonoAct"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       {/* Spotlight Effect Overlay */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-100 bg-orange-500/10 blur-[120px] rounded-full pointer-events-none" />
 

@@ -18,6 +18,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function AsianParliamentaryDebatePS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -58,6 +59,11 @@ export default function AsianParliamentaryDebatePS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"IITI APD"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
+
       {/* Legislative Grid Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-blue-500" />
@@ -92,7 +98,11 @@ export default function AsianParliamentaryDebatePS() {
                 label="Team Structure"
                 value="3 Speakers (+1)"
               />
-              <StatNode icon={<IndianRupee />} label="Base Fee (Per Team)" value="₹600" />
+              <StatNode
+                icon={<IndianRupee />}
+                label="Base Fee (Per Team)"
+                value="₹600"
+              />
               <StatNode icon={<Mic2 />} label="Format" value="APD (3v3)" />
               <StatNode icon={<Activity />} label="Status" value="Offline" />
             </div>

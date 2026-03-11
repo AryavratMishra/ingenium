@@ -21,6 +21,7 @@ import {
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
 
 export default function MatiksPS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -74,6 +75,10 @@ export default function MatiksPS() {
 
   return (
     <div className="relative min-h-screen text-amber-100 font-mono p-4 md:p-8 bg-black/30">
+      <RegistrationDeadlineDisclaimer
+        competition={"Brain Blitz"}
+        deadline={"12 March 2026, 11:59 PM"}
+      />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- TACTICAL HEADER --- */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 border-b border-amber-500/30 pb-8">
@@ -102,7 +107,11 @@ export default function MatiksPS() {
 
           <div className="mt-6 lg:mt-0 grid grid-cols-2 sm:grid-cols-3 gap-3">
             <HeaderStat icon={<Globe />} label="Mode" value="Offline" />
-            <HeaderStat icon={<Wallet />} label="Base Fee (Per Team)" value="₹350" />
+            <HeaderStat
+              icon={<Wallet />}
+              label="Base Fee (Per Team)"
+              value="₹350"
+            />
             <HeaderStat icon={<Layers />} label="Phases" value="3 Total" />
           </div>
         </div>
@@ -213,9 +222,7 @@ export default function MatiksPS() {
                   <button
                     onClick={() => {
                       if (isLoggedIn)
-                        router.push(
-                          `/registration?competition=brain-blitz`,
-                        );
+                        router.push(`/registration?competition=brain-blitz`);
                       else
                         alert(
                           "Please login to register. Login button at botton-right corner.",
