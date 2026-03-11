@@ -7,6 +7,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import SlidingDisclaimer from "@/components/SlidingDisclaimer";
 import GlobalLogo from "@/components/GlobalLogo";
 import { Suspense } from "react";
+import SubmissionDisclaimer from "@/components/SubmissionDisclaimer";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
 
           <NeuralLink />
           <SlidingDisclaimer />
+          <SubmissionDisclaimer />
           <div className="relative z-10">
             <TerminalTransition>{children}</TerminalTransition>
           </div>
