@@ -148,14 +148,8 @@ const timelines = {
       { id: 8, title: "Tron Act", time: "20:00 - 20:10", venue: "NCC Ground" },
       {
         id: 9,
-        title: "LED Show",
-        time: "20:10 - 20:30",
-        venue: "NCC Ground",
-      },
-      {
-        id: 10,
-        title: "Laser Show",
-        time: "20:30 - 20:40",
+        title: "Laser LED\nFt.Illuminati",
+        time: "20:10 - 20:40",
         venue: "NCC Ground",
       },
       //   {
@@ -166,7 +160,7 @@ const timelines = {
       //   },
       {
         id: 12,
-        title: "Stand-up Comedy",
+        title: "Stand-up comedy\nFt.Ashish Solanki",
         time: "20:45 - 21:30",
         venue: "NCC Ground",
       },
@@ -214,7 +208,7 @@ const timelines = {
       },
       {
         id: 6,
-        title: "Words of Wisdom",
+        title: "Words of wisdom\nft. Acharya Prashant",
         time: "13:00 - 16:00",
         venue: "Nalanda Auditorium",
       },
@@ -236,7 +230,7 @@ const timelines = {
         time: "21:00 - 21:15",
         venue: "NCC Ground",
       },
-      { id: 10, title: "DJ Night", time: "21:15 - 22:30", venue: "NCC Ground" },
+      { id: 10, title: "DJ Night\nft.DJ Tejas", time: "21:15 - 22:30", venue: "NCC Ground" },
       {
         id: 11,
         title: "Drone Show",
@@ -425,7 +419,7 @@ function getEventCategory(title) {
     };
   }
 
-  if (lowerTitle.includes("laser show")) {
+  if (lowerTitle.includes("laser show") || lowerTitle.includes("laser led")) {
     return {
       icon: Sparkles,
       label: "SPECTACLE",
@@ -1022,7 +1016,7 @@ export default function EventTimelinePage({ params }) {
                                 </span>
                               </div>
 
-                              <h2 className="text-xl md:text-3xl font-black uppercase tracking-wider text-white">
+                              <h2 className="text-xl md:text-3xl font-black uppercase tracking-wider text-white whitespace-pre-line">
                                 {evt.title}
                               </h2>
                             </div>

@@ -15,7 +15,7 @@ const days = [
     border: "border-amber-500/30",
     bgAccent: "bg-amber-500",
     glow: "shadow-[0_0_30px_rgba(245,158,11,0.3)]",
-    highlights: ["Opening ceremony", "Kavyanjali"],
+    highlights: ["Opening ceremony", "Kavyanjali", "SPICMACAY"],
   },
   {
     id: "day-1",
@@ -27,10 +27,11 @@ const days = [
     bgAccent: "bg-blue-500",
     glow: "shadow-[0_0_30px_rgba(59,130,246,0.3)]",
     highlights: [
-      "Defence expo",
-      "Laser LED & Fire show",
-      "Standup Comedy",
-      "DJ Night",
+      "Defence Expo",
+      "Tech Expo",
+      "Laser LED\nFt.Illuminati",
+      "Standup comedy\nFt.Ashish Solanki",
+
     ],
   },
   {
@@ -43,9 +44,9 @@ const days = [
     bgAccent: "bg-purple-500",
     glow: "shadow-[0_0_30px_rgba(168,85,247,0.3)]",
     highlights: [
-      "Tech Expo",
-      "Opening DJ",
-      "Acharya Prashant Session",
+      "Words of wisdom\nft. Acharya Prashant",
+      "Tech Zone",
+      "DJ Night\nft.DJ Tejas",
       "Drone show",
     ],
   },
@@ -262,7 +263,7 @@ const EventsPage = () => {
                             />
                           </div>
                           <div className="flex-1">
-                            <h3 className="text-sm md:text-base font-bold text-white tracking-widest uppercase transition-colors group-hover/item:text-white">
+                            <h3 className="text-sm md:text-base font-bold text-white tracking-widest uppercase transition-colors group-hover/item:text-white whitespace-pre-line">
                               {highlight}
                             </h3>
                           </div>
