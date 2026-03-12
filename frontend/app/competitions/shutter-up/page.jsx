@@ -21,6 +21,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function ShutterUpPS() {
   const [activeTheme, setActiveTheme] = useState(0);
@@ -60,9 +61,8 @@ export default function ShutterUpPS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Shutter Up"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       {/* Viewfinder UI Overlay */}
@@ -111,15 +111,8 @@ export default function ShutterUpPS() {
 
             {/* Primary Registration Button */}
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=shutter-up`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-white hover:bg-white/90 transition-all rounded-sm overflow-hidden"
+              disabled
+              className="group relative px-8 py-3 bg-white hover:bg-white/90 transition-all rounded-sm overflow-hidden cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-black/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">

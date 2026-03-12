@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function PoetrySlamPage() {
   const router = useRouter();
@@ -47,9 +48,8 @@ export default function PoetrySlamPage() {
 
   return (
     <div className="relative min-h-screen text-amber-50 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Poetry Slam"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       {/* Ink-Drip Decoration */}
@@ -92,15 +92,8 @@ export default function PoetrySlamPage() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=poetry-slam`);
-                else
-                  alert(
-                    "Please login to register. Login button at bottom-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30"
+              disabled
+              className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30 cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">
@@ -218,12 +211,8 @@ export default function PoetrySlamPage() {
 
               {/* Secondary CTA */}
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=poetry-slam`);
-                  else alert("Please login to register.");
-                }}
-                className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
+                disabled
+                className="text-[12px] font-bold text-amber-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group cursor-not-allowed!"
               >
                 Commit entry to the manuscript registry{" "}
                 <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />

@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function ScreenAdditionPage() {
   const router = useRouter();
@@ -85,9 +86,8 @@ export default function ScreenAdditionPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-emerald-100 font-mono p-4 md:p-8">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Screen Sense"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -264,15 +264,8 @@ export default function ScreenAdditionPage() {
 
                 <div className="shrink-0 w-full md:w-auto">
                   <button
-                    onClick={() => {
-                      if (isLoggedIn)
-                        router.push(`/registration?competition=screen-sense`);
-                      else
-                        alert(
-                          "Please login to register. Login button at botton-right corner.",
-                        );
-                    }}
-                    className="w-full md:w-auto px-10 py-5 bg-emerald-500 hover:bg-emerald-400 text-black font-black rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+                    disabled
+                    className="w-full md:w-auto px-10 py-5 bg-emerald-500 hover:bg-emerald-400 text-black font-black rounded-xl flex items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.3)] cursor-not-allowed!"
                   >
                     <Cpu size={18} />
                     START REGISTRATION (₹{medicalBrief.fee})

@@ -21,6 +21,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function StoryWritingPage() {
   const router = useRouter();
@@ -51,10 +52,7 @@ export default function StoryWritingPage() {
 
   return (
     <div className="relative min-h-screen text-amber-50 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
-        competition={"Story Writing"}
-        deadline={"12 March 2026, 11:59 PM"}
-      />
+      <RegistrationClosedDisclaimer competition={"Story Writing"} />
 
       {/* Ink-Drip Decoration */}
       <div className="absolute top-0 left-1/4 w-px h-64 bg-linear-to-b from-amber-500/50 to-transparent opacity-20" />
@@ -100,12 +98,8 @@ export default function StoryWritingPage() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=story-writing`);
-                else alert("Please login to register.");
-              }}
-              className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30"
+              disabled
+              className="group relative px-8 py-3 bg-amber-600 hover:bg-amber-500 transition-all rounded-sm overflow-hidden border border-amber-400/30 cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">

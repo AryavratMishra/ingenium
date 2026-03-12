@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function AsianParliamentaryDebatePS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -59,9 +60,8 @@ export default function AsianParliamentaryDebatePS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"IITI APD"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       {/* Legislative Grid Overlay */}
@@ -108,15 +108,8 @@ export default function AsianParliamentaryDebatePS() {
             </div>
             {/* Primary Registration Button */}
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=iiti-apd`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 transition-all rounded-sm overflow-hidden"
+              disabled
+              className="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 transition-all rounded-sm overflow-hidden cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">
@@ -291,15 +284,8 @@ export default function AsianParliamentaryDebatePS() {
             {/* Secondary CTA */}
             <div className="flex justify-center pt-4">
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=iiti-apd`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="text-[12px] font-bold text-blue-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
+                disabled
+                className="text-[12px] font-bold text-blue-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group cursor-not-allowed!"
               >
                 Secure your slot in the registry{" "}
                 <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />

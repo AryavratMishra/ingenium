@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function NukkadNatakPage() {
   const router = useRouter();
@@ -44,9 +45,8 @@ export default function NukkadNatakPage() {
 
   return (
     <div className="relative min-h-screen text-orange-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Nukkad Natak"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       {/* Spotlight Effect Overlay */}
@@ -74,15 +74,8 @@ export default function NukkadNatakPage() {
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=nukkad-natak`);
-                else
-                  alert(
-                    "Please login to register. Login button at bottom-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-orange-600 hover:bg-orange-500 transition-all rounded-sm overflow-hidden"
+              disabled
+              className="group relative px-8 py-3 bg-orange-600 hover:bg-orange-500 transition-all rounded-sm overflow-hidden cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">

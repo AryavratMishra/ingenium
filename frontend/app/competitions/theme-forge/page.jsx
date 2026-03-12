@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function ThemeForgePage() {
   const router = useRouter();
@@ -76,9 +77,8 @@ export default function ThemeForgePage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-slate-200 font-mono p-4 md:p-8">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Theme Forge"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -151,15 +151,8 @@ export default function ThemeForgePage() {
               </div>
 
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=theme-forge`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="w-full py-4 bg-purple-600 hover:bg-purple-500 text-white font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(147,51,234,0.4)]"
+                disabled
+                className="w-full py-4 bg-purple-600 hover:bg-purple-500 text-white font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(147,51,234,0.4)] cursor-not-allowed!"
               >
                 Register Now <ExternalLink className="w-4 h-4" />
               </button>

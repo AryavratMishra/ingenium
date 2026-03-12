@@ -29,6 +29,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function QuantumHackathonPS() {
   const [activeLayer, setActiveLayer] = useState(0);
@@ -82,9 +83,8 @@ export default function QuantumHackathonPS() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-cyan-100 font-mono p-4 md:p-8 backdrop-blur-sm">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"QML Track"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -127,15 +127,8 @@ export default function QuantumHackathonPS() {
             />
             <HeaderNode icon={<Globe />} label="Mode" value="Online" />
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=qml-track`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-4 rounded-lg font-black text-xs uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] active:scale-95 border-b-4 border-cyan-700"
+              disabled
+              className="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-4 rounded-lg font-black text-xs uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] active:scale-95 border-b-4 border-cyan-700 cursor-not-allowed!"
             >
               Register_Now
             </button>

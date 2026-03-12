@@ -27,6 +27,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function UdgaarPage() {
   const router = useRouter();
@@ -90,10 +91,7 @@ export default function UdgaarPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-slate-200 font-mono p-4 md:p-8">
-      <RegistrationDeadlineDisclaimer
-        competition={"Udgaar"}
-        deadline={"12 March 2026, 11:59 PM"}
-      />
+      <RegistrationClosedDisclaimer competition={"Udgaar"} />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- NAVIGATION & HEADER --- */}
@@ -161,15 +159,8 @@ export default function UdgaarPage() {
               </div>
 
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=udgaar`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="w-full py-4 bg-orange-600 hover:bg-orange-500 text-white font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(249,115,22,0.4)]"
+                disabled
+                className="w-full py-4 bg-orange-600 hover:bg-orange-500 text-white font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(249,115,22,0.4)] cursor-not-allowed!"
               >
                 Register for Phase 1 <ExternalLink className="w-4 h-4" />
               </button>

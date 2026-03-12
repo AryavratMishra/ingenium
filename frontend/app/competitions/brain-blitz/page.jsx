@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function MatiksPS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -75,9 +76,8 @@ export default function MatiksPS() {
 
   return (
     <div className="relative min-h-screen text-amber-100 font-mono p-4 md:p-8 bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Brain Blitz"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- TACTICAL HEADER --- */}
@@ -220,15 +220,8 @@ export default function MatiksPS() {
                   </div>
 
                   <button
-                    onClick={() => {
-                      if (isLoggedIn)
-                        router.push(`/registration?competition=brain-blitz`);
-                      else
-                        alert(
-                          "Please login to register. Login button at botton-right corner.",
-                        );
-                    }}
-                    className="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all group overflow-hidden relative"
+                    disabled
+                    className="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all group overflow-hidden relative cursor-not-allowed!"
                   >
                     <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                     <span className="relative z-10 uppercase tracking-[0.2em] text-sm">

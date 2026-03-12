@@ -21,6 +21,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function AlbumCoverPS() {
   const router = useRouter();
@@ -50,9 +51,8 @@ export default function AlbumCoverPS() {
 
   return (
     <div className="relative min-h-screen text-purple-100 font-mono p-4 md:p-8 bg-black/30 backdrop-blur-sm">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Album Cover Design"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER BLOCK --- */}
@@ -102,15 +102,8 @@ export default function AlbumCoverPS() {
               value={competitionData.fee}
             />
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=album-cover-design`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-black italic tracking-widest flex items-center gap-3 shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-105 active:scale-95"
+              disabled
+              className="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-black italic tracking-widest flex items-center gap-3 shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-105 active:scale-95 cursor-not-allowed!"
             >
               <Zap className="w-5 h-5 fill-current" /> REGISTER NOW
             </button>

@@ -19,6 +19,7 @@ import {
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function RCRacingPS() {
   const router = useRouter();
@@ -54,9 +55,8 @@ export default function RCRacingPS() {
 
   return (
     <div className="relative min-h-screen text-orange-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Nitro Throttle"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       {/* Dynamic Racing Line Decoration */}
@@ -201,15 +201,8 @@ export default function RCRacingPS() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    if (isLoggedIn)
-                      router.push(`/registration?competition=nitro-throttle`);
-                    else
-                      alert(
-                        "Please login to register. Login button at botton-right corner.",
-                      );
-                  }}
-                  className="w-full py-4 bg-orange-600 border-b-4 border-orange-800 rounded-xl text-black font-black uppercase tracking-wider shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:bg-orange-500 transition-all flex items-center justify-center gap-3"
+                  disabled
+                  className="w-full py-4 bg-orange-600 border-b-4 border-orange-800 rounded-xl text-black font-black uppercase tracking-wider shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:bg-orange-500 transition-all flex items-center justify-center gap-3 cursor-not-allowed!"
                 >
                   Initialize_Race_Entry <Zap className="w-4 h-4 fill-current" />
                 </motion.button>

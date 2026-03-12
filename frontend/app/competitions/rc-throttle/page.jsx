@@ -19,6 +19,7 @@ import {
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function RCThrottlePS() {
   const router = useRouter();
@@ -48,10 +49,7 @@ export default function RCThrottlePS() {
 
   return (
     <div className="relative min-h-screen text-blue-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
-        competition={"RC Throttle"}
-        deadline={"12 March 2026, 11:59 PM"}
-      />
+      <RegistrationClosedDisclaimer competition={"RC Throttle"} />
 
       {/* High-Voltage Circuit Background Decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
@@ -199,15 +197,8 @@ export default function RCThrottlePS() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    if (isLoggedIn)
-                      router.push(`/registration?competition=rc-throttle`);
-                    else
-                      alert(
-                        "Please login to register. Login button at botton-right corner.",
-                      );
-                  }}
-                  className="w-full py-4 bg-blue-600 border-b-4 border-blue-800 rounded-xl text-black font-black uppercase tracking-wider shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:bg-blue-500 transition-all flex items-center justify-center gap-3"
+                  disabled
+                  className="w-full py-4 bg-blue-600 border-b-4 border-blue-800 rounded-xl text-black font-black uppercase tracking-wider shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:bg-blue-500 transition-all flex items-center justify-center gap-3 cursor-not-allowed!"
                 >
                   Initialize_Throttle_Uplink{" "}
                   <Zap className="w-4 h-4 fill-current" />

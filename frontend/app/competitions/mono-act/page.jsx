@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function MonoActPage() {
   const router = useRouter();
@@ -44,9 +45,8 @@ export default function MonoActPage() {
 
   return (
     <div className="relative min-h-screen text-orange-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"MonoAct"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       {/* Spotlight Effect Overlay */}
@@ -74,15 +74,8 @@ export default function MonoActPage() {
           </div>
           <div className="mt-6 lg:mt-0 flex flex-col items-end gap-6">
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=mono-act`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-orange-600 hover:bg-orange-500 transition-all rounded-sm overflow-hidden"
+              disabled
+              className="group relative px-8 py-3 bg-orange-600 hover:bg-orange-500 transition-all rounded-sm overflow-hidden cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">
@@ -272,15 +265,8 @@ export default function MonoActPage() {
             {/* Secondary CTA */}
             <div className="flex justify-center pt-4">
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=mono-act`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="text-[12px] font-bold text-orange-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group"
+                disabled
+                className="text-[12px] font-bold text-orange-400 uppercase tracking-[0.4em] hover:text-white transition-colors flex items-center gap-2 group cursor-not-allowed!"
               >
                 Enter the theatrical circle{" "}
                 <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
