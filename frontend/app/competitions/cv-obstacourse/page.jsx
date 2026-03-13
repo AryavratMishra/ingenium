@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function CVObstacoursePage() {
   const router = useRouter();
@@ -86,9 +87,8 @@ export default function CVObstacoursePage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-blue-100 font-mono p-4 md:p-8">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"CV Obstacourse"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- HEADER --- */}
@@ -199,15 +199,8 @@ export default function CVObstacoursePage() {
                 </span>
               </div>
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=cv-obstacourse`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all"
+                disabled
+                className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all cursor-not-allowed!"
               >
                 INITIATE_ENTRY <ChevronRight className="w-5 h-5" />
               </button>

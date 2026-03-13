@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function GroupDancePS() {
   const [activeTab, setActiveTab] = useState(0);
@@ -63,9 +64,8 @@ export default function GroupDancePS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Kinetic Synchrony"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
       {/* Motion-Trail Background Decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
@@ -126,14 +126,8 @@ export default function GroupDancePS() {
               />
             </div>
             <button
-              onClick={() => {
-                if (isLoggedIn) router.push(`/registration?competition=dance`);
-                else
-                  alert(
-                    "Please login to register. Login button at bottom-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-pink-600 hover:bg-pink-500 transition-all rounded-sm overflow-hidden"
+              disabled
+              className="group relative px-8 py-3 bg-pink-600 hover:bg-pink-500 transition-all rounded-sm overflow-hidden cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">

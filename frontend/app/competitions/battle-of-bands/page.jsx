@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function BattleOfBandsPS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -62,9 +63,8 @@ export default function BattleOfBandsPS() {
 
   return (
     <div className="relative min-h-screen text-slate-100 font-mono p-4 md:p-8 overflow-hidden bg-black/30">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Battle of Bands"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- AMPLIFIED HEADER --- */}
@@ -112,15 +112,8 @@ export default function BattleOfBandsPS() {
             </div>
 
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=battle-of-bands`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="group relative px-8 py-3 bg-purple-600 hover:bg-purple-500 transition-all rounded-sm overflow-hidden border border-purple-400/30"
+              disabled
+              className="group relative px-8 py-3 bg-purple-600 hover:bg-purple-500 transition-all rounded-sm overflow-hidden border border-purple-400/30 cursor-not-allowed!"
             >
               <div className="absolute inset-0 w-full h-full bg-white/10 -skew-x-12 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
               <div className="relative flex items-center gap-3">

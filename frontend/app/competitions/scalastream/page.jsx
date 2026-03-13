@@ -24,6 +24,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function ScalaStreamPage() {
   const router = useRouter();
@@ -84,9 +85,8 @@ export default function ScalaStreamPage() {
 
   return (
     <div className="relative min-h-screen bg-black/30 text-slate-200 font-mono p-4 md:p-8">
-      <RegistrationDeadlineDisclaimer
+      <RegistrationClosedDisclaimer
         competition={"Scalastream"}
-        deadline={"12 March 2026, 11:59 PM"}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -159,15 +159,8 @@ export default function ScalaStreamPage() {
               </div>
 
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=scalastream`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-black font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(34,211,238,0.2)]"
+                disabled
+                className="w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-black font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 shadow-[0_5px_15px_rgba(34,211,238,0.2)] cursor-not-allowed!"
               >
                 Register Now <ExternalLink className="w-4 h-4" />
               </button>
