@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import {
   Terminal,
   MapPin,
@@ -113,7 +114,7 @@ const timelines = {
         id: 2,
         title: "Defense Exposition",
         time: "11:00 - 17:00",
-        venue: "Kahdiz Mandapam",
+        venue: "Kshitij Mandapam",
       },
       {
         id: 3,
@@ -973,8 +974,10 @@ export default function EventTimelinePage({ params }) {
                         />
 
                         <div
-                          className={`p-6 md:p-8 border border-white/5 bg-[#0a0a0a] hover:bg-[#111111] transition-all duration-300 rounded-sm hover:-translate-y-1 hover:shadow-2xl hover:border-white/20 relative overflow-hidden`}
+                          className={`p-6 md:p-8 border border-white/5 bg-[#0a0a0a] hover:bg-[#111111] transition-all duration-300 rounded-sm hover:-translate-y-1 hover:shadow-2xl hover:border-white/20 relative overflow-hidden group/card`}
                         >
+                          <Link href={`/events/dayId/events/${evt.title.toLowerCase().replace(/\s+/g, '-')}`} className="absolute inset-0 z-30" />
+
                           {/* Subtle glowing element in the corner based on category color */}
                           <div
                             className={`absolute -bottom-10 -right-10 w-48 h-48 rounded-full blur-[60px] ${category.bg} opacity-5 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0`}
@@ -1033,11 +1036,18 @@ export default function EventTimelinePage({ params }) {
                             </div>
                           </div>
 
-                          <div className="relative z-10 flex items-center gap-3 text-white/60 font-medium">
-                            <MapPin className="w-5 h-5" />
-                            <span className="text-sm md:text-base uppercase tracking-widest">
-                              {evt.venue}
-                            </span>
+                          <div className="relative z-10 flex items-center justify-between mt-4">
+                            <div className="flex items-center gap-3 text-white/60 font-medium">
+                              <MapPin className="w-5 h-5" />
+                              <span className="text-sm md:text-base uppercase tracking-widest">
+                                {evt.venue}
+                              </span>
+                            </div>
+
+                            <div className={`flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] ${category.color} opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 translate-x-4 group-hover/card:translate-x-0`}>
+                              View_Details
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
                           </div>
                         </div>
                       </div>
