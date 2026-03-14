@@ -130,13 +130,13 @@ const timelines = {
       },
       {
         id: 5,
-        title: "Food Fest (Day)",
+        title: "Food Fest Day",
         time: "11:00 - 18:00",
         venue: "HJB Ground",
       },
       {
         id: 6,
-        title: "Food Fest (Evening)",
+        title: "Food Fest Evening",
         time: "19:00 - 21:00",
         venue: "NCC Ground",
       },
@@ -179,7 +179,7 @@ const timelines = {
     events: [
       {
         id: 1,
-        title: "Competitions (Session 1)",
+        title: "Competitions Session 1",
         time: "10:00 - 12:30",
         venue: "Lecture Hall Complex",
       },
@@ -197,13 +197,13 @@ const timelines = {
       },
       {
         id: 4,
-        title: "Food Fest (Day)",
+        title: "Food Fest Day",
         time: "11:00 - 18:00",
         venue: "HJB Ground",
       },
       {
         id: 5,
-        title: "Food Fest (Evening)",
+        title: "Food Fest Evening",
         time: "19:00 - 21:00",
         venue: "NCC Ground",
       },
@@ -215,7 +215,7 @@ const timelines = {
       },
       {
         id: 7,
-        title: "Competitions (Session 2)",
+        title: "Competitions Session 2",
         time: "16:00 - 19:00",
         venue: "Lecture Hall Complex",
       },
