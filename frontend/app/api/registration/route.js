@@ -1,16 +1,26 @@
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
+import jwt from "jsonwebtoken";
 
 export async function GET(request) {
   try {
-    const email = request.nextUrl.searchParams.get("email");
+    const authHeader = request.headers.get("authorization");
 
-    if (!email) {
-      return NextResponse.json(
-        { message: "Email is required" },
-        { status: 400 },
-      );
+    if (!authHeader) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
+
+    const token = authHeader.split(" ")[1];
+    let decoded;
+
+    try {
+      decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    } catch (err) {
+      return NextResponse.json({ message: "Invalid token" }, { status: 401 });
+    }
+
+    console.log(decoded);
+    const email = decoded.email;
 
     const [teams] = await pool.query(
       `

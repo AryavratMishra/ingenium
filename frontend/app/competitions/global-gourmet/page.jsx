@@ -27,6 +27,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
 import RegistrationDeadlineDisclaimer from "@/components/RegistrationDeadlineDisclaimer";
+import RegistrationClosedDisclaimer from "@/components/RegistrationClosedDisclaimer";
 
 export default function AnalyticXPS() {
   const [activePhase, setActivePhase] = useState(0);
@@ -100,7 +101,7 @@ export default function AnalyticXPS() {
 
   return (
     <div className="relative min-h-screen text-cyan-100 font-mono p-4 md:p-8 bg-black/30">
-      <RegistrationDeadlineDisclaimer competition={'Global Gourmet'} deadline={'12 March 2026, 11:59 PM'} />
+      <RegistrationClosedDisclaimer competition={"Global Gourmet"} />
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* --- TOP HUD --- */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-cyan-500/30 pb-8">
@@ -129,15 +130,8 @@ export default function AnalyticXPS() {
               <p className="text-xl font-black text-white">CFA</p>
             </div>
             <button
-              onClick={() => {
-                if (isLoggedIn)
-                  router.push(`/registration?competition=global-gourmet`);
-                else
-                  alert(
-                    "Please login to register. Login button at botton-right corner.",
-                  );
-              }}
-              className="px-8 py-4 bg-cyan-500 text-black font-black text-sm rounded-sm -skew-x-12 hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center gap-2"
+              disabled
+              className="px-8 py-4 bg-cyan-500 text-black font-black text-sm rounded-sm -skew-x-12 hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center gap-2 cursor-not-allowed!"
             >
               <Rocket className="w-4 h-4" /> REGISTER_TASKFORCE
             </button>
@@ -466,15 +460,8 @@ export default function AnalyticXPS() {
                 </span>
               </div>
               <button
-                onClick={() => {
-                  if (isLoggedIn)
-                    router.push(`/registration?competition=global-gourmet`);
-                  else
-                    alert(
-                      "Please login to register. Login button at botton-right corner.",
-                    );
-                }}
-                className="mt-4 w-full py-3 bg-cyan-500 text-black font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all"
+                disabled
+                className="mt-4 w-full py-3 bg-cyan-500 text-black font-black text-[12px] uppercase tracking-widest hover:bg-white transition-all cursor-not-allowed!"
               >
                 INITIATE_DEPLOYMENT
               </button>

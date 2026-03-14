@@ -126,6 +126,8 @@ function RegistrationContent() {
     }
   };
 
+  router.replace("/competitions");
+
   return (
     <div
       ref={containerRef}

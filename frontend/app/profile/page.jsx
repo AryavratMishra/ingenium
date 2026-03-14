@@ -25,7 +25,7 @@ import Link from "next/link";
 export default function ProfilePage() {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedReg, setSelectedReg] = useState(null); // State for the Modal
+  const [selectedReg, setSelectedReg] = useState(null);
   const router = useRouter();
   const { logout, user } = useContext(AuthContext);
 
@@ -33,7 +33,7 @@ export default function ProfilePage() {
     const fetchRegistrations = async () => {
       if (!user?.email) return;
       try {
-        const response = await api.get(`/registration?email=${user.email}`);
+        const response = await api.get(`/registration`);
         setRegistrations(response.data);
       } catch (error) {
       } finally {
